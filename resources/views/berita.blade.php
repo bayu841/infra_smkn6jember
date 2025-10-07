@@ -259,7 +259,7 @@
             </div>
         </div><br><br><br><br>
         <div class="popular-container flex">
-            <div class="card">
+            <div class="card" style="background-image: url('/image/berita/pmr.jpg'); background-size: cover;">
             </div>
             <div class="text">
                 <h2 class="font-semibold">PMR SMKN 6 Jember Gelar Donor Darah untuk Sosial</h2>

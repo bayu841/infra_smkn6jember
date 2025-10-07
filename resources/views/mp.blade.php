@@ -102,52 +102,6 @@
             margin-left: 5rem;
         }
 
-        .teacher {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .card-teacher1 {
-            width: 300px;
-            height: 60vh;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-teacher1 img {
-            border-radius: 20px;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .tag-name {
-            position: absolute;
-            bottom: -2px;
-            left: 63%;
-            transform: translateX(-50%);
-            height: 6vh;
-            width: 223px;
-            background: linear-gradient(to right, #4D4FF5, #7A44F9);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 20px 0px 10px 0px;
-            z-index: 10;
-        }
-
-        .tag-name p {
-            font-size: 13px;
-            margin: 0;
-        }
-
         .fasility {
             background-image: url('image/mp/fasmp.png');
             height: 100vh;
@@ -378,47 +332,6 @@
         </div>
     </section>
     <br><br><br><br>
-    <h2 class="font-bold text-center text-2xl mb-6">Guru Jurusan Manajemen Perkantoran</h2>
-    <br>
-    <section class="teacher">
-        <div class="card-teacher1">
-            <img src="{{ asset('') }}" alt="">
-            <div class="tag-name" style="margin-top:-2rem;">
-                <p></p>
-            </div>
-        </div>
-        <div class="card-teacher1">
-            <img src="{{ asset('') }}" alt="">
-            <div class="tag-name">
-                <p></p>
-            </div>
-        </div>
-        <div class="card-teacher1">
-            <img src="{{ asset('') }}" alt="">
-            <div class="tag-name">
-                <p></p>
-            </div>
-        </div>
-        <div class="card-teacher1">
-            <img src="{{ asset('image/Rectangle 4248 (1).png') }}" alt="">
-            <div class="tag-name">
-                <p></p>
-            </div>
-        </div>
-        <div class="card-teacher1">
-            <img src="{{ asset('') }}" alt="">
-            <div class="tag-name">
-                <p></p>
-            </div>
-        </div>
-        <div class="card-teacher1">
-            <img src="{{ asset('') }}" alt="">
-            <div class="tag-name">
-                <p></p>
-            </div>
-        </div>
-    </section>
-    <br><br><br>
     <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">

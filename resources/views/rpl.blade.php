@@ -102,51 +102,6 @@
                 margin-left: 5rem;
             }
 
-            .teacher {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-                max-width: 1000px;
-                margin: 0 auto;
-            }
-
-            .card-teacher1 {
-                width: 300px;
-                height: 60vh;
-                border-radius: 10px;
-                margin-bottom: 2rem;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .card-teacher1 img {
-                border-radius: 20px;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            }
-
-            .tag-name {
-                position: absolute;
-                bottom: -2px;
-                left: 63%;
-                transform: translateX(-50%);
-                height: 6vh;
-                width: 223px;
-                background: linear-gradient(to right, #F92626, #D24747);
-                color: #ffffff;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 20px 0px 10px 0px;
-                z-index: 10;
-            }
-
-            .tag-name p {
-                font-size: 13px;
-                margin: 0;
-            }
 
             .fasility {
                 background-image: url('image/rpl/fasilitasrpl.png');
@@ -371,47 +326,6 @@
             </div>
         </section>
         <br><br><br><br>
-        <h2 class="font-bold text-center text-2xl mb-6">Guru Jurusan Rekayasa Perangkat Lunak</h2>
-        <br>
-        <section class="teacher">
-            <div class="card-teacher1">
-                <img src="{{ asset('image/rpl/guru1.png') }}" alt="">
-                <div class="tag-name" style="margin-top:-2rem;">
-                    <p>Muhammad Nur Hamid., S.Kom</p>
-                </div>
-            </div>
-            <div class="card-teacher1">
-                <img src="{{ asset('image/rpl/guru2.png') }}" alt="">
-                <div class="tag-name">
-                    <p>Dewi Qurotul Ayun., S.Kom.</p>
-                </div>
-            </div>
-            <div class="card-teacher1">
-                <img src="{{ asset('image/rpl/guru3.png') }}" alt="">
-                <div class="tag-name">
-                    <p>Ryan Rizqi Maulana., S.Kom</p>
-                </div>
-            </div>
-            <div class="card-teacher1">
-                <img src="{{ asset('') }}" alt="">
-                <div class="tag-name">
-                    <p>M. Risqi Firmansyah., S.Kom.</p>
-                </div>
-            </div>
-            <div class="card-teacher1">
-                <img src="{{ asset('image/rpl/guru5.png') }}" alt="">
-                <div class="tag-name">
-                    <p>Lukman Hayatudin., S.Kom.</p>
-                </div>
-            </div>
-            <div class="card-teacher1">
-                <img src="{{ asset('image/rpl/guru6.png') }}" alt="">
-                <div class="tag-name">
-                    <p>Agus Budi Setiyawan. S.Kom.</p>
-                </div>
-            </div>
-        </section>
-        <br><br><br>
         <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
             <!-- bungkus teks + slider -->
             <div class="flex flex-col lg:flex-row items-start gap-10">
