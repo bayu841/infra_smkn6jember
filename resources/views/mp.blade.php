@@ -111,6 +111,7 @@
             background-image: url('image/mp/ctamp.png');
             height: 110vh;
             background-color: #EFEFEF;
+            background-size: cover;
         }
 
         .cta-btn {
@@ -148,7 +149,7 @@
             scrollbar-width: none;
         }
     </style>
-     <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
         style="background-image: url('image/mp/heromp.png'); width:100%; height:110vh; ">
         <!-- Teks -->
         <div class="flex-1 mb-10 md:mb-0" style="margin-left:120px;">
@@ -188,15 +189,14 @@
                 <p class="text-blue-600 font-semibold text-sm">Profil Jurusan</p>
                 <h2 class="text-2xl font-bold">Tentang Jurusan</h2>
                 <p class="text-gray-700">
-                  Belajar di sini bikin kamu siap bekerja di dunia <br>
-                  perkantoran modern. Kamu akan punya prospek <br>
-                  kerja yang luas, komunikasi profesional yang <br>
-                  mumpuni, keterampilan administrasi, serta <br>
-                  kemampuan manajemen perkantoran. Semua jadi <br>
-                  bekal kuat untuk meraih karir gemilang.
+                    Belajar di sini bikin kamu siap bekerja di dunia <br>
+                    perkantoran modern. Kamu akan punya prospek <br>
+                    kerja yang luas, komunikasi profesional yang <br>
+                    mumpuni, keterampilan administrasi, serta <br>
+                    kemampuan manajemen perkantoran. Semua jadi <br>
+                    bekal kuat untuk meraih karir gemilang.
                 </p><br>
-                <a href=""
-                    class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
+                <a href="" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
                     Tonton Video Profil
                 </a>
             </div>
@@ -264,7 +264,8 @@
                     <img src="{{ asset('image/mp/benefit1 (4).png') }}" alt="icon" style="width: 64px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Administrasi & Pengelolaan Dokumen</h3>
-                <p class="mt-2 text-sm text-gray-600">Kuasi keterampilan mengelola arsip, surat-menyurat, dan dokumen kantor.</p>
+                <p class="mt-2 text-sm text-gray-600">Kuasi keterampilan mengelola arsip, surat-menyurat, dan dokumen
+                    kantor.</p>
             </div>
 
             <!-- Card 4 -->
@@ -273,7 +274,8 @@
                     <img src="{{ asset('image/mp/benefit1 (2).png') }}" alt="icon" style="width: 60px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Manajemen Perkantoran Modern</h3>
-                <p class="mt-2 text-sm text-gray-600">Pelajari cara mengatur, mengelola, dan mendukung operasional kantor secara efektif.</p>
+                <p class="mt-2 text-sm text-gray-600">Pelajari cara mengatur, mengelola, dan mendukung operasional kantor
+                    secara efektif.</p>
             </div>
 
         </div>
@@ -283,12 +285,12 @@
             <div class="content-teks ml-8">
                 <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
-                  Belajar di sini bikin kamu siap bekerja di dunia <br>
-                  perkantoran modern. Kamu akan punya prospek <br>
-                  kerja yang luas, komunikasi profesional yang <br>
-                  mumpuni, keterampilan administrasi, serta <br>
-                  kemampuan manajemen perkantoran.Semua jadi <br>
-                  bekal kuat untuk meraih karir gemilang.
+                    Belajar di sini bikin kamu siap bekerja di dunia <br>
+                    perkantoran modern. Kamu akan punya prospek <br>
+                    kerja yang luas, komunikasi profesional yang <br>
+                    mumpuni, keterampilan administrasi, serta <br>
+                    kemampuan manajemen perkantoran.Semua jadi <br>
+                    bekal kuat untuk meraih karir gemilang.
                 </p>
                 <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
                     Selengkapnya
@@ -304,18 +306,18 @@
                 <div class="mb-4">
                     <h3 class="font-bold text-lg">Kelas X</h3>
                     <p class="text-justify text-gray-700 ">
-                    Siswa dikenalkan pada dasar manajemen perkantoran, meliputi <br>
-                    komunikasi bisnis, tata naskah, pengelolaan arsip, serta etika <br>
-                    dalam pelayanan administrasi.
+                        Siswa dikenalkan pada dasar manajemen perkantoran, meliputi <br>
+                        komunikasi bisnis, tata naskah, pengelolaan arsip, serta etika <br>
+                        dalam pelayanan administrasi.
                     </p>
                 </div>
                 <!-- Kelas XI -->
                 <div class="mb-4">
                     <h3 class="font-bold text-lg">Kelas XI</h3>
                     <p class="text-justify text-gray-700">
-                     Pembelajaran difokuskan pada keterampilan administrasi <br>
-                     modern, pengelolaan dokumen, layanan tamu, serta <br>
-                     penggunaan aplikasi perkantoran berbasis komputer.
+                        Pembelajaran difokuskan pada keterampilan administrasi <br>
+                        modern, pengelolaan dokumen, layanan tamu, serta <br>
+                        penggunaan aplikasi perkantoran berbasis komputer.
                     </p>
                 </div>
 
@@ -377,11 +379,11 @@
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('') }}" style="height:50vh;">
+                                    src="{{ asset('image/mp/fas1.png') }}" style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
-                                        1
+                                        Lab OTKP
                                     </span>
                                 </figcaption>
                             </figure>
@@ -393,7 +395,7 @@
                                     </span>
                                 </figcaption>
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('') }}" style="height:50vh;" />
+                                    src="{{ asset('image/mp/fas2.png') }}" style="height:50vh;" />
                             </figure>
                         </div>
                     </div>
@@ -427,22 +429,22 @@
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
             <!-- Card 1 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 1" class="w-full h-full object-cover">
+                <img src="{{ asset('image/mp/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 2 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 2" class="w-full h-full object-cover">
+                <img src="{{ asset('image/mp/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 3 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 3" class="w-full h-full object-cover">
+                <img src="{{ asset('image/mp/ctamp.png') }}" alt="Prestasi 4" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 4 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 4" class="w-full h-full object-cover">
+                <img src="{{ asset('image/mp/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
 
             <!-- Tombol -->

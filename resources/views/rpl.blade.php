@@ -146,7 +146,7 @@
             .no-scrollbar {
                 -ms-overflow-style: none;
                 scrollbar-width: none;
-            }
+            }   
         </style>
         <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
             style="background-image: url('image/rpl/herorpl.png'); width:100%; height:110vh;"w>

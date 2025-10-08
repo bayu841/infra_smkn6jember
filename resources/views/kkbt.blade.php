@@ -111,6 +111,7 @@
             background-image: url('image/kkbt/ctakkbt.png');
             height: 110vh;
             background-color: #EFEFEF;
+            background-size: cover;
         }
 
         .cta-btn {
@@ -374,11 +375,11 @@
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('') }}" style="height:50vh;">
+                                    src="{{ asset('image/kkbt/fas1.png') }}" style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-orange-600 text-white font-semibold px-4 py-2 shadow">
-                                        1
+                                        Lab KKBT
                                     </span>
                                 </figcaption>
                             </figure>
@@ -390,7 +391,7 @@
                                     </span>
                                 </figcaption>
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('') }}" style="height:50vh;" />
+                                    src="{{ asset('image/kkbt/fas2.png') }}" style="height:50vh;" />
                             </figure>
                         </div>
                     </div>
@@ -424,22 +425,22 @@
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
             <!-- Card 1 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 1" class="w-full h-full object-cover">
+                <img src="{{asset('image/kkbt/pres1.png')}}" alt="Prestasi 1" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 2 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 2" class="w-full h-full object-cover">
+                <img src="{{asset('image/kkbt/pres2.png')}}" alt="Prestasi 2" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 3 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 3" class="w-full h-full object-cover">
+                <img src="{{asset('image/kkbt/pres3.png')}}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 4 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 4" class="w-full h-full object-cover">
+                <img src="{{asset('image/kkbt/pres4.png')}}" alt="Prestasi 4" class="w-full h-full object-cover">
             </div>
 
             <!-- Tombol -->
