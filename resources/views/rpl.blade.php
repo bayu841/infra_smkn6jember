@@ -146,10 +146,10 @@
             .no-scrollbar {
                 -ms-overflow-style: none;
                 scrollbar-width: none;
-            }   
+            }
         </style>
         <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
-            style="background-image: url('image/rpl/herorpl.png'); width:100%; height:110vh;"w>
+            style="background-image: url('image/rpl/herorpl.png'); width:100%; height:110vh;">
             <!-- Teks -->
             <div class="flex-1 mb-10 md:mb-0 ml-40">
                 <h1 class="text-4xl md:text-1xl font-bold mb-5">Selamat Datang <br>

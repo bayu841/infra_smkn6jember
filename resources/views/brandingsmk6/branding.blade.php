@@ -18,6 +18,7 @@
             display: none !important;
 
         }
+
     </style>
     <!-- Hero Section -->
     <section class="h-screen bg-gray-50 py-10 px-8 md:px-16">
@@ -40,7 +41,7 @@
                     </div>
 
                     <div class="md:w-1/2 flex justify-center relative">
-                        <img src="https://cdn.pixabay.com/photo/2014/12/27/15/40/camera-581126_1280.jpg" alt="Produk"
+                        <img src="{{asset('image/branding/batik1 (1).png')}}" alt="Produk"
                             class="w-80 h-auto object-contain drop-shadow-lg" />
                         <div class="absolute bottom-6 right-8 bg-white shadow-lg rounded-xl p-4 w-52">
                             <p class="text-xs text-gray-400">Computer/Electronic</p>
@@ -68,7 +69,7 @@
                     </div>
 
                     <div class="md:w-1/2 flex justify-center relative">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/22/19/20/laptop-2004499_1280.jpg" alt="Produk"
+                        <img src="{{asset('image/branding/batik1 (1).png')}}" alt="Produk"
                             class="w-80 h-auto object-contain drop-shadow-lg" />
                         <div class="absolute bottom-6 right-8 bg-white shadow-lg rounded-xl p-4 w-52">
                             <p class="text-xs text-gray-400">Digital Product</p>
@@ -193,19 +194,18 @@
 
                 <!-- Grid Produk -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
-                    @for ($i = 1; $i <= 6; $i++)
                         <div
                             class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
                             <!-- Gambar Produk -->
-                            <img src="https://via.placeholder.com/400x300" alt="Produk {{ $i }}"
-                                class="w-full h-52 object-cover">
+                            <img src="{{asset('image/branding/batik1 (1).png')}}" alt="Produk"
+                                class="w-full h-55 object-cover">
 
                             <!-- Deskripsi Produk -->
                             <div class="p-5 flex flex-col justify-between flex-grow relative">
                                 <div>
                                     <h3 class="text-lg font-semibold text-gray-800">Batik Oambakoro</h3>
-                                    <p class="text-gray-500 text-sm">Buku catatan Custom UK A5</p>
-                                    <p class="mt-2 text-gray-900 font-semibold">Rp 20.000</p>
+                                    <p class="text-gray-500 text-sm">Batik tulis berbahan katun primisima</p>
+                                    <p class="mt-2 text-gray-900 font-semibold">Rp 350.000</p>
                                 </div>
 
                                 <!-- Tombol Panah -->
@@ -216,7 +216,116 @@
                                 </a>
                             </div>
                         </div>
-                    @endfor
+                        <div
+                            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                            <!-- Gambar Produk -->
+                            <img src="{{asset('image/branding/batik1 (2).png')}}" alt="Produk"
+                                class="w-full h-55 object-cover">
+
+                            <!-- Deskripsi Produk -->
+                            <div class="p-5 flex flex-col justify-between flex-grow relative">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Batik Godong Renteng</h3>
+                                    <p class="text-gray-500 text-sm">Batik tulis berbahan katun primisima</p>
+                                    <p class="mt-2 text-gray-900 font-semibold">Rp 400.000</p>
+                                </div>
+
+                                <!-- Tombol Panah -->
+                                <a href="#"
+                                    class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                                    style="width: 46px;">
+                                    <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                            <!-- Gambar Produk -->
+                            <img src="{{asset('image/branding/batik1 (3).png')}}" alt="Produk"
+                                class="w-full h-55 object-cover">
+
+                            <!-- Deskripsi Produk -->
+                            <div class="p-5 flex flex-col justify-between flex-grow relative">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Batik Binang</h3>
+                                    <p class="text-gray-500 text-sm">Batik tulis berbahan katun primisima</p>
+                                    <p class="mt-2 text-gray-900 font-semibold">Rp 350.000</p>
+                                </div>
+
+                                <!-- Tombol Panah -->
+                                <a href="#"
+                                    class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                                    style="width: 46px;">
+                                    <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                            <!-- Gambar Produk -->
+                            <img src="{{asset('image/branding/batik1 (4).png')}}" alt="Produk"
+                                class="w-full h-55 object-cover">
+
+                            <!-- Deskripsi Produk -->
+                            <div class="p-5 flex flex-col justify-between flex-grow relative">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Batik Mentulan</h3>
+                                    <p class="text-gray-500 text-sm">Batik tulis berbahan katun primisima</p>
+                                    <p class="mt-2 text-gray-900 font-semibold">Rp 400.000</p>
+                                </div>
+
+                                <!-- Tombol Panah -->
+                                <a href="#"
+                                    class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                                    style="width: 46px;">
+                                    <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                            <!-- Gambar Produk -->
+                            <img src="{{asset('image/branding/batik1 (5).png')}}" alt="Produk"
+                                class="w-full h-55 object-cover">
+
+                            <!-- Deskripsi Produk -->
+                            <div class="p-5 flex flex-col justify-between flex-grow relative">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Batik Andrelati</h3>
+                                    <p class="text-gray-500 text-sm">Batik tulis berbahan katun primisima</p>
+                                    <p class="mt-2 text-gray-900 font-semibold">Rp 375.000</p>
+                                </div>
+
+                                <!-- Tombol Panah -->
+                                <a href="#"
+                                    class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                                    style="width: 46px;">
+                                    <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                            <!-- Gambar Produk -->
+                            <img src="{{asset('image/branding/batik1 (6).png')}}" alt="Produk"
+                                class="w-full h-55 object-cover">
+
+                            <!-- Deskripsi Produk -->
+                            <div class="p-5 flex flex-col justify-between flex-grow relative">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Batik Iswana Citya</h3>
+                                    <p class="text-gray-500 text-sm">Batik tulis berbahan katun primisima</p>
+                                    <p class="mt-2 text-gray-900 font-semibold">Rp 400.000</p>
+                                </div>
+
+                                <!-- Tombol Panah -->
+                                <a href="#"
+                                    class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                                    style="width: 46px;">
+                                    <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                                </a>
+                            </div>
+                        </div>
                 </div>
 
                 <!-- Pagination -->
@@ -250,10 +359,9 @@
         </div>
     </section>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-8">
-        @for ($i = 1; $i <= 4; $i++)
             <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
                 <!-- Gambar Produk -->
-                <img src="https://via.placeholder.com/400x300" alt="Produk {{ $i }}"
+                <img src="https://via.placeholder.com/400x300" alt="Produk"
                     class="w-full h-52 object-cover">
 
                 <!-- Deskripsi Produk -->
@@ -272,16 +380,78 @@
                     </a>
                 </div>
             </div>
-        @endfor
+            <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                <!-- Gambar Produk -->
+                <img src="https://via.placeholder.com/400x300" alt="Produk"
+                    class="w-full h-52 object-cover">
+
+                <!-- Deskripsi Produk -->
+                <div class="p-5 flex flex-col justify-between flex-grow relative">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Notebook A5</h3>
+                        <p class="text-gray-500 text-sm">Buku catatan Custom UK A5</p>
+                        <p class="mt-2 text-gray-900 font-semibold">Rp 20.000</p>
+                    </div>
+
+                    <!-- Tombol Panah -->
+                    <a href="#"
+                        class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                        style="width: 46px;">
+                        <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                <!-- Gambar Produk -->
+                <img src="https://via.placeholder.com/400x300" alt="Produk "
+                    class="w-full h-52 object-cover">
+
+                <!-- Deskripsi Produk -->
+                <div class="p-5 flex flex-col justify-between flex-grow relative">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Notebook A5</h3>
+                        <p class="text-gray-500 text-sm">Buku catatan Custom UK A5</p>
+                        <p class="mt-2 text-gray-900 font-semibold">Rp 20.000</p>
+                    </div>
+
+                    <!-- Tombol Panah -->
+                    <a href="#"
+                        class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                        style="width: 46px;">
+                        <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                <!-- Gambar Produk -->
+                <img src="https://via.placeholder.com/400x300" alt="Produk"
+                    class="w-full h-52 object-cover">
+
+                <!-- Deskripsi Produk -->
+                <div class="p-5 flex flex-col justify-between flex-grow relative">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Notebook A5</h3>
+                        <p class="text-gray-500 text-sm">Buku catatan Custom UK A5</p>
+                        <p class="mt-2 text-gray-900 font-semibold">Rp 20.000</p>
+                    </div>
+
+                    <!-- Tombol Panah -->
+                    <a href="#"
+                        class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                        style="width: 46px;">
+                        <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                    </a>
+                </div>
+            </div>
     </div>
     <section class="flex justify-between items-center px-10 py-6 bg-gray-50">
         <h2 class="text-2xl font-bold text-gray-800 mt-10">Batik Enem</h2>
     </section>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-8">
-        @for ($i = 1; $i <= 4; $i++)
+
             <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
                 <!-- Gambar Produk -->
-                <img src="https://via.placeholder.com/400x300" alt="Produk {{ $i }}"
+                <img src="{{asset('image/branding/batik enem (1).png')}}" alt="Produk "
                     class="w-full h-52 object-cover">
 
                 <!-- Deskripsi Produk -->
@@ -300,7 +470,70 @@
                     </a>
                 </div>
             </div>
-        @endfor
+            <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                <!-- Gambar Produk -->
+                <img src="{{asset('image/branding/batik enem (2).png')}}" alt="Produk "
+                    class="w-full h-52 object-cover">
+
+                <!-- Deskripsi Produk -->
+                <div class="p-5 flex flex-col justify-between flex-grow relative">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Notebook A5</h3>
+                        <p class="text-gray-500 text-sm">Buku catatan Custom UK A5</p>
+                        <p class="mt-2 text-gray-900 font-semibold">Rp 20.000</p>
+                    </div>
+
+                    <!-- Tombol Panah -->
+                    <a href="#"
+                        class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                        style="width: 46px;">
+                        <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                <!-- Gambar Produk -->
+                <img src="{{asset('image/branding/batik enem (3).png')}}" alt="Produk "
+                    class="w-full h-52 object-cover">
+
+                <!-- Deskripsi Produk -->
+                <div class="p-5 flex flex-col justify-between flex-grow relative">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Notebook A5</h3>
+                        <p class="text-gray-500 text-sm">Buku catatan Custom UK A5</p>
+                        <p class="mt-2 text-gray-900 font-semibold">Rp 20.000</p>
+                    </div>
+
+                    <!-- Tombol Panah -->
+                    <a href="#"
+                        class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                        style="width: 46px;">
+                        <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
+                <!-- Gambar Produk -->
+                <img src="{{asset('image/branding/batik enem (4).png')}}" alt="Produk "
+                    class="w-full h-52 object-cover">
+
+                <!-- Deskripsi Produk -->
+                <div class="p-5 flex flex-col justify-between flex-grow relative">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Notebook A5</h3>
+                        <p class="text-gray-500 text-sm">Buku catatan Custom UK A5</p>
+                        <p class="mt-2 text-gray-900 font-semibold">Rp 20.000</p>
+                    </div>
+
+                    <!-- Tombol Panah -->
+                    <a href="#"
+                        class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-md transition"
+                        style="width: 46px;">
+                        <i class="fa-solid fa-arrow-right flex justify-center items-center h-5"></i>
+                    </a>
+                </div>
+            </div>
+
     </div><br><br>
     <script>
         const swiper = new Swiper(".mySwiper", {
