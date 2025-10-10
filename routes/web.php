@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('brandingsmk6.batikenem');
 });
+Route::get('/home', function () {
+    return view('home');
+});
