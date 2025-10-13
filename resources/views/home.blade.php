@@ -564,7 +564,7 @@
     <br>
     <br>
     <br>
-    
+
     <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">
@@ -582,24 +582,8 @@
             </div>
             <!-- Slider -->
             <div class="relative lg:w-2/3" style="margin-top:-2rem;">
-                <!-- Tombol -->
-                <button id="prevBtn"
-                    class="absolute right-100 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor">
-                        <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <button id="nextBtn"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor">
-                        <path d="M9 6l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-
                 <!-- Track -->
-                <div id="track"
+                <div id="track2"
                     class="flex gap-4 px-4 py-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
 
                     <!-- Slide 1 -->
@@ -648,7 +632,7 @@
                     </div>
                 </div>
                 <!-- Dots -->
-                <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
+                <div id="dots2" class="flex items-center justify-center gap-2 pb-4"></div>
             </div>
         </div>
     </section>
@@ -736,10 +720,10 @@
                                 Jangan biarkan masalahmu mengganggu harimu. Tim konselor kami siap mendengarkan dan membantu
                                 menemukan solusi terbaik untukmu.
                             </p>
-                            <button
+                            <button onclick="window.location.href='https://wa.me/6281333794278'"
                                 class="self-start bg-white text-blue-600 hover:bg-blue-50 font-medium py-2.5 px-6 rounded-lg transition duration-300">
-                                Selanjutnya
-                            </button>
+                            Konsultasi sekarang
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -957,13 +941,77 @@
 
 
                 /** =========================
-                 *  SLIDER 2
+                 *  SLIDER 2 - EKSTRAKURIKULER (AUTO SLIDE)
                  *  ========================= */
                 const track2 = document.getElementById('track2');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
+                const dotsWrap2 = document.getElementById('dots2');
 
                 const slides2 = () => Array.from(track2.children);
+
+                // Clone slides untuk efek infinite loop
+                slides2().forEach(slide => {
+                    const clone = slide.cloneNode(true);
+                    track2.appendChild(clone);
+                });
+
+                let scrollAmount = 0;
+                let speed = 1; // pixel per frame
+
+                function autoScroll() {
+                    scrollAmount += speed;
+                    if (scrollAmount >= track2.scrollWidth / 2) {
+                        // reset ke awal setelah setengah track (karena clone)
+                        scrollAmount = 0;
+                    }
+                    track2.scrollLeft = scrollAmount;
+                    requestAnimationFrame(autoScroll);
+                }
+
+                // Mulai auto scroll
+                autoScroll();
+
+                // Update dots untuk slider 2
+                function updateDots2() {
+                    dotsWrap2.innerHTML = "";
+                    const pageCount = slides2().length / 2; // Dibagi 2 karena ada clone
+
+                    for (let i = 0; i < pageCount; i++) {
+                        const dot = document.createElement("button");
+                        dot.className =
+                            "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-primary transition";
+                        dot.dataset.index = i;
+
+                        dot.addEventListener("click", () => {
+                            const cardWidth = getCardWidth2();
+                            track2.scrollTo({
+                                left: i * cardWidth,
+                                behavior: "smooth"
+                            });
+                        });
+
+                        dotsWrap2.appendChild(dot);
+                    }
+
+                    setActiveDot2();
+                }
+
+                function setActiveDot2() {
+                    const pageCount = slides2().length / 2; // Dibagi 2 karena ada clone
+                    if (pageCount === 0) return;
+                    const maxScroll = track2.scrollWidth / 2 - track2.clientWidth;
+                    const scrollPosition = track2.scrollLeft;
+                    let activePage;
+                    if (maxScroll <= 0) {
+                        activePage = 0;
+                    } else {
+                        const scrollPercentage = scrollPosition / maxScroll;
+                        activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                    }
+                    [...dotsWrap2.children].forEach((dot, i) => {
+                        dot.dataset.active = i === activePage;
+                    });
+                }
+
                 const getCardWidth2 = () => {
                     if (slides2().length === 0) return 0;
                     const slide = slides2()[0];
@@ -973,31 +1021,13 @@
                     return slideWidth + gap;
                 };
 
-                function scrollByCards2(direction = 1) {
-                    const cardWidth = getCardWidth2();
-                    if (cardWidth === 0) return;
-                    track2.scrollBy({
-                        left: direction * cardWidth,
-                        behavior: "smooth"
-                    });
-                }
-
-                prevBtn.addEventListener("click", () => scrollByCards2(-1));
-                nextBtn.addEventListener("click", () => scrollByCards2(1));
-
-                // Swipe support for slider 2
-                let touchStartX2 = 0,
-                    touchEndX2 = 0;
-                track2.addEventListener('touchstart', e => touchStartX2 = e.changedTouches[0].screenX, {
+                // Update dots saat resize
+                window.addEventListener("resize", () => setTimeout(updateDots2, 200));
+                track2.addEventListener("scroll", () => setTimeout(setActiveDot2, 50), {
                     passive: true
                 });
-                track2.addEventListener('touchend', e => {
-                    touchEndX2 = e.changedTouches[0].screenX;
-                    const diff = touchStartX2 - touchEndX2;
-                    if (Math.abs(diff) > 50) scrollByCards2(diff > 0 ? 1 : -1);
-                }, {
-                    passive: true
-                });
+
+                updateDots2();
 
 
                 /** =========================

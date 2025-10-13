@@ -26,6 +26,18 @@
         .spmb {
             background: linear-gradient(to right, #3C71F8, #24437C);
         }
+        #track {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: 850px; /* sesuai slide-mu */
+}
     </style>
 </head>
 
@@ -52,15 +64,16 @@
                 <li><a href="#" class="block text-black hover:text-blue-600">Beranda</a></li>
 
                 <!-- Dropdown Profil -->
-                <li class="relative md:static">
-                    <button onclick="toggleDropdown('profilDropdown')"
-                        class="flex items-center text-black hover:text-blue-600 focus:outline-none w-full md:w-auto">
+                <li class="relative">
+                    <button data-target="profilDropdown"
+                        class="dropdown-toggle flex items-center text-black hover:text-blue-600 focus:outline-none w-full md:w-auto">
                         Profil
                         <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.25 7.5L10 12.25L14.75 7.5H5.25Z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <ul id="profilDropdown" class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md">
+                    <ul id="profilDropdown"
+                        class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Sejarah</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a></li>
@@ -68,15 +81,16 @@
                 </li>
 
                 <!-- Dropdown Informasi -->
-                <li class="relative md:static">
-                    <button onclick="toggleDropdown('informasiDropdown')"
-                        class="flex items-center text-black hover:text-blue-600 focus:outline-none w-full md:w-auto">
+                <li class="relative">
+                    <button data-target="informasiDropdown"
+                        class="dropdown-toggle flex items-center text-black hover:text-blue-600 focus:outline-none w-full md:w-auto">
                         Informasi
                         <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.25 7.5L10 12.25L14.75 7.5H5.25Z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <ul id="informasiDropdown" class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md">
+                    <ul id="informasiDropdown"
+                        class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Berita</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Pengumuman</a></li>
                     </ul>
@@ -116,17 +130,53 @@
     @include('layouts.footer')
 
     <script>
-        // Toggle dropdown
-        function toggleDropdown(id) {
-            document.getElementById(id).classList.toggle("hidden");
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById("menu-btn");
+            const menu = document.getElementById("menu");
+            const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 
-        // Toggle menu mobile
-        const menuBtn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
+            // Toggle mobile menu
+            menuBtn.addEventListener("click", function (event) {
+                event.stopPropagation();
+                menu.classList.toggle("hidden");
+            });
 
-        menuBtn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
+            // Toggle dropdowns
+            dropdownToggles.forEach(function (toggle) {
+                toggle.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                    const targetId = toggle.getAttribute("data-target");
+                    const targetDropdown = document.getElementById(targetId);
+
+                    // Hide all other dropdowns
+                    document.querySelectorAll(".dropdown-toggle").forEach(function (otherToggle) {
+                        const otherTargetId = otherToggle.getAttribute("data-target");
+                        if (otherTargetId !== targetId) {
+                            document.getElementById(otherTargetId).classList.add("hidden");
+                        }
+                    });
+
+                    targetDropdown.classList.toggle("hidden");
+                });
+            });
+
+            // Close menus on click outside
+            window.addEventListener("click", function (event) {
+                // Close mobile menu
+                if (menu && !menu.classList.contains('hidden') && !menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                    menu.classList.add("hidden");
+                }
+
+                // Close all dropdowns
+                document.querySelectorAll(".dropdown-toggle").forEach(function (toggle) {
+                    const targetId = toggle.getAttribute("data-target");
+                    const targetDropdown = document.getElementById(targetId);
+
+                    if (targetDropdown && !targetDropdown.classList.contains('hidden') && !targetDropdown.contains(event.target) && !toggle.contains(event.target)) {
+                        targetDropdown.classList.add("hidden");
+                    }
+                });
+            });
         });
     </script>
 
