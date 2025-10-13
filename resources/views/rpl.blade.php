@@ -89,20 +89,6 @@
                 background: linear-gradient(to right, #F92626, #D24747);
             }
 
-            .study {
-                background-image: url('image/rpl/pemrpl.png');
-                height: 120vh;
-            }
-
-            .study h2 {
-                padding-top: 13rem;
-            }
-
-            .class {
-                margin-left: 5rem;
-            }
-
-
             .fasility {
                 background-image: url('image/rpl/fasilitasrpl.png');
                 height: 100vh;
@@ -239,8 +225,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
                 <!-- Card 1 -->
                 <div class="relative bg-red-500 text-white rounded-xl p-6 shadow-md" style="height: 36vh;">
-                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (1).png') }}" alt="icon" style="width: 55px; height:55px;">
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (1).png') }}" alt="icon"
+                            style="width: 55px; height:55px;">
                     </div>
                     <h3 class="font-bold text-lg mt-12">Peluang Karir Luas</h3>
                     <p class="mt-2 text-sm">Buka jalan ke profesi masa depan yang menjanjikan.</p>
@@ -248,8 +236,10 @@
 
                 <!-- Card 2 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-7" style="height: 36vh;">
-                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (2).png') }}" alt="icon" style="width: 55px; height:55px;">
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (2).png') }}" alt="icon"
+                            style="width: 55px; height:55px;">
                     </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Keterampilan yang dibutuhkan</h3>
                     <p class="mt-2 text-sm text-gray-600">Kuasi skill paling dicari industri saat ini.</p>
@@ -257,8 +247,10 @@
 
                 <!-- Card 3 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-5" style="height: 35vh; margin-top:-1rem;">
-                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (3).png') }}" alt="icon" style="width: 64px; height:55px;">
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (3).png') }}" alt="icon"
+                            style="width: 64px; height:55px;">
                     </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Selalu Update Teknologi</h3>
                     <p class="mt-2 text-sm text-gray-600">Belajar teknologi terbaru biar selalu up-to-date.</p>
@@ -266,8 +258,10 @@
 
                 <!-- Card 4 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-10" style="height: 33vh;">
-                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (4).png') }}" alt="icon" style="width: 60px; height:55px;">
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (4).png') }}" alt="icon"
+                            style="width: 60px; height:55px;">
                     </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Fleksibel</h3>
                     <p class="mt-2 text-sm text-gray-600">Belajar kapan saja, di mana saja, dengan cara seru.</p>
@@ -280,7 +274,8 @@
                 <div class="content-teks ml-8">
                     <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
                     <p class="text-gray-600 mb-6">
-                        Siap-siap jadi keren di masa depan! Di sini kamu bakal dapat semuanya: kesempatan karier yang luas dan
+                        Siap-siap jadi keren di masa depan! Di sini kamu bakal dapat semuanya: kesempatan karier yang luas
+                        dan
                         keren, skill yang paling dicari, materi yang selalu update sama teknologi, plus bisa belajar dengan
                         fleksibel. Dijamin seru dan bermanfaat!
                     </p>
@@ -290,42 +285,7 @@
                 </div>
             </div>
         </section><br><br>
-        <section class="study">
-            <h2 class="font-bold ml-20 text-3xl">Kurikulum dan Pembelajaran</h2>
-            <div class="p-6">
-                <!-- Kelas X -->
-                <div class="class">
-                    <div class="mb-4">
-                        <h3 class="font-bold text-lg">Kelas X</h3>
-                        <p class="text-justify text-gray-700 ">
-                            Siswa mulai mempelajari dasar-dasar pemrograman, sistem komputer, <br>
-                            jaringan sederhana,serta desain grafis untuk membangun fondasi keahlian.
-                        </p>
-                    </div>
-                    <!-- Kelas XI -->
-                    <div class="mb-4">
-                        <h3 class="font-bold text-lg">Kelas XI</h3>
-                        <p class="text-justify text-gray-700">
-                            Materi berfokus pada pemrograman berorientasi objek, basis data, <br>
-                            pengembangan website, dan algoritma agar siswa semakin terampil <br>
-                            dalam membuat aplikasi.
-                        </p>
-                    </div>
-
-                    <!-- Kelas XII -->
-                    <div class="mb-4">
-                        <h3 class="font-bold text-lg">Kelas XII</h3>
-                        <p class="text-justify text-gray-700">
-                            Pembelajaran diarahkan pada pemrograman mobile, pengembangan <br>
-                            perangkat lunak berskala besar, serta proyek berbasis industri. Siswa <br>
-                            juga menjalani Praktik Kerja Lapangan (PKL) untuk memperoleh <br>
-                            pengalaman langsung di dunia kerja.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <br><br><br><br>
+        <br><br>
         <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
             <!-- bungkus teks + slider -->
             <div class="flex flex-col lg:flex-row items-start gap-10">
@@ -413,6 +373,96 @@
                 </div>
             </div>
         </section>
+
+        <section class="bg-[#f5f5f5] py-20">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
+
+                <!-- BAGIAN KIRI -->
+                <div class="relative flex justify-center lg:w-1/2">
+                    <!-- Gambar utama -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                            class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
+
+                        <!-- Gambar kiri atas -->
+                        <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                            class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
+                            alt="top">
+
+                        <!-- Gambar kanan bawah -->
+                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
+                            class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                            alt="bottom">
+
+                        <!-- Kotak merah -->
+                        <div
+                            class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#F92626] to-[#D24747] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
+                            <div class="bg-white rounded p-3 z-10">
+                                <img src="{{ asset('image/rpl/frame.png') }}" alt="Icon" class="w-7 h-8">
+                            </div>
+                            <div>
+                                <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
+                                <p class="text-white text-sm mt-1">Siswa Unggul</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BAGIAN KANAN -->
+                <div class="lg:w-1/2 space-y-7">
+                    <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                        Himpunan Siswa <br>Jurusan RPL
+                    </h2>
+
+                    <p class="text-gray-700 leading-relaxed text-[16px]">
+                        Himpunan Siswa Jurusan RPL SMKN 6 Jember merupakan organisasi yang mewadahi siswa berjiwa teknologi
+                        dan inovasi. Melalui kegiatan seperti coding competition, workshop web dan mobile, pelatihan UI/UX,
+                        serta project kolaboratif, organisasi ini mencetak generasi programmer muda yang kreatif, kritis,
+                        dan siap menghadapi tantangan dunia digital masa depan.
+                    </p>
+
+                    <!-- CARD LOWONGAN -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
+                                <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
+                               <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol -->
+                    <button class="btn">
+                        Selengkapnya
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
         <section class="performance">
             <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 

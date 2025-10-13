@@ -89,19 +89,6 @@
             background: linear-gradient(to right, #FFBB00, #FD9024);
         }
 
-        .study {
-            background-image: url('image/bd/pembd.png');
-            height: 120vh;
-        }
-
-        .study h2 {
-            padding-top: 13rem;
-        }
-
-        .class {
-            margin-left: 5rem;
-        }
-
         .fasility {
             background-image: url('image/bd/fasbd.png');
             height: 100vh;
@@ -149,7 +136,7 @@
             scrollbar-width: none;
         }
     </style>
-     <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
         style="background-image: url('image/bd/herobd.png'); width:100%; height:110vh; ">
         <!-- Teks -->
         <div class="flex-1 mb-10 md:mb-0 ml-40">
@@ -188,11 +175,11 @@
                 <p class="text-yellow-400 font-semibold text-sm">Profil Jurusan</p>
                 <h2 class="text-2xl font-bold">Tentang Jurusan</h2>
                 <p class="text-gray-700">
-                  Jurusan Bisnis Digital (BD) di SMKN 6 Jember <br>
-                  membekali siswa keterampilan digital marketing, <br>
-                  e-commerce, desain konten, dan analisis media. <br>
-                  Lulusan diharapkan mampu berwirausaha kreatif, <br>
-                  bekerja di pemasaran, atau melanjutkan studi.
+                    Jurusan Bisnis Digital (BD) di SMKN 6 Jember <br>
+                    membekali siswa keterampilan digital marketing, <br>
+                    e-commerce, desain konten, dan analisis media. <br>
+                    Lulusan diharapkan mampu berwirausaha kreatif, <br>
+                    bekerja di pemasaran, atau melanjutkan studi.
                 </p><br>
                 <a href="https://www.youtube.com/shorts/xf9Gi6l9eKc?feature=share"
                     class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
@@ -282,12 +269,12 @@
             <div class="content-teks ml-8">
                 <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
-                 Dengan program ini, kamu tidak hanya <br>
-                 memahami teori, tetapi juga siap <br>
-                 mempraktikkannya. Dari membangun jiwa <br>
-                 entrepreneur, melatih keterampilan promosi, <br>
-                 hingga menguasai pemasaran digital, semua <br>
-                 jadi bekal nyata untuk sukses di dunia usaha.
+                    Dengan program ini, kamu tidak hanya <br>
+                    memahami teori, tetapi juga siap <br>
+                    mempraktikkannya. Dari membangun jiwa <br>
+                    entrepreneur, melatih keterampilan promosi, <br>
+                    hingga menguasai pemasaran digital, semua <br>
+                    jadi bekal nyata untuk sukses di dunia usaha.
                 </p>
                 <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
                     Selengkapnya
@@ -295,43 +282,6 @@
             </div>
         </div>
     </section><br><br>
-    <section class="study">
-        <h2 class="font-bold ml-20 text-3xl">Kurikulum dan Pembelajaran</h2>
-        <div class="p-6">
-            <!-- Kelas X -->
-            <div class="class">
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas X</h3>
-                    <p class="text-justify text-gray-700 ">
-                      Siswa diperkenalkan pada dasar bisnis digital, mencakup <br>
-                      pemasaran online, pengelolaan konten, kewirausahaan, serta <br>
-                      etika penggunaan teknologi digital.
-                    </p>
-                </div>
-                <!-- Kelas XI -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XI</h3>
-                    <p class="text-justify text-gray-700">
-                       Pembelajaran difokuskan pada strategi pemasaran digital, <br>
-                       analisis media sosial, e-commerce, serta pembuatan konten <br>
-                       kreatif untuk menunjang bisnis modern.
-                    </p>
-                </div>
-
-                <!-- Kelas XII -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XII</h3>
-                    <p class="text-justify text-gray-700">
-                        Siswa mendalami manajemen bisnis digital, optimasi e- <br>
-                        commerce, iklan online, serta praktik kerja industri untuk <br>
-                        menyiapkan karier dan kewirausahaan.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <br><br><br><br>
-
     <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">
@@ -420,6 +370,93 @@
             </div>
         </div>
     </section>
+    <section class="bg-[#f5f5f5] py-20">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
+
+            <!-- BAGIAN KIRI -->
+            <div class="relative flex justify-center lg:w-1/2">
+                <!-- Gambar utama -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                        class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
+
+                    <!-- Gambar kiri atas -->
+                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
+                        alt="top">
+
+                    <!-- Gambar kanan bawah -->
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                        alt="bottom">
+
+                    <!-- Kotak merah -->
+                    <div
+                        class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#FFBB00] to-[#FD9024] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
+                        <div class="bg-white rounded p-3 z-10">
+                            <img src="{{ asset('image/bd/frame.png') }}" alt="Icon" class="w-7 h-8">
+                        </div>
+                        <div>
+                            <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
+                            <p class="text-white text-sm mt-1">Siswa Unggul</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN KANAN -->
+            <div class="lg:w-1/2 space-y-7">
+                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                    Marketing Club
+                </h2>
+
+                <p class="text-gray-700 leading-relaxed text-[16px]">
+                    Marketing Club Jurusan Bisnis Digital SMKN 6 Jember adalah organisasi yang mewadahi siswa berjiwa
+                    kreatif, inovatif, dan berorientasi bisnis. Melalui kegiatan seperti digital marketing challenge,
+                    pelatihan branding, bazar produk, dan konten promosi kreatif, organisasi ini mencetak generasi muda yang
+                    cakap teknologi, bermental wirausaha, serta siap bersaing di era digital.
+                </p>
+
+                <!-- CARD LOWONGAN -->
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol -->
+                <button class="btn">
+                    Selengkapnya
+                </button>
+            </div>
+        </div>
+    </section>
     <section class="performance">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
@@ -427,22 +464,22 @@
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
             <!-- Card 1 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/bd/pres1.png')}}" alt="Prestasi 1" class="w-full h-full object-cover">
+                <img src="{{ asset('image/bd/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 2 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/bd/pres2.png')}}" alt="Prestasi 2" class="w-full h-full object-cover">
+                <img src="{{ asset('image/bd/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 3 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/bd/pres3.png')}}" alt="Prestasi 3" class="w-full h-full object-cover">
+                <img src="{{ asset('image/bd/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 4 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/bd/pres4.png')}}" alt="Prestasi 3" class="w-full h-full object-cover">
+                <img src="{{ asset('image/bd/pres4.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
 
             <!-- Tombol -->

@@ -89,19 +89,6 @@
             background: linear-gradient(to right, #4D4FF5, #7A44F9);
         }
 
-        .study {
-            background-image: url('image/mp/pemmp.png');
-            height: 120vh;
-        }
-
-        .study h2 {
-            padding-top: 13rem;
-        }
-
-        .class {
-            margin-left: 5rem;
-        }
-
         .fasility {
             background-image: url('image/mp/fasmp.png');
             height: 100vh;
@@ -298,42 +285,6 @@
             </div>
         </div>
     </section><br><br>
-    <section class="study">
-        <h2 class="font-bold ml-20 text-3xl">Kurikulum dan Pembelajaran</h2>
-        <div class="p-6">
-            <!-- Kelas X -->
-            <div class="class">
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas X</h3>
-                    <p class="text-justify text-gray-700 ">
-                        Siswa dikenalkan pada dasar manajemen perkantoran, meliputi <br>
-                        komunikasi bisnis, tata naskah, pengelolaan arsip, serta etika <br>
-                        dalam pelayanan administrasi.
-                    </p>
-                </div>
-                <!-- Kelas XI -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XI</h3>
-                    <p class="text-justify text-gray-700">
-                        Pembelajaran difokuskan pada keterampilan administrasi <br>
-                        modern, pengelolaan dokumen, layanan tamu, serta <br>
-                        penggunaan aplikasi perkantoran berbasis komputer.
-                    </p>
-                </div>
-
-                <!-- Kelas XII -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XII</h3>
-                    <p class="text-justify text-gray-700">
-                        Siswa mendalami manajemen perkantoran lanjutan, meliputi <br>
-                        koordinasi administrasi, pengarsipan digital, layanan bisnis, <br>
-                        serta praktik magang di industri.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <br><br><br><br>
     <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">
@@ -419,6 +370,93 @@
                 </div>
                 <!-- Dots -->
                 <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#f5f5f5] py-20">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
+
+            <!-- BAGIAN KIRI -->
+            <div class="relative flex justify-center lg:w-1/2">
+                <!-- Gambar utama -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                        class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
+
+                    <!-- Gambar kiri atas -->
+                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
+                        alt="top">
+
+                    <!-- Gambar kanan bawah -->
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                        alt="bottom">
+
+                    <!-- Kotak merah -->
+                    <div
+                        class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
+                        <div class="bg-white rounded p-3 z-10">
+                            <img src="{{ asset('image/mp/frame.png') }}" alt="Icon" class="w-7 h-8">
+                        </div>
+                        <div>
+                            <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
+                            <p class="text-white text-sm mt-1">Siswa Unggul</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN KANAN -->
+            <div class="lg:w-1/2 space-y-7">
+                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                    Himpunan Siswa <br> Jurusan Perkantoran
+                </h2>
+
+                <p class="text-gray-700 leading-relaxed text-[16px]">
+                    Himpunan Siswa Jurusan Perkantoran SMKN 6 Jember menjadi wadah kreatif bagi siswa untuk berkembang
+                    melalui kegiatan menarik seperti pelatihan administrasi digital, six’s barber, public speaking, dan
+                    beauty class. Dengan semangat profesional dan kolaboratif, organisasi ini mencetak generasi siap kerja
+                    yang unggul dan berkarakter.
+                </p>
+
+                <!-- CARD LOWONGAN -->
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol -->
+                <button class="btn">
+                    Selengkapnya
+                </button>
             </div>
         </div>
     </section>

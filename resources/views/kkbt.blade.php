@@ -90,18 +90,7 @@
             background: linear-gradient(to right, #CA4016, #E64817);
         }
 
-        .study {
-            background-image: url('image/kkbt/pemkkbt.png');
-            height: 120vh;
-        }
 
-        .study h2 {
-            padding-top: 13rem;
-        }
-
-        .class {
-            margin-left: 5rem;
-        }
         .fasility {
             background-image: url('image/kkbt/faskkbt.png');
             height: 100vh;
@@ -188,11 +177,11 @@
                 <p class="text-orange-500 font-semibold text-sm">Profil Jurusan</p>
                 <h2 class="text-2xl font-bold">Tentang Jurusan</h2>
                 <p class="text-gray-700">
-                  Jurusan Kriya Kreatif Batik dan Tekstil (KKBT) di <br>
-                  SMKN 6 Jember membekali siswa keterampilan <br>
-                  seni kriya, desain batik, teknik tekstil, serta <br>
-                  pewarnaan kain. Lulusan diharapkan kreatif, <br>
-                  inovatif, dan siap bersaing di dunia industri kreatif.
+                    Jurusan Kriya Kreatif Batik dan Tekstil (KKBT) di <br>
+                    SMKN 6 Jember membekali siswa keterampilan <br>
+                    seni kriya, desain batik, teknik tekstil, serta <br>
+                    pewarnaan kain. Lulusan diharapkan kreatif, <br>
+                    inovatif, dan siap bersaing di dunia industri kreatif.
                 </p><br>
                 <a href="https://www.youtube.com/shorts/nJRoy5Cf0bE?feature=share"
                     class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
@@ -263,7 +252,8 @@
                     <img src="{{ asset('image/kkbt/benefit1 (4).png') }}" alt="icon" style="width: 64px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Mempelajari Warisan Budaya</h3>
-                <p class="mt-2 text-sm text-gray-600">Pelajari nilai luhur budaya sebagai bekal karakter dan identitas bangsa.</p>
+                <p class="mt-2 text-sm text-gray-600">Pelajari nilai luhur budaya sebagai bekal karakter dan identitas
+                    bangsa.</p>
             </div>
 
             <!-- Card 4 -->
@@ -282,12 +272,12 @@
             <div class="content-teks ml-8">
                 <h2 class="text-2xl font-bold mb-4" style="margin-top: -4rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
-                  Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
-                  juga skill penting untuk masa depan. Mulai dari peluang karir
-                  yang luas, kemampuan mengelola keuangan, bekal kuat
-                  untuk kuliah, sampai terbiasa berpikir analitis. Semua
-                  dirancang agar kamu siap menghadapi dunia nyata dengan
-                  percaya diri.
+                    Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
+                    juga skill penting untuk masa depan. Mulai dari peluang karir
+                    yang luas, kemampuan mengelola keuangan, bekal kuat
+                    untuk kuliah, sampai terbiasa berpikir analitis. Semua
+                    dirancang agar kamu siap menghadapi dunia nyata dengan
+                    percaya diri.
                 </p>
                 <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
                     Selengkapnya
@@ -295,42 +285,6 @@
             </div>
         </div>
     </section><br><br>
-    <section class="study">
-        <h2 class="font-bold ml-20 text-3xl">Kurikulum dan Pembelajaran</h2>
-        <div class="p-6">
-            <!-- Kelas X -->
-            <div class="class">
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas X</h3>
-                    <p class="text-justify text-gray-700 ">
-                        Siswa dikenalkan pada dasar seni kriya, khususnya batik <br>
-                        dan tekstil. Materi meliputi pengenalan motif, pewarnaan kain, serta <br>
-                        teknik sederhana pembuatan karya.
-                    </p>
-                </div>
-                <!-- Kelas XI -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XI</h3>
-                    <p class="text-justify text-gray-700">
-                        Pembelajaran difokuskan pada pengembangan desain batik <br>
-                        dan tekstil. Siswa mempraktikkan teknik pewarnaan, pembuatan <br>
-                        pola, serta produksi karya yang lebih kreatif.
-                    </p>
-                </div>
-
-                <!-- Kelas XII -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XII</h3>
-                    <p class="text-justify text-gray-700">
-                        Siswa mendalami teknik lanjutan batik dan tekstil, mulai dari <br>
-                        inovasi desain, produksi karya bernilai jual, hingga pengalaman <br>
-                        magang di industri kreatif.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <br><br><br><br>
     <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">
@@ -339,10 +293,10 @@
             <div class="lg:w-1/3 ml-5" style="margin-top: 5rem;">
                 <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
                 <p class="text-white leading-relaxed">
-                  Fasilitas lengkap dengan <br>
-                  laboratorium batik dan peralatan <br>
-                  modern, mendukung kreativitas siswa <br>
-                  dalam desain dan praktik membatik.
+                    Fasilitas lengkap dengan <br>
+                    laboratorium batik dan peralatan <br>
+                    modern, mendukung kreativitas siswa <br>
+                    dalam desain dan praktik membatik.
                 </p>
             </div>
 
@@ -418,6 +372,93 @@
             </div>
         </div>
     </section>
+    <section class="bg-[#f5f5f5] py-20">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
+
+            <!-- BAGIAN KIRI -->
+            <div class="relative flex justify-center lg:w-1/2">
+                <!-- Gambar utama -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                        class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
+
+                    <!-- Gambar kiri atas -->
+                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
+                        alt="top">
+
+                    <!-- Gambar kanan bawah -->
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                        alt="bottom">
+
+                    <!-- Kotak merah -->
+                    <div
+                        class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#CA4016] to-[#E64817] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
+                        <div class="bg-white rounded p-3 z-10">
+                            <img src="{{ asset('image/kkbt/frame.png') }}" alt="Icon" class="w-7 h-8">
+                        </div>
+                        <div>
+                            <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
+                            <p class="text-white text-sm mt-1">Siswa Unggul</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN KANAN -->
+            <div class="lg:w-1/2 space-y-7">
+                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                    Jember Nusantara
+                </h2>
+
+                <p class="text-gray-700 leading-relaxed text-[16px]">
+                    Jember Nusantara Jurusan Kriya Kreatif Batik dan Tekstil SMKN 6 Jember merupakan organisasi yang
+                    melestarikan budaya melalui karya batik dan tekstil bernilai seni tinggi. Dengan kegiatan seperti
+                    pameran busana, workshop membatik, lomba desain motif, dan kolaborasi budaya, organisasi ini mencetak
+                    generasi kreatif yang inovatif, berkarakter, serta cinta warisan lokal.
+                </p>
+
+                <!-- CARD LOWONGAN -->
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#CA4016] to-[#E64817] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#CA4016] to-[#E64817] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol -->
+                <button class="btn">
+                    Selengkapnya
+                </button>
+            </div>
+        </div>
+    </section>
     <section class="performance">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
@@ -425,22 +466,22 @@
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
             <!-- Card 1 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/kkbt/pres1.png')}}" alt="Prestasi 1" class="w-full h-full object-cover">
+                <img src="{{ asset('image/kkbt/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 2 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/kkbt/pres2.png')}}" alt="Prestasi 2" class="w-full h-full object-cover">
+                <img src="{{ asset('image/kkbt/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 3 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/kkbt/pres3.png')}}" alt="Prestasi 3" class="w-full h-full object-cover">
+                <img src="{{ asset('image/kkbt/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 4 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/kkbt/pres4.png')}}" alt="Prestasi 4" class="w-full h-full object-cover">
+                <img src="{{ asset('image/kkbt/pres4.png') }}" alt="Prestasi 4" class="w-full h-full object-cover">
             </div>
 
             <!-- Tombol -->
