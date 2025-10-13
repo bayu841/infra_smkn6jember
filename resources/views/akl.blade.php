@@ -90,18 +90,6 @@
             background: linear-gradient(to right, #319F2C, #127E32);
         }
 
-        .study {
-            background-image: url('image/akl/pemakl.png');
-            height: 120vh;
-        }
-
-        .study h2 {
-            padding-top: 13rem;
-        }
-
-        .class {
-            margin-left: 5rem;
-        }
         .fasility {
             background-image: url('image/akl/fasakl.png');
             height: 100vh;
@@ -188,11 +176,11 @@
                 <p class="text-green-500 font-semibold text-sm">Profil Jurusan</p>
                 <h2 class="text-2xl font-bold">Tentang Jurusan</h2>
                 <p class="text-gray-700">
-                   Jurusan Akuntansi adalah bidang yang mempelajari <br>
-                   pencatatan, pengelolaan, dan pelaporan keuangan. <br>
-                   Siswa dilatih menyusun laporan, menghitung transaksi, <br>
-                   dan menganalisis data keuangan untuk mendukung <br>
-                   pengambilan keputusan bisnis maupun organisasi.
+                    Jurusan Akuntansi adalah bidang yang mempelajari <br>
+                    pencatatan, pengelolaan, dan pelaporan keuangan. <br>
+                    Siswa dilatih menyusun laporan, menghitung transaksi, <br>
+                    dan menganalisis data keuangan untuk mendukung <br>
+                    pengambilan keputusan bisnis maupun organisasi.
                 </p><br>
                 <a href="https://www.youtube.com/shorts/wuSu15-Jugk?feature=share"
                     class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
@@ -282,12 +270,12 @@
             <div class="content-teks ml-8">
                 <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
-                  Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
-                  juga skill penting untuk masa depan. Mulai dari peluang karir
-                  yang luas, kemampuan mengelola keuangan, bekal kuat
-                  untuk kuliah, sampai terbiasa berpikir analitis. Semua
-                  dirancang agar kamu siap menghadapi dunia nyata dengan
-                  percaya diri.
+                    Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
+                    juga skill penting untuk masa depan. Mulai dari peluang karir
+                    yang luas, kemampuan mengelola keuangan, bekal kuat
+                    untuk kuliah, sampai terbiasa berpikir analitis. Semua
+                    dirancang agar kamu siap menghadapi dunia nyata dengan
+                    percaya diri.
                 </p>
                 <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
                     Selengkapnya
@@ -295,42 +283,6 @@
             </div>
         </div>
     </section><br><br>
-    <section class="study">
-        <h2 class="font-bold ml-20 text-3xl">Kurikulum dan Pembelajaran</h2>
-        <div class="p-6">
-            <!-- Kelas X -->
-            <div class="class">
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas X</h3>
-                    <p class="text-justify text-gray-700 ">
-                        Siswa mempelajari dasar akuntansi seperti persamaan, <br>
-                        pencatatan transaksi sederhana, buku kas kecil, serta <br>
-                        pengenalan etika profesi dan kewirausahaan.
-                    </p>
-                </div>
-                <!-- Kelas XI -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XI</h3>
-                    <p class="text-justify text-gray-700">
-                        Pembelajaran difokuskan pada akuntansi jasa, dagang, dan <br>
-                        manufaktur. Siswa juga mempelajari jurnal khusus,laporan <br>
-                        keuangan, serta aplikasi akuntansi.
-                    </p>
-                </div>
-
-                <!-- Kelas XII -->
-                <div class="mb-4">
-                    <h3 class="font-bold text-lg">Kelas XII</h3>
-                    <p class="text-justify text-gray-700">
-                        Siswa mendalami akuntansi keuangan, dasar perpajakan, dan <br>
-                        audit sederhana. Mereka juga mendapat pengalaman magang <br>
-                        industri dan praktik laporan keuangan.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <br><br><br><br>
     <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">
@@ -418,6 +370,94 @@
             </div>
         </div>
     </section>
+    <section class="bg-[#f5f5f5] py-20">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
+
+            <!-- BAGIAN KIRI -->
+            <div class="relative flex justify-center lg:w-1/2">
+                <!-- Gambar utama -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                        class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
+
+                    <!-- Gambar kiri atas -->
+                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
+                        alt="top">
+
+                    <!-- Gambar kanan bawah -->
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
+                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                        alt="bottom">
+
+                    <!-- Kotak merah -->
+                    <div
+                        class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#319F2C] to-[#127E32] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
+                        <div class="bg-white rounded p-3 z-10">
+                            <img src="{{ asset('image/akl/frame.png') }}" alt="Icon" class="w-7 h-8">
+                        </div>
+                        <div>
+                            <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
+                            <p class="text-white text-sm mt-1">Siswa Unggul</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN KANAN -->
+            <div class="lg:w-1/2 space-y-7">
+                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                    Himpunan Siswa <br>Jurusan Akuntansi
+                </h2>
+
+                <p class="text-gray-700 leading-relaxed text-[16px]">
+                    Himpunan Siswa Jurusan Akuntansi SMKN 6 Jember merupakan organisasi yang menjadi pusat pengembangan
+                    kompetensi, kedisiplinan, dan tanggung jawab siswa di bidang keuangan. Melalui kegiatan seperti
+                    olimpiade akuntansi, pelatihan software keuangan, simulasi pembukuan, dan seminar karier, organisasi ini
+                    mencetak calon akuntan muda yang profesional, teliti, dan berintegritas tinggi.
+                </p>
+
+                <!-- CARD LOWONGAN -->
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol -->
+                <button class="btn">
+                    Selengkapnya
+                </button>
+            </div>
+        </div>
+    </section>
+
     <section class="performance">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
@@ -425,22 +465,22 @@
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
             <!-- Card 1 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/akl/pres1.png')}}" alt="Prestasi 1" class="w-full h-full object-cover">
+                <img src="{{ asset('image/akl/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 2 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{asset('image/akl/pres2.png')}}" alt="Prestasi 2" class="w-full h-full object-cover">
+                <img src="{{ asset('image/akl/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 3 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 3" class="w-full h-full object-cover">
+                <img src="{{ asset('image/akl/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
 
             <!-- Card 4 -->
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="" alt="Prestasi 4" class="w-full h-full object-cover">
+                <img src="{{ asset('image/akl/pres4.png') }}" alt="Prestasi 4" class="w-full h-full object-cover">
             </div>
 
             <!-- Tombol -->
