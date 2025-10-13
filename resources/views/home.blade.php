@@ -404,80 +404,82 @@
 
     <!-- Main Content - Berita dan Pengumuman -->
     <main class="container mx-auto px-4 py-8">
-        <div class="mb-8">
+        <div class="mb-8 text-center md:text-left">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Berita dan Pengumuman</h2>
             <p class="text-gray-600">Informasi terkini seputar kegiatan sekolah dan prestasi siswa</p>
         </div>
 
-        <!-- Layout dengan 3 bagian -->
-        <div class="container flex flex-col lg:flex-row gap-8">
-            <!-- Konten kiri -->
-            <div class="konten lg:w-2/3 bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="{{ asset('image/home/berita1.png') }}" alt="Berita Utama"
-                    class="w-full  h-[550px] object-cover">
-                <div class="des p-6">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Prestasi</span>
-                        <span class="text-gray-500 text-sm">12 Mei 2023</span>
-                    </div>
-                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Siswa SMKN 6 Jember Raih Juara 1
-                        Kompetisi Nasional</h1>
-                    <p class="text-gray-600 mb-4">Tim siswa SMKN 6 Jember berhasil meraih juara pertama dalam kompetisi
-                        teknologi informasi tingkat nasional yang diikuti oleh lebih dari 100 sekolah se-Indonesia.</p>
-                    <p class="text-gray-600 mb-6">Kompetisi yang berlangsung selama tiga hari ini menguji berbagai aspek
-                        kemampuan siswa dalam bidang teknologi informasi, mulai dari pemrograman, jaringan, hingga
-                        pengembangan aplikasi.</p>
-                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
-                        Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Konten kanan -->
-            <div class="kontenn lg:w-1/3 flex flex-col gap-6">
-                <!-- Card 1 -->
-                <div
-                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <img src="{{ asset('image/home/berita2.png') }}" alt="Universitas Muhammadiyah"
-                        class="w-full h-48 object-cover">
-                    <div class="p-5">
+        @if ($beritas->count() > 0)
+            <div class="container flex flex-col lg:flex-row gap-8">
+                <!-- Konten kiri -->
+                <div class="konten lg:w-2/3 bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="{{ Storage::url('berita/' . $beritas[0]->image) }}" alt="{{ $beritas[0]->title }}"
+                        class="w-full h-80 sm:h-96 md:h-[550px] object-cover">
+                    <div class="des p-6">
                         <div class="flex justify-between items-center mb-3">
                             <span
-                                class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Kegiatan</span>
-                            <span class="text-gray-500 text-sm">10 Mei 2023</span>
+                                class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Terbaru</span>
+                            <span class="text-gray-500 text-sm">{{ $beritas[0]->created_at->format('d M Y') }}</span>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Kerjasama dengan Universitas Muhammadiyah Jember
-                        </h3>
-                        <p class="text-gray-600 mb-4">SMKN 6 Jember menjalin kerjasama dengan Universitas Muhammadiyah
-                            Jember dalam program pengembangan kurikulum dan magang siswa.</p>
-                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">{{ $beritas[0]->title }}</h1>
+                        <p class="text-gray-600 mb-6">{{ Str::limit($beritas[0]->content, 200) }}</p>
+                        <a href="{{ route('berita.show', $beritas[0]) }}"
+                            class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
                             Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div
-                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <img src="{{ asset('image/home/berita3.png') }}" alt="Juara Lomba EPIM"
-                        class="w-full h-48 object-cover">
-                    <div class="p-5">
-                        <div class="flex justify-between items-center mb-3">
-                            <span
-                                class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Kompetisi</span>
-                            <span class="text-gray-500 text-sm">8 Mei 2023</span>
+                <!-- Konten kanan -->
+                <div class="kontenn lg:w-1/3 flex flex-col gap-6">
+                    @if (isset($beritas[1]))
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <img src="{{ Storage::url('berita/' . $beritas[1]->image) }}" alt="{{ $beritas[1]->title }}"
+                                class="w-full h-48 object-cover">
+                            <div class="p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span
+                                        class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Kegiatan</span>
+                                    <span class="text-gray-500 text-sm">{{ $beritas[1]->created_at->format('d M Y') }}</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">{{ $beritas[1]->title }}</h3>
+                                <a href="{{ route('berita.show', $beritas[1]) }}"
+                                    class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center mt-4">
+                                    Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Magang Siswa Di Jember</h3>
-                        <p class="text-gray-600 mb-4">Magang siswa di Jember memberikan kesempatan praktis bagi pelajar
-                            untuk menerapkan ilmu yang dipelajari di sekolah dalam lingkungan kerja nyata.</p>
-                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
-                            Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                    @endif
+                    @if (isset($beritas[2]))
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <img src="{{ Storage::url('berita/' . $beritas[2]->image) }}" alt="{{ $beritas[2]->title }}"
+                                class="w-full h-48 object-cover">
+                            <div class="p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span
+                                        class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Kompetisi</span>
+                                    <span class="text-gray-500 text-sm">{{ $beritas[2]->created_at->format('d M Y') }}</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">{{ $beritas[2]->title }}</h3>
+                                <a href="{{ route('berita.show', $beritas[2]) }}"
+                                    class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center mt-4">
+                                    Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
-        </div>
-        <div class="btn w-40 mt-10 mx-auto text-center">Selengkapnya</div>
+            <div class="text-center mt-10">
+                <a href="{{ route('berita.index') }}" class="btn w-40 mx-auto">Lihat Semua Berita</a>
+            </div>
+        @else
+            <div class="text-center py-10">
+                <p class="text-gray-500">Belum ada berita untuk ditampilkan.</p>
+            </div>
+        @endif
     </main>
     <section class="bg-[#4C6EF5] text-white py-16 px-6 md:px-12">
         <div class="max-w-6xl mx-auto relative">

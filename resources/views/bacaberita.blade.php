@@ -1,61 +1,63 @@
 @extends('layouts.app')
-@section('title', 'Home')
+@section('title', $berita->title)
 
 @section('content')
-    <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 pt-10">
+    <div class="bg-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-4">{{ $berita->title }}</h1>
+                <p class="text-gray-500 text-sm mb-6">Dipublikasikan pada {{ $berita->created_at->format('d F Y') }}</p>
 
-    <!-- Main Content -->
-    <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6">
-      <img src="{{asset('image/berita/bacaberita.png')}}"
-           alt="Berita"
-           class="rounded-lg mb-6 w-full object-cover">
+                <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
+                    class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
 
-      <h1 class="text-2xl md:text-3xl font-bold mb-2">
-        Dua Siswa KKBT berhasil menjual karyanya omset melonjak naik!
-      </h1>
-      <p class="text-gray-500 mb-6">Selasa, 12 Agustus 2025</p>
+                <div class="prose max-w-none text-gray-700 leading-relaxed">
+                    {!! nl2br(e($berita->content)) !!}
+                </div>
 
-      <p class="text-gray-700 leading-relaxed mb-4">
-        Dua siswa SMKN 6 Jember dari jurusan KKBT berhasil mencatatkan prestasi membanggakan melalui karya kreatif yang mereka hasilkan. Dengan semangat kewirausahaan yang tinggi, keduanya mampu menjual produk hasil tangan mereka hingga mendapatkan omset yang terus meningkat.
-      </p>
+                <div class="mt-12 border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Berita Terkait</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        @foreach ($relatedBeritas as $relatedBerita)
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                <a href="{{ route('berita.show', $relatedBerita) }}">
+                                    <img src="{{ Storage::url('berita/' . $relatedBerita->image) }}" alt="{{ $relatedBerita->title }}" class="w-full h-48 object-cover">
+                                </a>
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-2">
+                                        <a href="{{ route('berita.show', $relatedBerita) }}" class="text-gray-800 hover:text-blue-600">{{ $relatedBerita->title }}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
 
-      <p class="text-gray-700 leading-relaxed mb-4">
-        Keberhasilan ini menjadi bukti nyata bahwa siswa tidak hanya mampu berprestasi di bidang akademik, tetapi juga dapat mengembangkan keterampilan praktis yang bermanfaat untuk masa depan. Produk yang mereka hasilkan berupa kerajinan tangan dengan desain unik, memadukan unsur tradisional dan modern sehingga menarik perhatian banyak konsumen.
-      </p>
-
-      <p class="text-gray-700 leading-relaxed">
-        Prestasi ini diharapkan dapat menjadi inspirasi bagi siswa lainnya untuk terus berinovasi, menemukan peluang usaha, serta membuktikan bahwa kreativitas bisa menjadi jalan menuju kesuksesan.
-      </p>
+                <div class="mt-12 border-t pt-8">
+                    <a href="{{ route('berita.index') }}" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Kembali ke Semua Berita
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+@endsection
 
-    <!-- Sidebar -->
-    <aside class="space-y-8">
-
-      <!-- Kategori -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-xl font-bold mb-4">Kategori</h2>
-        <ul class="space-y-2 text-gray-700">
-          <li><a href="#" class="hover:text-blue-600">Prestasi Siswa</a></li>
-          <li><a href="#" class="hover:text-blue-600">Kegiatan Sekolah</a></li>
-          <li><a href="#" class="hover:text-blue-600">Pengumuman</a></li>
-          <li><a href="#" class="hover:text-blue-600">Akademik</a></li>
-          <li><a href="#" class="hover:text-blue-600">Seni & Budaya</a></li>
-        </ul>
-      </div>
-
-      <!-- Top Posts -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-xl font-bold mb-4">Top Posts</h2>
-        <ol class="space-y-3 list-decimal list-inside text-gray-700">
-          <li><a href="#" class="hover:text-blue-600">SMK 6 Jember Juara Futsal Cup 2025</a></li>
-          <li><a href="#" class="hover:text-blue-600">Siswa RPL Sukses di Lomba Coding Nasional</a></li>
-          <li><a href="#" class="hover:text-blue-600">Ekstrakurikuler Musik Raih Penghargaan</a></li>
-          <li><a href="#" class="hover:text-blue-600">Workshop Desain Grafis di SMKN 6</a></li>
-          <li><a href="#" class="hover:text-blue-600">Tips Belajar Efektif untuk Siswa</a></li>
-        </ol>
-      </div>
-
-    </aside>
-
-  </div>
+@section('styles')
+<style>
+    .prose h1, .prose h2, .prose h3 {
+        color: #333;
+    }
+    .prose p {
+        margin-bottom: 1em;
+    }
+    .prose a {
+        color: #3C71F8;
+        text-decoration: none;
+    }
+    .prose a:hover {
+        text-decoration: underline;
+    }
+</style>
 @endsection
