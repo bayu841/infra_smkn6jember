@@ -1,7 +1,5 @@
-
-    
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white pt-12 pb-6">
+    <footer class="text-white pt-12 pb-6" style="background-color: #1f2124;">
         <div class="max-w-6xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Tautan Cepat -->
@@ -14,7 +12,7 @@
                         <li><a href="#" class="hover:text-blue-300 transition">Kontak</a></li>
                     </ul>
                 </div>
-                
+
                 <!-- Alamat -->
                 <div>
                     <h3 class="text-xl font-bold mb-4">Alamat</h3>
@@ -22,7 +20,7 @@
                     <p class="mb-2">Email: smkn6.jember@yahoo.com</p>
                     <p>Telepon: 0336441347</p>
                 </div>
-                
+
                 <!-- Follow Us -->
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
@@ -45,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Copyright -->
             <div class="border-t border-gray-700 mt-8 pt-6 text-center">
                 <p>&copy; 2025 SMKN 6 Jember All Rights Reserved</p>

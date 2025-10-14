@@ -92,7 +92,7 @@
 
     <!-- Gambar kiri -->
     <div class="w-full md:w-1/2 flex justify-center -mt-8">
-      <img src="{{asset('image/branding/ctabatik.png')}}"
+      <img src="{{asset('image/branding/ctastudio.png')}}"
            alt="Produk KKBT"
            class="rounded-xl w-full max-w-md object-contain">
     </div>

@@ -161,6 +161,10 @@
             animation: fade .4s ease-out;
         }
 
+        .form-container {
+            background-image: url('image/home/footer.png')
+        }
+
         @keyframes fade {
             from {
                 opacity: .6;
@@ -479,88 +483,96 @@
         </div>
         <div class="btn w-40 mt-10 mx-auto text-center">Selengkapnya</div>
     </main>
-    <section class="bg-[#4C6EF5] text-white py-16 px-6 md:px-12">
-        <div class="max-w-6xl mx-auto relative">
+    <section class="bg-[#4B6BFF] py-20 px-6 lg:px-16">
+        <div class="max-w-7xl mx-auto text-center lg:text-left">
+            <!-- Judul -->
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3">
+                Produk Sekolah
+            </h2>
+            <p class="text-white/90 max-w-2xl mx-auto lg:mx-0 mb-12">
+                Karya unggulan dari siswa SMKN 6 Jember yang mencerminkan kreativitas, inovasi, dan semangat wirausaha muda.
+            </p>
 
-            <!-- HEADER SECTION -->
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-2">Produk Sekolah</h2>
-                    <p class="text-sm md:text-base max-w-xl leading-relaxed">
-                        Karya unggulan dari siswa SMKN 6 Jember yang mencerminkan kreativitas, inovasi, dan semangat
-                        wirausaha muda.
-                    </p>
-                </div>
+            <!-- Grid Kartu -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Tombol Lihat Semua Produk -->
-                <a href="#"
-                    class="mt-5 md:mt-0 flex items-center gap-2 border border-white text-white px-5 py-2 rounded-full hover:bg-white hover:text-[#4C6EF5] transition font-medium">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                    Lihat Semua Produk
-                </a>
-            </div>
-
-            <!-- GRID PRODUK -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <!-- Card 1 -->
-                <div class="bg-white text-black rounded-2xl shadow-lg overflow-hidden relative group">
-                    <img src="https://via.placeholder.com/400x250" alt="Energi Enem" class="w-full h-52 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg mb-1">Energi Enem</h3>
-                        <p class="text-sm text-gray-600">Air minum sehat hasil produksi oleh Depo SMKN 6 Jember.</p>
+                <!-- Kartu 1 -->
+                <div
+                    class="bg-white rounded-3xl shadow-md p-6 flex flex-col transition hover:-translate-y-2 hover:shadow-xl duration-300">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Energi Enem</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Air minum sehat hasil produksi oleh Depo SMKN 6 Jember
+                        </p>
+                        <div class="rounded-2xl overflow-hidden">
+                            <img src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem"
+                                class="w-full h-56 object-cover" />
+                        </div>
                     </div>
-                    <a href="#"
-                        class="absolute bottom-4 right-4 bg-[#4C6EF5] text-white p-2 rounded-full hover:bg-blue-600 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                    </a>
+                    <div class="flex justify-end mt-4">
+                        <div
+                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="bg-white text-black rounded-2xl shadow-lg overflow-hidden relative group">
-                    <img src="https://via.placeholder.com/400x250" alt="Batik Enem" class="w-full h-52 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg mb-1">Batik Enem</h3>
-                        <p class="text-sm text-gray-600">Batik karya siswa SMKN 6 Jember yang memadukan tradisi dan gaya
-                            modern.</p>
+                <!-- Kartu 2 -->
+                <div
+                    class="bg-white rounded-3xl shadow-md p-6 flex flex-col transition hover:-translate-y-2 hover:shadow-xl duration-300">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Batik Enem</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Batik karya siswa SMKN 6 Jember yang memadukan tradisi dan gaya modern.
+                        </p>
+                        <div class="rounded-2xl overflow-hidden">
+                            <img src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem"
+                                class="w-full h-56 object-cover" />
+                        </div>
                     </div>
-                    <a href="#"
-                        class="absolute bottom-4 right-4 bg-[#4C6EF5] text-white p-2 rounded-full hover:bg-blue-600 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                    </a>
+                    <div class="flex justify-end mt-4">
+                        <div
+                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="bg-white text-black rounded-2xl shadow-lg overflow-hidden relative group">
-                    <img src="https://via.placeholder.com/400x250" alt="Studio Enem" class="w-full h-52 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg mb-1">Studio Enem</h3>
-                        <p class="text-sm text-gray-600">Studio foto kreatif karya siswa SMKN 6 Jember.</p>
+                <!-- Kartu 3 -->
+                <div
+                    class="bg-white rounded-3xl shadow-md p-6 flex flex-col transition hover:-translate-y-2 hover:shadow-xl duration-300">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Studio Enem</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Studio foto kreatif <br>
+                            karya siswa SMKN 6 Jember.
+                        </p>
+                        <div class="rounded-2xl overflow-hidden">
+                            <img src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem"
+                                class="w-full h-56 object-cover" />
+                        </div>
                     </div>
-                    <a href="#"
-                        class="absolute bottom-4 right-4 bg-[#4C6EF5] text-white p-2 rounded-full hover:bg-blue-600 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                    </a>
+                    <div class="flex justify-end mt-4">
+                        <div
+                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
+
     <br>
     <br>
     <br>
@@ -578,7 +590,7 @@
                     minat, prestasi, serta membentuk karakter <br>
                     disiplin, mandiri, dan kreatif siswa.
                 </p>
-                <div class="btn w-40 mt-5" style="border-radius: 70px;">Lihat Lainnya</div>
+                <div class="btn w-40 mt-5" style="border-radius: 70px; text-align:center;">Lihat Lainnya</div>
             </div>
             <!-- Slider -->
             <div class="relative lg:w-2/3" style="margin-top:-2rem;">
@@ -590,51 +602,94 @@
                     <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
                         style="width: 850px; height:50vh;">
                         <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
+
+                            <!-- CARD 1 -->
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group"
                                 style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('image/rpl/fas1.png') }}" style="height:50vh;">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
-                                        Lab RPL
-                                    </span>
-                                </figcaption>
+                                <img src="{{ asset('image/eskul/paskib.png') }}" alt="Lab RPL"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+
+                                <!-- Overlay hitam transparan -->
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Paskibraka</span>
+                                </div>
                             </figure>
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
-                                        Teaching Factory
-                                    </span>
-                                </figcaption>
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('image/rpl/fas2.png') }}" style="height:50vh;" />
+
+                            <!-- CARD 2 -->
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group"
+                                style="height:50vh;">
+                                <img src="{{ asset('image/eskul/pmr.png') }}" alt="Teaching Factory"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Palang Merah Remaja</span>
+                                </div>
                             </figure>
                         </div>
                     </div>
-                    <!-- Slide 2 -->
                     <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
-                        style="width: 1000px; height:50vh;">
+                        style="width: 850px; height:50vh;">
                         <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
+
+                            <!-- CARD 1 -->
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group"
                                 style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
-                                    style="height:50vh;">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
-                                        Kelas
-                                    </span>
-                                </figcaption>
+                                <img src="{{ asset('image/eskul/tari.png') }}" alt="Lab RPL"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+
+                                <!-- Overlay hitam transparan -->
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Sanggar Tari</span>
+                                </div>
+                            </figure>
+
+                            <!-- CARD 2 -->
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group"
+                                style="height:50vh;">
+                                <img src="{{ asset('image/rpl/fas2.png') }}" alt="Teaching Factory"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Marching Band</span>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
+                        style="width: 850px; height:50vh;">
+                        <div class="grid grid-cols-2 gap-3">
+
+                            <!-- CARD 1 -->
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group"
+                                style="height:50vh;">
+                                <img src="{{ asset('image/rpl/fas1.png') }}" alt="Lab RPL"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+
+                                <!-- Overlay hitam transparan -->
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Hadroh</span>
+                                </div>
+                            </figure>
+
+                            <!-- CARD 2 -->
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group"
+                                style="height:50vh;">
+                                <img src="{{ asset('image/rpl/fas2.png') }}" alt="Teaching Factory"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Osis</span>
+                                </div>
                             </figure>
                         </div>
                     </div>
                 </div>
-                <!-- Dots -->
-                <div id="dots2" class="flex items-center justify-center gap-2 pb-4"></div>
-            </div>
-        </div>
     </section>
     <section class="bg-gray-50 py-16">
         <div class="max-w-5xl mx-auto text-center">
@@ -722,8 +777,8 @@
                             </p>
                             <button onclick="window.location.href='https://wa.me/6281333794278'"
                                 class="self-start bg-white text-blue-600 hover:bg-blue-50 font-medium py-2.5 px-6 rounded-lg transition duration-300">
-                            Konsultasi sekarang
-                        </button>
+                                Konsultasi sekarang
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -731,7 +786,7 @@
                 <!-- Grid Card dengan pendekatan berbeda -->
                 <div class="w-full lg:w-2/3 grid grid-cols-2 grid-rows-2 gap-4 md:gap-6" style="min-height: 400px;">
                     <div class="rounded-xl overflow-hidden shadow-lg">
-                        <img src="https://picsum.photos/seed/counseling1/600/400.jpg" alt="Konsultasi"
+                        <img src="{{ asset('image/home/atas.png') }}" alt="Konsultasi"
                             class="w-full h-full object-cover">
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg row-span-2">
@@ -743,91 +798,50 @@
                             class="w-full h-full object-cover">
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg">
-                        <img src="https://picsum.photos/seed/counseling4/600/400.jpg" alt="Konselor"
+                        <img src="{{ asset('image/home/bawah.png') }}" alt="Konselor"
                             class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
-        </div><br>
-        <div class="flex-grow flex items-center justify-center p-4">
-            <div class="max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="md:flex">
-                    <!-- Left Section with Image and Text -->
+        </div>
+        <section
+            class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
+                bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full"
+            style="height: 120vh; margin-bottom:-4rem;">
+            <!-- Bagian Kiri -->
+            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
+                    Bergabunglah bersama <br />
+                    kami dan wujudkan masa depan mu
+                </h2>
+                <div class="relative">
+                    <!-- Background bentuk oval -->
                     <div
-                        class="md:w-1/2 bg-gradient-to-br from-blue-500 to-blue-700 p-8 flex flex-col items-center justify-center">
-                        <h1 class="text-3xl font-bold text-white mb-8 text-center">Bergabunglah bersama kami dan wujudkan
-                            masa
-                            depan mu</h1>
-                        <div class="relative">
-                            <div class="absolute -inset-4 bg-blue-400 rounded-full opacity-20 blur-xl"></div>
-                            <div class="relative bg-white p-4 rounded-xl shadow-lg">
-                                <img src="https://z-cdn-media.chatglm.cn/files/12e2b92c-6dc5-4a13-85e0-b61c6ed252fd_pasted_image_1759187173153.png?auth_key=1790723189-6589604663c7496ba05b9fb79a12ccb-0-867ac09b110bf7fa4413bf12cf8ef096"
-                                    alt="Students working together" class="rounded-lg">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Right Section with Form -->
-                    <div class="md:w-1/2 p-8 md:p-12">
-                        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Ada Pertanyaan? Hubungi Kami</h2>
-
-                        <form class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-gray-700 mb-2">Nama</label>
-                                <input type="text" id="name" name="name"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-                                    placeholder="Nama lengkap Anda">
-                            </div>
-
-                            <div>
-                                <label for="email" class="block text-gray-700 mb-2">Email</label>
-                                <input type="email" id="email" name="email"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-                                    placeholder="alamat@email.com">
-                            </div>
-
-                            <div>
-                                <label for="phone" class="block text-gray-700 mb-2">Telepon</label>
-                                <input type="tel" id="phone" name="phone"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-                                    placeholder="Nomor telepon Anda">
-                            </div>
-
-                            <div>
-                                <label for="message" class="block text-gray-700 mb-2">Pesan</label>
-                                <textarea id="message" name="message" rows="4"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-                                    placeholder="Tulis pesan Anda di sini"></textarea>
-                            </div>
-
-                            <button type="submit"
-                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
-                                Kirim Pesan
-                                <i class="fas fa-paper-plane ml-2"></i>
-                            </button>
-                        </form>
-
-                        <div class="mt-8 pt-6 border-t border-gray-200">
-                            <div class="flex space-x-4">
-                                <a href="#" class="text-gray-600 hover:text-blue-600 transition">
-                                    <i class="fab fa-facebook-f text-xl"></i>
-                                </a>
-                                <a href="#" class="text-gray-600 hover:text-blue-600 transition">
-                                    <i class="fab fa-twitter text-xl"></i>
-                                </a>
-                                <a href="#" class="text-gray-600 hover:text-blue-600 transition">
-                                    <i class="fab fa-instagram text-xl"></i>
-                                </a>
-                                <a href="#" class="text-gray-600 hover:text-blue-600 transition">
-                                    <i class="fab fa-linkedin-in text-xl"></i>
-                                </a>
-                            </div>
-                        </div>
+                        class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Bagian Kanan -->
+            <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
+                <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
+
+                <form action="#" method="POST" class="space-y-4">
+                    <input type="text" placeholder="Nama"
+                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input type="email" placeholder="Email"
+                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input type="tel" placeholder="No Telepon"
+                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <textarea rows="4" placeholder="Pesan"
+                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </section>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
 

@@ -490,7 +490,7 @@
 
                 <!-- Tombol -->
                 <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
-                    <a href="" class="btn w-40 text-center">Selengkapnya</a>
+                    <a href="https://www.instagram.com/rplsmkn6jember/" class="btn w-40 text-center">Selengkapnya</a>
                 </div>
             </section>
         </section>
