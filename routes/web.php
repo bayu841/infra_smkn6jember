@@ -15,6 +15,9 @@ use App\Http\Controllers\PublicBeritaController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/home', function () {
+    return view('home');
+});
 
 Route::get('/', function () {
     return view('rpl');
