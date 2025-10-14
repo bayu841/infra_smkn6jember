@@ -17,6 +17,7 @@
             background: linear-gradient(to right, #4D4FF5, #7A44F9);
         }
 
+
         .brand {
             display: flex;
             justify-content: center;
@@ -32,7 +33,7 @@
         }
 
         .brand img {
-            width: 50px;
+            width: 1500px;
             margin: 6px;
         }
 
@@ -154,20 +155,7 @@
         </div>
     </section>
     <div class="brand">
-        <img src="{{ asset('image/logoinfra.png') }}" alt="">
-        <img src="{{ asset('image/logokom.png') }}" alt="">
-        <img src="{{ asset('image/logomaspion.png') }}" alt="">
-        <img src="{{ asset('image/logoiqo.png') }}" alt="">
-        <img src="{{ asset('image/logorpl.png') }}" alt="">
-        <img src="{{ asset('image/logobd.png') }}" alt="">
-        <img src="{{ asset('image/logoak.png') }}" alt="">
-        <img src="{{ asset('image/logomp.png') }}" alt="">
-        <img src="{{ asset('image/logodkv.png') }}" alt="">
-        <img src="{{ asset('image/logokkbt.png') }}" alt="">
-        <img src="{{ asset('image/brand1.png') }}" alt="">
-        <img src="{{ asset('image/brand2.png') }}" alt="">
-        <img src="{{ asset('image/brand3.png') }}" alt="">
-        <img src="{{ asset('image/brand4.png') }}" alt="">
+        <img src="{{ asset('image/logooo.png') }}" alt="">
     </div>
     <section class="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
