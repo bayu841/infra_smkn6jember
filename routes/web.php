@@ -27,6 +27,7 @@ Route::get('/home', function () {
 Route::get('/berita', [PublicBeritaController::class, 'index'])->name('berita.index');
 Route::get('/berita/{berita}', [PublicBeritaController::class, 'show'])->name('berita.show');
 
+
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
@@ -43,6 +44,13 @@ Route::get('/brand', function () {
 
 // Jurusan
 Route::get('/rpl', function () {
+Route::get('/brand', function(){
+    return view('brandingsmk6.batikenem');
+});
+});
+
+// Jurusan
+Route::get('/rpl', function(){
     return view('rpl');
 });
 Route::get('/dkv', function () {

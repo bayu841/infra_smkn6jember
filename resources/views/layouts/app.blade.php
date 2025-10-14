@@ -26,18 +26,78 @@
         .spmb {
             background: linear-gradient(to right, #3C71F8, #24437C);
         }
-        #track {
-  display: flex;
-  gap: 16px;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  white-space: nowrap;
-}
 
-.slide {
-  flex: 0 0 auto;
-  width: 850px; /* sesuai slide-mu */
-}
+        #track {
+            display: flex;
+            gap: 16px;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+        }
+
+        .slide {
+            flex: 0 0 auto;
+            width: 850px; /* sesuai slide-mu */
+        }
+
+        /* Lazy Loading Placeholder Styles */
+        .lazy-image-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #f3f4f6;
+        }
+
+        .lazy-image {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lazy-image.loaded {
+            opacity: 1;
+        }
+
+        .image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e5e7eb;
+            z-index: 1;
+        }
+
+        .placeholder-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50%;
+            border-top-color: #3b82f6;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        .placeholder-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Blur placeholder style */
+        .blur-placeholder {
+            filter: blur(10px);
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -49,7 +109,15 @@
 
             <!-- Logo -->
             <div class="flex items-center space-x-2">
-                <img src="{{ asset('image/logosmk.png') }}" alt="Logo SMK" class="w-10 h-10">
+                <!-- Menggunakan lazy loading untuk logo -->
+                <div class="lazy-image-container w-10 h-10 rounded-full">
+                    <div class="image-placeholder">
+                        <div class="placeholder-spinner"></div>
+                    </div>
+                    <img class="lazy-image w-10 h-10 rounded-full"
+                         data-src="{{ asset('image/logosmk.png') }}"
+                         alt="Logo SMK">
+                </div>
             </div>
 
             <!-- Hamburger button (mobile only) -->
@@ -123,7 +191,7 @@
     </nav>
 
     <!-- Main content -->
-    <main class="pt-16">
+    <main class="pt-16 " style="overflow-x: hidden;">
         @yield('content')
     </main>
 
@@ -177,6 +245,88 @@
                     }
                 });
             });
+
+            // Lazy Loading Implementation
+            const lazyImages = document.querySelectorAll('.lazy-image');
+
+            // Check if browser supports IntersectionObserver
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            const container = img.closest('.lazy-image-container');
+                            const placeholder = container.querySelector('.image-placeholder');
+
+                            // For blur placeholder, load thumbnail first
+                            if (img.classList.contains('blur-placeholder') && img.dataset.thumb) {
+                                const thumb = new Image();
+                                thumb.src = img.dataset.thumb;
+                                thumb.onload = function() {
+                                    img.src = img.dataset.thumb;
+                                    img.classList.add('loaded');
+
+                                    // Then load the full image
+                                    const fullImg = new Image();
+                                    fullImg.src = img.dataset.src;
+                                    fullImg.onload = function() {
+                                        img.src = img.dataset.src;
+                                        img.classList.remove('blur-placeholder');
+                                    };
+                                };
+                            } else {
+                                // Regular lazy loading
+                                const src = img.dataset.src;
+                                img.src = src;
+                                img.onload = function() {
+                                    img.classList.add('loaded');
+                                    if (placeholder) {
+                                        placeholder.style.display = 'none';
+                                    }
+                                };
+                            }
+
+                            // Stop observing the image
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px', // Start loading 50px before the image is in viewport
+                    threshold: 0.01
+                });
+
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                lazyImages.forEach(img => {
+                    const container = img.closest('.lazy-image-container');
+                    const placeholder = container.querySelector('.image-placeholder');
+
+                    // For blur placeholder
+                    if (img.classList.contains('blur-placeholder') && img.dataset.thumb) {
+                        img.src = img.dataset.thumb;
+                        img.classList.add('loaded');
+
+                        // Then load the full image
+                        const fullImg = new Image();
+                        fullImg.src = img.dataset.src;
+                        fullImg.onload = function() {
+                            img.src = img.dataset.src;
+                            img.classList.remove('blur-placeholder');
+                        };
+                    } else {
+                        img.src = img.dataset.src;
+                        img.onload = function() {
+                            img.classList.add('loaded');
+                            if (placeholder) {
+                                placeholder.style.display = 'none';
+                            }
+                        };
+                    }
+                });
+            }
         });
     </script>
 
