@@ -196,20 +196,119 @@
     </section>
 
     <div class="brand">
-        <img src="{{ asset('image/logoinfra.png') }}" alt="">
-        <img src="{{ asset('image/logokom.png') }}" alt="">
-        <img src="{{ asset('image/logomaspion.png') }}" alt="">
-        <img src="{{ asset('image/logoiqo.png') }}" alt="">
-        <img src="{{ asset('image/logorpl.png') }}" alt="">
-        <img src="{{ asset('image/logobd.png') }}" alt="">
-        <img src="{{ asset('image/logoak.png') }}" alt="">
-        <img src="{{ asset('image/logomp.png') }}" alt="">
-        <img src="{{ asset('image/logodkv.png') }}" alt="">
-        <img src="{{ asset('image/logokkbt.png') }}" alt="">
-        <img src="{{ asset('image/brand1.png') }}" alt="">
-        <img src="{{ asset('image/brand2.png') }}" alt="">
-        <img src="{{ asset('image/brand3.png') }}" alt="">
-        <img src="{{ asset('image/brand4.png') }}" alt="">
+        <!-- Logo-brand dengan lazy loading -->
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logoinfra.png') }}"
+                 alt="Infra">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logokom.png') }}"
+                 alt="Kom">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logomaspion.png') }}"
+                 alt="Maspion">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logoiqo.png') }}"
+                 alt="IQO">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logorpl.png') }}"
+                 alt="RPL">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logobd.png') }}"
+                 alt="BD">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logoak.png') }}"
+                 alt="AK">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logomp.png') }}"
+                 alt="MP">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logodkv.png') }}"
+                 alt="DKV">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/logokkbt.png') }}"
+                 alt="KKBT">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/brand1.png') }}"
+                 alt="Brand 1">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/brand2.png') }}"
+                 alt="Brand 2">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/brand3.png') }}"
+                 alt="Brand 3">
+        </div>
+        <div class="lazy-image-container w-12 h-12 rounded-full">
+            <div class="image-placeholder">
+                <div class="placeholder-spinner"></div>
+            </div>
+            <img class="lazy-image w-12 h-12 rounded-full"
+                 data-src="{{ asset('image/brand4.png') }}"
+                 alt="Brand 4">
+        </div>
     </div>
     <br>
     <section class="about">
@@ -231,9 +330,14 @@
 
             <!-- Bagian kanan (ilustrasi kotak) -->
             <div class="relative w-64 h-80 card-profile">
-                <!-- Card Utama -->
-                <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center"
-                    style="background-image: url('{{ asset('image/home/kepalasekolah.png') }}')">
+                <!-- Card Utama dengan lazy loading -->
+                <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center lazy-image-container">
+                    <div class="image-placeholder">
+                        <div class="placeholder-spinner"></div>
+                    </div>
+                    <img class="lazy-image w-full h-full rounded-bl-xl object-cover"
+                         data-src="{{ asset('image/home/kepalasekolah.png') }}"
+                         alt="Kepala Sekolah">
                     <!-- Label bawah -->
                     <div
                         class="absolute bottom-0 left-0 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
@@ -301,8 +405,14 @@
                 <article
                     class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow-smooth ring-1 ring-slate-100 fade-in">
                     <div class="card-grad-1 rounded-t-2xl overflow-hidden">
-                        <!-- header image placeholder -->
-                        <div class="h-48 sm:h-60 bg-cover bg-center" style="background-image: url('image/home/rpl.png');">
+                        <!-- header image dengan lazy loading -->
+                        <div class="h-48 sm:h-60 bg-cover bg-center lazy-image-container" style="background-color: #e5e7eb;">
+                            <div class="image-placeholder">
+                                <div class="placeholder-spinner"></div>
+                            </div>
+                            <img class="lazy-image w-full h-48 sm:h-60 object-cover"
+                                 data-src="image/home/rpl.png"
+                                 alt="Rekayasa Perangkat Lunak">
                             <!-- badge -->
                             <div class="-mt-5 px-5">
                                 <span
@@ -335,8 +445,14 @@
                 <article
                     class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow-smooth ring-1 ring-slate-100 fade-in">
                     <div class="card-grad-1 rounded-t-2xl overflow-hidden">
-                        <!-- header image placeholder -->
-                        <div class="h-48 sm:h-60 bg-cover bg-center" style="background-image: url('image/home/bd.png');">
+                        <!-- header image dengan lazy loading -->
+                        <div class="h-48 sm:h-60 bg-cover bg-center lazy-image-container" style="background-color: #e5e7eb;">
+                            <div class="image-placeholder">
+                                <div class="placeholder-spinner"></div>
+                            </div>
+                            <img class="lazy-image w-full h-48 sm:h-60 object-cover"
+                                 data-src="image/home/bd.png"
+                                 alt="Bisnis Digital">
                             <!-- badge -->
                             <div class="-mt-5 px-5">
                                 <span
@@ -370,8 +486,14 @@
                 <article
                     class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow-smooth ring-1 ring-slate-100 fade-in">
                     <div class="card-grad-1 rounded-t-2xl overflow-hidden">
-                        <!-- header image placeholder -->
-                        <div class="h-48 sm:h-60 bg-cover bg-center" style="background-image: url('image/home/akl.png');">
+                        <!-- header image dengan lazy loading -->
+                        <div class="h-48 sm:h-60 bg-cover bg-center lazy-image-container" style="background-color: #e5e7eb;">
+                            <div class="image-placeholder">
+                                <div class="placeholder-spinner"></div>
+                            </div>
+                            <img class="lazy-image w-full h-48 sm:h-60 object-cover"
+                                 data-src="image/home/akl.png"
+                                 alt="Akuntansi">
                             <!-- badge -->
                             <div class="-mt-5 px-5">
                                 <span
@@ -417,8 +539,14 @@
             <div class="container flex flex-col lg:flex-row gap-8">
                 <!-- Konten kiri -->
                 <div class="konten lg:w-2/3 bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="{{ Storage::url('berita/' . $beritas[0]->image) }}" alt="{{ $beritas[0]->title }}"
-                        class="w-full h-80 sm:h-96 md:h-[550px] object-cover">
+                    <div class="lazy-image-container w-full h-80 sm:h-96 md:h-[550px]">
+                        <div class="image-placeholder">
+                            <div class="placeholder-spinner"></div>
+                        </div>
+                        <img class="lazy-image w-full h-80 sm:h-96 md:h-[550px] object-cover"
+                             data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}"
+                             alt="{{ $beritas[0]->title }}">
+                    </div>
                     <div class="des p-6">
                         <div class="flex justify-between items-center mb-3">
                             <span
@@ -439,8 +567,14 @@
                     @if (isset($beritas[1]))
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                            <img src="{{ Storage::url('berita/' . $beritas[1]->image) }}" alt="{{ $beritas[1]->title }}"
-                                class="w-full h-48 object-cover">
+                            <div class="lazy-image-container w-full h-48">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-48 object-cover"
+                                     data-src="{{ Storage::url('berita/' . $beritas[1]->image) }}"
+                                     alt="{{ $beritas[1]->title }}">
+                            </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
@@ -458,8 +592,14 @@
                     @if (isset($beritas[2]))
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                            <img src="{{ Storage::url('berita/' . $beritas[2]->image) }}" alt="{{ $beritas[2]->title }}"
-                                class="w-full h-48 object-cover">
+                            <div class="lazy-image-container w-full h-48">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-48 object-cover"
+                                     data-src="{{ Storage::url('berita/' . $beritas[2]->image) }}"
+                                     alt="{{ $beritas[2]->title }}">
+                            </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
@@ -792,12 +932,24 @@
                             class="w-full h-full object-cover">
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg row-span-2">
-                        <img src="https://picsum.photos/seed/counseling2/600/800.jpg" alt="Konseling"
-                            class="w-full h-full object-cover">
+                        <div class="lazy-image-container w-full h-full">
+                            <div class="image-placeholder">
+                                <div class="placeholder-spinner"></div>
+                            </div>
+                            <img class="lazy-image w-full h-full object-cover"
+                                 data-src="https://picsum.photos/seed/counseling2/600/800.jpg"
+                                 alt="Konseling">
+                        </div>
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg row-span-2">
-                        <img src="https://picsum.photos/seed/counseling3/600/800.jpg" alt="Sesi konseling"
-                            class="w-full h-full object-cover">
+                        <div class="lazy-image-container w-full h-full">
+                            <div class="image-placeholder">
+                                <div class="placeholder-spinner"></div>
+                            </div>
+                            <img class="lazy-image w-full h-full object-cover"
+                                 data-src="https://picsum.photos/seed/counseling3/600/800.jpg"
+                                 alt="Sesi konseling">
+                        </div>
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg">
                         <img src="{{ asset('image/home/bawah.png') }}" alt="Konselor"
