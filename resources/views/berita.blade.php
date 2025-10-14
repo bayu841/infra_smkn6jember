@@ -32,16 +32,20 @@
         .text-p {
             font-size: 15px;
             width: 600px;
-            min-height: 80px; /* Batas height minimal */
-            max-height: 120px; /* Batas height maksimal */
+            min-height: 80px;
+            /* Batas height minimal */
+            max-height: 120px;
+            /* Batas height maksimal */
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 4; /* Batas jumlah baris */
+            -webkit-line-clamp: 4;
+            /* Batas jumlah baris */
             -webkit-box-orient: vertical;
         }
 
         .card-content {
-            min-height: 60px; /* Height minimal untuk card content */
+            min-height: 60px;
+            /* Height minimal untuk card content */
             max-height: 100px;
             overflow: hidden;
             display: -webkit-box;
@@ -50,7 +54,8 @@
         }
 
         .popular-content {
-            min-height: 100px; /* Height minimal untuk popular section */
+            min-height: 100px;
+            /* Height minimal untuk popular section */
             max-height: 150px;
             overflow: hidden;
         }
@@ -192,33 +197,33 @@
         <!-- Grid Card -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 pb-20">
             @foreach ($lastPosts as $berita)
-            <div
-                class="w-[360px] h-[440px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition mx-auto">
-                <img class="w-full h-52 object-cover" src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}">
-                <div class="p-6 flex flex-col justify-between h-[calc(420px-208px)]">
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">{{ $berita->title }}</h3>
-                        <div class="card-content">
-                            @if(strlen($berita->content) < 30)
-                                <div class="text-minimal">
-                                    <span class="text-warning">Konten sedang dalam proses update...</span>
-                                </div>
-                            @else
-                                                        <p class="text-gray-600 text-base">
-                                                           {{ $berita->description }}
-                                                        </p>
-                                
-                            @endif
+                <div
+                    class="w-[360px] h-[440px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition mx-auto">
+                    <img class="w-full h-52 object-cover" src="{{ Storage::url('berita/' . $berita->image) }}"
+                        alt="{{ $berita->title }}">
+                    <div class="p-6 flex flex-col justify-between h-[calc(420px-208px)]">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">{{ $berita->title }}</h3>
+                            <div class="card-content">
+                                @if (strlen($berita->content) < 30)
+                                    <div class="text-minimal">
+                                        <span class="text-warning">Konten sedang dalam proses update...</span>
+                                    </div>
+                                @else
+                                    <p class="text-gray-600 text-base">
+                                        {{ $berita->description }}
+                                    </p>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <a href="{{ route('berita.show', $berita) }}"
-                        class="mt-4 inline-block text-white px-4 py-2 rounded-lg
+                        <a href="{{ route('berita.show', $berita) }}"
+                            class="mt-4 inline-block text-white px-4 py-2 rounded-lg
                       bg-gradient-to-r from-[#3C71F8] to-[#24437C]
                       hover:opacity-90 transition w-40 text-center">
-                        Selengkapnya
-                    </a>
+                            Selengkapnya
+                        </a>
+                    </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -226,60 +231,62 @@
     <section>
         <h2 class="font-semibold text-2xl p-20">Populer Minggu Ini</h2>
         @foreach ($popularNews as $berita)
-        <div class="popular-container flex">
-            <div class="card" style="background-image: url('{{ Storage::url('berita/' . $berita->image) }}'); background-size: cover;">
-            </div>
-            <div class="text">
-                <h2 class="font-semibold">{{ $berita->title }}</h2>
-                <div class="popular-content">
-                    @if(strlen($berita->content) < 50)
-                        <div class="text-minimal">
-                            <span class="text-warning">Konten sedang dalam proses update. Silakan klik selengkapnya untuk informasi lebih lanjut.</span>
-                        </div>
-                    @else
-                        <p class="text-p">{{ $berita->description }}</p>
-                    @endif
+            <div class="popular-container flex">
+                <div class="card"
+                    style="background-image: url('{{ Storage::url('berita/' . $berita->image) }}'); background-size: cover;">
                 </div>
-                <a href="{{ route('berita.show', $berita) }}"
-                    class="mt-4 inline-block text-white px-4 py-2 rounded-lg
+                <div class="text">
+                    <h2 class="font-semibold">{{ $berita->title }}</h2>
+                    <div class="popular-content">
+                        @if (strlen($berita->content) < 50)
+                            <div class="text-minimal">
+                                <span class="text-warning">Konten sedang dalam proses update. Silakan klik selengkapnya
+                                    untuk informasi lebih lanjut.</span>
+                            </div>
+                        @else
+                            <p class="text-p">{{ $berita->description }}</p>
+                        @endif
+                    </div>
+                    <a href="{{ route('berita.show', $berita) }}"
+                        class="mt-4 inline-block text-white px-4 py-2 rounded-lg
                       bg-gradient-to-r from-[#3C71F8] to-[#24437C]
                       hover:opacity-90 transition w-40 text-center text-sm">
-                    Selengkapnya
-                </a>
+                        Selengkapnya
+                    </a>
+                </div>
             </div>
-        </div><br><br><br><br>
+            <br><br><br>
         @endforeach
     </section>
 
     <section class="prestasi">
-        <h2 class="font-semibold text-2xl p-20">Semua Berita</h2>
+        <h2 class="font-semibold text-2xl p-10">Semua Berita</h2><br>
         <div class="px-8 py-12">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 -mt-20">
                 @foreach ($beritas as $berita)
-                <!-- Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                    <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
-                        class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg">{{ $berita->title }}</h3>
-                        <div class="card-content">
-                            @if(strlen($berita->content) < 30)
-                                <div class="text-minimal">
-                                    <span class="text-warning">Konten sedang dalam proses update...</span>
-                                </div>
-                            @else
-                                                        <p class="text-gray-600 text-sm mt-2">
-                                                            {{ $berita->description }}
-                                                        </p>
-                                
-                            @endif
+                    <!-- Card -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">{{ $berita->title }}</h3>
+                            <div class="card-content">
+                                @if (strlen($berita->content) < 30)
+                                    <div class="text-minimal">
+                                        <span class="text-warning">Konten sedang dalam proses update...</span>
+                                    </div>
+                                @else
+                                    <p class="text-gray-600 text-sm mt-2">
+                                        {{ $berita->description }}
+                                    </p>
+                                @endif
+                            </div>
+                            <a href="{{ route('berita.show', $berita) }}"
+                                class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition">
+                                Selengkapnya
+                            </a>
                         </div>
-                        <a href="{{ route('berita.show', $berita) }}"
-                            class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition">
-                            Selengkapnya
-                        </a>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
