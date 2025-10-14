@@ -37,10 +37,6 @@
             max-height: 120px;
             /* Batas height maksimal */
             overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            /* Batas jumlah baris */
-            -webkit-box-orient: vertical;
         }
 
         .card-content {
@@ -48,9 +44,6 @@
             /* Height minimal untuk card content */
             max-height: 100px;
             overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
         }
 
         .popular-content {
@@ -192,6 +185,10 @@
             <p class="mt-4 text-lg max-w-3xl">
                 Informasi dan Berita Terkini SMK Negeri 6 Jember, dari Prestasi hingga Kegiatan Siswa
             </p>
+            <a href="{{ route('halaman-utama') }}" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Kembali ke Halaman Utama
+            </a>
         </div>
         <h2 class="font-semibold ml-20 text-2xl">Last Post</h2><br>
         <!-- Grid Card -->
@@ -203,14 +200,14 @@
                         alt="{{ $berita->title }}">
                     <div class="p-6 flex flex-col justify-between h-[calc(420px-208px)]">
                         <div>
-                            <h3 class="text-xl font-bold mb-2">{{ $berita->title }}</h3>
+                            <h3 class="text-xl font-bold mb-2 truncate">{{ $berita->title }}</h3>
                             <div class="card-content">
                                 @if (strlen($berita->content) < 30)
                                     <div class="text-minimal">
                                         <span class="text-warning">Konten sedang dalam proses update...</span>
                                     </div>
                                 @else
-                                    <p class="text-gray-600 text-base">
+                                    <p class="text-gray-600 text-base line-clamp-3">
                                         {{ $berita->description }}
                                     </p>
                                 @endif
@@ -236,7 +233,7 @@
                     style="background-image: url('{{ Storage::url('berita/' . $berita->image) }}'); background-size: cover;">
                 </div>
                 <div class="text">
-                    <h2 class="font-semibold">{{ $berita->title }}</h2>
+                    <h2 class="font-semibold truncate">{{ $berita->title }}</h2>
                     <div class="popular-content">
                         @if (strlen($berita->content) < 50)
                             <div class="text-minimal">
@@ -244,7 +241,7 @@
                                     untuk informasi lebih lanjut.</span>
                             </div>
                         @else
-                            <p class="text-p">{{ $berita->description }}</p>
+                            <p class="text-p line-clamp-4">{{ $berita->description }}</p>
                         @endif
                     </div>
                     <a href="{{ route('berita.show', $berita) }}"
@@ -260,23 +257,29 @@
     </section>
 
     <section class="prestasi">
-        <h2 class="font-semibold text-2xl p-10">Semua Berita</h2><br>
+        @if(request('search'))
+            <div class="px-10 pb-4">
+                <h2 class="text-2xl font-semibold">Hasil pencarian untuk: "{{ request('search') }}"</h2>
+            </div>
+        @else
+            <h2 class="font-semibold text-2xl p-10">Semua Berita</h2><br>
+        @endif
         <div class="px-8 py-12">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 -mt-20">
-                @foreach ($beritas as $berita)
+                @forelse ($beritas as $berita)
                     <!-- Card -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
                         <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
                             class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="font-semibold text-lg">{{ $berita->title }}</h3>
+                            <h3 class="font-semibold text-lg truncate">{{ $berita->title }}</h3>
                             <div class="card-content">
                                 @if (strlen($berita->content) < 30)
                                     <div class="text-minimal">
                                         <span class="text-warning">Konten sedang dalam proses update...</span>
                                     </div>
                                 @else
-                                    <p class="text-gray-600 text-sm mt-2">
+                                    <p class="text-gray-600 text-sm mt-2 line-clamp-3">
                                         {{ $berita->description }}
                                     </p>
                                 @endif
@@ -287,23 +290,17 @@
                             </a>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-span-3 text-center">
+                        <p class="text-gray-500 text-lg">Tidak ada berita yang ditemukan.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
 
     <div class="btn">
-        @if ($beritas->onFirstPage())
-            <button class="previous" disabled>← Kembali</button>
-        @else
-            <a href="{{ $beritas->previousPageUrl() }}" class="previous">← Kembali</a>
-        @endif
-
-        @if ($beritas->hasMorePages())
-            <a href="{{ $beritas->nextPageUrl() }}" class="next">Selanjutnya →</a>
-        @else
-            <button class="next" disabled>Selanjutnya →</button>
-        @endif
+        {{ $beritas->appends(request()->query())->links() }}
     </div>
     <br>
 

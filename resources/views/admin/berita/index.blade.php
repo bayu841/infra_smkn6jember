@@ -16,11 +16,14 @@
                 </h1>
                 <p class="text-gray-600 mt-2">Kelola dan publikasi berita untuk website Anda</p>
             </div>
-            <a href="{{ route('admin.news.create') }}"
-               class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-5 rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-                <i class="fas fa-plus-circle"></i>
-                <span>Tambah Berita Baru</span>
-            </a>
+            <div class="flex gap-3">
+
+                <a href="{{ route('admin.news.create') }}"
+                   class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-5 rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Tambah Berita Baru</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -50,53 +53,60 @@
             </div>
         </div>
 
-        <div class="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-5 shadow-sm">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-purple-800 font-medium">Kategori Aktif</p>
-                    <h3 class="text-2xl font-bold text-gray-900 mt-1">5</h3>
-                </div>
-                <div class="p-3 bg-purple-500 rounded-lg">
-                    <i class="fas fa-tags text-white text-xl"></i>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <!-- Search and Filter -->
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-6 fade-in">
-        <div class="flex flex-col md:flex-row gap-4">
-            <div class="flex-1">
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-search text-gray-400"></i>
+    <form action="{{ route('admin.news.index') }}" method="GET">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-6 fade-in">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" name="search"
+                               class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                               placeholder="Cari berita..." value="{{ request('search') }}">
                     </div>
-                    <input type="text"
-                           class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                           placeholder="Cari berita...">
+                </div>
+                <div class="flex gap-3">
+                    <select name="category" class="block w-full md:w-auto border border-gray-300 rounded-lg py-2.5 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Semua Kategori</option>
+                        @foreach (App\Models\Category::all() as $category)
+                            <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2">
+                        <i class="fas fa-filter"></i>
+                        <span class="hidden md:inline">Filter</span>
+                    </button>
                 </div>
             </div>
-            <div class="flex gap-3">
-                <select class="block w-full md:w-auto border border-gray-300 rounded-lg py-2.5 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    <option>Semua Kategori</option>
-                    <option>Berita Utama</option>
-                    <option>Pengumuman</option>
-                    <option>Event</option>
-                </select>
-                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2">
-                    <i class="fas fa-filter"></i>
-                    <span class="hidden md:inline">Filter</span>
-                </button>
-            </div>
         </div>
-    </div>
+    </form>
 
-    <!-- Table Section -->
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+    <form id="delete-selected-form" action="{{ route('admin.news.destroyMultiple') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita yang dipilih?');">
+        @csrf
+        @method('DELETE')
+        <div class="mb-4">
+            <button id="delete-selected-btn" style="display: none;" type="submit"
+               class="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-3 px-5 rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                <i class="fas fa-trash"></i>
+                <span>Hapus Terpilih</span>
+            </button>
+        </div>
+        <!-- Table Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden fade-in">
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gradient-to-r from-blue-600 to-blue-800">
                     <tr>
+                        <th scope="col" class="p-4">
+                            <div class="flex items-center">
+                                <input id="select-all" type="checkbox" class="h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                            </div>
+                        </th>
                         <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
                             <div class="flex items-center gap-2">
                                 <i class="fas fa-image"></i>
@@ -126,6 +136,11 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @forelse ($beritas as $berita)
                     <tr class="hover:bg-gray-50 transition duration-200 card-hover">
+                        <td class="p-4">
+                            <div class="flex items-center">
+                                <input type="checkbox" name="selected_news[]" value="{{ $berita->id }}" class="h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 news-checkbox">
+                            </div>
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
                                 <div class="w-16 h-16 rounded-lg overflow-hidden shadow-sm border border-gray-200 flex-shrink-0">
@@ -138,13 +153,16 @@
                         <td class="px-6 py-4">
                             <div class="text-sm font-medium text-gray-900">{{ Str::limit($berita->title, 50) }}</div>
                             <div class="text-xs text-gray-500 mt-1 flex items-center gap-2">
-                                <span class="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-xs">
-                                    <i class="fas fa-tag"></i>
-                                    Berita Utama
-                                </span>
                                 <span class="inline-flex items-center gap-1 bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-xs">
                                     <i class="fas fa-eye"></i>
-                                    1.2k dilihat
+                                    @php
+                                        $views = $berita->views;
+                                        if ($views >= 1000) {
+                                            echo round($views / 1000, 1) . 'k dilihat';
+                                        } else {
+                                            echo $views . ' dilihat';
+                                        }
+                                    @endphp
                                 </span>
                             </div>
                         </td>
@@ -154,7 +172,7 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-center">
                             <div class="flex justify-center gap-2">
-                                <a href="#"
+                                <a href="{{ route('admin.news.show', $berita->id) }}"
                                    class="inline-flex items-center gap-1 bg-blue-50 hover:bg-blue-100 text-blue-700 hover:text-blue-800 py-2 px-3 rounded-lg text-sm font-medium transition-colors duration-200">
                                     <i class="fas fa-eye text-xs"></i>
                                     <span>Lihat</span>
@@ -215,6 +233,7 @@
         </div>
         @endif
     </div>
+    </form>
 
     <!-- Quick Actions -->
     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 fade-in">
@@ -273,4 +292,42 @@
         transform: translateY(-2px);
     }
 </style>
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectAllCheckbox = document.getElementById('select-all');
+        const newsCheckboxes = document.querySelectorAll('.news-checkbox');
+        const deleteSelectedBtn = document.getElementById('delete-selected-btn');
+        const deleteSelectedForm = document.getElementById('delete-selected-form');
+
+        selectAllCheckbox.addEventListener('change', function () {
+            newsCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+            toggleDeleteButton();
+        });
+
+        newsCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                if (!this.checked) {
+                    selectAllCheckbox.checked = false;
+                }
+                toggleDeleteButton();
+            });
+        });
+
+        function toggleDeleteButton() {
+            const anyChecked = Array.from(newsCheckboxes).some(checkbox => checkbox.checked);
+            if (anyChecked) {
+                deleteSelectedBtn.style.display = 'inline-flex';
+            } else {
+                deleteSelectedBtn.style.display = 'none';
+            }
+        }
+
+
+    });
+</script>
 @endsection

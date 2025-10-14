@@ -171,22 +171,26 @@
 
                 <!-- Search + Button (mobile only) -->
                 <div class="md:hidden flex flex-col space-y-3 w-full mt-3">
-                    <div class="relative">
-                        <input type="text" placeholder="Cari Informasi"
-                            class="pl-8 pr-3 py-1 w-full rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
-                        <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
-                    </div>
+                    <form action="{{ route('berita.index') }}" method="GET">
+                        <div class="relative">
+                            <input type="text" name="search" placeholder="Cari Informasi"
+                                class="pl-8 pr-3 py-1 w-full rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300" value="{{ request('search') }}">
+                            <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
+                        </div>
+                    </form>
                     <a href="{{route('login')}}" class="text-white px-4 py-2 rounded spmb text-center" >Login</a>
                 </div>
             </ul>
 
             <!-- Search + Button (desktop only) -->
             <div class="hidden md:flex items-center space-x-3">
-                <div class="relative">
-                    <input type="text" placeholder="Cari Informasi"
-                        class="pl-8 pr-3 py-1 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
-                    <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
-                </div>
+                <form action="{{ route('berita.index') }}" method="GET">
+                    <div class="relative">
+                        <input type="text" name="search" placeholder="Cari Informasi"
+                            class="pl-8 pr-3 py-1 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300" value="{{ request('search') }}">
+                        <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
+                    </div>
+                </form>
                 <a href="{{route('login')}}" class="text-white px-4 py-2 rounded hover:bg-blue-700 spmb">Login</a>
             </div>
         </div>
