@@ -273,12 +273,14 @@
 </section>
 
 <br><br>
-
 <!-- Slider Section -->
 <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-  <div class="mb-6">
-    <p class="text-primary font-semibold text-blue-600">Jurusan di sekolah</p>
-    <h2 class="text-2xl sm:text-3xl font-bold leading-tight mt-2">
+  <!-- Text Section (sudah diperbaiki) -->
+  <div class="mb-6 text-center sm:text-left">
+    <p class="text-primary font-semibold text-blue-600 break-words text-balance">
+      Jurusan di sekolah
+    </p>
+    <h2 class="text-2xl sm:text-3xl font-bold leading-tight mt-2 break-words text-balance">
       Pilih Jurusan Sesuai Minat Anda
     </h2>
   </div>
@@ -312,8 +314,7 @@
             </div>
           </div>
           <div class="p-5 sm:p-6">
-            <p class="text-slate-700 leading-relaxed mt-4">
-              Jurusan RPL adalah bidang di SMK yang mempelajari pembuatan dan pengembangan perangkat lunak
+<p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal">              Jurusan RPL adalah bidang di SMK yang mempelajari pembuatan dan pengembangan perangkat lunak
               untuk mencetak tenaga IT profesional.
             </p>
           </div>
@@ -341,13 +342,12 @@
             </div>
           </div>
           <div class="p-5 sm:p-6">
-            <p class="text-slate-700 leading-relaxed mt-4">
-              Jurusan Bisnis Digital mempersiapkan siswa mengelola bisnis digital, membuka peluang
+<p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal">              Jurusan Bisnis Digital mempersiapkan siswa mengelola bisnis digital, membuka peluang
               wirausaha, dan mencetak profesional siap pakai.
             </p>
           </div>
           <div class="p-5 sm:p-6 -mt-2">
-            <a href="#rpl" class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+            <a href="#bd" class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
               Selengkapnya
               <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -370,13 +370,12 @@
             </div>
           </div>
           <div class="p-5 sm:p-6">
-            <p class="text-slate-700 leading-relaxed mt-4">
-              Jurusan Akuntansi SMK 6 Jember mempelajari pencatatan dan pelaporan keuangan untuk mendukung
+<p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal">              Jurusan Akuntansi SMK 6 Jember mempelajari pencatatan dan pelaporan keuangan untuk mendukung
               keputusan bisnis.
             </p>
           </div>
           <div class="p-5 sm:p-6 -mt-2">
-            <a href="#rpl" class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+            <a href="#akl" class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
               Selengkapnya
               <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -390,6 +389,7 @@
 
   <div class="mt-6 flex items-center justify-center gap-2" id="dots"></div>
 </section>
+
 
 <!-- Berita dan Pengumuman -->
 <main class="container mx-auto px-4 py-8">
