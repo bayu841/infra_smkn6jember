@@ -61,7 +61,7 @@
             <ul id="menu"
                 class="hidden flex-col md:flex md:flex-row md:items-center md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow md:shadow-none px-6 py-4 md:p-0 space-y-3 md:space-y-0">
 
-                <li><a href="#" class="block text-black hover:text-blue-600">Beranda</a></li>
+                <li><a href="/" class="block text-black hover:text-blue-600">Beranda</a></li>
 
                 <!-- Dropdown Profil -->
                 <li class="relative">

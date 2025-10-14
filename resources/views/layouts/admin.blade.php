@@ -38,7 +38,7 @@
                     <i class="fas fa-tachometer-alt w-6"></i>
                     <span class="mx-4">Dashboard</span>
                 </a>
-                <a href="{{ route('news.index') }}" class="flex items-center px-4 py-2 mt-1 text-white hover:bg-blue-700 {{ request()->is('admin/news*') ? 'bg-blue-700' : '' }}">
+                <a href="{{ route('admin.news.index') }}" class="flex items-center px-4 py-2 mt-1 text-white hover:bg-blue-700 {{ request()->is('admin/news*') ? 'bg-blue-700' : '' }}">
                     <i class="fas fa-newspaper w-6"></i>
                     <span class="mx-4">Berita</span>
                 </a>

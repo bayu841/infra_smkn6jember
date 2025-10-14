@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\PublicBeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('brandingsmk6.studioenem');
+    return view('rpl');
 });
-Route::get('/home', function () {
-    return view('home');
+Route::get('/dkv', function(){
+    return view('dkv');
+});
+Route::get('/bd', function(){
+    return view('bd');
+});
+Route::get('/akl', function(){
+    return view('akl');
+});
+Route::get('/mp', function(){
+    return view('mp');
+});
+Route::get('/kkbt', function(){
+    return view('kkbt');
 });
