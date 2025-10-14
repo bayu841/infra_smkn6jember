@@ -191,7 +191,7 @@
     </nav>
 
     <!-- Main content -->
-    <main class="pt-16">
+    <main class="pt-16 " style="overflow-x: hidden;">
         @yield('content')
     </main>
 
