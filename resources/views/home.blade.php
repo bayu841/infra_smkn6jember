@@ -651,12 +651,12 @@
                             <!-- CARD 2 -->
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group"
                                 style="height:50vh;">
-                                <img src="{{ asset('image/rpl/fas2.png') }}" alt="Teaching Factory"
+                                <img src="{{ asset('image/eskul/pramuka.png') }}" alt="Teaching Factory"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
 
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Marching Band</span>
+                                    <span class="text-white text-xl font-semibold">Pramuka</span>
                                 </div>
                             </figure>
                         </div>
