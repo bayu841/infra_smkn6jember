@@ -6,7 +6,21 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-4">{{ $berita->title }}</h1>
-                <p class="text-gray-500 text-sm mb-6">Dipublikasikan pada {{ $berita->created_at->format('d F Y') }}</p>
+                <div class="flex items-center text-gray-500 text-sm mb-6">
+                    <span>Dipublikasikan pada {{ $berita->created_at->format('d F Y') }}</span>
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-eye mr-1"></i>
+                    <span>
+                        @php
+                            $views = $berita->views;
+                            if ($views >= 1000) {
+                                echo round($views / 1000, 1) . 'k dilihat';
+                            } else {
+                                echo $views . ' dilihat';
+                            }
+                        @endphp
+                    </span>
+                </div>
 
                 <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
                     class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
@@ -34,9 +48,9 @@
                 </div>
 
                 <div class="mt-12 border-t pt-8">
-                    <a href="{{ route('berita.index') }}" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                    <a href="{{ route('berita.index') }}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
                         <i class="fas fa-arrow-left mr-2"></i>
-                        Kembali ke Semua Berita
+                        Kembali ke Halaman Berita
                     </a>
                 </div>
             </div>
