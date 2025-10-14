@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PublicBeritaController;
 use App\Models\Berita;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,11 +29,22 @@ Route::get('/home', function () {
 Route::get('/berita', [PublicBeritaController::class, 'index'])->name('berita.index');
 Route::get('/berita/{berita}', [PublicBeritaController::class, 'show'])->name('berita.show');
 
+// Auth Routes
+Route::middleware('guest')->group(function () {
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [LoginController::class, 'login']);
+});
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 
 // Admin Routes
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.dashboard');
+        $beritas = Berita::latest()->take(3)->get();
+        $beritaCount = Berita::count();
+        $userCount = User::count();
+        $latestUser = User::latest()->first();
+        return view('admin.dashboard', compact('beritas', 'beritaCount', 'userCount', 'latestUser'));
     })->name('dashboard');
 
     Route::resource('news', BeritaController::class);

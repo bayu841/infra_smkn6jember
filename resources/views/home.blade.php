@@ -855,7 +855,7 @@
             <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
 
             <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-                <div class="w-64 h-64 bg-white p-4 rounded-xl shadow">
+                <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
                     <canvas id="tracerChart"></canvas>
                 </div>
 
@@ -981,14 +981,14 @@
             <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
                 <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
 
-                <form action="#" method="POST" class="space-y-4">
-                    <input type="text" placeholder="Nama"
+                <form id="contactForm" action="#" method="POST" class="space-y-4">
+                    <input type="text" id="name" placeholder="Nama"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="email" placeholder="Email"
+                    <input type="email" id="email" placeholder="Email"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="tel" placeholder="No Telepon"
+                    <input type="tel" id="phone" placeholder="No Telepon"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <textarea rows="4" placeholder="Pesan"
+                    <textarea id="message" rows="4" placeholder="Pesan"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     <button type="submit"
                         class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
@@ -999,6 +999,9 @@
         </section>
 
     </section>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
         // Lazy-load images with IntersectionObserver
@@ -1266,22 +1269,24 @@
                 }, 3000);
             }
 
-            // TRACER CHART
-            if (window.Chart) {
-                const tracerCtx = document.getElementById('tracerChart')?.getContext('2d');
-                if (tracerCtx) {
+            // TRACER CHART - Fixed initialization
+            const tracerCtx = document.getElementById('tracerChart');
+            if (tracerCtx) {
+                // Check if Chart is loaded
+                if (typeof Chart !== 'undefined') {
                     new Chart(tracerCtx, {
                         type: 'pie',
                         data: {
                             labels: ['Siswa Bekerja', 'Siswa Melanjutkan', 'Siswa Wirausaha'],
                             datasets: [{
-                                data: [45, 35, 20],
-                                backgroundColor: ['#3C71F8', '#4ADE80', '#FACC15'],
+                                data: [62.5, 25, 12.5],
+                                backgroundColor: ['#67e8f9', '#06b6d4', '#0891b2'],
                                 borderWidth: 1
                             }]
                         },
                         options: {
                             responsive: true,
+                            maintainAspectRatio: false,
                             plugins: {
                                 legend: {
                                     position: 'bottom',
@@ -1289,12 +1294,27 @@
                                         color: '#374151',
                                         font: {
                                             size: 14
+                                        },
+                                        padding: 20
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            let label = context.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            label += context.parsed + '%';
+                                            return label;
                                         }
                                     }
                                 }
                             }
                         }
                     });
+                } else {
+                    console.error('Chart.js library not loaded');
                 }
             }
         });

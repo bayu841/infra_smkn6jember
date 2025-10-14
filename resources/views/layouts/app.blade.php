@@ -142,7 +142,6 @@
                     </button>
                     <ul id="profilDropdown"
                         class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Sejarah</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a></li>
                     </ul>
@@ -161,11 +160,12 @@
                         class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Berita</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Pengumuman</a></li>
+                        <li><a href="https://spmbjatim.net/" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 hover:bg-gray-100">SPMB</a></li>
                     </ul>
                 </li>
 
-                <li><a href="#" class="block text-black hover:text-blue-600">BKK</a></li>
-                <li><a href="#" class="block text-black hover:text-blue-600">Kontak</a></li>
+                <li><a href="" class="block text-black hover:text-blue-600">BKK</a></li>
+                <li><a href="#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>
 
                 <!-- Search + Button (mobile only) -->
                 <div class="md:hidden flex flex-col space-y-3 w-full mt-3">
@@ -174,7 +174,7 @@
                             class="pl-8 pr-3 py-1 w-full rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
                         <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
                     </div>
-                    <a href="https://spmbjatim.net/" class="text-white px-4 py-2 rounded spmb text-center" target="_blank" rel="noopener noreferrer">SPMB</a>
+                    <a href="{{route('login')}}" class="text-white px-4 py-2 rounded spmb text-center" >Login</a>
                 </div>
             </ul>
 
@@ -185,7 +185,7 @@
                         class="pl-8 pr-3 py-1 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
                     <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
                 </div>
-                <a href="https://spmbjatim.net/" target="_blank" rel="noopener noreferrer" class="text-white px-4 py-2 rounded hover:bg-blue-700 spmb">SPMB</a>
+                <a href="{{route('login')}}" class="text-white px-4 py-2 rounded hover:bg-blue-700 spmb">Login</a>
             </div>
         </div>
     </nav>

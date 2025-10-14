@@ -56,9 +56,12 @@
             </nav>
 
             <div class="p-4 border-t border-blue-700">
-                <a href="#" class="flex items-center justify-center py-2 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg shadow hover:from-red-600 hover:to-pink-600 transition-all">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Keluar
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="flex w-full items-center justify-center py-2 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg shadow hover:from-red-600 hover:to-pink-600 transition-all">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Keluar
+                    </button>
+                </form>
             </div>
         </div>
 
@@ -105,12 +108,12 @@
         <button id="user-menu-button"
           class="flex items-center space-x-3 group focus:outline-none transition-all duration-300">
           <div class="text-right">
-            <p class="text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors">Hi, User</p>
-            <p class="text-xs text-gray-500">user@gmail.com</p>
+            <p class="text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors">Hi, {{ Auth::user()->name }}</p>
+            <p class="text-xs text-gray-500">{{ Auth::user()->email }}</p>
           </div>
           <div class="relative">
             <img class="w-10 h-10 rounded-full border-2 border-transparent group-hover:border-blue-400 transition-all duration-300"
-                 src="https://source.unsplash.com/random/40x40"
+                 src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=random"
                  alt="User Avatar">
           </div>
         </button>
@@ -120,7 +123,10 @@
              class="hidden absolute right-0 mt-3 w-48 bg-white rounded-lg shadow-xl py-2 border border-gray-100 transition-all duration-200">
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Profile</a>
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Settings</a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Logout</a>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Logout</button>
+          </form>
         </div>
       </div>
     </div>
