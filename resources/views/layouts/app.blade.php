@@ -106,7 +106,7 @@
                             class="pl-8 pr-3 py-1 w-full rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
                         <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
                     </div>
-                    <a href="#" class="text-white px-4 py-2 rounded spmb text-center">SPMB</a>
+                    <a href="https://spmbjatim.net/" class="text-white px-4 py-2 rounded spmb text-center" target="_blank" rel="noopener noreferrer">SPMB</a>
                 </div>
             </ul>
 
@@ -117,7 +117,7 @@
                         class="pl-8 pr-3 py-1 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
                     <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
                 </div>
-                <a href="#" class="text-white px-4 py-2 rounded hover:bg-blue-700 spmb">SPMB</a>
+                <a href="https://spmbjatim.net/" target="_blank" rel="noopener noreferrer" class="text-white px-4 py-2 rounded hover:bg-blue-700 spmb">SPMB</a>
             </div>
         </div>
     </nav>

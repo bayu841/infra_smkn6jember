@@ -32,6 +32,7 @@ class BeritaController extends Controller
     {
         $this->validate($request, [
             'title'   => 'required|min:5',
+            'description' => 'required|min:10',
             'content' => 'required|min:10',
             'image'   => 'required|image|mimes:jpeg,jpg,png|max:2048'
         ]);
@@ -43,6 +44,7 @@ class BeritaController extends Controller
         Berita::create([
             'image'     => $image->hashName(),
             'title'     => $request->title,
+            'description' => $request->description,
             'content'   => $request->content
         ]);
 
@@ -73,6 +75,7 @@ class BeritaController extends Controller
     {
         $this->validate($request, [
             'title'   => 'required|min:5',
+            'description' => 'required|min:10',
             'content' => 'required|min:10',
             'image'   => 'image|mimes:jpeg,jpg,png|max:2048'
         ]);
@@ -86,11 +89,13 @@ class BeritaController extends Controller
             $news->update([
                 'image'     => $image->hashName(),
                 'title'     => $request->title,
+                'description' => $request->description,
                 'content'   => $request->content
             ]);
         } else {
             $news->update([
                 'title'     => $request->title,
+                'description' => $request->description,
                 'content'   => $request->content
             ]);
         }
