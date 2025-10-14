@@ -84,3 +84,6 @@ Route::get('/kkbt', function () {
 Route::get('/detail', function () {
     return view('product.detail');
 });
+Route::get('/visimisi', function () {
+    return view('visimisi');
+});

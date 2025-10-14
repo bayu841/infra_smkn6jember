@@ -41,6 +41,9 @@
             margin: 6px;
         }
 
+        .major {
+            background-image: url('image/home/bgjurusan.png');
+        }
 
         /* About offset */
         .about {
@@ -433,149 +436,263 @@
 
     <br><br>
     <!-- Slider Section -->
-    <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-        <!-- Text Section (sudah diperbaiki) -->
-        <div class="mb-6 text-center sm:text-left">
-            <p class="text-primary font-semibold text-blue-600 break-words text-balance">
-                Jurusan di sekolah
-            </p>
-            <h2 class="text-2xl sm:text-3xl font-bold leading-tight mt-2 break-words text-balance">
-                Pilih Jurusan Sesuai Minat Anda
-            </h2>
-        </div>
-
-        <div class="relative">
-            <button id="btnPrev"
-                class="hidden sm:grid absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-white shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-slate-700" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M15 18l-6-6 6-6" />
-                </svg>
-            </button>
-
-            <button id="btnNext"
-                class="hidden sm:grid absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-white shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-slate-700" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M9 6l6 6-6 6" />
-                </svg>
-            </button>
-
-            <div id="track"
-                class="no-scrollbar overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 sm:gap-8 pb-3">
-                <!-- Slide 1 -->
-                <article
-                    class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
-                    <div class="card-grad-1 rounded-t-2xl overflow-hidden">
-                        <div class="h-48 sm:h-60 lazy-image-container">
-                            <div class="image-placeholder">
-                                <div class="placeholder-spinner"></div>
-                            </div>
-                            <img class="lazy-image w-full h-full object-cover" data-src="image/home/rpl.png"
-                                alt="Rekayasa Perangkat Lunak">
-                            <div class="-mt-5 px-5">
-                                <span
-                                    class="inline-block px-4 py-2 rounded-full bg-red-600 text-white text-sm font-semibold shadow text-major">
-                                    Rekayasa Perangkat Lunak
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5 sm:p-6">
-                            <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan RPL adalah
-                                bidang di SMK yang mempelajari pembuatan dan pengembangan perangkat lunak
-                                untuk mencetak tenaga IT profesional.
-                            </p>
-                        </div>
-                        <div class="p-5 sm:p-6 -mt-2">
-                            <a href="#rpl"
-                                class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
-                                Selengkapnya
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Slide 2 -->
-                <article
-                    class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
-                    <div class="card-grad-1 rounded-t-2xl overflow-hidden">
-                        <div class="h-48 sm:h-60 lazy-image-container">
-                            <div class="image-placeholder">
-                                <div class="placeholder-spinner"></div>
-                            </div>
-                            <img class="lazy-image w-full h-full object-cover" data-src="image/home/bd.png"
-                                alt="Bisnis Digital">
-                            <div class="-mt-5 px-5">
-                                <span
-                                    class="inline-block px-4 py-2 rounded-full bg-orange-600 text-white text-sm font-semibold shadow text-major">
-                                    Bisnis Digital
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5 sm:p-6">
-                            <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan Bisnis
-                                Digital mempersiapkan siswa mengelola bisnis digital, membuka peluang
-                                wirausaha, dan mencetak profesional siap pakai.
-                            </p>
-                        </div>
-                        <div class="p-5 sm:p-6 -mt-2">
-                            <a href="#bd"
-                                class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
-                                Selengkapnya
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Slide 3 -->
-                <article
-                    class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
-                    <div class="card-grad-1 rounded-t-2xl overflow-hidden">
-                        <div class="h-48 sm:h-60 lazy-image-container">
-                            <div class="image-placeholder">
-                                <div class="placeholder-spinner"></div>
-                            </div>
-                            <img class="lazy-image w-full h-full object-cover" data-src="image/home/akl.png"
-                                alt="Akuntansi">
-                            <div class="-mt-5 px-5">
-                                <span
-                                    class="inline-block px-4 py-2 rounded-full bg-green-600 text-white text-sm font-semibold shadow text-major">
-                                    Akuntansi
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5 sm:p-6">
-                            <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan Akuntansi
-                                SMK 6 Jember mempelajari pencatatan dan pelaporan keuangan untuk mendukung
-                                keputusan bisnis.
-                            </p>
-                        </div>
-                        <div class="p-5 sm:p-6 -mt-2">
-                            <a href="#akl"
-                                class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
-                                Selengkapnya
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
+    <div class="major">
+        <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+            <!-- Text Section (sudah diperbaiki) -->
+            <div class="mb-6 text-center sm:text-left">
+                <p class="text-primary font-semibold text-blue-600 break-words text-balance">
+                    Jurusan di sekolah
+                </p>
+                <h2 class="text-2xl sm:text-3xl font-bold leading-tight mt-2 break-words text-balance">
+                    Pilih Jurusan Sesuai Minat Anda
+                </h2>
             </div>
-        </div>
 
-        <div class="mt-6 flex items-center justify-center gap-2" id="dots"></div>
-    </section>
+            <div class="relative">
+                <button id="btnPrev"
+                    class="hidden sm:grid absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-white shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-slate-700" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
 
+                <button id="btnNext"
+                    class="hidden sm:grid absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-white shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-slate-700" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 6l6 6-6 6" />
+                    </svg>
+                </button>
+
+                <div id="track"
+                    class="no-scrollbar overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 sm:gap-8 pb-3">
+                    <!-- Slide 1 -->
+                    <article
+                        class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
+                        <div class="card-grad-1 rounded-t-2xl overflow-hidden">
+                            <div class="h-48 sm:h-60 lazy-image-container">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/rpl.png"
+                                    alt="Rekayasa Perangkat Lunak">
+                                <div class="-mt-5 px-5">
+                                    <span
+                                        class="inline-block px-4 py-2 rounded-full bg-red-600 text-white text-sm font-semibold shadow text-major">
+                                        Rekayasa Perangkat Lunak
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan RPL
+                                    adalah
+                                    jurusan yang mempelajari perancangan, pembuatan, dan pengelolaan perangkat lunak, mulai dari aplikasi
+                                    hingga sistem komputer, untuk mendukung kebutuhan teknologi dan solusi digital.
+                                </p>
+                            </div>
+                            <div class="p-5 sm:p-6 -mt-2">
+                                <a href="#rpl"
+                                    class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+                                    Selengkapnya
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 2 -->
+                    <article
+                        class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
+                        <div class="card-grad-1 rounded-t-2xl overflow-hidden">
+                            <div class="h-48 sm:h-60 lazy-image-container">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/bd.png"
+                                    alt="Bisnis Digital">
+                                <div class="-mt-5 px-5">
+                                    <span
+                                        class="inline-block px-4 py-2 rounded-full bg-orange-600 text-white text-sm font-semibold shadow text-major">
+                                        Bisnis Digital
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
+                                    BD (Bisnis Digital)
+                                    SMK 6 Jember mempelajari strategi pemasaran online, manajemen e-commerce, dan
+                                    pengelolaan bisnis digital untuk mengembangkan kemampuan berwirausaha di era modern.
+                                </p>
+                            </div>
+                            <div class="p-5 sm:p-6 -mt-2">
+                                <a href="#bd"
+                                    class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+                                    Selengkapnya
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 3 -->
+                    <article
+                        class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
+                        <div class="card-grad-1 rounded-t-2xl overflow-hidden">
+                            <div class="h-48 sm:h-60 lazy-image-container">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/akl.png"
+                                    alt="Akuntansi">
+                                <div class="-mt-5 px-5">
+                                    <span
+                                        class="inline-block px-4 py-2 rounded-full bg-green-600 text-white text-sm font-semibold shadow text-major">
+                                        Akuntansi
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
+                                    Akuntansi Keuangan Lembaga di 
+                                    SMK 6 Jember mempelajari pencatatan, pengelolaan, dan pelaporan keuangan untuk mendukung
+                                    pengambilan keputusan bisnis yang tepat dan akurat.
+                                </p>
+                            </div>
+                            <div class="p-5 sm:p-6 -mt-2">
+                                <a href="#akl"
+                                    class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+                                    Selengkapnya
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
+                        <div class="card-grad-1 rounded-t-2xl overflow-hidden">
+                            <div class="h-48 sm:h-60 lazy-image-container">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/mp.png"
+                                    alt="Manajemen Perkantoran">
+                                <div class="-mt-5 px-5">
+                                    <span
+                                        class="inline-block px-4 py-2 rounded-full bg-red-600 text-white text-sm font-semibold shadow text-major">
+                                        Manajemen Perkantoran
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5 sm:p-6 ">
+                                <p class="text-slate-900 leading-relaxed mt-4 break-words whitespace-normal">Jurusan
+                                    Perkantoran
+                                    SMK 6 Jember mempelajari manajemen administrasi, pengelolaan dokumen, komunikasi bisnis,
+                                    dan penggunaan teknologi perkantoran untuk mendukung kelancaran operasional perusahaan.
+                                </p>
+                            </div>
+                            <div class="p-5 sm:p-6 -mt-2">
+                                <a href="#rpl"
+                                    class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+                                    Selengkapnya
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
+                        <div class="card-grad-1 rounded-t-2xl overflow-hidden">
+                            <div class="h-48 sm:h-60 lazy-image-container">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/rpl.png"
+                                    alt="Rekayasa Perangkat Lunak">
+                                <div class="-mt-5 px-5">
+                                    <span
+                                        class="inline-block px-4 py-2 rounded-full bg-red-600 text-white text-sm font-semibold shadow text-major">
+                                        Desain Komunikasi Visual
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
+                                    DKV
+                                    SMK 6 Jember mempelajari seni dan teknologi visual untuk komunikasi, mulai dari desain
+                                    grafis, ilustrasi, hingga media digital, guna menciptakan karya kreatif yang efektif dan
+                                    menarik.
+                                </p>
+                            </div>
+                            <div class="p-5 sm:p-6 -mt-2">
+                                <a href="#rpl"
+                                    class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+                                    Selengkapnya
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="min-w-[85%] sm:min-w-[46%] lg:min-w-[31%] snap-start rounded-2xl bg-white shadow ring-1 ring-slate-100 fade-in">
+                        <div class="card-grad-1 rounded-t-2xl overflow-hidden">
+                            <div class="h-48 sm:h-60 lazy-image-container">
+                                <div class="image-placeholder">
+                                    <div class="placeholder-spinner"></div>
+                                </div>
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/rpl.png"
+                                    alt="Rekayasa Perangkat Lunak">
+                                <div class="-mt-5 px-5">
+                                    <span
+                                        class="inline-block px-4 py-2 rounded-full bg-red-600 text-white text-sm font-semibold shadow text-major">
+                                        Kriya Kreativ Batik Dan Tekstil
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
+                                    KBT Batik
+                                    SMK 6 Jember mempelajari teknik pembuatan dan desain batik, mulai dari pemilihan motif,
+                                    pewarnaan, hingga proses produksi, untuk mendukung kreativitas dan industri kerajinan
+                                    tradisional.
+                                </p>
+                            </div>
+                            <div class="p-5 sm:p-6 -mt-2">
+                                <a href="#rpl"
+                                    class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
+                                    Selengkapnya
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-center gap-2" id="dots"></div>
+        </section>
+    </div>
 
     <!-- Berita dan Pengumuman -->
     <main class="container mx-auto px-4 py-8">
@@ -593,8 +710,7 @@
                             <div class="placeholder-spinner"></div>
                         </div>
                         <img class="lazy-image w-full h-full object-cover"
-                            data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}"
-                            alt="{{ $beritas[0]->title }}">
+                            data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}" alt="{{ $beritas[0]->title }}">
                     </div>
                     <div class="des p-6">
                         <div class="flex justify-between items-center mb-3">
