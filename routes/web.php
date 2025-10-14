@@ -15,11 +15,36 @@ use App\Http\Controllers\PublicBeritaController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',function () {
+    return redirect('/home');
+});
 Route::get('/home', function () {
-    return view('home');
+    $beritas = Berita::latest()->take(3)->get();
+    return view('home', compact('beritas'));
+})->name('halaman-utama');
+
+// Public Berita Routes
+Route::get('/berita', [PublicBeritaController::class, 'index'])->name('berita.index');
+Route::get('/berita/{berita}', [PublicBeritaController::class, 'show'])->name('berita.show');
+
+
+// Admin Routes
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    Route::resource('news', BeritaController::class);
 });
 
-Route::get('/', function () {
+// Temporary route for branding page
+Route::get('/brand', function(){
+    return view('brandingsmk6.batikenem');
+});
+
+
+// Jurusan
+Route::get('/rpl', function(){
     return view('rpl');
 });
 Route::get('/dkv', function(){
