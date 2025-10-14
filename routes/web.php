@@ -68,3 +68,6 @@ Route::get('/mp', function () {
 Route::get('/kkbt', function () {
     return view('kkbt');
 });
+Route::get('/detail', function () {
+    return view('product.detail');
+});
