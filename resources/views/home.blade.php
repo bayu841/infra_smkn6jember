@@ -1559,6 +1559,12 @@
             const form = document.getElementById('contactForm');
             form?.addEventListener('submit', function(e) {
                 e.preventDefault();
+
+                const submitButton = form.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.innerHTML = 'Mengirim...';
+
                 const name = document.getElementById('name')?.value?.trim();
                 const email = document.getElementById('email')?.value?.trim();
                 const phone = document.getElementById('phone')?.value?.trim();
@@ -1566,10 +1572,18 @@
 
                 if (!name || !email || !message) {
                     showNotification('Harap isi semua field yang diperlukan', 'error');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
                     return;
                 }
-                showNotification('Pesan Anda telah berhasil dikirim!', 'success');
-                form.reset();
+
+                // Simulate form submission (replace with actual AJAX call if needed)
+                setTimeout(() => {
+                    showNotification('Pesan Anda telah berhasil dikirim!', 'success');
+                    form.reset();
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }, 2000); // Simulate a 2-second submission time
             });
 
             function showNotification(message, type) {
