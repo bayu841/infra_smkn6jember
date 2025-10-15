@@ -1307,7 +1307,7 @@
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                     <textarea id="message" name="message" rows="4" placeholder="Pesan"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh712eYGp_QCbuMfJvWf"></div>
+                    <div class="g-recaptcha" data-sitekey="{{ config('recaptcha.sitekey') }}"></div>
                     <button type="submit"
                         class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
                         Kirim Pesan
