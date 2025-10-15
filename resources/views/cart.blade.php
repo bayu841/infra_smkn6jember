@@ -3,7 +3,7 @@
 @section('title', 'Keranjang Belanja')
 
 @section('content')
-<div class="container mx-auto px-4 py-12 fade-in">
+<div class="container mx-auto px-4 py-12">
     <h1 class="text-3xl font-bold text-gray-800 mb-8">Keranjang Belanja Anda</h1>
 
     @if(session('cart') && count(session('cart')) > 0)
@@ -20,9 +20,8 @@
                     @php $total = 0 @endphp
                     @foreach(session('cart') as $id => $details)
                         @php $total += $details['price'] * $details['quantity'] @endphp
-                        <div class="p-6 flex items-center gap-6 lazy-image-container">
-                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                            <img class="lazy-image w-28 h-28 rounded-lg object-cover border border-gray-200" data-src="{{ asset($details['image']) }}" alt="{{ $details['name'] }}">
+                        <div class="p-6 flex items-center gap-6">
+                            <img src="{{ asset($details['image']) }}" alt="{{ $details['name'] }}" class="w-28 h-28 rounded-lg object-cover border border-gray-200">
                             <div class="flex-grow">
                                 <h3 class="font-semibold text-xl text-gray-800 mb-1">{{ $details['name'] }}</h3>
                                 <p class="text-gray-600 text-lg">Rp {{ number_format($details['price'], 0, ',', '.') }}</p>
@@ -39,7 +38,7 @@
                                     <button type="submit" class="ml-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 text-sm">Update</button>
                                 </form>
                                 <!-- Remove Item -->
-                                <form action="{{ route('cart.remove') }}" method="POST" onsubmit="event.preventDefault(); confirmRemove(this);">
+                                <form action="{{ route('cart.remove') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini dari keranjang?');">
                                     @csrf
                                     @method('DELETE')
                                     <input type="hidden" name="product_id" value="{{ $id }}">
@@ -115,100 +114,73 @@
 @push('scripts')
     <script src="{{ config('midtrans.snap_url') }}" data-client-key="{{ config('midtrans.client_key') }}"></script>
     <script>
-    // SweetAlert2 for removing item from cart
-    window.confirmRemove = function(form) {
-        Swal.fire({
-            title: 'Hapus dari Keranjang?',
-            text: "Produk ini akan dihapus dari keranjang Anda.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Ya, hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                form.submit();
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('checkout-modal');
+    const checkoutButton = document.getElementById('checkout-button');
+    const closeModalButton = document.getElementById('close-modal');
+    const checkoutForm = document.getElementById('checkout-form');
+
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', () => modal.classList.remove('hidden'));
+    }
+    if (closeModalButton) {
+        closeModalButton.addEventListener('click', () => modal.classList.add('hidden'));
+    }
+
+    // Quantity controls
+    document.querySelectorAll('.quantity-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.dataset.id;
+            const input = document.querySelector(`#update-form-${productId} input[name="quantity"]`);
+            let quantity = parseInt(input.value);
+
+            if (this.dataset.action === 'decrement') {
+                quantity = quantity > 1 ? quantity - 1 : 1;
+            } else if (this.dataset.action === 'increment') {
+                quantity++;
             }
+            input.value = quantity;
+            // Automatically submit the form after quantity change
+            document.querySelector(`#update-form-${productId}`).submit();
         });
-    };
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const modal = document.getElementById('checkout-modal');
-        const checkoutButton = document.getElementById('checkout-button');
-        const closeModalButton = document.getElementById('close-modal');
-        const checkoutForm = document.getElementById('checkout-form');
-
-        if (checkoutButton) {
-            checkoutButton.addEventListener('click', () => modal.classList.remove('hidden'));
-        }
-        if (closeModalButton) {
-            closeModalButton.addEventListener('click', () => modal.classList.add('hidden'));
-        }
-
-        // Quantity controls
-        document.querySelectorAll('.quantity-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const productId = this.dataset.id;
-                const input = document.querySelector(`#update-form-${productId} input[name="quantity"]`);
-                let quantity = parseInt(input.value);
-
-                if (this.dataset.action === 'decrement') {
-                    quantity = quantity > 1 ? quantity - 1 : 1;
-                } else if (this.dataset.action === 'increment') {
-                    quantity++;
-                }
-                input.value = quantity;
-                // Automatically submit the form after quantity change
-                document.querySelector(`#update-form-${productId}`).submit();
-            });
-        });
-
-        if (checkoutForm) {
-            checkoutForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData.entries());
-
-                fetch('{{ route("checkout") }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.snap_token) {
-                        modal.classList.add('hidden');
-                        window.snap.pay(data.snap_token, {
-                            onSuccess: function(result) { 
-                                Swal.fire('Berhasil!', 'Pembayaran Anda berhasil.', 'success').then(() => {
-                                    window.location.href = '{{ route("payment.success") }}'; 
-                                });
-                            },
-                            onPending: function(result) { 
-                                Swal.fire('Menunggu Pembayaran', 'Menunggu pembayaran Anda.', 'info'); 
-                            },
-                            onError: function(result) { 
-                                Swal.fire('Gagal!', 'Pembayaran Gagal!', 'error'); 
-                            },
-                            onClose: function() { 
-                                Swal.fire('Dibatalkan', 'Anda menutup pop-up pembayaran.', 'warning'); 
-                            }
-                        });
-                    } else {
-                        Swal.fire('Error!', data.error || 'Gagal mendapatkan token pembayaran.', 'error');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    Swal.fire('Error!', 'Terjadi kesalahan koneksi.', 'error');
-                });
-            });
-        }
     });
+
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('{{ route("checkout") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.snap_token) {
+                    modal.classList.add('hidden');
+                    window.snap.pay(data.snap_token, {
+                        onSuccess: function(result) { 
+                            window.location.href = '{{ route("payment.success") }}'; 
+                        },
+                        onPending: function(result) { alert('Menunggu pembayaran Anda'); },
+                        onError: function(result) { alert('Pembayaran Gagal!'); }
+                    });
+                } else {
+                    alert(data.error || 'Gagal mendapatkan token pembayaran.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan koneksi.');
+            });
+        });
+    }
+});
     </script>
 @endpush

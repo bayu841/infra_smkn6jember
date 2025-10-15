@@ -376,15 +376,12 @@
     </section>
 
     <div class="brand">
-        <div class="lazy-image-container">
-            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-            <img class="lazy-image" data-src="{{ asset('image/logooo.png') }}" alt="Brand Logo">
-        </div>
+        <img src="{{ asset('image/logooo.png') }}" alt="">
     </div>
 
     <br>
 
-    <section class="about fade-in">
+    <section class="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-4 md:px-12 py-10 gap-6 md:gap-1 md:ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1">
@@ -406,12 +403,7 @@
             <div class="relative w-full max-w-xs sm:max-w-sm md:w-64 h-full card-profile mx-auto md:mx-0">
                 <!-- Card Utama -->
                 <div
-                    class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center lazy-image-container">
-                    <div class="image-placeholder">
-                        <div class="placeholder-spinner"></div>
-                    </div>
-                    <img class="lazy-image w-full h-full rounded-bl-xl object-cover"
-                        data-src="{{ asset('image/home/kepalasekolah.png') }}" alt="Kepala Sekolah">
+                    class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center">
                     <div
                         class="absolute bottom-0 left-0 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
                         Kepala Sekolah
@@ -436,7 +428,7 @@
 
     <br><br>
     <!-- Slider Section -->
-    <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 fade-in">
+    <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <!-- Text Section (sudah diperbaiki) -->
         <div class="mb-6 text-center sm:text-left">
             <p class="text-primary font-semibold text-blue-600 break-words text-balance">
@@ -581,7 +573,7 @@
 
 
     <!-- Berita dan Pengumuman -->
-    <main class="container mx-auto px-4 py-8 fade-in">
+    <main class="container mx-auto px-4 py-8">
         <div class="mb-8 text-center md:text-left">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Berita dan Pengumuman</h2>
             <p class="text-gray-600">Informasi terkini seputar kegiatan sekolah dan prestasi siswa</p>
@@ -590,15 +582,12 @@
         @if ($beritas->count() > 0)
             <div class="container flex flex-col lg:flex-row gap-8">
                 <!-- Kiri -->
-                <div class="lg:w-2/3 bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="lazy-image-container w-full" style="aspect-ratio: 16/9;">
-                        <div class="image-placeholder">
-                            <div class="placeholder-spinner"></div>
-                        </div>
-                        <img class="lazy-image w-full h-full object-cover"
-                            data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}"
-                            alt="{{ $beritas[0]->title }}">
-                    </div>
+                                <div class="lg:w-2/3 bg-white rounded-lg shadow-md overflow-hidden">
+                                    <div class="w-full" style="aspect-ratio: 16/9;">
+                                        <img class="w-full h-full object-cover"
+                                            src="{{ Storage::url('berita/' . $beritas[0]->image) }}"
+                                            alt="{{ $beritas[0]->title }}">
+                                    </div>
                     <div class="des p-6">
                         <div class="flex justify-between items-center mb-3">
                             <span
@@ -606,7 +595,9 @@
                             <span class="text-gray-500 text-sm">{{ $beritas[0]->created_at->format('d M Y') }}</span>
                         </div>
                         <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">{{ $beritas[0]->title }}</h1>
-                        <p class="text-gray-600 mb-6">{{ Str::limit($beritas[0]->content, 200) }}</p>
+<div class="text-gray-600 mb-6">
+    {!! Str::limit($beritas[0]->content, 200) !!}
+</div>
                         <a href="{{ route('berita.show', $beritas[0]) }}"
                             class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
                             Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
@@ -617,16 +608,13 @@
                 <!-- Kanan -->
                 <div class="lg:w-1/3 flex flex-col gap-6">
                     @if (isset($beritas[1]))
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                            <div class="lazy-image-container w-full" style="aspect-ratio: 16/9;">
-                                <div class="image-placeholder">
-                                    <div class="placeholder-spinner"></div>
-                                </div>
-                                <img class="lazy-image w-full h-full object-cover"
-                                    data-src="{{ Storage::url('berita/' . $beritas[1]->image) }}"
-                                    alt="{{ $beritas[1]->title }}">
-                            </div>
+                                                <div
+                                                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                                                    <div class="w-full" style="aspect-ratio: 16/9;">
+                                                        <img class="w-full h-full object-cover"
+                                                            src="{{ Storage::url('berita/' . $beritas[1]->image) }}"
+                                                            alt="{{ $beritas[1]->title }}">
+                                                    </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
@@ -643,16 +631,13 @@
                         </div>
                     @endif
                     @if (isset($beritas[2]))
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                            <div class="lazy-image-container w-full" style="aspect-ratio: 16/9;">
-                                <div class="image-placeholder">
-                                    <div class="placeholder-spinner"></div>
-                                </div>
-                                <img class="lazy-image w-full h-full object-cover"
-                                    data-src="{{ Storage::url('berita/' . $beritas[2]->image) }}"
-                                    alt="{{ $beritas[2]->title }}">
-                            </div>
+                                                <div
+                                                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                                                    <div class="w-full" style="aspect-ratio: 16/9;">
+                                                        <img class="w-full h-full object-cover"
+                                                            src="{{ Storage::url('berita/' . $beritas[2]->image) }}"
+                                                            alt="{{ $beritas[2]->title }}">
+                                                    </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
@@ -680,7 +665,7 @@
         @endif
     </main>
 
-    <section class="bg-[#4B6BFF] py-16 px-4 md:px-10 lg:px-16 fade-in">
+    <section class="bg-[#4B6BFF] py-16 px-4 md:px-10 lg:px-16">
         <div class="max-w-7xl mx-auto text-center lg:text-left">
             <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3">Produk Sekolah</h2>
             <p class="text-white/90 max-w-2xl mx-auto lg:mx-0 mb-12">
@@ -694,9 +679,9 @@
                     <div>
                         <h3 class="text-lg font-semibold text-gray-900 mb-1">Energi Enem</h3>
                         <p class="text-gray-500 text-sm mb-4">Air minum sehat hasil produksi oleh Depo SMKN 6 Jember</p>
-                        <div class="rounded-2xl overflow-hidden lazy-image-container">
-                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                            <img class="lazy-image w-full h-56 object-cover" data-src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem">
+                        <div class="rounded-2xl overflow-hidden">
+                            <img src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem"
+                                class="w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -717,9 +702,9 @@
                         <h3 class="text-lg font-semibold text-gray-900 mb-1">Batik Enem</h3>
                         <p class="text-gray-500 text-sm mb-4">Batik karya siswa SMKN 6 Jember yang memadukan tradisi dan
                             gaya modern.</p>
-                        <div class="rounded-2xl overflow-hidden lazy-image-container">
-                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                            <img class="lazy-image w-full h-56 object-cover" data-src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem">
+                        <div class="rounded-2xl overflow-hidden">
+                            <img src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem"
+                                class="w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -739,9 +724,9 @@
                     <div>
                         <h3 class="text-lg font-semibold text-gray-900 mb-1">Studio Enem</h3>
                         <p class="text-gray-500 text-sm mb-4">Studio foto kreatif karya siswa SMKN 6 Jember.</p>
-                        <div class="rounded-2xl overflow-hidden lazy-image-container">
-                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                            <img class="lazy-image w-full h-56 object-cover" data-src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem">
+                        <div class="rounded-2xl overflow-hidden">
+                            <img src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem"
+                                class="w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -760,7 +745,7 @@
 
     <br><br><br>
 
-    <section class="fasility bg-slate-900 px-4 md:px-10 py-16 md:py-20 fade-in">
+    <section class="fasility bg-slate-900 px-4 md:px-10 py-16 md:py-20">
         <div class="flex flex-col lg:flex-row items-start gap-10">
             <!-- Teks -->
             <div class="lg:w-1/3 ml-0 md:ml-5" style="margin-top: 5rem;">
@@ -780,20 +765,18 @@
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure lazy-image-container">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                <img data-src="{{ asset('image/eskul/paskib.png') }}" alt="Paskibraka"
-                                    class="lazy-image w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/paskib.png') }}" alt="Paskibraka"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                                     <span class="text-white text-xl font-semibold">Paskibraka</span>
                                 </div>
                             </figure>
                             <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure lazy-image-container">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                <img data-src="{{ asset('image/eskul/pmr.png') }}" alt="PMR"
-                                    class="lazy-image w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/pmr.png') }}" alt="PMR"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                                     <span class="text-white text-xl font-semibold">Palang Merah Remaja</span>
@@ -806,20 +789,18 @@
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure lazy-image-container">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                <img data-src="{{ asset('image/eskul/tari.png') }}" alt="Sanggar Tari"
-                                    class="lazy-image w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/tari.png') }}" alt="Sanggar Tari"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                                     <span class="text-white text-xl font-semibold">Sanggar Tari</span>
                                 </div>
                             </figure>
                             <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure lazy-image-container">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                <img data-src="{{ asset('image/rpl/fas2.png') }}" alt="Marching Band"
-                                    class="lazy-image w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/rpl/fas2.png') }}" alt="Marching Band"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                                     <span class="text-white text-xl font-semibold">Marching Band</span>
@@ -832,20 +813,18 @@
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure lazy-image-container">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                <img data-src="{{ asset('image/rpl/fas1.png') }}" alt="Hadroh"
-                                    class="lazy-image w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/rpl/fas1.png') }}" alt="Hadroh"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                                     <span class="text-white text-xl font-semibold">Hadroh</span>
                                 </div>
                             </figure>
                             <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure lazy-image-container">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                <img data-src="{{ asset('image/rpl/fas2.png') }}" alt="Osis"
-                                    class="lazy-image w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/rpl/fas2.png') }}" alt="Osis"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                                     <span class="text-white text-xl font-semibold">Osis</span>
@@ -859,7 +838,7 @@
         </div>
     </section>
 
-    <section class="bg-gray-50 py-16 fade-in">
+    <section class="bg-gray-50 py-16">
         <div class="max-w-5xl mx-auto text-center px-4">
             <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
 
@@ -937,9 +916,9 @@
 
                 <!-- Grid Gambar -->
                 <div class="w-full lg:w-2/3 grid grid-cols-2 grid-rows-2 gap-4 md:gap-6" style="min-height: 360px;">
-                    <div class="rounded-xl overflow-hidden shadow-lg lazy-image-container">
-                        <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                        <img class="lazy-image w-full h-full object-cover" data-src="{{ asset('image/home/atas.png') }}" alt="Konsultasi">
+                    <div class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="{{ asset('image/home/atas.png') }}" alt="Konsultasi"
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg row-span-2">
                         <div class="lazy-image-container w-full h-full">
@@ -959,9 +938,9 @@
                                 data-src="https://picsum.photos/seed/counseling3/600/800.jpg" alt="Sesi konseling">
                         </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg lazy-image-container">
-                        <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                        <img class="lazy-image w-full h-full object-cover" data-src="{{ asset('image/home/bawah.png') }}" alt="Konselor">
+                    <div class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="{{ asset('image/home/bawah.png') }}" alt="Konselor"
+                            class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -1266,20 +1245,16 @@
             });
 
             function showNotification(message, type) {
-                Swal.fire({
-                    icon: type,
-                    title: type === 'success' ? 'Berhasil!' : 'Error!',
-                    text: message,
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                });
+                const notification = document.createElement('div');
+                notification.className =
+                    `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} transform transition-transform duration-300 translate-x-full z-50`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.classList.remove('translate-x-full'), 10);
+                setTimeout(() => {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => document.body.removeChild(notification), 300);
+                }, 3000);
             }
 
             // TRACER CHART - Fixed initialization

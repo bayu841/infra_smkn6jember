@@ -2,7 +2,7 @@
 @section('title', 'Home')
 
 @section('content')
-<section class="py-16 bg-gray-50 fade-in">
+<section class="py-16 bg-gray-50">
     <div class="container mx-auto px-6">
         <!-- Judul -->
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
@@ -12,9 +12,8 @@
         <!-- Konten -->
         <div class="flex flex-col md:flex-row items-center justify-center gap-12 bg-white rounded-2xl shadow-lg p-10 max-w-5xl mx-auto">
             <!-- Logo -->
-            <div class="flex-shrink-0 lazy-image-container">
-                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                <img class="lazy-image w-60 md:w-72" data-src="{{ asset('image/blud.png') }}" alt="Logo Paskibra">
+            <div class="flex-shrink-0">
+                <img src="{{ asset('image/blud.png') }}" alt="Logo Paskibra" class="w-60 md:w-72">
             </div>
 
             <!-- Info -->
@@ -52,12 +51,11 @@
     </div>
 </section>
 <br>
-<h2 class="text-center text-3xl font-bold mb-10 fade-in">Postingan</h2>
-<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 fade-in">
+<h2 class="text-center text-3xl font-bold mb-10">Postingan</h2>
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
     @for ($i = 0; $i < 6; $i++)
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 lazy-image-container">
-        <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-        <img class="lazy-image w-full h-48 object-cover" data-src="{{ asset('image/contoh.jpg') }}" alt="Postingan">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+        <img src="{{ asset('image/contoh.jpg') }}" alt="Postingan" class="w-full h-48 object-cover">
         <div class="p-5">
             <h3 class="text-lg font-bold text-gray-800 mb-2">SMK 6 Juara Basket Putra</h3>
             <p class="text-gray-600 text-sm mb-4">

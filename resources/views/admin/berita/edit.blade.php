@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header Section -->
-    <div class="mb-8 fade-in">
+    <div class="mb-8">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
                 <h1 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
@@ -71,7 +71,7 @@
     </div>
 
     <!-- Form Section -->
-    <div class="max-w-4xl mx-auto fade-in">
+    <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <!-- Form Header -->
             <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-5">
@@ -186,11 +186,10 @@
                         <div class="bg-gray-50 rounded-xl p-6 border-2 border-dashed border-gray-200">
                             <div class="flex flex-col md:flex-row gap-6 items-start">
                                 <div class="flex-shrink-0">
-                                    <div class="relative group lazy-image-container">
-                                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                    <img data-src="{{ Storage::url('berita/'.$news->image) }}"
+                                    <div class="relative group">
+                                        <img src="{{ Storage::url('berita/'.$news->image) }}"
                                              alt="Gambar saat ini"
-                                             class="lazy-image w-48 h-32 object-cover rounded-lg shadow-md border border-gray-300">
+                                             class="w-48 h-32 object-cover rounded-lg shadow-md border border-gray-300">
                                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all duration-200 flex items-center justify-center">
                                             <span class="text-white opacity-0 group-hover:opacity-100 text-sm font-medium">Gambar Saat Ini</span>
                                         </div>
@@ -263,7 +262,7 @@
         </div>
 
         <!-- Tips Section -->
-        <div class="mt-8 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 fade-in">
+        <div class="mt-8 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
             <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                 <i class="fas fa-lightbulb text-blue-500"></i>
                 Tips Editing Berita

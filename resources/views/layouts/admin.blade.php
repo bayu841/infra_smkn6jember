@@ -63,54 +63,12 @@
     </a>
 
     <!-- MANAJEMEN PRODUK -->
-    <div x-data="{ open: {{ request()->is('admin/products*') ? 'true' : 'false' }} }" class="w-60 ml-2">
-        <button
-            @click="open = !open"
-            class="flex items-center justify-between w-full px-5 py-3 rounded-lg transition-all duration-200 focus:outline-none
-            hover:bg-blue-600 hover:text-white"
-            :class="{ 'bg-blue-800 text-white font-semibold shadow-md': open }">
-            <div class="flex items-center">
-                <i class="fas fa-box-open w-6"></i>
-                <span class="ml-3">Manajemen Produk</span>
-            </div>
-            <i class="fas text-sm transition-transform duration-300"
-               :class="open ? 'fa-chevron-up rotate-180' : 'fa-chevron-down'"></i>
-        </button>
-
-        <div x-show="open"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 transform scale-y-75"
-             x-transition:enter-end="opacity-100 transform scale-y-100"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 transform scale-y-100"
-             x-transition:leave-end="opacity-0 transform scale-y-75"
-             class="overflow-hidden origin-top bg-blue-700 rounded-b-lg mt-1">
-
-            <a href="{{ route('admin.products.index', ['category' => 'batikenem']) }}"
-               class="block px-6 py-2 text-sm transition
-               {{ request()->get('category') === 'batikenem' ? 'bg-blue-800 text-white font-semibold' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">
-               Produk Batik Enem
-            </a>
-
-            <a href="{{ route('admin.products.index', ['category' => 'energienem']) }}"
-               class="block px-6 py-2 text-sm transition
-               {{ request()->get('category') === 'energienem' ? 'bg-blue-800 text-white font-semibold' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">
-               Produk Energi Enem
-            </a>
-
-            <a href="{{ route('admin.products.index', ['category' => 'studioenem']) }}"
-               class="block px-6 py-2 text-sm transition
-               {{ request()->get('category') === 'studioenem' ? 'bg-blue-800 text-white font-semibold' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">
-               Produk Studio Enem
-            </a>
-
-            <a href="{{ route('admin.products.index') }}"
-               class="block px-6 py-2 text-sm transition
-               {{ request()->is('admin/products') && !request()->get('category') ? 'bg-blue-800 text-white font-semibold' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">
-               Semua Produk
-            </a>
-        </div>
-    </div>
+    <a href="{{ route('admin.products.index') }}"
+       class="flex items-center px-5 py-3 rounded-lg w-60 ml-2 transition-all duration-200
+       {{ request()->is('admin/products*') ? 'bg-blue-800 text-white font-semibold shadow-md' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">
+        <i class="fas fa-box-open w-6"></i>
+        <span class="ml-3">Manajemen Produk</span>
+    </a>
 
     <!-- DATA SEKOLAH -->
     <p class="px-6 mt-6 text-xs uppercase tracking-wider text-blue-200/70 font-semibold">Data Sekolah</p>

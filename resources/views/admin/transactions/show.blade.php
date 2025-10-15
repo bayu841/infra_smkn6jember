@@ -3,9 +3,9 @@
 @section('title', 'Detail Transaksi ' . $transaction->order_id)
 
 @section('content')
-    <h1 class="text-2xl font-bold text-gray-800 mb-4 fade-in">Detail Transaksi</h1>
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Detail Transaksi</h1>
 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
+    <div class="bg-white p-6 rounded-xl shadow-md">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Detail Pelanggan -->
             <div>

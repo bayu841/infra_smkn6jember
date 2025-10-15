@@ -2,7 +2,7 @@
 @section('title', $berita->title)
 
 @section('content')
-    <div class="bg-white py-12 fade-in">
+    <div class="bg-white py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-4">{{ $berita->title }}</h1>
@@ -22,23 +22,20 @@
                     </span>
                 </div>
 
-                <div class="lazy-image-container">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img data-src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
-                        class="lazy-image w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
+                <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
+                    class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
 
                 <div class="prose max-w-none text-gray-700 leading-relaxed">
-                    {!! nl2br(e($berita->content)) !!}
+                    {!! $berita->content !!}
                 </div>
 
                 <div class="mt-12 border-t pt-8">
                     <h2 class="text-2xl font-bold text-gray-800 mb-6">Berita Terkait</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         @foreach ($relatedBeritas as $relatedBerita)
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden lazy-image-container">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                                 <a href="{{ route('berita.show', $relatedBerita) }}">
-                                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                    <img class="lazy-image" data-src="{{ Storage::url('berita/' . $relatedBerita->image) }}" alt="{{ $relatedBerita->title }}" class="w-full h-48 object-cover">
+                                    <img src="{{ Storage::url('berita/' . $relatedBerita->image) }}" alt="{{ $relatedBerita->title }}" class="w-full h-48 object-cover">
                                 </a>
                                 <div class="p-6">
                                     <h3 class="font-bold text-lg mb-2">

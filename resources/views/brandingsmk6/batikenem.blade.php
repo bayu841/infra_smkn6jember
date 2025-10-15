@@ -13,7 +13,7 @@
             background: linear-gradient(to right, #CA4016, #E64817);
         }
     </style>
-    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black fade-in"
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
         style="background-image: url('image/batikenem/hero.png'); width:100%; height:110vh; background-size:cover;">
         <!-- Teks -->
         <div class="flex-1 mb-10 md:mb-0 ml-40">
@@ -31,13 +31,12 @@
         </div>
         </div>
     </section>
-    <section class="fade-in">
+    <section>
         <h2 class="text-3xl font-bold p-10 text-[#DB6007]">Produk</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-6 mb-10">
             @forelse ($products as $product)
-                <div class="max-w-sm rounded-lg overflow-hidden shadow-lg group lazy-image-container">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img class="lazy-image w-full h-64 object-cover" data-src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                <div class="max-w-sm rounded-lg overflow-hidden shadow-lg group">
+                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="w-full h-64 object-cover">
                     <div class="p-4">
                         <h3 class="font-bold text-lg mb-2">{{ $product->name }}</h3>
                         <p class="text-gray-700 text-base mb-4">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
@@ -51,11 +50,10 @@
             @endforelse
         </div>
     </section>
-    <section class="flex flex-col md:flex-row items-center justify-center gap-6 bg-white p-6 md:p-10 rounded-2xl fade-in">
+    <section class="flex flex-col md:flex-row items-center justify-center gap-6 bg-white p-6 md:p-10 rounded-2xl">
         <!-- Gambar -->
-        <div class="w-full md:w-1/2 rounded-3xl overflow-hidden lazy-image-container">
-            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-            <img class="lazy-image w-full h-full object-cover" data-src="{{asset('image/batikenem/about.png')}}" alt="Batik Enem">
+        <div class="w-full md:w-1/2 rounded-3xl overflow-hidden">
+            <img src="{{asset('image/batikenem/about.png')}}" alt="Batik Enem" class="w-full h-full object-cover">
         </div>
 
         <!-- Card Teks -->
@@ -73,7 +71,7 @@
             </a>
         </div>
     </section>
-    <section class="fade-in">
+    <section>
         <h2 class="text-3xl font-bold p-10 text-[#DB6007]">Keunggualan Produk Kami</h2>
              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 mb-10">
             <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
@@ -91,14 +89,14 @@
         </div>
     </section>
     <br><br>
-   <section class="bg-[#E14F1A] py-10 px-6 md:px-16 fade-in" style="height:60vh;">
+   <section class="bg-[#E14F1A] py-10 px-6 md:px-16" style="height:60vh;">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 
     <!-- Gambar kiri -->
-    <div class="w-full md:w-1/2 flex justify-center -mt-8 lazy-image-container">
-      <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-      <img class="lazy-image rounded-xl w-full max-w-md object-contain" data-src="{{asset('image/branding/ctabatik.png')}}"
-           alt="Produk KKBT">
+    <div class="w-full md:w-1/2 flex justify-center -mt-8">
+      <img src="{{asset('image/branding/ctabatik.png')}}"
+           alt="Produk KKBT"
+           class="rounded-xl w-full max-w-md object-contain">
     </div>
 
     <!-- Teks kanan -->

@@ -137,7 +137,7 @@
             scrollbar-width: none;
         }
     </style>
-    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black fade-in"
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
         style="background-image: url('image/dkv/herodkv.png'); width:100%; height:110vh; ">
         <!-- Teks -->
         <div class="flex-1 mb-10 md:mb-0 ml-40">
@@ -153,13 +153,10 @@
         </div>
         </div>
     </section>
-     <div class="brand fade-in">
-        <div class="lazy-image-container">
-            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-            <img class="lazy-image" data-src="{{ asset('image/logooo.png') }}" alt="Brand Logo">
+     <div class="brand">
+            <img src="{{ asset('image/logooo.png') }}" alt="">
         </div>
-    </div>
-    <section class="about fade-in">
+    <section class="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1"><br><br>
@@ -213,14 +210,13 @@
         </div>
     </section>
     <br><br>
-    <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center fade-in">
+    <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
         <!-- Kiri: Card -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
             <!-- Card 1 -->
             <div class="relative bg-[#585858] text-white rounded-xl p-6 shadow-md" style="height: 36vh;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img class="lazy-image" data-src="{{ asset('image/dkv/benefit1 (1).png') }}" alt="icon" style="width: 55px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/dkv/benefit1 (1).png') }}" alt="icon" style="width: 55px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg mt-12">Peluang Karir Luas</h3>
                 <p class="mt-2 text-sm">Lulusan siap bersaing di berbagai bidang industri kreatif dan komunikasi visual.</p>
@@ -228,9 +224,8 @@
 
             <!-- Card 2 -->
             <div class="relative bg-white rounded-xl p-6 shadow-md mt-7" style="height: 36vh;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img class="lazy-image" data-src="{{ asset('image/dkv/benefit1 (4).png') }}" alt="icon" style="width: 65px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/dkv/benefit1 (4).png') }}" alt="icon" style="width: 65px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Mengasah Kreativitas</h3>
                 <p class="mt-2 text-sm text-gray-600">Melatih kemampuan berpikir kreatif, inovatif, dan problem solving
@@ -239,9 +234,8 @@
 
             <!-- Card 3 -->
             <div class="relative bg-white rounded-xl p-6 shadow-md mt-5" style="height: 41vh; margin-top:-1rem;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img class="lazy-image" data-src="{{ asset('image/dkv/benefit1 (3).png') }}" alt="icon" style="width: 64px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/dkv/benefit1 (3).png') }}" alt="icon" style="width: 64px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Skil Yang Relevan</h3>
                 <p class="mt-2 text-sm text-gray-600">Kuasi keterampilan mengelola arsip, surat-menyurat, dan dokumen
@@ -250,9 +244,8 @@
 
             <!-- Card 4 -->
             <div class="relative bg-white rounded-xl p-6 shadow-md mt-10" style="height: 38vh;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img class="lazy-image" data-src="{{ asset('image/dkv/benefit1 (2).png') }}" alt="icon" style="width: 60px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/dkv/benefit1 (2).png') }}" alt="icon" style="width: 60px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Menguasai Software Desain</h3>
                 <p class="mt-2 text-sm text-gray-600">Terampil menggunakan software desain profesional seperti Photoshop,
@@ -278,7 +271,7 @@
             </div>
         </div>
     </section><br><br>
-    <section class="fasility bg-slate-900 px-10 py-20 fade-in" style="padding-top: 9rem;">
+    <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">
 
@@ -320,11 +313,10 @@
                     <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
                         style="width: 850px; height:50vh;">
                         <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow lazy-image-container"
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                                <img class="lazy-image w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    data-src="{{ asset('image/dkv/fas1.png') }}" style="height:50vh;">
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
+                                    src="{{ asset('image/dkv/fas1.png') }}" style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-[#585858]  text-white font-semibold px-4 py-2 shadow">
@@ -332,16 +324,15 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow lazy-image-container">
-                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-[#585858]  text-white font-semibold px-4 py-2 shadow">
                                         2
                                     </span>
                                 </figcaption>
-                                <img class="lazy-image w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    data-src="{{ asset('image/dkv/fas2.png') }}" style="height:50vh;" />
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
+                                    src="{{ asset('image/dkv/fas2.png') }}" style="height:50vh;" />
                             </figure>
                         </div>
                     </div>
@@ -368,7 +359,7 @@
             </div>
         </div>
     </section>
-    <section class="bg-[#f5f5f5] py-20 fade-in">
+    <section class="bg-[#f5f5f5] py-20">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
 
             <!-- BAGIAN KIRI -->
@@ -414,8 +405,6 @@
                     generasi desainer muda yang inovatif, kolaboratif, dan berprestasi.
                 </p>
 
-                <!-- CARD LOWONGAN -->
-                <div class="space-y-4">
                     <div
                         class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
                         <div class="bg-gradient-to-r from-[#4C4C50] to-[#2A292D] text-white p-3 rounded-full">
@@ -454,7 +443,7 @@
             </div>
         </div>
     </section>
-    <section class="performance fade-in">
+    <section class="performance">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
         <!-- Grid -->
@@ -488,7 +477,7 @@
 
 
     </section>
-    <section class="cta mt-8 fade-in">
+    <section class="cta mt-8">
         <h2 class="text-center text-white text-2xl font-bold pt-80">Bersama kami, wujudkan masa depanmu! Bergabunglah
             <br>
             dengan Jurusan kami dan raih peluang terbaik untuk <br>

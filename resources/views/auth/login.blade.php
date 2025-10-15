@@ -8,12 +8,9 @@
 </head>
 <body>
     <div class="h-screen flex">
-        <div class="w-full lg:w-1/2 bg-white flex items-center justify-center fade-in">
+        <div class="w-full lg:w-1/2 bg-white flex items-center justify-center">
             <div class="max-w-md w-full p-6">
-                <div class="lazy-image-container w-24 h-24 mx-auto mb-4">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img class="lazy-image w-full h-full" data-src="{{ asset('image/logoinfra.png') }}" alt="logo">
-                </div>
+                <img src="{{ asset('image/logoinfra.png') }}" alt="logo" class="w-24 h-24 mx-auto mb-4">
                 <h1 class="text-3xl font-semibold mb-2 text-black text-center">Welcome Back</h1>
                 <p class="text-gray-500 text-center mb-6">Login to your account</p>
                 <form method="POST" action="{{ route('login') }}" class="space-y-4">
@@ -75,9 +72,8 @@
                 </p>
             </div>
         </div>
-        <div class="hidden lg:flex w-1/2 h-full items-center justify-center bg-gray-200 lazy-image-container">
-            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-            <img class="lazy-image object-cover w-3/4 h-3/4" data-src="{{ asset('image/auth/auth.png') }}" alt="Login Image">
+        <div class="hidden lg:flex w-1/2 h-full items-center justify-center bg-gray-200">
+            <img src="{{ asset('image/auth/auth.png') }}" alt="Login Image" class="object-cover w-3/4 h-3/4">
         </div>
     </div>
 </body>

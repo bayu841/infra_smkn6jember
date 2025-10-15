@@ -112,12 +112,9 @@
             <!-- Logo -->
             <div class="flex items-center space-x-2">
                 <!-- Menggunakan lazy loading untuk logo -->
-                <div class="lazy-image-container w-10 h-10 rounded-full">
-                    <div class="image-placeholder">
-                        <div class="placeholder-spinner"></div>
-                    </div>
-                    <img class="lazy-image w-10 h-10 rounded-full"
-                         data-src="{{ asset('image/logosmk.png') }}"
+                <div class="w-10 h-10 rounded-full">
+                    <img class="w-10 h-10 rounded-full"
+                         src="{{ asset('image/logosmk.png') }}"
                          alt="Logo SMK">
                 </div>
             </div>
@@ -310,77 +307,43 @@
                     threshold: 0.01
                 });
 
-                lazyImages.forEach(img => {
-                    imageObserver.observe(img);
-                });
-
-                // Lazy Loading for background images with data-bg
-                const lazyBackgrounds = document.querySelectorAll('[data-bg]');
-                const backgroundObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const element = entry.target;
-                            const bgUrl = element.getAttribute('data-bg');
-                            if (bgUrl) {
-                                element.style.backgroundImage = `url(${bgUrl})`;
-                                element.removeAttribute('data-bg');
-                            }
-                            observer.unobserve(element);
+                            lazyImages.forEach(img => {
+                                imageObserver.observe(img);
+                            });
+                        } else {
+                            // Fallback for browsers that don't support IntersectionObserver
+                            lazyImages.forEach(img => {
+                                const container = img.closest('.lazy-image-container');
+                                const placeholder = container.querySelector('.image-placeholder');
+                
+                                // For blur placeholder
+                                if (img.classList.contains('blur-placeholder') && img.dataset.thumb) {
+                                    const thumb = new Image();
+                                    thumb.src = img.dataset.thumb;
+                                    thumb.onload = function() {
+                                        img.src = img.dataset.thumb;
+                                        img.classList.add('loaded');
+                
+                                        // Then load the full image
+                                        const fullImg = new Image();
+                                        fullImg.src = img.dataset.src;
+                                        fullImg.onload = function() {
+                                            img.src = img.dataset.src;
+                                            img.classList.remove('blur-placeholder');
+                                        };
+                                    };
+                                } else {
+                                    img.src = img.dataset.src;
+                                    img.onload = function() {
+                                        img.classList.add('loaded');
+                                        if (placeholder) {
+                                            placeholder.style.display = 'none';
+                                        }
+                                    };
+                                }
+                            });
                         }
-                    });
-                }, {
-                    rootMargin: '50px 0px',
-                    threshold: 0.01
-                });
-
-                lazyBackgrounds.forEach(bg => {
-                    backgroundObserver.observe(bg);
-                });
-
-            } else {
-                // Fallback for browsers that don't support IntersectionObserver
-                lazyImages.forEach(img => {
-                    const container = img.closest('.lazy-image-container');
-                    const placeholder = container.querySelector('.image-placeholder');
-
-                    // For blur placeholder
-                    if (img.classList.contains('blur-placeholder') && img.dataset.thumb) {
-                        const thumb = new Image();
-                        thumb.src = img.dataset.thumb;
-                        thumb.onload = function() {
-                            img.src = img.dataset.thumb;
-                            img.classList.add('loaded');
-
-                            // Then load the full image
-                            const fullImg = new Image();
-                            fullImg.src = img.dataset.src;
-                            fullImg.onload = function() {
-                                img.src = img.dataset.src;
-                                img.classList.remove('blur-placeholder');
-                            };
-                        };
-                    } else {
-                        img.src = img.dataset.src;
-                        img.onload = function() {
-                            img.classList.add('loaded');
-                            if (placeholder) {
-                                placeholder.style.display = 'none';
-                            }
-                        };
-                    }
-                });
-
-                // Fallback for background images
-                lazyBackgrounds.forEach(bg => {
-                    const bgUrl = bg.getAttribute('data-bg');
-                    if (bgUrl) {
-                        bg.style.backgroundImage = `url(${bgUrl})`;
-                        bg.removeAttribute('data-bg');
-                    }
-                });
-            }
-        });
-    </script>
+                    });    </script>
 
     @stack('scripts')
 </body>

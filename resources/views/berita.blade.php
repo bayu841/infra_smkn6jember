@@ -179,7 +179,7 @@
         }
     </style>
 
-    <div class="berita-section text-black pt-10 fade-in">
+    <div class="berita-section text-black pt-10">
         <div class="p-20">
             <h2 class="text-4xl font-bold">Berita Dan Pengumuman</h2>
             <p class="mt-4 text-lg max-w-3xl">
@@ -192,12 +192,11 @@
         </div>
         <h2 class="font-semibold ml-20 text-2xl">Last Post</h2><br>
         <!-- Grid Card -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 pb-20 fade-in">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 pb-20">
             @foreach ($lastPosts as $berita)
                 <div
-                    class="w-[360px] h-[440px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition mx-auto lazy-image-container">
-                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                    <img class="lazy-image w-full h-52 object-cover" data-src="{{ Storage::url('berita/' . $berita->image) }}"
+                    class="w-[360px] h-[440px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition mx-auto">
+                    <img class="w-full h-52 object-cover" src="{{ Storage::url('berita/' . $berita->image) }}"
                         alt="{{ $berita->title }}">
                     <div class="p-6 flex flex-col justify-between h-[calc(420px-208px)]">
                         <div>
@@ -226,12 +225,12 @@
         </div>
     </div>
 
-    <section class="fade-in">
+    <section>
         <h2 class="font-semibold text-2xl p-20">Populer Minggu Ini</h2>
         @foreach ($popularNews as $berita)
             <div class="popular-container flex">
-                <div class="card lazy-image-container"
-                    style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1 1\'%3E%3C/svg%3E\'); background-size: cover;" data-bg="{{ Storage::url('berita/' . $berita->image) }}">
+                <div class="card"
+                    style="background-image: url('{{ Storage::url('berita/' . $berita->image) }}'); background-size: cover;">
                 </div>
                 <div class="text">
                     <h2 class="font-semibold truncate">{{ $berita->title }}</h2>
@@ -257,7 +256,7 @@
         @endforeach
     </section>
 
-    <section class="prestasi fade-in">
+    <section class="prestasi">
         @if(request('search'))
             <div class="px-10 pb-4">
                 <h2 class="text-2xl font-semibold">Hasil pencarian untuk: "{{ request('search') }}"</h2>
@@ -269,9 +268,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 -mt-20">
                 @forelse ($beritas as $berita)
                     <!-- Card -->
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition lazy-image-container">
-                        <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                        <img class="lazy-image" data-src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}"
                             class="w-full h-48 object-cover">
                         <div class="p-4">
                             <h3 class="font-semibold text-lg truncate">{{ $berita->title }}</h3>

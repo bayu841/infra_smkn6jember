@@ -40,7 +40,7 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 // Admin Routes
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('products', App\Http\Controllers\Admin\ProductController::class);
+    Route::resource('products', App\Http\Controllers\Admin\AdminProductController::class);
     Route::get('transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
     Route::resource('news', BeritaController::class);
     Route::delete('news-destroy-multiple', [BeritaController::class, 'destroyMultiple'])->name('news.destroyMultiple');

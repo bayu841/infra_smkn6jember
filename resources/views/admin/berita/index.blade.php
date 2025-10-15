@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header Section -->
-    <div class="mb-8 fade-in">
+    <div class="mb-8">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
                 <h1 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Stats Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 fade-in">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div class="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-5 shadow-sm">
             <div class="flex items-center justify-between">
                 <div>
@@ -58,7 +58,7 @@
 
     <!-- Search and Filter -->
     <form action="{{ route('admin.news.index') }}" method="GET">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-6 fade-in">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-6">
             <div class="flex flex-col md:flex-row gap-4">
                 <div class="flex-1">
                     <div class="relative">
@@ -86,7 +86,7 @@
         </div>
     </form>
 
-    <form id="delete-selected-form" action="{{ route('admin.news.destroyMultiple') }}" method="POST" onsubmit="event.preventDefault(); confirmDeleteMultiple();">
+    <form id="delete-selected-form" action="{{ route('admin.news.destroyMultiple') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita yang dipilih?');">
         @csrf
         @method('DELETE')
         <div class="mb-4">
@@ -97,7 +97,7 @@
             </button>
         </div>
         <!-- Table Section -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gradient-to-r from-blue-600 to-blue-800">
@@ -184,7 +184,7 @@
                                     <span>Edit</span>
                                 </a>
 
-                                <form onsubmit="event.preventDefault(); confirmDelete(this);"
+                                <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');"
                                       action="{{ route('admin.news.destroy', $berita->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -236,7 +236,7 @@
     </form>
 
     <!-- Quick Actions -->
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 fade-in">
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-5">
             <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
                 <i class="fas fa-lightbulb text-blue-500"></i>
@@ -327,41 +327,7 @@
             }
         }
 
-        // SweetAlert2 for single delete
-        window.confirmDelete = function(form) {
-            Swal.fire({
-                title: 'Apakah Anda yakin?',
-                text: "Anda tidak akan dapat mengembalikan ini!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
-        };
 
-        // SweetAlert2 for multiple delete
-        window.confirmDeleteMultiple = function() {
-            Swal.fire({
-                title: 'Apakah Anda yakin?',
-                text: "Anda akan menghapus berita yang dipilih!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus semua!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('delete-selected-form').submit();
-                }
-            });
-        };
     });
 </script>
 @endsection

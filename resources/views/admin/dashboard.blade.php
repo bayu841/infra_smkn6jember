@@ -3,19 +3,10 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1 class="text-2xl font-bold text-gray-800 mb-4 fade-in">Dashboard</h1>
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Dashboard</h1>
 
     <!-- Statistik Card -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 fade-in">
-        <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#319F2C,#54C914)]">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h2 class="text-lg font-semibold">Jumlah Guru</h2>
-                    <p class="text-3xl font-bold mt-2">103</p>
-                </div>
-                <i class="fas fa-users text-4xl opacity-80"></i>
-            </div>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 
         <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#3C71F8,#4B88F9)]">
             <div class="flex justify-between items-center">
@@ -26,20 +17,6 @@
                 <i class="fas fa-file-alt text-4xl opacity-80"></i>
             </div>
         </div>
-
-        <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#F92626,#E22E2E)]">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h2 class="text-lg font-semibold">Jumlah Siswa</h2>
-                    <p class="text-3xl font-bold mt-2">1501</p>
-                </div>
-                <i class="fas fa-user-graduate text-4xl opacity-80"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- Manajemen Keuangan -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 fade-in">
         <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#FFC107,#FFD700)]">
             <div class="flex justify-between items-center">
                 <div>
@@ -49,7 +26,6 @@
                 <i class="fas fa-money-bill-wave text-4xl opacity-80"></i>
             </div>
         </div>
-
         <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#17A2B8,#20C997)]">
             <div class="flex justify-between items-center">
                 <div>
@@ -71,8 +47,13 @@
         </div>
     </div>
 
+    <!-- Manajemen Keuangan -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
+    </div>
+
     <!-- Artikel dan Jadwal -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Artikel Terbaru -->
         <div class="md:col-span-2 bg-white rounded-xl shadow p-5">
             <div class="flex justify-between items-center mb-3">
@@ -82,9 +63,8 @@
             <div class="space-y-4">
                 @foreach ($beritas as $berita)
                     <div class="flex items-center">
-                        <div class="w-14 h-14 bg-gray-200 rounded-lg mr-4 overflow-hidden lazy-image-container">
-                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
-                            <img data-src="{{ asset('storage/' . $berita->image) }}" alt="{{ $berita->title }}" class="lazy-image w-full h-full object-cover">
+                        <div class="w-14 h-14 bg-gray-200 rounded-lg mr-4 overflow-hidden">
+                            <img src="{{ asset('storage/' . $berita->image) }}" alt="{{ $berita->title }}" class="w-full h-full object-cover">
                         </div>
                         <p class="text-gray-700">{{ $berita->title }}</p>
                     </div>
