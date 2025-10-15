@@ -53,24 +53,12 @@ Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'stud
 
 
 // Jurusan
-Route::get('/rpl', function(){
-    return view('rpl');
-})->name('rpl');
-Route::get('/dkv', function () {
-    return view('dkv');
-})->name('dkv');
-Route::get('/bd', function () {
-    return view('bd');
-})->name('bd');
-Route::get('/akl', function () {
-    return view('akl');
-})->name('akl');
-Route::get('/mp', function () {
-    return view('mp');
-})->name('mp');
-Route::get('/kkbt', function () {
-    return view('kkbt');
-})->name('kkbt');
+Route::get('/rpl', [App\Http\Controllers\JurusanController::class, 'rpl'])->name('rpl');
+Route::get('/dkv', [App\Http\Controllers\JurusanController::class, 'dkv'])->name('dkv');
+Route::get('/bd', [App\Http\Controllers\JurusanController::class, 'bd'])->name('bd');
+Route::get('/akl', [App\Http\Controllers\JurusanController::class, 'akl'])->name('akl');
+Route::get('/mp', [App\Http\Controllers\JurusanController::class, 'mp'])->name('mp');
+Route::get('/kkbt', [App\Http\Controllers\JurusanController::class, 'kkbt'])->name('kkbt');
 Route::get('/detail', function () {
     return view('product.detail');
 });
