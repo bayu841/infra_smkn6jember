@@ -13,7 +13,7 @@
             background: linear-gradient(to right, #CA4016, #E64817);
         }
     </style>
-    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black fade-in"
         style="background-image: url('image/batikenem/hero.png'); width:100%; height:110vh; background-size:cover;">
         <!-- Teks -->
         <div class="flex-1 mb-10 md:mb-0 ml-40">
@@ -31,27 +31,31 @@
         </div>
         </div>
     </section>
-    <section>
+    <section class="fade-in">
         <h2 class="text-3xl font-bold p-10 text-[#DB6007]">Produk</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 mb-10">
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (1).png') }}" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (2).png') }}" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (3).png') }}" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (4).png') }}" alt="Produk" class="w-full">
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-6 mb-10">
+            @forelse ($products as $product)
+                <div class="max-w-sm rounded-lg overflow-hidden shadow-lg group lazy-image-container">
+                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                    <img class="lazy-image w-full h-64 object-cover" data-src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">{{ $product->name }}</h3>
+                        <p class="text-gray-700 text-base mb-4">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                        <a href="{{ route('product.show', $product) }}" class="block w-full text-center bg-orange-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-700 transition">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <p class="col-span-4 text-center text-gray-500">Produk untuk kategori ini belum tersedia.</p>
+            @endforelse
         </div>
     </section>
-    <section class="flex flex-col md:flex-row items-center justify-center gap-6 bg-white p-6 md:p-10 rounded-2xl">
+    <section class="flex flex-col md:flex-row items-center justify-center gap-6 bg-white p-6 md:p-10 rounded-2xl fade-in">
         <!-- Gambar -->
-        <div class="w-full md:w-1/2 rounded-3xl overflow-hidden">
-            <img src="{{asset('image/batikenem/about.png')}}" alt="Batik Enem" class="w-full h-full object-cover">
+        <div class="w-full md:w-1/2 rounded-3xl overflow-hidden lazy-image-container">
+            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+            <img class="lazy-image w-full h-full object-cover" data-src="{{asset('image/batikenem/about.png')}}" alt="Batik Enem">
         </div>
 
         <!-- Card Teks -->
@@ -69,7 +73,7 @@
             </a>
         </div>
     </section>
-    <section>
+    <section class="fade-in">
         <h2 class="text-3xl font-bold p-10 text-[#DB6007]">Keunggualan Produk Kami</h2>
              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 mb-10">
             <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
@@ -87,14 +91,14 @@
         </div>
     </section>
     <br><br>
-   <section class="bg-[#E14F1A] py-10 px-6 md:px-16" style="height:60vh;">
+   <section class="bg-[#E14F1A] py-10 px-6 md:px-16 fade-in" style="height:60vh;">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 
     <!-- Gambar kiri -->
-    <div class="w-full md:w-1/2 flex justify-center -mt-8">
-      <img src="{{asset('image/branding/ctastudio.png')}}"
-           alt="Produk KKBT"
-           class="rounded-xl w-full max-w-md object-contain">
+    <div class="w-full md:w-1/2 flex justify-center -mt-8 lazy-image-container">
+      <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+      <img class="lazy-image rounded-xl w-full max-w-md object-contain" data-src="{{asset('image/branding/ctastudio.png')}}"
+           alt="Produk KKBT">
     </div>
 
     <!-- Teks kanan -->

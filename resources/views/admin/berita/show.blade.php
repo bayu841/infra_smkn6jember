@@ -37,8 +37,9 @@
     <div class="max-w-4xl mx-auto fade-in">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <!-- Image -->
-            <div class="w-full h-64 bg-gray-200">
-                <img src="{{ Storage::url('berita/'.$news->image) }}" alt="{{ $news->title }}" class="w-full h-full object-cover">
+            <div class="w-full h-64 bg-gray-200 lazy-image-container">
+                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                <img data-src="{{ Storage::url('berita/'.$news->image) }}" alt="{{ $news->title }}" class="lazy-image w-full h-full object-cover">
             </div>
 
             <!-- Content -->
@@ -57,7 +58,7 @@
                         <span>Diperbarui pada {{ $news->updated_at->format('d M Y') }}</span>
                     </div>
                 </div>
-                
+
 
 
                 <!-- Description -->
@@ -70,7 +71,7 @@
                 <div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-3">Konten Lengkap</h3>
                     <div class="prose max-w-none text-gray-800 leading-7">
-                        {!! nl2br(e($news->content)) !!}
+                        {!! $news->content !!}
                     </div>
                 </div>
             </div>

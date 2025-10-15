@@ -86,7 +86,7 @@
         </div>
     </form>
 
-    <form id="delete-selected-form" action="{{ route('admin.news.destroyMultiple') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita yang dipilih?');">
+    <form id="delete-selected-form" action="{{ route('admin.news.destroyMultiple') }}" method="POST" onsubmit="event.preventDefault(); confirmDeleteMultiple();">
         @csrf
         @method('DELETE')
         <div class="mb-4">
@@ -184,7 +184,7 @@
                                     <span>Edit</span>
                                 </a>
 
-                                <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');"
+                                <form onsubmit="event.preventDefault(); confirmDelete(this);"
                                       action="{{ route('admin.news.destroy', $berita->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -327,7 +327,41 @@
             }
         }
 
+        // SweetAlert2 for single delete
+        window.confirmDelete = function(form) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Anda tidak akan dapat mengembalikan ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        };
 
+        // SweetAlert2 for multiple delete
+        window.confirmDeleteMultiple = function() {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Anda akan menghapus berita yang dipilih!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus semua!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-selected-form').submit();
+                }
+            });
+        };
     });
 </script>
 @endsection

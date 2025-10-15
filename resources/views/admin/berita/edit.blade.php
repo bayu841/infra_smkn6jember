@@ -186,10 +186,11 @@
                         <div class="bg-gray-50 rounded-xl p-6 border-2 border-dashed border-gray-200">
                             <div class="flex flex-col md:flex-row gap-6 items-start">
                                 <div class="flex-shrink-0">
-                                    <div class="relative group">
-                                        <img src="{{ Storage::url('berita/'.$news->image) }}"
+                                    <div class="relative group lazy-image-container">
+                                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                                    <img data-src="{{ Storage::url('berita/'.$news->image) }}"
                                              alt="Gambar saat ini"
-                                             class="w-48 h-32 object-cover rounded-lg shadow-md border border-gray-300">
+                                             class="lazy-image w-48 h-32 object-cover rounded-lg shadow-md border border-gray-300">
                                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all duration-200 flex items-center justify-center">
                                             <span class="text-white opacity-0 group-hover:opacity-100 text-sm font-medium">Gambar Saat Ini</span>
                                         </div>

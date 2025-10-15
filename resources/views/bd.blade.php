@@ -136,7 +136,7 @@
             scrollbar-width: none;
         }
     </style>
-    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black fade-in"
         style="background-image: url('image/bd/herobd.png'); width:100%; height:110vh; ">
         <!-- Teks -->
         <div class="flex-1 mb-10 md:mb-0 ml-40">
@@ -152,10 +152,13 @@
         </div>
         </div>
     </section>
-  <div class="brand">
-            <img src="{{ asset('image/logooo.png') }}" alt="">
+  <div class="brand fade-in">
+        <div class="lazy-image-container">
+            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+            <img class="lazy-image" data-src="{{ asset('image/logooo.png') }}" alt="Brand Logo">
         </div>
-    <section class="about">
+    </div>
+    <section class="about fade-in">
         <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1"><br><br>
@@ -210,13 +213,14 @@
         </div>
     </section>
     <br><br>
-    <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
+    <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center fade-in">
         <!-- Kiri: Card -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
             <!-- Card 1 -->
             <div class="relative bg-[#FFBB00] text-white rounded-xl p-6 shadow-md" style="height: 36vh;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                    <img src="{{ asset('image/bd/benefit1 (1).png') }}" alt="icon" style="width: 55px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
+                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                    <img class="lazy-image" data-src="{{ asset('image/bd/benefit1 (1).png') }}" alt="icon" style="width: 55px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg mt-12">Peluang Wirausaha Luas</h3>
                 <p class="mt-2 text-sm">Buka kesempatan usaha baru dengan ide kreatif dan inovatif.</p>
@@ -224,8 +228,9 @@
 
             <!-- Card 2 -->
             <div class="relative bg-white rounded-xl p-6 shadow-md mt-7" style="height: 36vh;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                    <img src="{{ asset('image/bd/benefit1 (3).png') }}" alt="icon" style="width: 65px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
+                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                    <img class="lazy-image" data-src="{{ asset('image/bd/benefit1 (3).png') }}" alt="icon" style="width: 65px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Melatih Skil Promosi</h3>
                 <p class="mt-2 text-sm text-gray-600">Belajar cara memasarkan produk secara efektif dan menarik.</p>
@@ -233,8 +238,9 @@
 
             <!-- Card 3 -->
             <div class="relative bg-white rounded-xl p-6 shadow-md mt-5" style="height: 35vh; margin-top:-1rem;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                    <img src="{{ asset('image/bd/benefit1 (4).png') }}" alt="icon" style="width: 64px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
+                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                    <img class="lazy-image" data-src="{{ asset('image/bd/benefit1 (4).png') }}" alt="icon" style="width: 64px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Membentuk Jiwa Enterpreneur</h3>
                 <p class="mt-2 text-sm text-gray-600">Tumbuhkan pola pikir wirausaha yang mandiri dan visioner.</p>
@@ -242,8 +248,9 @@
 
             <!-- Card 4 -->
             <div class="relative bg-white rounded-xl p-6 shadow-md mt-10" style="height: 33vh;">
-                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                    <img src="{{ asset('image/bd/benefit1 (2).png') }}" alt="icon" style="width: 60px; height:55px;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow lazy-image-container">
+                    <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                    <img class="lazy-image" data-src="{{ asset('image/bd/benefit1 (2).png') }}" alt="icon" style="width: 60px; height:55px;">
                 </div>
                 <h3 class="font-bold text-lg text-blue-900 mt-12">Menguasai Skil Pemasaran Digital</h3>
                 <p class="mt-2 text-sm text-gray-600">Asah kemampuan analisis supaya makin kritis dan terstruktur.</p>
@@ -269,7 +276,7 @@
             </div>
         </div>
     </section><br><br>
-    <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
+    <section class="fasility bg-slate-900 px-10 py-20 fade-in" style="padding-top: 9rem;">
         <!-- bungkus teks + slider -->
         <div class="flex flex-col lg:flex-row items-start gap-10">
 
@@ -311,10 +318,11 @@
                     <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
                         style="width: 850px; height:50vh;">
                         <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow lazy-image-container"
                                 style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('image/bd/fas1.png') }}" style="height:50vh;">
+                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                                <img class="lazy-image w-full h-48 sm:h-56 md:h-64 object-cover"
+                                    data-src="{{ asset('image/bd/fas1.png') }}" style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-yellow-300 text-white font-semibold px-4 py-2 shadow">
@@ -322,15 +330,16 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow">
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow lazy-image-container">
+                                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-yellow-300 text-white font-semibold px-4 py-2 shadow">
                                         2
                                     </span>
                                 </figcaption>
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('image/bd/fas2.png') }}" style="height:50vh;" />
+                                <img class="lazy-image w-full h-48 sm:h-56 md:h-64 object-cover"
+                                    data-src="{{ asset('image/bd/fas2.png') }}" style="height:50vh;" />
                             </figure>
                         </div>
                     </div>
@@ -357,7 +366,7 @@
             </div>
         </div>
     </section>
-    <section class="bg-[#f5f5f5] py-20">
+    <section class="bg-[#f5f5f5] py-20 fade-in">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
 
             <!-- BAGIAN KIRI -->
@@ -380,8 +389,9 @@
                     <!-- Kotak merah -->
                     <div
                         class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#FFBB00] to-[#FD9024] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
-                        <div class="bg-white rounded p-3 z-10">
-                            <img src="{{ asset('image/bd/frame.png') }}" alt="Icon" class="w-7 h-8">
+                        <div class="bg-white rounded p-3 z-10 lazy-image-container">
+                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                            <img class="lazy-image w-7 h-8" data-src="{{ asset('image/bd/frame.png') }}" alt="Icon">
                         </div>
                         <div>
                             <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
@@ -408,10 +418,10 @@
                 <div class="space-y-4">
                     <div
                         class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full lazy-image-container">
+                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
                             <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                    class="w-full h-full object-contain">
+                                <img class="lazy-image w-full h-full object-contain" data-src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon">
                             </div>
                         </div>
                         <div>
@@ -423,10 +433,10 @@
 
                     <div
                         class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full lazy-image-container">
+                            <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
                             <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                    class="w-full h-full object-contain">
+                                <img class="lazy-image w-full h-full object-contain" data-src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon">
                             </div>
                         </div>
                         <div>
@@ -444,29 +454,33 @@
             </div>
         </div>
     </section>
-    <section class="performance">
+    <section class="performance fade-in">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
         <!-- Grid -->
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
             <!-- Card 1 -->
-            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{ asset('image/bd/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover">
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3] lazy-image-container">
+                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                <img class="lazy-image w-full h-full object-cover" data-src="{{ asset('image/bd/pres1.png') }}" alt="Prestasi 1">
             </div>
 
             <!-- Card 2 -->
-            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{ asset('image/bd/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover">
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3] lazy-image-container">
+                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                <img class="lazy-image w-full h-full object-cover" data-src="{{ asset('image/bd/pres2.png') }}" alt="Prestasi 2">
             </div>
 
             <!-- Card 3 -->
-            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{ asset('image/bd/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3] lazy-image-container">
+                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                <img class="lazy-image w-full h-full object-cover" data-src="{{ asset('image/bd/pres3.png') }}" alt="Prestasi 3">
             </div>
 
             <!-- Card 4 -->
-            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
-                <img src="{{ asset('image/bd/pres4.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3] lazy-image-container">
+                <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
+                <img class="lazy-image w-full h-full object-cover" data-src="{{ asset('image/bd/pres4.png') }}" alt="Prestasi 3">
             </div>
 
             <!-- Tombol -->
@@ -478,7 +492,7 @@
 
 
     </section>
-    <section class="cta mt-8">
+    <section class="cta mt-8 fade-in">
         <h2 class="text-center text-white text-2xl font-bold pt-80">Bersama kami, wujudkan masa depanmu! Bergabunglah
             <br>
             dengan Jurusan kami dan raih peluang terbaik untuk <br>

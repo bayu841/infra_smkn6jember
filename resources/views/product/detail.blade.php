@@ -6,58 +6,69 @@
 <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-6">
 
-        <!-- Gambar utama produk -->
         <div class="bg-white rounded-2xl shadow overflow-hidden mb-8">
-            <img src="{{ asset('images/produk/batik-enem.jpg') }}" alt="Batik Enem"
-                 class="w-full h-[420px] object-cover">
+            <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="w-full h-[420px] object-cover">
         </div>
 
-        <!-- Thumbnail gambar tambahan -->
-        <div class="flex gap-4 justify-center mb-10">
-            <button class="w-28 h-24 overflow-hidden rounded-lg border border-gray-200 hover:opacity-80 transition">
-                <img src="{{ asset('images/produk/thumb1.jpg') }}" class="object-cover w-full h-full" alt="">
-            </button>
-            <button class="w-28 h-24 overflow-hidden rounded-lg border border-gray-200 hover:opacity-80 transition">
-                <img src="{{ asset('images/produk/thumb2.jpg') }}" class="object-cover w-full h-full" alt="">
-            </button>
-            <button class="w-28 h-24 overflow-hidden rounded-lg border border-gray-200 hover:opacity-80 transition">
-                <img src="{{ asset('images/produk/thumb3.jpg') }}" class="object-cover w-full h-full" alt="">
-            </button>
-            <button class="w-28 h-24 overflow-hidden rounded-lg border border-gray-200 hover:opacity-80 transition">
-                <img src="{{ asset('images/produk/thumb4.jpg') }}" class="object-cover w-full h-full" alt="">
-            </button>
-        </div>
-
-        <!-- Detail Produk -->
         <div class="max-w-4xl mx-auto">
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Rp 100.000</h3>
-            <h1 class="text-xl font-semibold text-gray-700 mb-6">Batik Oambakoro - Tulis/Print By Batik Enem</h1>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Rp {{ number_format($product->price, 0, ',', '.') }}</h3>
+            <h1 class="text-xl font-semibold text-gray-700 mb-6">{{ $product->name }}</h1>
 
             <h2 class="text-lg font-bold text-gray-800 mb-3">Deskripsi Produk:</h2>
             <div class="text-gray-600 leading-relaxed space-y-4 mb-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                   eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-
-                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will
-                   give you a complete account of the system...</p>
+                <p>{{ $product->description }}</p>
             </div>
 
-            <!-- Tombol Aksi -->
             <div class="flex gap-3">
-                <a href=""
-                   class="px-6 py-2 rounded-lg border border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">
+                <a href="{{ url()->previous() }}" class="px-6 py-3 rounded-lg border border-gray-400 text-gray-700 font-semibold hover:bg-gray-100 transition">
                     Kembali
                 </a>
-                <a href="#"
-                   class="px-6 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
-                    Beli Sekarang
-                </a>
+                @if ($product->stock > 0)
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button type="submit" class="px-8 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition flex items-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> Tambah ke Keranjang
+                        </button>
+                    </form>
+                @else
+                    <button type="button" class="px-8 py-3 rounded-lg bg-red-600 text-white font-semibold cursor-not-allowed opacity-75 flex items-center" disabled>
+                        <i class="fas fa-times-circle mr-2"></i> Stock Habis
+                    </button>
+                @endif
             </div>
-        </div>
 
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Rekomendasi Produk -->
+<section class="py-12 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Rekomendasi Untuk Anda</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            @forelse ($recommendedProducts as $recProduct)
+                <div class="max-w-sm rounded-lg overflow-hidden shadow-lg group border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <a href="{{ route('product.show', $recProduct) }}">
+                        <img src="{{ asset($recProduct->image) }}" alt="{{ $recProduct->name }}" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 truncate">{{ $recProduct->name }}</h3>
+                        <p class="text-gray-700 text-base mb-4">Rp {{ number_format($recProduct->price, 0, ',', '.') }}</p>
+                        <a href="{{ route('product.show', $recProduct) }}" class="block w-full text-center bg-gray-800 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-900 transition-colors duration-300">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <p class="col-span-4 text-center text-gray-500">Tidak ada rekomendasi produk.</p>
+            @endforelse
+        </div>
     </div>
 </section>
 @endsection
+
+
