@@ -415,7 +415,53 @@
     </div>
 
     <br><br><br>
-
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <iframe id="videoFrame" width="100%" height="400"
+      src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<style>
+    .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* agar muncul paling atas */
+  }
+  .modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10000;
+  }
+  .btn {
+    background-color: #ef4444; /* sama seperti bg-red-500 */
+    color: white;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color: #dc2626; /* sedikit lebih gelap */
+  }
+</style>
     <section class="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-4 md:px-12 py-10 gap-6 md:gap-1 md:ml-10">
             <!-- Bagian kiri (teks) -->
@@ -429,8 +475,14 @@
                     lebih dekat sekolah yang penuh cerita dan prestasi. Dari sejarah yang
                     membentuk jati diri, berlanjut pada visi dan misi yang menjadi arah masa depan.
                 </p>
+<<<<<<< Updated upstream
                 <button onclick="openVideoModal()" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn z-80">
                     Tonton Video Profil
+=======
+
+                <button id="openModal" class="btn">
+                Tonton Video Profil
+>>>>>>> Stashed changes
                 </button>
             </div>
 
@@ -1731,6 +1783,27 @@
                 }
             }
         });
+        const modal = document.getElementById('videoModal');
+const btn = document.getElementById('openModal');
+const span = document.getElementById('closeModal');
+const iframe = document.getElementById('videoFrame');
+
+btn.onclick = () => {
+  iframe.src = "https://www.youtube.com/embed/ubqR8YJGiSQ";
+  modal.style.display = "flex";
+};
+
+span.onclick = () => {
+  modal.style.display = "none";
+  iframe.src = "";
+};
+
+window.onclick = e => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+    iframe.src = "";
+  }
+};
     </script>
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('recaptcha.sitekey') }}" async defer></script>
 @endsection
