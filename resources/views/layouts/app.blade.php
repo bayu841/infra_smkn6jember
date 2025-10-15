@@ -143,8 +143,8 @@
                     </button>
                     <ul id="profilDropdown"
                         class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
-                        <li><a href="{{route('visimisi')}}" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a></li>
-                        <li><a href="#jurusan" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a></li>
+                        <li><a href="/visimisi" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a></li>
+                        <li><a href="/#jurusan" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a></li>
                     </ul>
                 </li>
 
@@ -164,8 +164,25 @@
                     </ul>
                 </li>
 
-                <li><a href="#bkk" class="block text-black hover:text-blue-600">BKK</a></li>
-                <li><a href="#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>
+                  <li class="relative">
+                    <button data-target="jurusanDropdown"
+                        class="dropdown-toggle flex items-center text-black hover:text-blue-600 focus:outline-none w-full md:w-auto">
+                        Jurusan
+                        <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.25 7.5L10 12.25L14.75 7.5H5.25Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul id="jurusanDropdown"
+                        class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
+                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">RPL</a></li>
+                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">AKL</a></li>
+                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">MP</a></li>
+                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">KKBT</a></li>
+                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">BD</a></li>
+                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">DKV</a></li>
+                    </ul>
+                </li>
+                <li><a href="/#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>
 
                 <!-- Search + Button (mobile only) -->
                 <div class="md:hidden flex flex-col space-y-3 w-full mt-3">
@@ -316,7 +333,7 @@
                             lazyImages.forEach(img => {
                                 const container = img.closest('.lazy-image-container');
                                 const placeholder = container.querySelector('.image-placeholder');
-                
+
                                 // For blur placeholder
                                 if (img.classList.contains('blur-placeholder') && img.dataset.thumb) {
                                     const thumb = new Image();
@@ -324,7 +341,7 @@
                                     thumb.onload = function() {
                                         img.src = img.dataset.thumb;
                                         img.classList.add('loaded');
-                
+
                                         // Then load the full image
                                         const fullImg = new Image();
                                         fullImg.src = img.dataset.src;

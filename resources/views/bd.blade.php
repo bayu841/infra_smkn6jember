@@ -143,11 +143,11 @@
             <h1 class="text-4xl md:text-1xl font-bold mb-5">Selamat Datang <br>
                 di BD SMKN 6 Jember
             </h1>
-            <p class="text-lg md:text-xl mb-7">
-                Smk bisa,SMK Hebat, <br>
-                SMK Negeri 6 Jember,Berenergi Untuk bisa hebat </p>
-            <a href="#" class="btn" style="background color">
-                Daftar Sekarang
+             <p class="text-lg md:text-xl mb-7">
+                Smk Bisa, SMK Hebat, <br>
+                SMK Negeri 6 Jember, Berenergi untuk bisa hebat </p>
+            <a href="#about" class="btn" style="background color">
+                Jelajahi Jurusan
             </a>
         </div>
         </div>
@@ -155,7 +155,7 @@
   <div class="brand">
             <img src="{{ asset('image/logooo.png') }}" alt="">
         </div>
-    <section class="about">
+    <section class="about" id="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1"><br><br>
@@ -254,7 +254,7 @@
         <!-- Kanan: Deskripsi -->
         <div>
             <div class="content-teks ml-8">
-                <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
+                <h2 class="text-2xl font-bold mb-4" style="margin-top: -3rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
                     Dengan program ini, kamu tidak hanya <br>
                     memahami teori, tetapi juga siap <br>
@@ -263,9 +263,6 @@
                     hingga menguasai pemasaran digital, semua <br>
                     jadi bekal nyata untuk sukses di dunia usaha.
                 </p>
-                <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
-                    Selengkapnya
-                </button>
             </div>
         </div>
     </section><br><br>
@@ -318,7 +315,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-yellow-300 text-white font-semibold px-4 py-2 shadow">
-                                        Lab BD
+                                        Lab Pemasaran
                                     </span>
                                 </figcaption>
                             </figure>
@@ -326,7 +323,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-yellow-300 text-white font-semibold px-4 py-2 shadow">
-                                        2
+                                        Studio Live
                                     </span>
                                 </figcaption>
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
@@ -405,39 +402,41 @@
                 </p>
 
                 <!-- CARD LOWONGAN -->
-                <div class="space-y-4">
-                    <div
-                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
-                            <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                    class="w-full h-full object-contain">
+               <div class="space-y-4">
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                            <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                                <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Pelatihan Skill RPL</h4>
+                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor.</p>
                             </div>
                         </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
-                            <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                    class="w-full h-full object-contain">
+
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                            <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                                <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor.</p>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Pengalaman Kepanitaan</h4>
+                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tombol -->
-                <button class="btn">
-                    Selengkapnya
-                </button>
             </div>
-        </div>
     </section>
+    <br><br>
     <section class="performance">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
@@ -462,16 +461,9 @@
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
                 <img src="{{ asset('image/bd/pres4.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
-
-            <!-- Tombol -->
-            <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
-                <a href="" class="btn w-40 text-center">Selengkapnya</a>
-            </div>
         </section>
     </section>
-
-
-    </section>
+    <br><br><br>
     <section class="cta mt-8">
         <h2 class="text-center text-white text-2xl font-bold pt-80">Bersama kami, wujudkan masa depanmu! Bergabunglah
             <br>
@@ -479,8 +471,8 @@
             karier gemilang.
         </h2><br>
         <div class="cta-btn">
-            <a href="" class="btn1">Daftar Sekarang</a>
-            <a href="" class="btn2">Lihat Lainnya</a>
+            <a href="" class="btn1">Selengkapnya</a>
+            <a href="/home" class="btn2">Lihat Lainnya</a>
         </div>
     </section>
     <script>

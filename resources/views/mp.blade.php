@@ -409,34 +409,39 @@
                 </p>
 
                 <!-- CARD LOWONGAN -->
-                <div class="space-y-4">
-                    <div
-                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                        <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
-                            <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                    class="w-full h-full object-contain">
+                        <!-- CARD LOWONGAN -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                            <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
+                                <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
                             </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                        <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
-                            <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                    class="w-full h-full object-contain">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Pelatihan Skill RPL</h4>
+                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor.</p>
                             </div>
                         </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor.</p>
+
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                            <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
+                                <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Pengalaman Kepanitaan</h4>
+                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tombol -->
-                <button class="btn">
-                    Selengkapnya
-                </button>
             </div>
         </div>
     </section>

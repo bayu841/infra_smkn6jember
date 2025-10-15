@@ -17,8 +17,8 @@
         style="background-image: url('image/batikenem/hero.png'); width:100%; height:110vh; background-size:cover;">
         <!-- Teks -->
         <div class="flex-1 mb-10 md:mb-0 ml-40">
-            <h1 class="text-4xl md:text-1xl font-bold mb-5">Menggali Sejarah, Menjalin Masa <br>
-                Depan Bersama Batik Enem
+            <h1 class="text-4xl md:text-1xl font-bold mb-5">Menyegarkan Hari, Mengalirkan <br>
+                Semangat Bersama Energi Enem
             </h1>
             <p class="text-lg md:text-x mb-7">
                 Batik Enem — harmoni antara sejarah dan inovasi. Setiap motif <br>

@@ -35,7 +35,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             height: 12vh;
             position: relative;
-            z-index: 90;
+            z-index: 20;
 
         }
 
@@ -422,23 +422,23 @@
             <div class="md:w-1/2 space-y-1">
                 <p class="text-blue-500 font-semibold text-sm">Tentang Kami</p>
                 <h2 class="text-2xl font-bold">
-                    SMKN 6 Jember <br> Sekolah Pusat Sekolah
+                    SMKN 6 Jember <br> Sekolah Pusat Keunggulan
                 </h2>
                 <p class="text-gray-700">
                     Video Profil SMKN 6 Jember mengajak penonton mengenal <br>
                     lebih dekat sekolah yang penuh cerita dan prestasi. Dari sejarah yang
                     membentuk jati diri, berlanjut pada visi dan misi yang menjadi arah masa depan.
                 </p>
-                <a href="https://youtu.be/ubqR8YJGiSQ" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
+                <button onclick="openVideoModal()" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn z-80">
                     Tonton Video Profil
-                </a>
+                </button>
             </div>
 
             <!-- Bagian kanan (ilustrasi kotak) -->
             <div class="relative w-full max-w-xs sm:max-w-sm md:w-64 h-full card-profile mx-auto md:mx-0">
                 <!-- Card Utama -->
-                <div
-                    class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center">
+                <div class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center"
+                    style="background-image: url('{{ asset('image/home/kepalasekolah.png') }}');">
                     <div
                         class="absolute bottom-0 left-0 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
                         Kepala Sekolah
@@ -456,6 +456,24 @@
                     @for ($i = 0; $i < 4; $i++)
                         <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
                     @endfor
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Video -->
+        <div id="videoModal"
+            class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 transition-all duration-300">
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg w-[90%] max-w-3xl relative">
+                <button onclick="closeVideoModal()"
+                    class="absolute top-2 right-2 text-white bg-red-500 hover:bg-red-600 rounded-full p-2 z-10">
+                    ✕
+                </button>
+                <div class="aspect-video">
+                    <iframe id="videoFrame" class="w-full h-full" src="" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -477,21 +495,20 @@
 
             <div class="relative">
                 <button id="btnPrev"
-                    class="hidden sm:grid absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-white shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-slate-700" viewBox="0 0 24 24" fill="none"
+                    class="hidden sm:grid absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-blue-600 shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-white" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M15 18l-6-6 6-6" />
                     </svg>
                 </button>
 
                 <button id="btnNext"
-                    class="hidden sm:grid absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-white shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-slate-700" viewBox="0 0 24 24" fill="none"
+                    class="hidden sm:grid absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 size-11 sm:size-12 place-items-center rounded-full bg-blue-600 text-white shadow ring-1 ring-slate-200 hover:ring-blue-500/40 hover:shadow-md transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-white" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M9 6l6 6-6 6" />
                     </svg>
                 </button>
-
                 <div id="track"
                     class="no-scrollbar overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 sm:gap-8 pb-3">
                     <!-- Slide 1 -->
@@ -520,7 +537,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="{{ route('rpl') }}"
+                                <a href="/rpl"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -557,7 +574,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="{{ route('bd') }}"
+                                <a href="/bd"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -594,7 +611,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="{{ route('akl') }}"
+                                <a href="/akl"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -630,7 +647,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="{{ route('mp') }}"
+                                <a href="/mp"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -667,7 +684,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="{{ route('dkv') }}"
+                                <a href="/dkv"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -704,7 +721,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="{{ route('kkbt') }}"
+                                <a href="/kkbt"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -724,66 +741,69 @@
     <br><br>
     <section class="max-w-7xl mx-auto px-4 py-10">
         <!-- Judul -->
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Video Youtube</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center lg:text-left">
+            Video Terbaru
+        </h2>
 
-        <!-- Grid Video -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Video Item -->
-            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video rounded-xl shadow-lg" src="https://www.youtube.com/embed/bLPIP9V1rSo"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/etxDTQhUQNk" title="Video 2"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            <!-- Kolom kiri: 4 video kecil -->
+            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Video 1 -->
+                <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/fFwkBj56KiI" title="Video 1"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
 
-            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/fFwkBj56KiI" title="Video 3"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
+                <!-- Video 2 -->
+                <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/Wxj_1LRimek" title="Video 2"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
 
-            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/lbKLQgogWzw?si=Ygvd-IGphdBdI2hF"
-                    title="Video 4" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
+                <!-- Video 3 -->
+                <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/bLPIP9V1rSo" title="Video 3"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
 
-            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/Wxj_1LRimek" title="Video 5"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <!-- Video 4 -->
+                <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/etxDTQhUQNk" title="Video 4"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
 
-            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/OUZ6IDDucdM" title="Video 6"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
+            <!-- Kolom kanan: IG + TikTok -->
+            <div class="flex flex-col gap-6">
+                <!-- IG -->
+                <div
+                    class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition bg-white flex justify-center items-center h-80">
+                    <blockquote class="instagram-media w-full h-full"
+                        data-instgrm-permalink="https://www.instagram.com/smkn6jember/" data-instgrm-version="14"
+                        style="max-width: 100%; min-width: 100%; margin: 0;"></blockquote>
+                    <script async src="//www.instagram.com/embed.js"></script>
+                </div>
 
-        <!-- Tombol Selengkapnya -->
-        {{-- <div class="text-center mt-8">
-            <a href="https://www.youtube.com/@smknegeri6jember" class="btn">
-                Selengkapnya
-            </a>
-        </div> --}}
+                <!-- TikTok -->
+                <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition bg-white p-2">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@smkn6jemberkeren"
+                        data-unique-id="smkn6jemberkeren" data-embed-type="creator"
+                        style="max-width: 780px; min-width: 288px; margin: auto;">
+                        <section>
+                            <a target="_blank" href="https://www.tiktok.com/@smkn6jemberkeren?refer=creator_embed">
+                                @smkn6jemberkeren
+                            </a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
     </section>
+
     <br><br><br>
     <!-- Berita dan Pengumuman -->
     <main class="container mx-auto px-4 py-8">
         <div class="mb-8 text-center md:text-left">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Berita dan Pengumuman</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Info Terbaru SMK 6 </h2>
             <p class="text-gray-600">Informasi terkini seputar kegiatan sekolah dan prestasi siswa</p>
         </div>
 
@@ -796,8 +816,7 @@
                             <div class="placeholder-spinner"></div>
                         </div>
                         <img class="lazy-image w-full h-full object-cover"
-                            data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}"
-                            alt="{{ $beritas[0]->title }}">
+                            data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}" alt="{{ $beritas[0]->title }}">
                     </div>
                     <div class="des p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -806,9 +825,9 @@
                             <span class="text-gray-500 text-sm">{{ $beritas[0]->created_at->format('d M Y') }}</span>
                         </div>
                         <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">{{ $beritas[0]->title }}</h1>
-<div class="text-gray-600 mb-6">
-    {!! Str::limit($beritas[0]->content, 200) !!}
-</div>
+                        <div class="text-gray-600 mb-6">
+                            {!! Str::limit($beritas[0]->content, 200) !!}
+                        </div>
                         <a href="{{ route('berita.show', $beritas[0]) }}"
                             class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
                             Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
@@ -819,13 +838,13 @@
                 <!-- Kanan -->
                 <div class="lg:w-1/3 flex flex-col gap-6">
                     @if (isset($beritas[1]))
-                                                <div
-                                                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                                    <div class="w-full" style="aspect-ratio: 16/9;">
-                                                        <img class="w-full h-full object-cover"
-                                                            src="{{ Storage::url('berita/' . $beritas[1]->image) }}"
-                                                            alt="{{ $beritas[1]->title }}">
-                                                    </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="w-full" style="aspect-ratio: 16/9;">
+                                <img class="w-full h-full object-cover"
+                                    src="{{ Storage::url('berita/' . $beritas[1]->image) }}"
+                                    alt="{{ $beritas[1]->title }}">
+                            </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
@@ -842,13 +861,13 @@
                         </div>
                     @endif
                     @if (isset($beritas[2]))
-                                                <div
-                                                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                                    <div class="w-full" style="aspect-ratio: 16/9;">
-                                                        <img class="w-full h-full object-cover"
-                                                            src="{{ Storage::url('berita/' . $beritas[2]->image) }}"
-                                                            alt="{{ $beritas[2]->title }}">
-                                                    </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="w-full" style="aspect-ratio: 16/9;">
+                                <img class="w-full h-full object-cover"
+                                    src="{{ Storage::url('berita/' . $beritas[2]->image) }}"
+                                    alt="{{ $beritas[2]->title }}">
+                            </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
@@ -877,12 +896,28 @@
     </main>
 
     <section class="bg-[#4B6BFF] py-16 px-4 md:px-10 lg:px-16">
-        <div class="max-w-7xl mx-auto text-center lg:text-left">
-            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3">Produk Sekolah</h2>
-            <p class="text-white/90 max-w-2xl mx-auto lg:mx-0 mb-12">
-                Karya unggulan dari siswa SMKN 6 Jember yang mencerminkan kreativitas, inovasi, dan semangat wirausaha muda.
-            </p>
+        <div class="max-w-7xl mx-auto">
+            <!-- Header + Tombol -->
+            <div class="flex flex-col lg:flex-row items-center justify-between text-center lg:text-left mb-12">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3">Produk Sekolah</h2>
+                    <p class="text-white/90 max-w-2xl mx-auto lg:mx-0">
+                        Karya unggulan dari siswa SMKN 6 Jember yang mencerminkan kreativitas, inovasi, dan semangat
+                        wirausaha muda.
+                    </p>
+                </div>
 
+                <a href="/branding"
+                    class="mt-6 lg:mt-0 flex items-center gap-2 px-5 py-2.5 text-white font-medium border border-white rounded-full hover:bg-white hover:text-[#4B6BFF] transition duration-300">
+                    Kunjungi Toko Enem
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Grid Produk -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Kartu 1 -->
                 <div
@@ -942,7 +977,7 @@
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
-                        <a href="/stu   dioenem"
+                        <a href="/studioenem"
                             class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition inline-flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
@@ -955,18 +990,17 @@
         </div>
     </section>
 
-    <br><br><br>
+    <br><br><br><br>
 
     <section class="fasility bg-slate-900 px-4 md:px-10 py-16 md:py-20">
         <div class="flex flex-col lg:flex-row items-start gap-10">
             <!-- Teks -->
-            <div class="lg:w-1/3 ml-0 md:ml-5" style="margin-top: 5rem;">
+            <div class="lg:w-1/3 ml-0 md:ml-5" style="margin-top: 6.5rem;">
                 <h2 class="text-white text-3xl font-bold mb-4">Ekstrakurikuler</h2>
                 <p class="text-white leading-relaxed">
                     SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
                     minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
                 </p>
-                <div class="btn w-44 mt-5">Lihat Lainnya</div>
             </div>
 
             <!-- Slider -->
@@ -1045,7 +1079,7 @@
                         </div>
                     </div>
 
-                          <!-- Slide 4 -->
+                    <!-- Slide 4 -->
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
@@ -1068,7 +1102,7 @@
                             </figure>
                         </div>
                     </div>
-                          <!-- Slide 5 -->
+                    <!-- Slide 5 -->
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
@@ -1091,12 +1125,12 @@
                             </figure>
                         </div>
                     </div>
-                          <!-- Slide 6 -->
+                    <!-- Slide 6 -->
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
                                 class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/panah.png') }}" alt="Sanggar Tari"
+                                <img src="{{ asset('image/eskul/futsal.png') }}" alt="Sanggar Tari"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
@@ -1105,7 +1139,7 @@
                             </figure>
                             <figure
                                 class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Marching Band"
+                                <img src="{{ asset('image/eskul/voli.jpg') }}" alt="Marching Band"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
@@ -1114,12 +1148,12 @@
                             </figure>
                         </div>
                     </div>
-                          <!-- Slide 5 -->
+                    <!-- Slide 5 -->
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
                                 class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/panah.png') }}" alt="Sanggar Tari"
+                                <img src="{{ asset('image/eskul/basket.png') }}" alt="Sanggar Tari"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
@@ -1128,7 +1162,7 @@
                             </figure>
                             <figure
                                 class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Marching Band"
+                                <img src="{{ asset('image/eskul/englishclub.jpg') }}" alt="Marching Band"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
@@ -1178,27 +1212,6 @@
                 </a>
             </div> --}}
         </div>
-
-        <section
-            class="bg-cover bg-center rounded-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between px-6 md:px-8 py-10 md:py-16 text-white max-w-6xl mx-auto mt-20 min-h-[380px]"
-            style="background-image: url('{{ asset('image/home/bkk.png') }}');">
-            <div class="max-w-lg">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-snug">
-                    Siap Kerja? Temukan <br> Peluangmu di <span class="text-white font-extrabold">BKK</span>
-                </h2>
-                <p class="text-sm md:text-base text-slate-100 mb-6">
-                    SMKN 6 Jember menjembatani lulusan dengan dunia kerja melalui informasi lowongan,
-                    pelatihan, dan rekrutmen perusahaan mitra.
-                </p>
-                <a href="https://wa.me/6282257977434" target="_blank">
-                    <button
-                        class="bg-white text-[#3C71F8] px-6 py-2 rounded font-semibold shadow hover:bg-slate-100 transition">
-                        Kunjungi BKK
-                    </button>
-                </a>
-
-            </div>
-        </section>
 
         <br><br>
 
@@ -1277,8 +1290,8 @@
         <!-- Footer contact -->
         <section
             class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
-                bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full"
-            style="height: 120vh; margin-bottom:-4rem;">
+                bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
+            id="kontak" style="height: 120vh; margin-bottom:-4rem;">
             <!-- Bagian Kiri -->
             <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
@@ -1320,6 +1333,21 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const frame = document.getElementById('videoFrame');
+            frame.src = "https://www.youtube.com/embed/ubqR8YJGiSQ?autoplay=1"; // ID video dari tombol
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const frame = document.getElementById('videoFrame');
+            frame.src = ""; // Hentikan video
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
         // Lazy-load images with IntersectionObserver
         (function() {
             const imgs = document.querySelectorAll('img.lazy-image');

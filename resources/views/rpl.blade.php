@@ -142,10 +142,10 @@
                     di RPL SMKN 6 Jember
                 </h1>
                 <p class="text-lg md:text-xl mb-7">
-                    Smk bisa,SMK Hebat, <br>
-                    SMK Negeri 6 Jember,Berenergi Untuk bisa hebat </p>
-                <a href="#" class="btn" style="background color">
-                    Daftar Sekarang
+                    Smk Bisa, SMK Hebat, <br>
+                    SMK Negeri 6 Jember, Berenergi untuk bisa hebat </p>
+                <a href="#about" class="btn" style="background color">
+                    Jelajahi Jurusan
                 </a>
             </div>
             </div>
@@ -153,17 +153,17 @@
         <div class="brand">
             <img src="{{ asset('image/logooo.png') }}" alt="">
         </div>
-        <section class="about">
+        <section class="about" id="about">
             <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
                 <!-- Bagian kiri (teks) -->
                 <div class="md:w-1/2 space-y-1"><br><br>
                     <p class="text-red-500 font-semibold text-sm">Profil Jurusan</p>
                     <h2 class="text-2xl font-bold">Tentang Jurusan</h2>
                     <p class="text-gray-700">
-                        Jurusan Pengembangan Perangkat Lunak dan <br>
-                        Gim (PPLG) di SMKN 6 Jember merupakan bagian dari <br>
+                        Jurusan Rekayasa Perangkat Lunak <br>
+                        di SMKN 6 Jember merupakan bagian dari <br>
                         bidang keahlian Teknologi Informasi dengan fokus pada <br>
-                        pembuatan perangkat lunak dan game digital.
+                        pembuatan software dan game digital.
                     </p><br>
                     <a href="https://www.youtube.com/shorts/9mQOKXHDnYw?feature=share"
                         class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
@@ -212,36 +212,44 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
                 <!-- Card 1 -->
                 <div class="relative bg-red-500 text-white rounded-xl p-6 shadow-md" style="height: 36vh;">
-                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                                                        <img src="{{ asset('image/rpl/benefit1 (1).png') }}" alt="icon"
-                                                                style="width: 55px; height:55px;">                    </div>
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (1).png') }}" alt="icon"
+                            style="width: 55px; height:55px;">
+                    </div>
                     <h3 class="font-bold text-lg mt-12">Peluang Karir Luas</h3>
                     <p class="mt-2 text-sm">Buka jalan ke profesi masa depan yang menjanjikan.</p>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-7" style="height: 36vh;">
-                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                                                        <img src="{{ asset('image/rpl/benefit1 (2).png') }}" alt="icon"
-                                                                style="width: 55px; height:55px;">                    </div>
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (2).png') }}" alt="icon"
+                            style="width: 55px; height:55px;">
+                    </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Keterampilan yang dibutuhkan</h3>
                     <p class="mt-2 text-sm text-gray-600">Kuasi skill paling dicari industri saat ini.</p>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-5" style="height: 35vh; margin-top:-1rem;">
-                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                                                        <img src="{{ asset('image/rpl/benefit1 (3).png') }}" alt="icon"
-                                                                style="width: 64px; height:55px;">                    </div>
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (3).png') }}" alt="icon"
+                            style="width: 64px; height:55px;">
+                    </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Selalu Update Teknologi</h3>
                     <p class="mt-2 text-sm text-gray-600">Belajar teknologi terbaru biar selalu up-to-date.</p>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-10" style="height: 33vh;">
-                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                                                        <img src="{{ asset('image/rpl/benefit1 (4).png') }}" alt="icon"
-                                                                style="width: 60px; height:55px;">                    </div>
+                    <div
+                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                        <img src="{{ asset('image/rpl/benefit1 (4).png') }}" alt="icon"
+                            style="width: 60px; height:55px;">
+                    </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Fleksibel</h3>
                     <p class="mt-2 text-sm text-gray-600">Belajar kapan saja, di mana saja, dengan cara seru.</p>
                 </div>
@@ -253,14 +261,15 @@
                 <div class="content-teks ml-8">
                     <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
                     <p class="text-gray-600 mb-6">
-                        Siap-siap jadi keren di masa depan! Di sini kamu bakal dapat semuanya: kesempatan karier yang luas
-                        dan
-                        keren, skill yang paling dicari, materi yang selalu update sama teknologi, plus bisa belajar dengan
+                        Siap-siap jadi keren di masa depan! Di sini kamu <br>
+                        bakal dapat semuanya: kesempatan karier yang luas <br>
+                        dan keren, skill yang paling dicari, materi yang selalu <br>
+                        update sama teknologi, plus bisa belajar dengan <br>
                         fleksibel. Dijamin seru dan bermanfaat!
                     </p>
-                    <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
+                    {{-- <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
                         Selengkapnya
-                    </button>
+                    </button> --}}
                 </div>
             </div>
         </section><br><br>
@@ -270,7 +279,7 @@
             <div class="flex flex-col lg:flex-row items-start gap-10">
 
                 <!-- Teks -->
-                <div class="lg:w-1/3 ml-5" style="margin-top: 5rem;">
+                <div class="lg:w-1/3 ml-5" style="margin-top: 6rem;">
                     <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
                     <p class="text-white leading-relaxed">
                         Jurusan RPL memiliki fasilitas lengkap <br>
@@ -335,21 +344,23 @@
                             <div class="grid grid-cols-2 gap-3">
                                 <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                     style="height:50vh;">
-                                    <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
+                                    <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/rpl/fas3.jpg') }}"
                                         style="height:50vh;">
                                     <figcaption class="absolute left-4 top-4">
-                                        <span
+                                         <span
                                             class="inline-flex rounded-e-2xl rounded-s-xl bg-red-600 text-white font-semibold px-4 py-2 shadow">
-                                            Kelas
+                                            Kelas Industri
                                         </span>
                                     </figcaption>
                                 </figure>
                             </div>
                         </div>
                     </div>
-                    <!-- Dots -->
-                    <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
                 </div>
+            </div>
+            <!-- Dots -->
+            <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
+            </div>
             </div>
         </section>
 
@@ -360,24 +371,25 @@
                 <div class="relative flex justify-center lg:w-1/2">
                     <!-- Gambar utama -->
                     <div class="relative">
-                        <img src="{{asset('image/rpl/gambarhsjr.png')}}"
+                        <img src="{{ asset('image/rpl/gambarhsjr.png') }}"
                             class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
 
                         <!-- Gambar kiri atas -->
-                        <img src="{{asset('image/rpl/gambaratas.png')}}"
+                        <img src="{{ asset('image/rpl/gambaratas.png') }}"
                             class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
                             alt="top">
 
                         <!-- Gambar kanan bawah -->
-                        <img src="{{asset('image/rpl/logohsjr.png')}}"
-                            class="absolute -bottom-10 -right-10 w-[150px] h-[150px]  shadow-lg z-20"
+                        <img src="{{ asset('image/rpl/logohsjr.png') }}"
+                            class="absolute -bottom-10 -right-10 w-[150px] h-[150px] object-cover  shadow-lg z-20"
                             alt="bottom">
 
                         <!-- Kotak merah -->
                         <div
-                            class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#F92626] to-[#D24747] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
-                                                                            <div class="bg-white rounded p-3 z-10">
-                                                                                <img src="{{ asset('image/rpl/frame.png') }}" alt="Icon" class="w-7 h-8">                            </div>
+                            class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#F92626] to-[#D24747]  rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
+                            <div class="bg-white rounded p-3 z-10">
+                                <img src="{{ asset('image/rpl/frame.png') }}" alt="Icon" class="w-7 h-8">
+                            </div>
                             <div>
                                 <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
                                 <p class="text-white text-sm mt-1">Siswa Unggul</p>
@@ -389,7 +401,8 @@
                 <!-- BAGIAN KANAN -->
                 <div class="lg:w-1/2 space-y-7">
                     <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
-                        Himpunan Siswa <br>Jurusan RPL
+                        Himpunan Siswa <br>
+                        Jurusan RPL
                     </h2>
 
                     <p class="text-gray-700 leading-relaxed text-[16px]">
@@ -399,13 +412,18 @@
                         dan siap menghadapi tantangan dunia digital masa depan.
                     </p>
 
-                                                    <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
-                                                        <div class="w-5 h-5">
-                                                            <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                                                class="w-full h-full object-contain">
-                                                        </div>                            </div>
+                    <!-- CARD LOWONGAN -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
+                                <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
                             <div>
-                                <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                                <h4 class="font-semibold text-gray-900">Pelatihan Skill RPL</h4>
                                 <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                     sed do eiusmod tempor.</p>
                             </div>
@@ -413,27 +431,23 @@
 
                         <div
                             class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                                                                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
-                                                                                <div class="w-5 h-5">
-                                                                                    <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                                                                        class="w-full h-full object-contain">
-                                                                                </div>                            </div>
+                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
+                                <div class="w-5 h-5">
+                                    <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
                             <div>
-                                <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
+                                <h4 class="font-semibold text-gray-900">Pengalaman Kepanitaan</h4>
                                 <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                     sed do eiusmod tempor.</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Tombol -->
-                    <button class="btn">
-                        Selengkapnya
-                    </button>
                 </div>
             </div>
         </section>
-
+        <br><br>
 
         <section class="performance">
             <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
@@ -459,14 +473,9 @@
                 <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
                     <img src="image/rpl/pres4.png" alt="Prestasi 4" class="w-full h-full object-cover">
                 </div>
-
-                <!-- Tombol -->
-                <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
-                    <a href="https://www.instagram.com/rplsmkn6jember/" class="btn w-40 text-center">Selengkapnya</a>
-                </div>
             </section>
         </section>
-        </section>
+        <br><br><br><br>
         <section class="cta mt-8">
             <h2 class="text-center text-white text-2xl font-bold pt-80">Bersama kami, wujudkan masa depanmu! Bergabunglah
                 <br>
@@ -474,8 +483,10 @@
                 karier gemilang.
             </h2><br>
             <div class="cta-btn">
-                <a href="" class="btn1">Daftar Sekarang</a>
-                <a href="" class="btn2">Lihat Lainnya</a>
+                <a href="https://www.instagram.com/rplsmkn6jember/" class="btn1">
+                    Selengkapnya
+                </a>
+                <a href="/home" class="btn2">Lihat Lainnya</a>
             </div>
         </section>
         <script>

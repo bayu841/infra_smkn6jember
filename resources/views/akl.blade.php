@@ -17,7 +17,7 @@
             background: linear-gradient(to right, #319F2C, #127E32);
         }
 
-       .brand {
+        .brand {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,6 +35,7 @@
             width: 1500px;
             margin: 6px;
         }
+
         .about {
             margin-left: 6rem;
             margin-top: 3rem;
@@ -144,18 +145,18 @@
                 di AKL SMKN 6 Jember
             </h1>
             <p class="text-lg md:text-xl mb-7">
-                Smk bisa,SMK Hebat, <br>
-                SMK Negeri 6 Jember,Berenergi Untuk bisa hebat </p>
-            <a href="#" class="btn" style="background color">
-                Daftar Sekarang
+                Smk Bisa, SMK Hebat, <br>
+                SMK Negeri 6 Jember, Berenergi untuk bisa hebat </p>
+            <a href="#about" class="btn" style="background color">
+                Jelajahi Jurusan
             </a>
         </div>
         </div>
     </section>
-       <div class="brand">
+    <div class="brand">
         <img src="{{ asset('image/logooo.png') }}" alt="">
     </div>
-    <section class="about">
+    <section class="about" id="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1"><br><br>
@@ -254,7 +255,7 @@
         <!-- Kanan: Deskripsi -->
         <div>
             <div class="content-teks ml-8">
-                <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
+                <h2 class="text-2xl font-bold mb-4" style="margin-top: -4rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
                     Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
                     juga skill penting untuk masa depan. Mulai dari peluang karir
@@ -263,9 +264,6 @@
                     dirancang agar kamu siap menghadapi dunia nyata dengan
                     percaya diri.
                 </p>
-                <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
-                    Selengkapnya
-                </button>
             </div>
         </div>
     </section><br><br>
@@ -325,7 +323,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-green-600 text-white font-semibold px-4 py-2 shadow">
-                                        2
+                                        Pawon Enem
                                     </span>
                                 </figcaption>
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
@@ -334,26 +332,13 @@
                         </div>
                     </div>
                     <!-- Slide 2 -->
-                    <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
-                        style="width: 1000px; height:50vh;">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
-                                style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
-                                    style="height:50vh;">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-green-600 text-white font-semibold px-4 py-2 shadow">
-                                        3
-                                    </span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
+
                 </div>
-                <!-- Dots -->
-                <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
             </div>
+        </div>
+        <!-- Dots -->
+        <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
+        </div>
         </div>
     </section>
     <section class="bg-[#f5f5f5] py-20">
@@ -372,10 +357,9 @@
                         alt="top">
 
                     <!-- Gambar kanan bawah -->
-                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
-                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
-                        alt="bottom">
-
+                   <img src="{{ asset('image/akl/logo.png') }}"
+                            class="absolute -bottom-10 -right-10 w-[150px] h-[150px] object-cover  shadow-lg z-20"
+                            alt="bottom">
                     <!-- Kotak merah -->
                     <div
                         class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#319F2C] to-[#127E32] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
@@ -393,7 +377,8 @@
             <!-- BAGIAN KANAN -->
             <div class="lg:w-1/2 space-y-7">
                 <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
-                    Himpunan Siswa <br>Jurusan Akuntansi
+                    Himpunan Siswa <br>
+                    Jurusan Akuntansi
                 </h2>
 
                 <p class="text-gray-700 leading-relaxed text-[16px]">
@@ -405,28 +390,38 @@
 
                 <!-- CARD LOWONGAN -->
                 <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
                         <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
                             <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                <img src="{{ asset('image/akl/Group (1).png') }}" alt="Bag Icon"
                                     class="w-full h-full object-contain">
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor.</p>
+                            <h4 class="font-semibold text-gray-900">Kegiatan Unggulan Akuntansi</h4>
+                            <p class="text-gray-500 text-sm">Mengasah kemampuan analisis dan ketelitian siswa akuntansi.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/akl/Vector (1).png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Praktik Akuntansi Perusahaan</h4>
+                            <p class="text-gray-500 text-sm">Menerapkan ilmu akuntansi melalui simulasi dunia kerja nyata.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tombol -->
-                <button class="btn">
-                    Selengkapnya
-                </button>
             </div>
         </div>
     </section>
-
+    <br><br>
     <section class="performance">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
@@ -451,11 +446,7 @@
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
                 <img src="{{ asset('image/akl/pres4.png') }}" alt="Prestasi 4" class="w-full h-full object-cover">
             </div>
-
-            <!-- Tombol -->
-            <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
-                <a href="" class="btn w-40 text-center">Selengkapnya</a>
-            </div>
+            <br><br><br>
         </section>
     </section>
 
@@ -468,8 +459,8 @@
             karier gemilang.
         </h2><br>
         <div class="cta-btn">
-            <a href="" class="btn1">Daftar Sekarang</a>
-            <a href="" class="btn2">Lihat Lainnya</a>
+            <a href="https://www.instagram.com/hsja.smkn6jbr    /" class="btn1">Selengkapnya</a>
+            <a href="/home" class="btn2">Lihat Lainnya</a>
         </div>
     </section>
     <script>

@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PublicBeritaController;
 use App\Models\Berita;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +35,6 @@ Route::middleware('guest')->group(function () {
 });
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-
 // Admin Routes
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
@@ -51,11 +49,10 @@ Route::get('/batikenem', [App\Http\Controllers\BrandingController::class, 'batik
 Route::get('/energienem', [App\Http\Controllers\BrandingController::class, 'energiEnem']);
 Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'studioEnem']);
 
-
 // Jurusan
-Route::get('/rpl', function(){
+Route::get('/rpl', function () {
     return view('rpl');
-});
+})->name('rpl');
 Route::get('/dkv', function () {
     return view('dkv');
 });
@@ -79,6 +76,9 @@ Route::get('/brand-dkv', function () {
 });
 Route::get('/detaileskul', function () {
     return view('detaileskul');
+});
+Route::get('/branding', function () {
+    return view('brandingsmk6.branding');
 });
 
 // Cart Routes
@@ -111,7 +111,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     })->name('settings.index');
 
     // Debug route to reset notifications
-    Route::get('/reset-notifications', function() {
+    Route::get('/reset-notifications', function () {
         \App\Models\Transaction::where('status', 'success')->update(['is_read' => false]);
         return 'All successful transactions have been marked as unread.';
     });
