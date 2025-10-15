@@ -29,11 +29,14 @@
             margin: 0 auto;
             padding: 10px 10px;
             background-color: rgb(255, 255, 255);
-            width: 900px;
-            margin-top: -3rem;
+            width: 950px;
+            margin-top: -2.5rem;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             height: 12vh;
+            position: relative;
+            z-index: 90;
+
         }
 
         .brand img {
@@ -364,17 +367,46 @@
         }
     </style>
 
-    <section class="hero-wrap" style="background-image: url('image/home/herohome.png');">
-        <div class="hero-content">
-            <div class="hero-text mb-10 md:mb-0 md:ml-10 lg:ml-20">
-                <h1 class="text-3xl md:text-4xl font-bold mb-2">Selamat Datang di</h1>
-                <h1 class="text-3xl md:text-4xl font-bold mb-5 text-blue-600 -mt-2">SMKN 6 Jember</h1>
-                <p class="text-base md:text-lg mb-6">
-                    Smk bisa, SMK Hebat, <br>
-                    SMK Negeri 6 Jember, Berenergi Untuk bisa hebat
-                </p>
-                <a href="#" class="btn">Daftar Sekarang</a>
+
+    <section
+        class="relative h-[100vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-16 bg-[#D7DEFF]/10 overflow-hidden ">
+
+        <!-- Bagian Kiri -->
+        <div class="lg:w-1/2 space-y-6 z-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight text-slate-900">
+                <span class="text-[#5978ff]">Jelajahi</span> Pengetahuanmu,<br>
+                Mulai Langkahmu di<br>
+                <span class="text-[#5978ff]">SMKN 6 Jember</span>
+            </h1>
+
+            <p class="text-slate-700 text-lg leading-relaxed max-w-md">
+                SMKN 6 Jember menghadirkan lingkungan belajar yang kreatif, modern, dan berorientasi pada dunia industri.
+                Wujudkan potensi terbaikmu bersama kami.
+            </p>
+
+            <div class="flex items-center gap-5 pt-4">
+                <a href="#"
+                    class="bg-[#5978ff] hover:bg-[#4966e6] text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300">
+                    Kenali Lebih Dekat
+                </a>
+                <a href="https://www.youtube.com/@smknegeri6jember"
+                    class="bg-white text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 rounded-full p-4 shadow-lg inline-flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                </a>
+
             </div>
+        </div>
+
+        <!-- Bagian Kanan (Gambar Siswi) -->
+        <div class="lg:w-1/2 flex justify-center relative z-10 mt-10 lg:mt-0">
+            <img src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
+                class="w-[280px] sm:w-[300px] md:w-[320px] lg:w-[380px] pt-20 drop-shadow-2xl relative z-10">
+        </div>
+        <!-- Layer diagonal dekoratif -->
+        <div
+            class="absolute -top-20 left-[600px] w-[80%] h-[1400px] bg-gradient-to-b from-[#fff] to-[#5170FF] -rotate-[8deg] origin-top-left z-0">
         </div>
     </section>
 
@@ -382,7 +414,7 @@
         <img src="{{ asset('image/logooo.png') }}" alt="">
     </div>
 
-    <br>
+    <br><br><br>
 
     <section class="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-4 md:px-12 py-10 gap-6 md:gap-1 md:ml-10">
@@ -434,10 +466,10 @@
         </div>
     </section>
 
-    <br><br>
+    <br><br><br>
     <!-- Slider Section -->
     <div class="major">
-        <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10" id="jurusan">
             <!-- Text Section (sudah diperbaiki) -->
             <div class="mb-6 text-center sm:text-left">
                 <p class="text-primary font-semibold text-blue-600 break-words text-balance">
@@ -487,12 +519,13 @@
                             <div class="p-5 sm:p-6">
                                 <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan RPL
                                     adalah
-                                    jurusan yang mempelajari perancangan, pembuatan, dan pengelolaan perangkat lunak, mulai dari aplikasi
+                                    jurusan yang mempelajari perancangan, pembuatan, dan pengelolaan perangkat lunak, mulai
+                                    dari aplikasi
                                     hingga sistem komputer, untuk mendukung kebutuhan teknologi dan solusi digital.
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="#rpl"
+                                <a href="{{ route('rpl') }}"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -529,7 +562,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="#bd"
+                                <a href="{{ route('bd') }}"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -560,13 +593,13 @@
                             </div>
                             <div class="p-5 sm:p-6">
                                 <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
-                                    Akuntansi Keuangan Lembaga di 
+                                    Akuntansi Keuangan Lembaga di
                                     SMK 6 Jember mempelajari pencatatan, pengelolaan, dan pelaporan keuangan untuk mendukung
                                     pengambilan keputusan bisnis yang tepat dan akurat.
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="#akl"
+                                <a href="{{ route('akl') }}"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -602,7 +635,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="#rpl"
+                                <a href="{{ route('mp') }}"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -621,7 +654,7 @@
                                 <div class="image-placeholder">
                                     <div class="placeholder-spinner"></div>
                                 </div>
-                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/rpl.png"
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/dkv.png"
                                     alt="Rekayasa Perangkat Lunak">
                                 <div class="-mt-5 px-5">
                                     <span
@@ -639,7 +672,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="#rpl"
+                                <a href="{{ route('dkv') }}"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -658,7 +691,7 @@
                                 <div class="image-placeholder">
                                     <div class="placeholder-spinner"></div>
                                 </div>
-                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/rpl.png"
+                                <img class="lazy-image w-full h-full object-cover" data-src="image/home/kkbt.png"
                                     alt="Rekayasa Perangkat Lunak">
                                 <div class="-mt-5 px-5">
                                     <span
@@ -676,7 +709,7 @@
                                 </p>
                             </div>
                             <div class="p-5 sm:p-6 -mt-2">
-                                <a href="#rpl"
+                                <a href="{{ route('kkbt') }}"
                                     class="btn-grad w-full inline-flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl transition hover:opacity-95">
                                     Selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24"
@@ -693,7 +726,65 @@
             <div class="mt-6 flex items-center justify-center gap-2" id="dots"></div>
         </section>
     </div>
+    <br><br>
+    <section class="max-w-7xl mx-auto px-4 py-10">
+        <!-- Judul -->
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Video Youtube</h2>
 
+        <!-- Grid Video -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Video Item -->
+            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                <iframe class="w-full aspect-video rounded-xl shadow-lg" src="https://www.youtube.com/embed/bLPIP9V1rSo"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/etxDTQhUQNk" title="Video 2"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/fFwkBj56KiI" title="Video 3"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/lbKLQgogWzw?si=Ygvd-IGphdBdI2hF"
+                    title="Video 4" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/Wxj_1LRimek" title="Video 5"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/OUZ6IDDucdM" title="Video 6"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Tombol Selengkapnya -->
+        {{-- <div class="text-center mt-8">
+            <a href="https://www.youtube.com/@smknegeri6jember" class="btn">
+                Selengkapnya
+            </a>
+        </div> --}}
+    </section>
+    <br><br><br>
     <!-- Berita dan Pengumuman -->
     <main class="container mx-auto px-4 py-8">
         <div class="mb-8 text-center md:text-left">
@@ -813,13 +904,13 @@
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
-                        <div
-                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition">
+                        <a href="/energienem"
+                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition inline-flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -836,13 +927,13 @@
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
-                        <div
-                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition">
+                        <a href="/batikenem"
+                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition inline-flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -851,20 +942,21 @@
                     class="bg-white rounded-3xl shadow-md p-6 flex flex-col transition hover:-translate-y-2 hover:shadow-xl duration-300">
                     <div>
                         <h3 class="text-lg font-semibold text-gray-900 mb-1">Studio Enem</h3>
-                        <p class="text-gray-500 text-sm mb-4">Studio foto kreatif karya siswa SMKN 6 Jember.</p>
+                        <p class="text-gray-500 text-sm mb-4">Studio foto kreatif karya <br>
+                            siswa SMKN 6 Jember.</p>
                         <div class="rounded-2xl overflow-hidden">
                             <img src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem"
                                 class="w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
-                        <div
-                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition">
+                        <a href="/stu   dioenem"
+                            class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition inline-flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -927,11 +1019,11 @@
                             </figure>
                             <figure
                                 class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/rpl/fas2.png') }}" alt="Marching Band"
+                                <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Marching Band"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Marching Band</span>
+                                    <span class="text-white text-xl font-semibold">Merpati Putih</span>
                                 </div>
                             </figure>
                         </div>
@@ -942,7 +1034,31 @@
                         <div class="grid grid-cols-2 gap-3">
                             <figure
                                 class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/rpl/fas1.png') }}" alt="Hadroh"
+                                <img src="{{ asset('image/eskul/pencakorganisasi.png') }}" alt="Hadroh"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Pencak Organisasi</span>
+                                </div>
+                            </figure>
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/renang.jpg') }}" alt="Osis"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Renang</span>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+
+                          <!-- Slide 4 -->
+                    <div class="shrink-0 eskul-slide snap-start">
+                        <div class="grid grid-cols-2 gap-3">
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/hadroh.png') }}" alt="Sanggar Tari"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
@@ -951,15 +1067,85 @@
                             </figure>
                             <figure
                                 class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/rpl/fas2.png') }}" alt="Osis"
+                                <img src="{{ asset('image/eskul/marchingband.png') }}" alt="Marching Band"
                                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                 <div
                                     class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Osis</span>
+                                    <span class="text-white text-xl font-semibold">Merching Band</span>
                                 </div>
                             </figure>
                         </div>
                     </div>
+                          <!-- Slide 5 -->
+                    <div class="shrink-0 eskul-slide snap-start">
+                        <div class="grid grid-cols-2 gap-3">
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/panah.png') }}" alt="Sanggar Tari"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Panahan</span>
+                                </div>
+                            </figure>
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/paduansuara.jpg') }}" alt="Marching Band"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Paduan Suara</span>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                          <!-- Slide 6 -->
+                    <div class="shrink-0 eskul-slide snap-start">
+                        <div class="grid grid-cols-2 gap-3">
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/panah.png') }}" alt="Sanggar Tari"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Futsal</span>
+                                </div>
+                            </figure>
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Marching Band"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Voli</span>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                          <!-- Slide 5 -->
+                    <div class="shrink-0 eskul-slide snap-start">
+                        <div class="grid grid-cols-2 gap-3">
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/panah.png') }}" alt="Sanggar Tari"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">Basket</span>
+                                </div>
+                            </figure>
+                            <figure
+                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
+                                <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Marching Band"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                    <span class="text-white text-xl font-semibold">English Club</span>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="mt-4 flex items-center justify-center gap-2" id="dots2"></div>
             </div>
@@ -993,12 +1179,12 @@
                 </div>
             </div>
 
-            <div class="mt-10">
+            {{-- <div class="mt-10">
                 <a href="#"
                     class="px-6 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-900 text-white font-semibold hover:opacity-90 transition">
                     Selengkapnya
                 </a>
-            </div>
+            </div> --}}
         </div>
 
         <section
@@ -1012,67 +1198,89 @@
                     SMKN 6 Jember menjembatani lulusan dengan dunia kerja melalui informasi lowongan,
                     pelatihan, dan rekrutmen perusahaan mitra.
                 </p>
-                <button
-                    class="bg-white text-[#3C71F8] px-6 py-2 rounded font-semibold shadow hover:bg-slate-100 transition">
-                    Kunjungi BKK
-                </button>
+                <a href="https://wa.me/6282257977434" target="_blank">
+                    <button
+                        class="bg-white text-[#3C71F8] px-6 py-2 rounded font-semibold shadow hover:bg-slate-100 transition">
+                        Kunjungi BKK
+                    </button>
+                </a>
+
             </div>
         </section>
 
         <br><br>
 
-        <div class="font-poppins bg-gray-100 flex items-center justify-center p-4 md:p-8">
-            <div class="container max-w-6xl w-full flex flex-col lg:flex-row gap-6 md:gap-8">
-                <!-- Card Utama -->
-                <div class="w-full lg:w-1/3">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white p-6 md:p-8 rounded-xl shadow-2xl flex flex-col gap-4 md:gap-6"
-                        style="min-height: 360px;">
-                        <h3 class="text-lg md:text-xl font-light opacity-90">Kamu Lagi ada Masalah?</h3>
-                        <h1 class="text-2xl md:text-3xl font-bold leading-tight">Yuk, konsultasi sekarang!</h1>
-                        <div class="flex flex-col gap-4">
-                            <p class="text-blue-100 leading-relaxed">
-                                Jangan biarkan masalahmu mengganggu harimu. Tim konselor kami siap mendengarkan dan membantu
-                                menemukan solusi terbaik untukmu.
-                            </p>
-                            <button onclick="window.location.href='https://wa.me/6281333794278'"
-                                class="self-start bg-white text-blue-600 hover:bg-blue-50 font-medium py-2.5 px-6 rounded-lg transition duration-300">
-                                Konsultasi sekarang
-                            </button>
-                        </div>
-                    </div>
+        <section
+            class="bg-[#F4F5F7] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 max-w-8xl mx-auto shadow-md h-[100vh]">
+
+            <!-- Bagian kiri (gambar + kartu layanan) -->
+            <div class="relative ml-10">
+                <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
+                    <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
+                        class="w-80 md:w-96 h-[460px] object-cover" />
                 </div>
 
-                <!-- Grid Gambar -->
-                <div class="w-full lg:w-2/3 grid grid-cols-2 grid-rows-2 gap-4 md:gap-6" style="min-height: 360px;">
-                    <div class="rounded-xl overflow-hidden shadow-lg">
-                        <img src="{{ asset('image/home/atas.png') }}" alt="Konsultasi"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg row-span-2">
-                        <div class="lazy-image-container w-full h-full">
-                            <div class="image-placeholder">
-                                <div class="placeholder-spinner"></div>
-                            </div>
-                            <img class="lazy-image w-full h-full object-cover"
-                                data-src="https://picsum.photos/seed/counseling2/600/800.jpg" alt="Konseling">
+                <!-- 3 kartu kecil di sisi kanan -->
+                <div class="absolute top-1/4 -right-44 space-y-3">
+                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                        <div class="bg-blue-600 text-white p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
                         </div>
+                        <span class="font-semibold text-gray-700">Konseling Pribadi</span>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg row-span-2">
-                        <div class="lazy-image-container w-full h-full">
-                            <div class="image-placeholder">
-                                <div class="placeholder-spinner"></div>
-                            </div>
-                            <img class="lazy-image w-full h-full object-cover"
-                                data-src="https://picsum.photos/seed/counseling3/600/800.jpg" alt="Sesi konseling">
+
+                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                        <div class="bg-blue-600 text-white p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </div>
+                        <span class="font-semibold text-gray-700">Bimbingan Karier</span>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg">
-                        <img src="{{ asset('image/home/bawah.png') }}" alt="Konselor"
-                            class="w-full h-full object-cover">
+
+                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                        <div class="bg-blue-600 text-white p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17 20h5V4H2v16h5m10 0v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z" />
+                            </svg>
+                        </div>
+                        <span class="font-semibold text-gray-700">Konseling Sosial</span>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Bagian kanan (teks) -->
+            <div class="max-w-xl text-center md:text-left ml-40"">
+                <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
+                <h2 class="text-1xl md:text-2xl font-bold text-gray-900 mt-2 leading-snug">
+                    Kamu Lagi ada Masalah?<br>
+                    Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg ">konsultasi sekarang!</span>
+                </h2>
+                <p class="text-gray-700 mt-5 leading-relaxed">
+                    Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
+                    Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
+                    dengan cara yang sehat dan tepat.
+                </p>
+                <a href="https://wa.me/6285806541124" target="_blank">
+                    <button
+                        class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
+                        Konsultasi Sekarang
+                    </button>
+                </a>
+
+            </div>
+
+        </section>
 
         <!-- Footer contact -->
         <section

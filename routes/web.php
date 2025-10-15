@@ -64,27 +64,42 @@ Route::get('/brand', function(){
 });
 
 // Jurusan
-Route::get('/rpl', function(){
+Route::get('/rpl', function () {
     return view('rpl');
-});
+})->name('rpl');
+
 Route::get('/dkv', function () {
     return view('dkv');
-});
+})->name('dkv');
+
 Route::get('/bd', function () {
     return view('bd');
-});
+})->name('bd');
+
 Route::get('/akl', function () {
     return view('akl');
-});
+})->name('akl');
+
 Route::get('/mp', function () {
     return view('mp');
-});
+})->name('mp');
+
 Route::get('/kkbt', function () {
     return view('kkbt');
-});
-Route::get('/detail', function () {
-    return view('product.detail');
-});
-Route::get('/visimisi', function () {
+})->name('kkbt');
+
+Route::get('/visi', function () {
     return view('visimisi');
-});
+})->name('visimisi');
+
+Route::get('/energienem ', function () {
+    return view('brandingsmk6.energienem');
+})->name('energienem');
+
+Route::get('/batikenem ', function () {
+    return view('brandingsmk6.batikenem');
+})->name('batikenem');
+
+Route::get('/studioenem', function () {
+    return view('brandingsmk6.studioenem');
+})->name('studioenem');
