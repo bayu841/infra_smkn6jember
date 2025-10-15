@@ -401,8 +401,8 @@
 
         <!-- Bagian Kanan (Gambar Siswi) -->
         <div class="lg:w-1/2 flex justify-center relative z-10 mt-10 lg:mt-0">
-            <img src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
-                class="w-[280px] sm:w-[300px] md:w-[320px] lg:w-[380px] pt-20 drop-shadow-2xl relative z-10">
+            <img data-src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
+                class="lazy-image w-[280px] sm:w-[300px] md:w-[320px] lg:w-[380px] pt-20 drop-shadow-2xl relative z-10">
         </div>
         <!-- Layer diagonal dekoratif -->
         <div
@@ -411,7 +411,7 @@
     </section>
 
     <div class="brand">
-        <img src="{{ asset('image/logooo.png') }}" alt="">
+        <img data-src="{{ asset('image/logooo.png') }}" alt="" class="lazy-image">
     </div>
 
     <br><br><br>
@@ -891,8 +891,8 @@
                         <h3 class="text-lg font-semibold text-gray-900 mb-1">Energi Enem</h3>
                         <p class="text-gray-500 text-sm mb-4">Air minum sehat hasil produksi oleh Depo SMKN 6 Jember</p>
                         <div class="rounded-2xl overflow-hidden">
-                            <img src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem"
-                                class="w-full h-56 object-cover">
+                            <img data-src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem"
+                                class="lazy-image w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -914,8 +914,8 @@
                         <p class="text-gray-500 text-sm mb-4">Batik karya siswa SMKN 6 Jember yang memadukan tradisi dan
                             gaya modern.</p>
                         <div class="rounded-2xl overflow-hidden">
-                            <img src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem"
-                                class="w-full h-56 object-cover">
+                            <img data-src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem"
+                                class="lazy-image w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -937,8 +937,8 @@
                         <p class="text-gray-500 text-sm mb-4">Studio foto kreatif karya <br>
                             siswa SMKN 6 Jember.</p>
                         <div class="rounded-2xl overflow-hidden">
-                            <img src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem"
-                                class="w-full h-56 object-cover">
+                            <img data-src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem"
+                                class="lazy-image w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -1208,8 +1208,8 @@
             <!-- Bagian kiri (gambar + kartu layanan) -->
             <div class="relative ml-10">
                 <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
-                    <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
-                        class="w-80 md:w-96 h-[460px] object-cover" />
+                    <img data-src="{{ asset('image/home/bk.png') }}" alt="Konseling"
+                        class="lazy-image w-80 md:w-96 h-[460px] object-cover" />
                 </div>
 
                 <!-- 3 kartu kecil di sisi kanan -->
@@ -1571,7 +1571,13 @@
                 const message = document.getElementById('message')?.value?.trim();
 
                 if (!name || !email || !message) {
-                    showNotification('Harap isi semua field yang diperlukan', 'error');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Harap isi semua field yang diperlukan',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
                     return;
@@ -1579,25 +1585,18 @@
 
                 // Simulate form submission (replace with actual AJAX call if needed)
                 setTimeout(() => {
-                    showNotification('Pesan Anda telah berhasil dikirim!', 'success');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: 'Pesan Anda telah berhasil dikirim!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                     form.reset();
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
                 }, 2000); // Simulate a 2-second submission time
             });
-
-            function showNotification(message, type) {
-                const notification = document.createElement('div');
-                notification.className =
-                    `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} transform transition-transform duration-300 translate-x-full z-50`;
-                notification.textContent = message;
-                document.body.appendChild(notification);
-                setTimeout(() => notification.classList.remove('translate-x-full'), 10);
-                setTimeout(() => {
-                    notification.classList.add('translate-x-full');
-                    setTimeout(() => document.body.removeChild(notification), 300);
-                }, 3000);
-            }
 
             // TRACER CHART - Fixed initialization
             const tracerCtx = document.getElementById('tracerChart');
