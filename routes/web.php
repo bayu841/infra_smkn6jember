@@ -81,6 +81,9 @@ Route::post('/checkout', [App\Http\Controllers\PaymentController::class, 'checko
 Route::get('/pembayaran-sukses', [App\Http\Controllers\PaymentController::class, 'success'])->name('payment.success');
 Route::post('/midtrans/callback', [App\Http\Controllers\PaymentController::class, 'callback'])->name('midtrans.callback');
 
+// Contact Form Submission
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
+
 // Admin Routes
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
@@ -97,6 +100,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/settings', function () {
         return view('admin.settings.index'); // Create this view later
     })->name('settings.index');
+
+    // Contact Messages Admin
+    Route::get('/contact-messages', [App\Http\Controllers\Admin\ContactMessageController::class, 'index'])->name('contact_messages.index');
 
     // Debug route to reset notifications
     Route::get('/reset-notifications', function() {

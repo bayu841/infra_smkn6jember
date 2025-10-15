@@ -1297,15 +1297,17 @@
             <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
                 <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
 
-                <form id="contactForm" action="#" method="POST" class="space-y-4">
-                    <input type="text" id="name" placeholder="Nama"
+                <form id="contactForm" action="{{ route('contact.store') }}" method="POST" class="space-y-4">
+                    @csrf
+                    <input type="text" id="name" name="name" placeholder="Nama"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="email" id="email" placeholder="Email"
+                    <input type="email" id="email" name="email" placeholder="Email"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="tel" id="phone" placeholder="No Telepon"
+                    <input type="tel" id="phone" name="phone" placeholder="No Telepon"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <textarea id="message" rows="4" placeholder="Pesan"
+                    <textarea id="message" name="message" rows="4" placeholder="Pesan"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh712eYGp_QCbuMfJvWf"></div>
                     <button type="submit"
                         class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
                         Kirim Pesan
@@ -1557,7 +1559,7 @@
 
             // FORM
             const form = document.getElementById('contactForm');
-            form?.addEventListener('submit', function(e) {
+            form?.addEventListener('submit', async function(e) { // Added 'async'
                 e.preventDefault();
 
                 const submitButton = form.querySelector('button[type="submit"]');
@@ -1569,6 +1571,7 @@
                 const email = document.getElementById('email')?.value?.trim();
                 const phone = document.getElementById('phone')?.value?.trim();
                 const message = document.getElementById('message')?.value?.trim();
+                const recaptchaResponse = grecaptcha.getResponse(); // Get reCAPTCHA response
 
                 if (!name || !email || !message) {
                     Swal.fire({
@@ -1583,19 +1586,69 @@
                     return;
                 }
 
-                // Simulate form submission (replace with actual AJAX call if needed)
-                setTimeout(() => {
+                if (!recaptchaResponse) { // Validate reCAPTCHA
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil!',
-                        text: 'Pesan Anda telah berhasil dikirim!',
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Harap centang reCAPTCHA',
                         showConfirmButton: false,
                         timer: 2000
                     });
-                    form.reset();
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
-                }, 2000); // Simulate a 2-second submission time
+                    return;
+                }
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Assuming CSRF token is in meta tag
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            message: message,
+                            'g-recaptcha-response': recaptchaResponse // Include reCAPTCHA response
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: data.message,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        form.reset();
+                        grecaptcha.reset(); // Reset reCAPTCHA
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: data.message || 'Terjadi kesalahan saat mengirim pesan.',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error Koneksi!',
+                        text: 'Terjadi kesalahan koneksi.',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }
             });
 
             // TRACER CHART - Fixed initialization
