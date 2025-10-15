@@ -401,8 +401,8 @@
 
         <!-- Bagian Kanan (Gambar Siswi) -->
         <div class="lg:w-1/2 flex justify-center relative z-10 mt-10 lg:mt-0">
-            <img src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
-                class="w-[280px] sm:w-[300px] md:w-[320px] lg:w-[380px] pt-20 drop-shadow-2xl relative z-10">
+            <img data-src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
+                class="lazy-image w-[280px] sm:w-[300px] md:w-[320px] lg:w-[380px] pt-20 drop-shadow-2xl relative z-10">
         </div>
         <!-- Layer diagonal dekoratif -->
         <div
@@ -411,7 +411,7 @@
     </section>
 
     <div class="brand">
-        <img src="{{ asset('image/logooo.png') }}" alt="">
+        <img data-src="{{ asset('image/logooo.png') }}" alt="" class="lazy-image">
     </div>
 
     <br><br><br>
@@ -926,8 +926,8 @@
                         <h3 class="text-lg font-semibold text-gray-900 mb-1">Energi Enem</h3>
                         <p class="text-gray-500 text-sm mb-4">Air minum sehat hasil produksi oleh Depo SMKN 6 Jember</p>
                         <div class="rounded-2xl overflow-hidden">
-                            <img src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem"
-                                class="w-full h-56 object-cover">
+                            <img data-src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem"
+                                class="lazy-image w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -949,8 +949,8 @@
                         <p class="text-gray-500 text-sm mb-4">Batik karya siswa SMKN 6 Jember yang memadukan tradisi dan
                             gaya modern.</p>
                         <div class="rounded-2xl overflow-hidden">
-                            <img src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem"
-                                class="w-full h-56 object-cover">
+                            <img data-src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem"
+                                class="lazy-image w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -972,8 +972,8 @@
                         <p class="text-gray-500 text-sm mb-4">Studio foto kreatif karya <br>
                             siswa SMKN 6 Jember.</p>
                         <div class="rounded-2xl overflow-hidden">
-                            <img src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem"
-                                class="w-full h-56 object-cover">
+                            <img data-src="{{ asset('image/home/studioenem.png') }}" alt="Studio Enem"
+                                class="lazy-image w-full h-56 object-cover">
                         </div>
                     </div>
                     <div class="flex justify-end mt-4">
@@ -1221,8 +1221,8 @@
             <!-- Bagian kiri (gambar + kartu layanan) -->
             <div class="relative ml-10">
                 <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
-                    <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
-                        class="w-80 md:w-96 h-[460px] object-cover" />
+                    <img data-src="{{ asset('image/home/bk.png') }}" alt="Konseling"
+                        class="lazy-image w-80 md:w-96 h-[460px] object-cover" />
                 </div>
 
                 <!-- 3 kartu kecil di sisi kanan -->
@@ -1301,7 +1301,7 @@
                 <div class="relative">
                     <!-- Background bentuk oval -->
                     <div
-                        class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
+                        class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[250px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
                     </div>
                 </div>
             </div>
@@ -1310,15 +1310,17 @@
             <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
                 <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
 
-                <form id="contactForm" action="#" method="POST" class="space-y-4">
-                    <input type="text" id="name" placeholder="Nama"
+                <form id="contactForm" action="{{ route('contact.store') }}" method="POST" class="space-y-4">
+                    @csrf
+                    <input type="text" id="name" name="name" placeholder="Nama"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="email" id="email" placeholder="Email"
+                    <input type="email" id="email" name="email" placeholder="Email"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="tel" id="phone" placeholder="No Telepon"
+                    <input type="tel" id="phone" name="phone" placeholder="No Telepon"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <textarea id="message" rows="4" placeholder="Pesan"
+                    <textarea id="message" name="message" rows="4" placeholder="Pesan"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                     <button type="submit"
                         class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
                         Kirim Pesan
@@ -1331,7 +1333,7 @@
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('recaptcha.site') }}"></script>
     <script>
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
@@ -1585,33 +1587,100 @@
 
             // FORM
             const form = document.getElementById('contactForm');
-            form?.addEventListener('submit', function(e) {
+            form?.addEventListener('submit', async function(e) { // Added 'async'
                 e.preventDefault();
+
+                const submitButton = form.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.innerHTML = 'Mengirim...';
+
                 const name = document.getElementById('name')?.value?.trim();
                 const email = document.getElementById('email')?.value?.trim();
                 const phone = document.getElementById('phone')?.value?.trim();
                 const message = document.getElementById('message')?.value?.trim();
+                let recaptchaResponse = '';
 
                 if (!name || !email || !message) {
-                    showNotification('Harap isi semua field yang diperlukan', 'error');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Harap isi semua field yang diperlukan',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
                     return;
                 }
-                showNotification('Pesan Anda telah berhasil dikirim!', 'success');
-                form.reset();
-            });
 
-            function showNotification(message, type) {
-                const notification = document.createElement('div');
-                notification.className =
-                    `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} transform transition-transform duration-300 translate-x-full z-50`;
-                notification.textContent = message;
-                document.body.appendChild(notification);
-                setTimeout(() => notification.classList.remove('translate-x-full'), 10);
-                setTimeout(() => {
-                    notification.classList.add('translate-x-full');
-                    setTimeout(() => document.body.removeChild(notification), 300);
-                }, 3000);
-            }
+                try {
+                    recaptchaResponse = await grecaptcha.execute('{{ config('recaptcha.sitekey') }}', {action: 'submit'});
+                } catch (error) {
+                    console.error('reCAPTCHA v3 execution failed:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Gagal memuat reCAPTCHA. Coba lagi.',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                    return;
+                }
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Assuming CSRF token is in meta tag
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            message: message,
+                            'g-recaptcha-response': recaptchaResponse // Include reCAPTCHA response
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: data.message,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        form.reset();
+                        grecaptcha.reset(); // Reset reCAPTCHA
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: data.message || 'Terjadi kesalahan saat mengirim pesan.',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error Koneksi!',
+                        text: 'Terjadi kesalahan koneksi.',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }
+            });
 
             // TRACER CHART - Fixed initialization
             const tracerCtx = document.getElementById('tracerChart');
@@ -1663,4 +1732,5 @@
             }
         });
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('recaptcha.sitekey') }}" async defer></script>
 @endsection

@@ -39,7 +39,7 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', App\Http\Controllers\Admin\AdminProductController::class);
-    Route::get('transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
+        Route::get('transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
     Route::resource('news', BeritaController::class);
     Route::delete('news-destroy-multiple', [BeritaController::class, 'destroyMultiple'])->name('news.destroyMultiple');
 });
@@ -50,24 +50,12 @@ Route::get('/energienem', [App\Http\Controllers\BrandingController::class, 'ener
 Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'studioEnem']);
 
 // Jurusan
-Route::get('/rpl', function () {
-    return view('rpl');
-})->name('rpl');
-Route::get('/dkv', function () {
-    return view('dkv');
-});
-Route::get('/bd', function () {
-    return view('bd');
-});
-Route::get('/akl', function () {
-    return view('akl');
-});
-Route::get('/mp', function () {
-    return view('mp');
-});
-Route::get('/kkbt', function () {
-    return view('kkbt');
-});
+Route::get('/rpl', [App\Http\Controllers\JurusanController::class, 'rpl'])->name('rpl');
+Route::get('/dkv', [App\Http\Controllers\JurusanController::class, 'dkv'])->name('dkv');
+Route::get('/bd', [App\Http\Controllers\JurusanController::class, 'bd'])->name('bd');
+Route::get('/akl', [App\Http\Controllers\JurusanController::class, 'akl'])->name('akl');
+Route::get('/mp', [App\Http\Controllers\JurusanController::class, 'mp'])->name('mp');
+Route::get('/kkbt', [App\Http\Controllers\JurusanController::class, 'kkbt'])->name('kkbt');
 Route::get('/detail', function () {
     return view('product.detail');
 });
@@ -93,6 +81,9 @@ Route::post('/checkout', [App\Http\Controllers\PaymentController::class, 'checko
 Route::get('/pembayaran-sukses', [App\Http\Controllers\PaymentController::class, 'success'])->name('payment.success');
 Route::post('/midtrans/callback', [App\Http\Controllers\PaymentController::class, 'callback'])->name('midtrans.callback');
 
+// Contact Form Submission
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
+
 // Admin Routes
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
@@ -110,6 +101,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         return view('admin.settings.index'); // Create this view later
     })->name('settings.index');
 
+    // Contact Messages Admin
+    Route::get('/contact-messages', [App\Http\Controllers\Admin\ContactMessageController::class, 'index'])->name('contact_messages.index');
+
     // Debug route to reset notifications
     Route::get('/reset-notifications', function () {
         \App\Models\Transaction::where('status', 'success')->update(['is_read' => false]);
@@ -118,4 +112,4 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 });
 Route::get('/visimisi', function () {
     return view('visimisi');
-});
+})->name('visimisi');
