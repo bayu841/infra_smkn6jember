@@ -730,18 +730,25 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Video Item -->
             <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video rounded-xl shadow-lg" src="https://www.youtube.com/embed/bLPIP9V1rSo"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/etxDTQhUQNk" title="Video 2"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
+                <div class="max-w-md mx-auto space-y-4">
+  <!-- TikTok Embed -->
+  <blockquote class="tiktok-embed rounded-xl shadow-lg overflow-hidden" style="width: 300px;height:100px;"
+              cite="https://www.tiktok.com/@darkwebeua/video/7558879914238233886"
+              data-video-id="7558879914238233886"
+              style="max-width: 100%; min-width: 250px;">
+    <section>
+      <a target="_blank" href="https://www.tiktok.com/@darkwebeua?refer=embed" class="font-semibold text-blue-600">@darkwebeua</a>
+      <div class="space-x-2 text-sm text-gray-600">
+        <a href="https://www.tiktok.com/tag/jagua?refer=embed" target="_blank">#jagua</a>
+        <a href="https://www.tiktok.com/tag/dog?refer=embed" target="_blank">#dog</a>
+        <a href="https://www.tiktok.com/tag/cat?refer=embed" target="_blank">#cat</a>
+      </div>
+      <a href="https://www.tiktok.com/music/original-sound-7558879858026187550?refer=embed" target="_blank" class="text-sm text-gray-500">♬ original sound - Dark web</a>
+    </section>
+  </blockquote>
+</div>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
 
             <div class="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
                 <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/fFwkBj56KiI" title="Video 3"
@@ -1288,7 +1295,7 @@
                 <div class="relative">
                     <!-- Background bentuk oval -->
                     <div
-                        class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
+                        class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[250px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
                     </div>
                 </div>
             </div>
@@ -1307,7 +1314,7 @@
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                     <textarea id="message" name="message" rows="4" placeholder="Pesan"
                         class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <div class="g-recaptcha" data-sitekey="{{ config('recaptcha.sitekey') }}"></div>
+<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                     <button type="submit"
                         class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
                         Kirim Pesan
@@ -1320,8 +1327,13 @@
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('recaptcha.site') }}"></script>
     <script>
+        grecaptcha.ready(function() {
+  grecaptcha.execute('{{ config('recaptcha.site') }}', {action: 'contact'}).then(function(token) {
+    document.getElementById('g-recaptcha-response').value = token;
+  });
+});
         // Lazy-load images with IntersectionObserver
         (function() {
             const imgs = document.querySelectorAll('img.lazy-image');
@@ -1571,7 +1583,7 @@
                 const email = document.getElementById('email')?.value?.trim();
                 const phone = document.getElementById('phone')?.value?.trim();
                 const message = document.getElementById('message')?.value?.trim();
-                const recaptchaResponse = grecaptcha.getResponse(); // Get reCAPTCHA response
+                let recaptchaResponse = '';
 
                 if (!name || !email || !message) {
                     Swal.fire({
@@ -1586,11 +1598,14 @@
                     return;
                 }
 
-                if (!recaptchaResponse) { // Validate reCAPTCHA
+                try {
+                    recaptchaResponse = await grecaptcha.execute('{{ config('recaptcha.sitekey') }}', {action: 'submit'});
+                } catch (error) {
+                    console.error('reCAPTCHA v3 execution failed:', error);
                     Swal.fire({
                         icon: 'error',
                         title: 'Error!',
-                        text: 'Harap centang reCAPTCHA',
+                        text: 'Gagal memuat reCAPTCHA. Coba lagi.',
                         showConfirmButton: false,
                         timer: 2000
                     });
@@ -1701,4 +1716,5 @@
             }
         });
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('recaptcha.sitekey') }}" async defer></script>
 @endsection

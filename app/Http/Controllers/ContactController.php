@@ -18,7 +18,7 @@ class ContactController extends Controller
             'g-recaptcha-response' => 'required',
         ]);
 
-        // Verifikasi reCAPTCHA
+        // Verifikasi reCAPTCHA v3
         $response = Http::post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => config('recaptcha.secret'),
             'response' => $request->input('g-recaptcha-response'),
@@ -27,8 +27,8 @@ class ContactController extends Controller
 
         $body = json_decode((string)$response->getBody());
 
-        if (!$body->success) {
-            return response()->json(['message' => 'Verifikasi reCAPTCHA gagal.'], 422);
+        if (!$body->success || $body->score < 0.5) { // Check success and score for reCAPTCHA v3
+            return response()->json(['message' => 'Verifikasi reCAPTCHA gagal. Silakan coba lagi.'], 422);
         }
 
         ContactMessage::create($request->all());
