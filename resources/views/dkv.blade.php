@@ -405,8 +405,6 @@
                     generasi desainer muda yang inovatif, kolaboratif, dan berprestasi.
                 </p>
 
-                <!-- CARD LOWONGAN -->
-                <div class="space-y-4">
                     <div
                         class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
                         <div class="bg-gradient-to-r from-[#4C4C50] to-[#2A292D] text-white p-3 rounded-full">

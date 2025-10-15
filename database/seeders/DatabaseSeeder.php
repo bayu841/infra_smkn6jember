@@ -20,6 +20,5 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(UserSeeder::class);
-        // \App\Models\Berita::factory(20)->create();
     }
 }

@@ -9,6 +9,8 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -112,12 +114,9 @@
             <!-- Logo -->
             <div class="flex items-center space-x-2">
                 <!-- Menggunakan lazy loading untuk logo -->
-                <div class="lazy-image-container w-10 h-10 rounded-full">
-                    <div class="image-placeholder">
-                        <div class="placeholder-spinner"></div>
-                    </div>
-                    <img class="lazy-image w-10 h-10 rounded-full"
-                         data-src="{{ asset('image/logosmk.png') }}"
+                <div class="w-10 h-10 rounded-full">
+                    <img class="w-10 h-10 rounded-full"
+                         src="{{ asset('image/logosmk.png') }}"
                          alt="Logo SMK">
                 </div>
             </div>
@@ -190,6 +189,14 @@
                         <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
                     </div>
                 </form>
+
+                <a href="{{ route('cart.index') }}" class="relative p-2 text-gray-600 hover:text-blue-600">
+                    <i class="fas fa-shopping-cart text-lg"></i>
+                    @if(session('cart'))
+                        <span class="absolute top-0 right-0 -mt-1 -mr-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">{{ count(session('cart')) }}</span>
+                    @endif
+                </a>
+
                 <a href="{{route('login')}}" class="text-white px-4 py-2 rounded hover:bg-blue-700 spmb">Login</a>
             </div>
         </div>
@@ -201,6 +208,7 @@
     </main>
 
     @include('layouts.footer')
+<script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -300,41 +308,45 @@
                     threshold: 0.01
                 });
 
-                lazyImages.forEach(img => {
-                    imageObserver.observe(img);
-                });
-            } else {
-                // Fallback for browsers that don't support IntersectionObserver
-                lazyImages.forEach(img => {
-                    const container = img.closest('.lazy-image-container');
-                    const placeholder = container.querySelector('.image-placeholder');
+                            lazyImages.forEach(img => {
+                                imageObserver.observe(img);
+                            });
+                        } else {
+                            // Fallback for browsers that don't support IntersectionObserver
+                            lazyImages.forEach(img => {
+                                const container = img.closest('.lazy-image-container');
+                                const placeholder = container.querySelector('.image-placeholder');
+                
+                                // For blur placeholder
+                                if (img.classList.contains('blur-placeholder') && img.dataset.thumb) {
+                                    const thumb = new Image();
+                                    thumb.src = img.dataset.thumb;
+                                    thumb.onload = function() {
+                                        img.src = img.dataset.thumb;
+                                        img.classList.add('loaded');
+                
+                                        // Then load the full image
+                                        const fullImg = new Image();
+                                        fullImg.src = img.dataset.src;
+                                        fullImg.onload = function() {
+                                            img.src = img.dataset.src;
+                                            img.classList.remove('blur-placeholder');
+                                        };
+                                    };
+                                } else {
+                                    img.src = img.dataset.src;
+                                    img.onload = function() {
+                                        img.classList.add('loaded');
+                                        if (placeholder) {
+                                            placeholder.style.display = 'none';
+                                        }
+                                    };
+                                }
+                            });
+                        }
+                    });    </script>
 
-                    // For blur placeholder
-                    if (img.classList.contains('blur-placeholder') && img.dataset.thumb) {
-                        img.src = img.dataset.thumb;
-                        img.classList.add('loaded');
-
-                        // Then load the full image
-                        const fullImg = new Image();
-                        fullImg.src = img.dataset.src;
-                        fullImg.onload = function() {
-                            img.src = img.dataset.src;
-                            img.classList.remove('blur-placeholder');
-                        };
-                    } else {
-                        img.src = img.dataset.src;
-                        img.onload = function() {
-                            img.classList.add('loaded');
-                            if (placeholder) {
-                                placeholder.style.display = 'none';
-                            }
-                        };
-                    }
-                });
-            }
-        });
-    </script>
-
+    @stack('scripts')
 </body>
 
 </html>

@@ -212,44 +212,36 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
                 <!-- Card 1 -->
                 <div class="relative bg-red-500 text-white rounded-xl p-6 shadow-md" style="height: 36vh;">
-                    <div
-                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (1).png') }}" alt="icon"
-                            style="width: 55px; height:55px;">
-                    </div>
+                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                                                        <img src="{{ asset('image/rpl/benefit1 (1).png') }}" alt="icon"
+                                                                style="width: 55px; height:55px;">                    </div>
                     <h3 class="font-bold text-lg mt-12">Peluang Karir Luas</h3>
                     <p class="mt-2 text-sm">Buka jalan ke profesi masa depan yang menjanjikan.</p>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-7" style="height: 36vh;">
-                    <div
-                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (2).png') }}" alt="icon"
-                            style="width: 55px; height:55px;">
-                    </div>
+                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                                                        <img src="{{ asset('image/rpl/benefit1 (2).png') }}" alt="icon"
+                                                                style="width: 55px; height:55px;">                    </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Keterampilan yang dibutuhkan</h3>
                     <p class="mt-2 text-sm text-gray-600">Kuasi skill paling dicari industri saat ini.</p>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-5" style="height: 35vh; margin-top:-1rem;">
-                    <div
-                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (3).png') }}" alt="icon"
-                            style="width: 64px; height:55px;">
-                    </div>
+                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                                                        <img src="{{ asset('image/rpl/benefit1 (3).png') }}" alt="icon"
+                                                                style="width: 64px; height:55px;">                    </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Selalu Update Teknologi</h3>
                     <p class="mt-2 text-sm text-gray-600">Belajar teknologi terbaru biar selalu up-to-date.</p>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="relative bg-white rounded-xl p-6 shadow-md mt-10" style="height: 33vh;">
-                    <div
-                        class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-                        <img src="{{ asset('image/rpl/benefit1 (4).png') }}" alt="icon"
-                            style="width: 60px; height:55px;">
-                    </div>
+                                                    <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                                                        <img src="{{ asset('image/rpl/benefit1 (4).png') }}" alt="icon"
+                                                                style="width: 60px; height:55px;">                    </div>
                     <h3 class="font-bold text-lg text-blue-900 mt-12">Fleksibel</h3>
                     <p class="mt-2 text-sm text-gray-600">Belajar kapan saja, di mana saja, dengan cara seru.</p>
                 </div>
@@ -384,9 +376,8 @@
                         <!-- Kotak merah -->
                         <div
                             class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#F92626] to-[#D24747] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
-                            <div class="bg-white rounded p-3 z-10">
-                                <img src="{{ asset('image/rpl/frame.png') }}" alt="Icon" class="w-7 h-8">
-                            </div>
+                                                                            <div class="bg-white rounded p-3 z-10">
+                                                                                <img src="{{ asset('image/rpl/frame.png') }}" alt="Icon" class="w-7 h-8">                            </div>
                             <div>
                                 <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
                                 <p class="text-white text-sm mt-1">Siswa Unggul</p>
@@ -408,16 +399,11 @@
                         dan siap menghadapi tantangan dunia digital masa depan.
                     </p>
 
-                    <!-- CARD LOWONGAN -->
-                    <div class="space-y-4">
-                        <div
-                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
-                            </div>
+                                                    <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
+                                                        <div class="w-5 h-5">
+                                                            <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                                                class="w-full h-full object-contain">
+                                                        </div>                            </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
                                 <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -427,12 +413,11 @@
 
                         <div
                             class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
-                            </div>
+                                                                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-3 rounded-full">
+                                                                                <div class="w-5 h-5">
+                                                                                    <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                                                                        class="w-full h-full object-contain">
+                                                                                </div>                            </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
                                 <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,

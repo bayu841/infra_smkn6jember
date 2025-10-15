@@ -405,23 +405,6 @@
 
                 <!-- CARD LOWONGAN -->
                 <div class="space-y-4">
-                    <div
-                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                        <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
-                            <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
-                                    class="w-full h-full object-contain">
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor.</p>
-                        </div>
-                    </div>
-
-                    <div
-                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
                         <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
                             <div class="w-5 h-5">
                                 <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"

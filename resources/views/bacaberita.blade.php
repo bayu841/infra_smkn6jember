@@ -26,7 +26,7 @@
                     class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
 
                 <div class="prose max-w-none text-gray-700 leading-relaxed">
-                    {!! nl2br(e($berita->content)) !!}
+                    {!! $berita->content !!}
                 </div>
 
                 <div class="mt-12 border-t pt-8">

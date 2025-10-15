@@ -33,19 +33,21 @@
     </section>
     <section>
         <h2 class="text-3xl font-bold p-10 text-[#DB6007]">Produk</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 mb-10">
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (1).png') }}" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (2).png') }}" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (3).png') }}" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="{{ asset('image/batikenem/batik (4).png') }}" alt="Produk" class="w-full">
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-6 mb-10">
+            @forelse ($products as $product)
+                <div class="max-w-sm rounded-lg overflow-hidden shadow-lg group">
+                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">{{ $product->name }}</h3>
+                        <p class="text-gray-700 text-base mb-4">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                        <a href="{{ route('product.show', $product) }}" class="block w-full text-center bg-orange-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-700 transition">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <p class="col-span-4 text-center text-gray-500">Produk tidak ditemukan.</p>
+            @endforelse
         </div>
     </section>
     <section class="flex flex-col md:flex-row items-center justify-center gap-6 bg-white p-6 md:p-10 rounded-2xl">

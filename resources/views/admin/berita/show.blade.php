@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header Section -->
-    <div class="mb-8 fade-in">
+    <div class="mb-8">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
                 <h1 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Content Section -->
-    <div class="max-w-4xl mx-auto fade-in">
+    <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <!-- Image -->
             <div class="w-full h-64 bg-gray-200">
@@ -57,7 +57,7 @@
                         <span>Diperbarui pada {{ $news->updated_at->format('d M Y') }}</span>
                     </div>
                 </div>
-                
+
 
 
                 <!-- Description -->
@@ -70,7 +70,7 @@
                 <div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-3">Konten Lengkap</h3>
                     <div class="prose max-w-none text-gray-800 leading-7">
-                        {!! nl2br(e($news->content)) !!}
+                        {!! $news->content !!}
                     </div>
                 </div>
             </div>

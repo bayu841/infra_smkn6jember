@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header Section -->
-    <div class="mb-8 fade-in">
+    <div class="mb-8">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
                 <h1 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Form Section -->
-    <div class="max-w-4xl mx-auto fade-in">
+    <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
             <!-- Form Header -->
             <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">

@@ -7,15 +7,6 @@
 
     <!-- Statistik Card -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#319F2C,#54C914)]">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h2 class="text-lg font-semibold">Jumlah Guru</h2>
-                    <p class="text-3xl font-bold mt-2">103</p>
-                </div>
-                <i class="fas fa-users text-4xl opacity-80"></i>
-            </div>
-        </div>
 
         <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#3C71F8,#4B88F9)]">
             <div class="flex justify-between items-center">
@@ -26,16 +17,39 @@
                 <i class="fas fa-file-alt text-4xl opacity-80"></i>
             </div>
         </div>
-
-        <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#F92626,#E22E2E)]">
+        <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#FFC107,#FFD700)]">
             <div class="flex justify-between items-center">
                 <div>
-                    <h2 class="text-lg font-semibold">Jumlah Siswa</h2>
-                    <p class="text-3xl font-bold mt-2">1501</p>
+                    <h2 class="text-lg font-semibold">Total Pendapatan</h2>
+                    <p class="text-3xl font-bold mt-2">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</p>
                 </div>
-                <i class="fas fa-user-graduate text-4xl opacity-80"></i>
+                <i class="fas fa-money-bill-wave text-4xl opacity-80"></i>
             </div>
         </div>
+        <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#17A2B8,#20C997)]">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-lg font-semibold">Total Transaksi</h2>
+                    <p class="text-3xl font-bold mt-2">{{ $totalTransactions }}</p>
+                </div>
+                <i class="fas fa-exchange-alt text-4xl opacity-80"></i>
+            </div>
+        </div>
+
+        <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#28A745,#28A745)]">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-lg font-semibold">Transaksi Berhasil</h2>
+                    <p class="text-3xl font-bold mt-2">{{ $successfulTransactions }}</p>
+                </div>
+                <i class="fas fa-check-circle text-4xl opacity-80"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manajemen Keuangan -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
     </div>
 
     <!-- Artikel dan Jadwal -->

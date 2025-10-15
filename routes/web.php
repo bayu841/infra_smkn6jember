@@ -39,67 +39,83 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 // Admin Routes
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        $beritas = Berita::latest()->take(3)->get();
-        $beritaCount = Berita::count();
-        $userCount = User::count();
-        $latestUser = User::latest()->first();
-        return view('admin.dashboard', compact('beritas', 'beritaCount', 'userCount', 'latestUser'));
-    })->name('dashboard');
-
+    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('products', App\Http\Controllers\Admin\AdminProductController::class);
+    Route::get('transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
     Route::resource('news', BeritaController::class);
     Route::delete('news-destroy-multiple', [BeritaController::class, 'destroyMultiple'])->name('news.destroyMultiple');
 });
 
 // Temporary route for branding page
-Route::get('/brand', function () {
-    return view('brandingsmk6.batikenem');
-});
+Route::get('/batikenem', [App\Http\Controllers\BrandingController::class, 'batikEnem']);
+Route::get('/energienem', [App\Http\Controllers\BrandingController::class, 'energiEnem']);
+Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'studioEnem']);
+
 
 // Jurusan
-Route::get('/rpl', function () {
-Route::get('/brand', function(){
-    return view('brandingsmk6.batikenem');
-});
-});
-
-// Jurusan
-Route::get('/rpl', function () {
+Route::get('/rpl', function(){
     return view('rpl');
-})->name('rpl');
-
+});
 Route::get('/dkv', function () {
     return view('dkv');
-})->name('dkv');
-
+});
 Route::get('/bd', function () {
     return view('bd');
-})->name('bd');
-
+});
 Route::get('/akl', function () {
     return view('akl');
-})->name('akl');
-
+});
 Route::get('/mp', function () {
     return view('mp');
-})->name('mp');
-
+});
 Route::get('/kkbt', function () {
     return view('kkbt');
-})->name('kkbt');
-
-Route::get('/visi', function () {
-    return view('visimisi');
-})->name('visimisi');
-
-Route::get('/energienem ', function () {
-    return view('brandingsmk6.energienem');
-})->name('energienem');
-
-Route::get('/batikenem ', function () {
-    return view('brandingsmk6.batikenem');
-})->name('batikenem');
-
-Route::get('/studioenem', function () {
+});
+Route::get('/detail', function () {
+    return view('product.detail');
+});
+Route::get('/brand-dkv', function () {
     return view('brandingsmk6.studioenem');
-})->name('studioenem');
+});
+Route::get('/detaileskul', function () {
+    return view('detaileskul');
+});
+
+// Cart Routes
+Route::get('cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+Route::post('cart/add', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+Route::patch('cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+Route::delete('cart/remove', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
+
+// Product and Payment Routes
+Route::get('/product/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
+Route::post('/checkout', [App\Http\Controllers\PaymentController::class, 'checkout'])->name('checkout');
+Route::get('/pembayaran-sukses', [App\Http\Controllers\PaymentController::class, 'success'])->name('payment.success');
+Route::post('/midtrans/callback', [App\Http\Controllers\PaymentController::class, 'callback'])->name('midtrans.callback');
+
+// Admin Routes
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
+    Route::get('/transactions/{transaction}', [App\Http\Controllers\Admin\TransactionController::class, 'show'])->name('transactions.show');
+    Route::post('/transactions/{transaction}/update-status', [App\Http\Controllers\Admin\TransactionController::class, 'updateStatus'])->name('transactions.updateStatus');
+    Route::get('/notifications', [App\Http\Controllers\Admin\NotificationController::class, 'getUnread'])->name('notifications.unread');
+    Route::post('/notifications/read', [App\Http\Controllers\Admin\NotificationController::class, 'markAsRead'])->name('notifications.read');
+
+    // Admin Profile Routes
+    Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'update'])->name('profile.update');
+
+    // Admin Settings Routes (Placeholder)
+    Route::get('/settings', function () {
+        return view('admin.settings.index'); // Create this view later
+    })->name('settings.index');
+
+    // Debug route to reset notifications
+    Route::get('/reset-notifications', function() {
+        \App\Models\Transaction::where('status', 'success')->update(['is_read' => false]);
+        return 'All successful transactions have been marked as unread.';
+    });
+});
+Route::get('/visimisi', function () {
+    return view('visimisi');
+});

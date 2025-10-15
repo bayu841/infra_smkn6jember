@@ -438,12 +438,7 @@
             <div class="relative w-full max-w-xs sm:max-w-sm md:w-64 h-full card-profile mx-auto md:mx-0">
                 <!-- Card Utama -->
                 <div
-                    class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center lazy-image-container">
-                    <div class="image-placeholder">
-                        <div class="placeholder-spinner"></div>
-                    </div>
-                    <img class="lazy-image w-full h-full rounded-bl-xl object-cover"
-                        data-src="{{ asset('image/home/kepalasekolah.png') }}" alt="Kepala Sekolah">
+                    class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center">
                     <div
                         class="absolute bottom-0 left-0 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
                         Kepala Sekolah
@@ -801,7 +796,8 @@
                             <div class="placeholder-spinner"></div>
                         </div>
                         <img class="lazy-image w-full h-full object-cover"
-                            data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}" alt="{{ $beritas[0]->title }}">
+                            data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}"
+                            alt="{{ $beritas[0]->title }}">
                     </div>
                     <div class="des p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -810,7 +806,9 @@
                             <span class="text-gray-500 text-sm">{{ $beritas[0]->created_at->format('d M Y') }}</span>
                         </div>
                         <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">{{ $beritas[0]->title }}</h1>
-                        <p class="text-gray-600 mb-6">{{ Str::limit($beritas[0]->content, 200) }}</p>
+<div class="text-gray-600 mb-6">
+    {!! Str::limit($beritas[0]->content, 200) !!}
+</div>
                         <a href="{{ route('berita.show', $beritas[0]) }}"
                             class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
                             Baca selengkapnya <i class="fas fa-arrow-right ml-2"></i>
@@ -821,16 +819,13 @@
                 <!-- Kanan -->
                 <div class="lg:w-1/3 flex flex-col gap-6">
                     @if (isset($beritas[1]))
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                            <div class="lazy-image-container w-full" style="aspect-ratio: 16/9;">
-                                <div class="image-placeholder">
-                                    <div class="placeholder-spinner"></div>
-                                </div>
-                                <img class="lazy-image w-full h-full object-cover"
-                                    data-src="{{ Storage::url('berita/' . $beritas[1]->image) }}"
-                                    alt="{{ $beritas[1]->title }}">
-                            </div>
+                                                <div
+                                                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                                                    <div class="w-full" style="aspect-ratio: 16/9;">
+                                                        <img class="w-full h-full object-cover"
+                                                            src="{{ Storage::url('berita/' . $beritas[1]->image) }}"
+                                                            alt="{{ $beritas[1]->title }}">
+                                                    </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
@@ -847,16 +842,13 @@
                         </div>
                     @endif
                     @if (isset($beritas[2]))
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                            <div class="lazy-image-container w-full" style="aspect-ratio: 16/9;">
-                                <div class="image-placeholder">
-                                    <div class="placeholder-spinner"></div>
-                                </div>
-                                <img class="lazy-image w-full h-full object-cover"
-                                    data-src="{{ Storage::url('berita/' . $beritas[2]->image) }}"
-                                    alt="{{ $beritas[2]->title }}">
-                            </div>
+                                                <div
+                                                    class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                                                    <div class="w-full" style="aspect-ratio: 16/9;">
+                                                        <img class="w-full h-full object-cover"
+                                                            src="{{ Storage::url('berita/' . $beritas[2]->image) }}"
+                                                            alt="{{ $beritas[2]->title }}">
+                                                    </div>
                             <div class="p-5">
                                 <div class="flex justify-between items-center mb-3">
                                     <span
