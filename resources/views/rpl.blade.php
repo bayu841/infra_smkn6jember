@@ -360,17 +360,17 @@
                 <div class="relative flex justify-center lg:w-1/2">
                     <!-- Gambar utama -->
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                        <img src="{{asset('image/rpl/gambarhsjr.png')}}"
                             class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
 
                         <!-- Gambar kiri atas -->
-                        <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                        <img src="{{asset('image/rpl/gambaratas.png')}}"
                             class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
                             alt="top">
 
                         <!-- Gambar kanan bawah -->
-                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
-                            class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                        <img src="{{asset('image/rpl/logohsjr.png')}}"
+                            class="absolute -bottom-10 -right-10 w-[150px] h-[150px]  shadow-lg z-20"
                             alt="bottom">
 
                         <!-- Kotak merah -->

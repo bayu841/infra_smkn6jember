@@ -116,3 +116,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         return 'All successful transactions have been marked as unread.';
     });
 });
+Route::get('/visimisi', function () {
+    return view('visimisi');
+});

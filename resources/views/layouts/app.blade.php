@@ -18,7 +18,9 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-
+        html{
+            scroll-behavior: smooth;
+        }
         nav {
             position: fixed;
             width: 100%;
@@ -142,7 +144,7 @@
                     <ul id="profilDropdown"
                         class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a></li>
+                        <li><a href="#jurusan" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a></li>
                     </ul>
                 </li>
 
@@ -157,13 +159,13 @@
                     </button>
                     <ul id="informasiDropdown"
                         class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Berita</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Pengumuman</a></li>
+                        <li><a href="{{route('berita.index')}}" class="block px-4 py-2 hover:bg-gray-100">Berita</a></li>
+                        <li><a href="#pengumuman" class="block px-4 py-2 hover:bg-gray-100">Pengumuman</a></li>
                         <li><a href="https://spmbjatim.net/" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 hover:bg-gray-100">SPMB</a></li>
                     </ul>
                 </li>
 
-                <li><a href="" class="block text-black hover:text-blue-600">BKK</a></li>
+                <li><a href="#bkk" class="block text-black hover:text-blue-600">BKK</a></li>
                 <li><a href="#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>
 
                 <!-- Search + Button (mobile only) -->
