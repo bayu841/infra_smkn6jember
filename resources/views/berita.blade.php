@@ -318,7 +318,13 @@
                         const minLength = parseInt(textarea.getAttribute('minlength'));
                         if (textarea.value.length < minLength) {
                             isValid = false;
-                            alert(`Konten harus minimal ${minLength} karakter`);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Validasi Gagal!',
+                                text: `Konten harus minimal ${minLength} karakter`,
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
                             textarea.focus();
                         }
                     });

@@ -38,7 +38,7 @@
                                     <button type="submit" class="ml-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 text-sm">Update</button>
                                 </form>
                                 <!-- Remove Item -->
-                                <form action="{{ route('cart.remove') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini dari keranjang?');">
+                                <form action="{{ route('cart.remove') }}" method="POST" class="remove-item-form">
                                     @csrf
                                     @method('DELETE')
                                     <input type="hidden" name="product_id" value="{{ $id }}">
@@ -168,19 +168,67 @@ document.addEventListener('DOMContentLoaded', function () {
                         onSuccess: function(result) { 
                             window.location.href = '{{ route("payment.success") }}'; 
                         },
-                        onPending: function(result) { alert('Menunggu pembayaran Anda'); },
-                        onError: function(result) { alert('Pembayaran Gagal!'); }
+                        onPending: function(result) {
+                            Swal.fire({
+                                icon: 'info',
+                                title: 'Menunggu Pembayaran',
+                                text: 'Menunggu pembayaran Anda',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        },
+                        onError: function(result) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Pembayaran Gagal!',
+                                text: 'Pembayaran Gagal!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
                     });
                 } else {
-                    alert(data.error || 'Gagal mendapatkan token pembayaran.');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal!',
+                        text: data.error || 'Gagal mendapatkan token pembayaran.',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Terjadi kesalahan koneksi.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error Koneksi!',
+                    text: 'Terjadi kesalahan koneksi.',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
             });
         });
     }
+
+    document.querySelectorAll('.remove-item-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Produk ini akan dihapus dari keranjang!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
 });
     </script>
 @endpush
