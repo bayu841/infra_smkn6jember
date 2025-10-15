@@ -55,22 +55,22 @@ Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'stud
 // Jurusan
 Route::get('/rpl', function(){
     return view('rpl');
-});
+})->name('rpl');
 Route::get('/dkv', function () {
     return view('dkv');
-});
+})->name('dkv');
 Route::get('/bd', function () {
     return view('bd');
-});
+})->name('bd');
 Route::get('/akl', function () {
     return view('akl');
-});
+})->name('akl');
 Route::get('/mp', function () {
     return view('mp');
-});
+})->name('mp');
 Route::get('/kkbt', function () {
     return view('kkbt');
-});
+})->name('kkbt');
 Route::get('/detail', function () {
     return view('product.detail');
 });
