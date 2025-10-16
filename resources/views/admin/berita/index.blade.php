@@ -183,17 +183,6 @@
                                     <i class="fas fa-edit text-xs"></i>
                                     <span>Edit</span>
                                 </a>
-
-                                <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');"
-                                      action="{{ route('admin.news.destroy', $berita->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                            class="inline-flex items-center gap-1 bg-red-50 hover:bg-red-100 text-red-700 hover:text-red-800 py-2 px-3 rounded-lg text-sm font-medium transition-colors duration-200">
-                                        <i class="fas fa-trash text-xs"></i>
-                                        <span>Hapus</span>
-                                    </button>
-                                </form>
                             </div>
                         </td>
                     </tr>

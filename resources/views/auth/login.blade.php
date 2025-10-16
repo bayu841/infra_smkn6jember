@@ -24,7 +24,7 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        @keyframes float {
+        /* @keyframes float {
 
             0%,
             100% {
@@ -34,7 +34,7 @@
             50% {
                 transform: translateY(-20px);
             }
-        }
+        } */
 
         .slide-in {
             animation: slideIn 0.8s ease-out;
@@ -145,7 +145,7 @@
                             <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                                 <i class="fas fa-sign-in-alt text-blue-200 group-hover:text-white"></i>
                             </span>
-                            Sign In to Dashboard
+                            Masuk Ke Dashboard
                         </button>
                     </div>
                 </form>
@@ -229,17 +229,6 @@
                 // Toggle eye icon
                 this.classList.toggle('fa-eye');
                 this.classList.toggle('fa-eye-slash');
-            });
-
-            // Add floating animation to form inputs on focus
-            document.querySelectorAll('input').forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.parentElement.classList.add('transform', 'scale-105');
-                });
-
-                input.addEventListener('blur', function() {
-                    this.parentElement.classList.remove('transform', 'scale-105');
-                });
             });
 
             // Add loading state to submit button

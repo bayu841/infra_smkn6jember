@@ -33,18 +33,15 @@ class AdminProductController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('products', 'public');
+            // Simpan ke storage/app/public/products
+            $path = $request->file('image')->store('products', 'public');
+            $validated['image'] = $path;
         }
 
         Product::create($validated);
 
         return redirect()->route('admin.products.index')
             ->with('success', 'Product created successfully.');
-    }
-
-    public function show(Product $product)
-    {
-        return redirect()->route('admin.products.edit', $product->id);
     }
 
     public function edit(Product $product)
@@ -65,10 +62,12 @@ class AdminProductController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            if ($product->image) {
+            if ($product->image && Storage::disk('public')->exists($product->image)) {
                 Storage::disk('public')->delete($product->image);
             }
-            $validated['image'] = $request->file('image')->store('products', 'public');
+
+            $path = $request->file('image')->store('products', 'public');
+            $validated['image'] = $path;
         }
 
         $product->update($validated);
@@ -79,7 +78,7 @@ class AdminProductController extends Controller
 
     public function destroy(Product $product)
     {
-        if ($product->image) {
+        if ($product->image && Storage::disk('public')->exists($product->image)) {
             Storage::disk('public')->delete($product->image);
         }
 

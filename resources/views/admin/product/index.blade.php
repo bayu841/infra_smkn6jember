@@ -19,7 +19,7 @@
         <table class="min-w-full leading-normal">
             <thead>
                 <tr>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">ID</th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">No</th>
                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Name</th>
                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Description</th>
                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Price</th>
@@ -32,7 +32,7 @@
             <tbody>
                 @forelse ($products as $product)
                     <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $product->id }}</td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $loop->iteration}}</td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $product->name }}</td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ Str::limit($product->description, 50) }}</td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $product->price }}</td>

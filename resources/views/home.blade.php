@@ -365,6 +365,20 @@
         .min-h-110vh {
             min-height: 110svh;
         }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 
 
@@ -805,6 +819,8 @@
                     </blockquote>
                     <script async src="https://www.tiktok.com/embed.js"></script>
                 </div>
+            </div>
+        </div>
     </section>
 
     <br><br><br>
@@ -910,7 +926,7 @@
                 <div>
                     <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3">Produk Sekolah</h2>
                     <p class="text-white/90 max-w-2xl mx-auto lg:mx-0">
-                        Karya unggulan dari siswa SMKN 6 Jember yang mencerminkan kreativitas, inovasi, dan semangat
+                        Karya unggulan dari siswa SMKN 6 Jember yang mencerminkan kreativitas, inovasi dan semangat
                         wirausaha muda.
                     </p>
                 </div>
@@ -1156,7 +1172,7 @@
                             </figure>
                         </div>
                     </div>
-                    <!-- Slide 5 -->
+                    <!-- Slide 7 -->
                     <div class="shrink-0 eskul-slide snap-start">
                         <div class="grid grid-cols-2 gap-3">
                             <figure
@@ -1212,130 +1228,165 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            {{-- <div class="mt-10">
-                <a href="#"
-                    class="px-6 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-900 text-white font-semibold hover:opacity-90 transition">
-                    Selengkapnya
-                </a>
-            </div> --}}
+    <br><br>
+
+    <section
+        class="bg-[#F4F5F7] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 max-w-8xl mx-auto shadow-md h-[100vh]">
+
+        <!-- Bagian kiri (gambar + kartu layanan) -->
+        <div class="relative ml-10">
+            <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
+                <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
+                    class="w-80 md:w-96 h-[460px] object-cover" />
+            </div>
+
+            <!-- 3 kartu kecil di sisi kanan -->
+            <div class="absolute top-1/4 -right-44 space-y-3">
+                <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <span class="font-semibold text-gray-700">Konseling Pribadi</span>
+                </div>
+
+                <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <span class="font-semibold text-gray-700">Bimbingan Karier</span>
+                </div>
+
+                <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 20h5V4H2v16h5m10 0v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z" />
+                        </svg>
+                    </div>
+                    <span class="font-semibold text-gray-700">Konseling Sosial</span>
+                </div>
+            </div>
         </div>
 
-        <br><br>
+        <!-- Bagian kanan (teks) -->
+        <div class="max-w-xl text-center md:text-left ml-40">
+            <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
+            <h2 class="text-1xl md:text-2xl font-bold text-gray-900 mt-2 leading-snug">
+                Kamu Lagi ada Masalah?<br>
+                Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg ">konsultasi sekarang!</span>
+            </h2>
+            <p class="text-gray-700 mt-5 leading-relaxed">
+                Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
+                Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
+                dengan cara yang sehat dan tepat.
+            </p>
+            <a href="https://wa.me/6285806541124" target="_blank">
+                <button
+                    class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
+                    Konsultasi Sekarang
+                </button>
+            </a>
+        </div>
+    </section>
 
-        <section
-            class="bg-[#F4F5F7] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 max-w-8xl mx-auto shadow-md h-[100vh]">
-
-            <!-- Bagian kiri (gambar + kartu layanan) -->
-            <div class="relative ml-10">
-                <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
-                    <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
-                        class="w-80 md:w-96 h-[460px] object-cover" />
-                </div>
-
-                <!-- 3 kartu kecil di sisi kanan -->
-                <div class="absolute top-1/4 -right-44 space-y-3">
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Konseling Pribadi</span>
-                    </div>
-
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Bimbingan Karier</span>
-                    </div>
-
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17 20h5V4H2v16h5m10 0v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Konseling Sosial</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bagian kanan (teks) -->
-            <div class="max-w-xl text-center md:text-left ml-40"">
-                <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
-                <h2 class="text-1xl md:text-2xl font-bold text-gray-900 mt-2 leading-snug">
-                    Kamu Lagi ada Masalah?<br>
-                    Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg ">konsultasi sekarang!</span>
-                </h2>
-                <p class="text-gray-700 mt-5 leading-relaxed">
-                    Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
-                    Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
-                    dengan cara yang sehat dan tepat.
-                </p>
-                <a href="https://wa.me/6285806541124" target="_blank">
-                    <button
-                        class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
-                        Konsultasi Sekarang
-                    </button>
-                </a>
-
-            </div>
-
-        </section>
-
-        <!-- Footer contact -->
-        <section
-            class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
-                bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
-           style="height: 120vh; margin-bottom:-4rem;">
-            <!-- Bagian Kiri -->
-            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" >
-                <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
-                    Bergabunglah bersama <br />
-                    kami dan wujudkan masa depan mu
-                </h2>
-                <div class="relative" >
-                    <!-- Background bentuk oval -->
-                    <div
-                        class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
-                    </div>
-                </div>
-            </div>
+<!-- Footer contact -->
+<section
+    class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
+        bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full"
+    style="height: 120vh; margin-bottom:-4rem;">
+    <!-- Bagian Kiri -->
+    <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
+            Bergabunglah bersama <br />
+            kami dan wujudkan masa depanmu
+        </h2>
+    </div>
 
             <!-- Bagian Kanan -->
             <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
-                <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak    ">Ada Pertanyaan? Hubungi Kami</h3>
+                <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak">Ada Pertanyaan? Hubungi Kami</h3>
 
-                <form id="contactForm" action="#" method="POST" class="space-y-4">
-                    <input type="text" id="name" placeholder="Nama"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="email" id="email" placeholder="Email"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="tel" id="phone" placeholder="No Telepon"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <textarea id="message" rows="4" placeholder="Pesan"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit"
-                        class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
-                        Kirim Pesan
-                    </button>
-                </form>
+        <!-- Tampilkan flash messages -->
+        @if (session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                {{ session('success') }}
             </div>
-        </section>
+        @endif
 
-    </section>
+        @if (session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <ul class="list-disc list-inside">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('contact.store') }}" class="space-y-4">
+            @csrf
+
+            <!-- Honeypot field untuk deteksi bot -->
+            <div class="hidden">
+                <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Timestamp untuk rate limiting -->
+            <input type="hidden" name="timestamp" value="{{ time() }}">
+
+            <div>
+                <input type="text" name="name" placeholder="Nama" value="{{ old('name') }}" required
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    minlength="2" maxlength="100" />
+            </div>
+
+            <div>
+                <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    maxlength="255" />
+            </div>
+
+            <div>
+                <input type="tel" name="phone" placeholder="No Telepon" value="{{ old('phone') }}" required
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    pattern="[0-9]{10,15}" title="Minimal 10 digit angka" />
+            </div>
+
+            <div>
+                <textarea name="message" rows="4" placeholder="Pesan" required
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    minlength="10" maxlength="1000">{{ old('message') }}</textarea>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
+                Kirim Pesan
+            </button>
+        </form>
+    </div>
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -1344,7 +1395,7 @@
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
             const frame = document.getElementById('videoFrame');
-            frame.src = "https://www.youtube.com/embed/ubqR8YJGiSQ?autoplay=1"; // ID video dari tombol
+            frame.src = "https://www.youtube.com/embed/ubqR8YJGiSQ?autoplay=1";
             modal.classList.remove('hidden');
             modal.classList.add('flex');
         }
@@ -1352,10 +1403,11 @@
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
             const frame = document.getElementById('videoFrame');
-            frame.src = ""; // Hentikan video
+            frame.src = "";
             modal.classList.add('hidden');
             modal.classList.remove('flex');
         }
+
         // Lazy-load images with IntersectionObserver
         (function() {
             const imgs = document.querySelectorAll('img.lazy-image');
@@ -1591,35 +1643,40 @@
             updateDots2();
             autoScroll();
 
-            // FORM
-            const form = document.getElementById('contactForm');
-            form?.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('name')?.value?.trim();
-                const email = document.getElementById('email')?.value?.trim();
-                const phone = document.getElementById('phone')?.value?.trim();
-                const message = document.getElementById('message')?.value?.trim();
+            // JavaScript sederhana untuk meningkatkan UX tanpa AJAX
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form[method="POST"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-                if (!name || !email || !message) {
-                    showNotification('Harap isi semua field yang diperlukan', 'error');
-                    return;
-                }
-                showNotification('Pesan Anda telah berhasil dikirim!', 'success');
-                form.reset();
-            });
+    // Nonaktifkan submit button setelah diklik untuk prevent double submission
+    if (form) {
+        form.addEventListener('submit', function() {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Mengirim...';
+            submitBtn.classList.add('opacity-50');
+        });
+    }
 
-            function showNotification(message, type) {
-                const notification = document.createElement('div');
-                notification.className =
-                    `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} transform transition-transform duration-300 translate-x-full z-50`;
-                notification.textContent = message;
-                document.body.appendChild(notification);
-                setTimeout(() => notification.classList.remove('translate-x-full'), 10);
-                setTimeout(() => {
-                    notification.classList.add('translate-x-full');
-                    setTimeout(() => document.body.removeChild(notification), 300);
-                }, 3000);
+    // Auto-hide flash messages setelah 5 detik
+    setTimeout(function() {
+        const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
+        flashMessages.forEach(function(message) {
+            message.style.transition = 'opacity 0.5s ease';
+            message.style.opacity = '0';
+            setTimeout(function() {
+                message.remove();
+            }, 500);
+        });
+    }, 5000);
+});
+        function showFormMessage(message, type) {
+            const formMessage = document.getElementById('formMessage');
+            if (formMessage) {
+                formMessage.textContent = message;
+                formMessage.className = 'mt-2 text-center ' + (type === 'success' ? 'text-green-600' : 'text-red-500');
             }
+        }
+    }
 
             // TRACER CHART - Fixed initialization
             const tracerCtx = document.getElementById('tracerChart');
