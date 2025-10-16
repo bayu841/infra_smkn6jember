@@ -169,18 +169,29 @@
                     dan menganalisis data keuangan untuk mendukung <br>
                     pengambilan keputusan bisnis maupun organisasi.
                 </p><br>
-                <a href="https://www.youtube.com/shorts/wuSu15-Jugk?feature=share"
-                    class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
+             <button onclick="openVideoModal()" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn ">
                     Tonton Video Profil
-                </a>
+                </button>
             </div>
+              <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+                <div class="bg-white rounded-lg overflow-hidden w-[90%] md:w-[60%] relative">
+                    <!-- Tombol Tutup -->
+                    <button onclick="closeVideoModal()"
+                        class="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl font-bold">&times;</button>
 
+                    <!-- Video Embed -->
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe id="videoFrame" class="w-full h-[400px]" src="" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
             <!-- Bagian kanan (ilustrasi kotak) -->
 
             <div class="relative w-64 h-80 card-profile">
                 <!-- Card Utama -->
                 <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center"
-                    style="background-image: url('{{ asset('') }}')">
+                    style="background-image: url('{{ asset('image/akl/guru1.png') }}')">
                     <!-- Label bawah -->
                     <div
                         class="absolute bottom-0 left-0 bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
@@ -188,361 +199,268 @@
                     </div>
                 </div>
 
-      <!-- Kotak merah kanan atas -->
-      <div class="absolute top-0 right-0 bg-green-500 w-16 h-20 rounded-lg"></div>
+                <!-- Kotak merah kanan atas -->
+                <div class="absolute top-0 right-0 bg-red-500 w-16 h-20 rounded-lg red-box"></div>
 
-      <!-- Lingkaran dekorasi kanan -->
-      <div class="absolute top-1/3 right-[-20px] flex flex-col gap-2">
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-      </div>
-
-      <!-- Lingkaran dekorasi bawah -->
-      <div class="absolute -bottom-5 right-6 flex gap-2">
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-        <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<br><br>
-<section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-start md:items-center">
-
-  <!-- Kiri: Card -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-
-    <!-- Card 1 -->
-    <div class="relative bg-green-500 text-white rounded-xl p-6 shadow-md h-[36vh]">
-      <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-        <img src="{{ asset('image/akl/benefit1 (3).png') }}" alt="icon" style="width: 55px; height:55px;">
-      </div>
-      <h3 class="font-bold text-lg mt-12">Peluang Karir Luas</h3>
-      <p class="mt-2 text-sm">Kesempatan kerja lebih terbuka dengan skill keuangan yang relevan.</p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="relative bg-white rounded-xl p-6 shadow-md mt-7 h-[36vh]">
-      <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-        <img src="{{ asset('image/akl/benefit1 (4).png') }}" alt="icon" style="width: 65px; height:55px;">
-      </div>
-      <h3 class="font-bold text-lg text-blue-900 mt-12">Mahir Dalam Kelola Keuangan</h3>
-      <p class="mt-2 text-sm text-gray-600">Belajar cara mengatur keuangan dengan cerdas dan profesional.</p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="relative bg-white rounded-xl p-6 shadow-md mt-5 h-[35vh]" style="margin-top:-1rem;">
-      <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-        <img src="{{ asset('image/akl/benefit1 (1).png') }}" alt="icon" style="width: 64px; height:55px;">
-      </div>
-      <h3 class="font-bold text-lg text-blue-900 mt-12">Bekal Untuk Kuliah</h3>
-      <p class="mt-2 text-sm text-gray-600">Ilmu yang didapat bisa jadi dasar kuat untuk studi lanjut.</p>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="relative bg-white rounded-xl p-6 shadow-md mt-10 h-[33vh]">
-      <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
-        <img src="{{ asset('image/akl/benefit1 (2).png') }}" alt="icon" style="width: 60px; height:55px;">
-      </div>
-      <h3 class="font-bold text-lg text-blue-900 mt-12">Terlatih Berfikir Analitis</h3>
-      <p class="mt-2 text-sm text-gray-600">Asah kemampuan analisis supaya makin kritis dan terstruktur.</p>
-    </div>
-
-  </div>
-
-  <!-- Kanan: Deskripsi -->
-  <div class="mt-10">
-    <div class="mt-12 md:mt-0">
-    <div class="content-teks ml-0 md:ml-8">
-      <h2 class="text-2xl font-bold mb-4" style="margin-top: -5rem;">Benefit yang didapat</h2>
-      <p class="text-gray-600 mb-6">
-        Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
-        juga skill penting untuk masa depan. Mulai dari peluang karir
-        yang luas, kemampuan mengelola keuangan, bekal kuat
-        untuk kuliah, sampai terbiasa berpikir analitis. Semua
-        dirancang agar kamu siap menghadapi dunia nyata dengan
-        percaya diri.
-      </p>
-    </div>
-  </div>
-  </div>
-
-</section>
-
-<br><br>
-<br><br>
-<section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
-    <!-- Desktop: tetap utuh -->
-    <div class="hidden lg:flex flex-col lg:flex-row items-start gap-10">
-
-        <!-- Teks -->
-        <div class="lg:w-1/3 ml-5" style="margin-top: 6rem;">
-            <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
-            <p class="text-white leading-relaxed">
-                Fasilitas lengkap dengan <br>
-                laboratorium akuntansi modern dan <br>
-                software terbaru untuk mendukung <br>
-                teori dan praktik belajar.
-            </p>
-        </div>
-
-        <!-- Slider -->
-        <div class="relative lg:w-2/3" style="margin-top:-2rem;">
-            <!-- Tombol -->
-            <button id="prevBtn"
-                class="absolute right-100 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor">
-                    <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
-            <button id="nextBtn"
-                class="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor">
-                    <path d="M9 6l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
-
-            <!-- Track -->
-            <div id="track"
-                class="flex gap-4 px-4 py-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-
-                <!-- Slide 1 -->
-                <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start" style="width: 850px; height:50vh;">
-                    <div class="grid grid-cols-2 gap-3">
-                        <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
-                            style="height:50vh;">
-                            <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                src="{{ asset('image/akl/fas1.png') }}" style="height:50vh;">
-                            <figcaption class="absolute left-4 top-4">
-                                <span
-                                    class="inline-flex rounded-e-2xl rounded-s-xl bg-green-600 text-white font-semibold px-4 py-2 shadow">
-                                    Lab AKL
-                                </span>
-                            </figcaption>
-                        </figure>
-                        <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow">
-                            <figcaption class="absolute left-4 top-4">
-                                <span
-                                    class="inline-flex rounded-e-2xl rounded-s-xl bg-green-600 text-white font-semibold px-4 py-2 shadow">
-                                    Pawon Enem
-                                </span>
-                            </figcaption>
-                            <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                src="{{ asset('image/akl/fas2.png') }}" style="height:50vh;" />
-                        </figure>
-                    </div>
+                <!-- Lingkaran dekorasi kanan -->
+                <div class="absolute top-1/3 right-[-20px] flex flex-col gap-2">
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
                 </div>
 
-                <!-- Slide 2 -->
-                <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start" style="width: 1000px; height:50vh;">
-                    <div class="grid grid-cols-2 gap-3">
-                        <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
-                            style="height:50vh;">
-                            <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/akl/fas3.jpg') }}"
-                                style="height:50vh;">
-                            <figcaption class="absolute left-4 top-4">
-                                <span
-                                    class="inline-flex rounded-e-2xl rounded-s-xl bg-green-600 text-white font-semibold px-4 py-2 shadow">
-                                    Kelas Industri
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </div>
+                <!-- Lingkaran dekorasi bawah -->
+                <div class="absolute -bottom-5 right-6 flex gap-2">
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
+                    <span class="w-3 h-3 bg-blue-300 rounded-full"></span>
                 </div>
             </div>
         </div>
-    </div>
-<!-- Mobile-only slider -->
-<div class="lg:hidden px-6 py-6">
+    </section>
+    <br><br>
+    <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
+        <!-- Kiri: Card -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+            <!-- Card 1 -->
+            <div class="relative bg-green-500 text-white rounded-xl p-6 shadow-md" style="height: 36vh;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/akl/benefit1 (3).png') }}" alt="icon" style="width: 55px; height:55px;">
+                </div>
+                <h3 class="font-bold text-lg mt-12">Peluang Karir Luas</h3>
+                <p class="mt-2 text-sm">Kesempatan kerja lebih terbuka dengan skill keuangan yang relevan.</p>
+            </div>
 
-    <!-- Teks -->
-    <div class="mb-6">
-        <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
-        <p class="text-white leading-relaxed">
-            Fasilitas lengkap dengan <br>
-            laboratorium akuntansi modern dan <br>
-            software terbaru untuk mendukung <br>
-            teori dan praktik belajar.
-        </p>
-    </div>
+            <!-- Card 2 -->
+            <div class="relative bg-white rounded-xl p-6 shadow-md mt-7" style="height: 36vh;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/akl/benefit1 (4).png') }}" alt="icon" style="width: 65px; height:55px;">
+                </div>
+                <h3 class="font-bold text-lg text-blue-900 mt-12">Mahir Dalam Kelola Keuangan</h3>
+                <p class="mt-2 text-sm text-gray-600">Belajar cara mengatur keuangan dengan cerdas dan profesional.</p>
+            </div>
 
-    <!-- Slider horizontal -->
-    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
+            <!-- Card 3 -->
+            <div class="relative bg-white rounded-xl p-6 shadow-md mt-5" style="height: 35vh; margin-top:-1rem;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/akl/benefit1 (1).png') }}" alt="icon" style="width: 64px; height:55px;">
+                </div>
+                <h3 class="font-bold text-lg text-blue-900 mt-12">Bekal Untuk Kuliah</h3>
+                <p class="mt-2 text-sm text-gray-600">Ilmu yang didapat bisa jadi dasar kuat untuk studi lanjut.</p>
+            </div>
 
-        <!-- Slide 1 -->
-        <div class="shrink-0 w-[85%] snap-start flex gap-2">
-            <figure class="relative w-1/2 rounded-xl overflow-hidden shadow-lg">
-                <img src="{{ asset('image/akl/fas1.png') }}" class="w-full h-48 object-cover rounded-xl">
-                <figcaption class="absolute left-2 top-2 bg-green-600 text-white font-semibold px-3 py-1 rounded shadow">
-                    Lab AKL
-                </figcaption>
-            </figure>
-            <figure class="relative w-1/2 rounded-xl overflow-hidden shadow-lg">
-                <img src="{{ asset('image/akl/fas2.png') }}" class="w-full h-48 object-cover rounded-xl">
-                <figcaption class="absolute left-2 top-2 bg-green-600 text-white font-semibold px-3 py-1 rounded shadow">
-                    Pawon Enem
-                </figcaption>
-            </figure>
+            <!-- Card 4 -->
+            <div class="relative bg-white rounded-xl p-6 shadow-md mt-10" style="height: 33vh;">
+                <div class="absolute -top-6 left-6 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                    <img src="{{ asset('image/akl/benefit1 (2).png') }}" alt="icon" style="width: 60px; height:55px;">
+                </div>
+                <h3 class="font-bold text-lg text-blue-900 mt-12">Terlatih Berfikir Analitis</h3>
+                <p class="mt-2 text-sm text-gray-600">Asah kemampuan analisis supaya makin kritis dan terstruktur.</p>
+            </div>
+
         </div>
 
-        <!-- Slide 2 -->
-        <div class="shrink-0 w-[85%] snap-start flex gap-2">
-            <figure class="relative w-1/2 rounded-xl overflow-hidden shadow-lg">
-                <img src="{{ asset('image/akl/fas3.jpg') }}" class="w-full h-48 object-cover rounded-xl">
-                <figcaption class="absolute left-2 top-2 bg-green-600 text-white font-semibold px-3 py-1 rounded shadow">
-                    Kelas Industri
-                </figcaption>
-            </figure>
-
-            <!-- Jika ada gambar ke-4, masukkan di sini -->
-            <!-- <figure class="relative w-1/2 ..."></figure> -->
+        <!-- Kanan: Deskripsi -->
+        <div>
+            <div class="content-teks ml-8">
+                <h2 class="text-2xl font-bold mb-4" style="margin-top: -4rem;">Benefit yang didapat</h2>
+                <p class="text-gray-600 mb-6">
+                    Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
+                    juga skill penting untuk masa depan. Mulai dari peluang karir
+                    yang luas, kemampuan mengelola keuangan, bekal kuat
+                    untuk kuliah, sampai terbiasa berpikir analitis. Semua
+                    dirancang agar kamu siap menghadapi dunia nyata dengan
+                    percaya diri.
+                </p>
+            </div>
         </div>
+    </section><br><br>
+    <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
+        <!-- bungkus teks + slider -->
+        <div class="flex flex-col lg:flex-row items-start gap-10">
 
-    </div>
+            <!-- Teks -->
+            <div class="lg:w-1/3 ml-5" style="margin-top: 5rem;">
+                <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
+                <p class="text-white leading-relaxed">
+                    Fasilitas lengkap dengan <br>
+                    laboratorium akuntansi modern dan <br>
+                    software terbaru untuk mendukung <br>
+                    teori dan praktik belajar.
+                </p>
+            </div>
 
-    <!-- Dots slider mobile -->
-    <div class="flex items-center justify-center gap-2 pt-4">
-        <span class="w-2 h-2 rounded-full bg-white/50"></span>
-        <span class="w-2 h-2 rounded-full bg-white/50"></span>
-        <!-- Tambah dot sesuai jumlah slide -->
-    </div>
-</div>
+            <!-- Slider -->
+            <div class="relative lg:w-2/3" style="margin-top:-2rem;">
+                <!-- Tombol -->
+                <button id="prevBtn"
+                    class="absolute right-100 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor">
+                        <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button id="nextBtn"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor">
+                        <path d="M9 6l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
 
+                <!-- Track -->
+                <div id="track"
+                    class="flex gap-4 px-4 py-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
 
-</section>
+                    <!-- Slide 1 -->
+                    <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
+                        style="width: 850px; height:50vh;">
+                        <div class="grid grid-cols-2 gap-3">
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
+                                style="height:50vh;">
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
+                                    src="{{ asset('image/akl/fas1.png') }}" style="height:50vh;">
+                                <figcaption class="absolute left-4 top-4">
+                                    <span
+                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-green-600 text-white font-semibold px-4 py-2 shadow">
+                                        Lab AKL
+                                    </span>
+                                </figcaption>
+                            </figure>
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow">
+                                <figcaption class="absolute left-4 top-4">
+                                    <span
+                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-green-600 text-white font-semibold px-4 py-2 shadow">
+                                        Pawon Enem
+                                    </span>
+                                </figcaption>
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
+                                    src="{{ asset('image/akl/fas2.png') }}" style="height:50vh;" />
+                            </figure>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
 
-
-        <section class="bg-[#f5f5f5] py-20">
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
+                </div>
+            </div>
+        </div>
+        <!-- Dots -->
+        <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
+        </div>
+        </div>
+    </section>
+    <section class="bg-[#f5f5f5] py-20">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
 
             <!-- BAGIAN KIRI -->
             <div class="relative flex justify-center lg:w-1/2">
                 <!-- Gambar utama -->
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                    <img src="{{asset('image/akl/gambarhsja.png')}}"
                         class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
 
                     <!-- Gambar kiri atas -->
-                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                    <img src="{{asset('image/akl/kiriatas.png')}}"
                         class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
                         alt="top">
 
-                        <!-- Gambar kanan bawah -->
-                        <img src="{{ asset('image/akl/logohsjr.png') }}"
+                    <!-- Gambar kanan bawah -->
+                   <img src="{{ asset('image/akl/logo.png') }}"
                             class="absolute -bottom-10 -right-10 w-[150px] h-[150px] object-cover  shadow-lg z-20"
                             alt="bottom">
-
-                        <!-- Kotak merah -->
-                        <div
-                            class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#319F2C] to-[#127E32]  rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
-                            <div class="bg-white rounded p-3 z-10">
-                                <img src="{{ asset('image/akl/frame.png') }}" alt="Icon" class="w-7 h-8">
-                            </div>
-                            <div>
-                                <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
-                                <p class="text-white text-sm mt-1">Siswa Unggul</p>
-                            </div>
+                    <!-- Kotak merah -->
+                    <div
+                        class="absolute -bottom-16 left-0 bg-gradient-to-r from-[#319F2C] to-[#127E32] rounded-[20px] px-6 py-5 flex items-center gap-3 shadow-lg w-96 z-10">
+                        <div class="bg-white rounded p-3 z-10">
+                            <img src="{{ asset('image/akl/frame.png') }}" alt="Icon" class="w-7 h-8">
                         </div>
-                    </div>
-                </div>
-<br>
-<br>
-<br>
-<br>
-                <!-- BAGIAN KANAN -->
-                <div class="lg:w-1/2 space-y-7">
-                    <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
-                        Himpunan Siswa <br>
-                        Jurusan Akuntansi
-                    </h2>
-
-                    <p class="text-gray-700 leading-relaxed text-[16px]">
-                        Himpunan Siswa Jurusan Akuntansi SMKN 6 Jember merupakan organisasi yang menjadi pusat pengembangan
-                        kompetensi, kedisiplinan, dan tanggung jawab siswa di bidang keuangan. Melalui kegiatan seperti
-                        olimpiade akuntansi, pelatihan software keuangan, simulasi pembukuan, dan seminar karier, organisasi ini
-                        mencetak calon akuntan muda yang profesional, teliti, dan berintegritas tinggi.
-                    </p>
-
-                    <!-- CARD LOWONGAN -->
-                    <div class="space-y-4">
-                        <div
-                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/akl/Group (1).png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Kegiatan Unggulan Akuntansi</h4>
-                                <p class="text-gray-500 text-sm">Mengasah kemampuan analisis dan ketelitian siswa akuntansi.</p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/akl/Vector (1).png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Praktik Akuntansi Perusahaan</h4>
-                                <p class="text-gray-500 text-sm">Menerapkan ilmu akuntansi melalui simulasi dunia kerja nyata.</p>
-                            </div>
+                        <div>
+                            <h3 class="text-white font-extrabold text-xl leading-none">1.000+</h3>
+                            <p class="text-white text-sm mt-1">Siswa Unggul</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <br><br>
-<section class="performance">
-    <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
-    <!-- Grid -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
-        <!-- Card 1 -->
-        <div class="relative rounded-xl shadow overflow-hidden w-full aspect-[4/3] group">
-            <img src="{{ asset('image/akl/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p class="text-white font-semibold text-center px-4">Prestasi 1: Juara Olimpiade Akuntansi</p>
-            </div>
-        </div>
+            <!-- BAGIAN KANAN -->
+            <div class="lg:w-1/2 space-y-7">
+                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                    Himpunan Siswa <br>
+                    Jurusan Akuntansi
+                </h2>
 
-        <!-- Card 2 -->
-        <div class="relative rounded-xl shadow overflow-hidden w-full aspect-[4/3] group">
-            <img src="{{ asset('image/akl/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p class="text-white font-semibold text-center px-4">Prestasi 2: Workshop Akuntansi Terbaik</p>
-            </div>
-        </div>
+                <p class="text-gray-700 leading-relaxed text-[16px]">
+                    Himpunan Siswa Jurusan Akuntansi SMKN 6 Jember merupakan organisasi yang menjadi pusat pengembangan
+                    kompetensi, kedisiplinan, dan tanggung jawab siswa di bidang keuangan. Melalui kegiatan seperti
+                    olimpiade akuntansi, pelatihan software keuangan, simulasi pembukuan, dan seminar karier, organisasi ini
+                    mencetak calon akuntan muda yang profesional, teliti, dan berintegritas tinggi.
+                </p>
 
-        <!-- Card 3 -->
-        <div class="relative rounded-xl shadow overflow-hidden w-full aspect-[4/3] group">
-            <img src="{{ asset('image/akl/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p class="text-white font-semibold text-center px-4">Prestasi 3: Juara Kompetisi Perpajakan</p>
-            </div>
-        </div>
+                <!-- CARD LOWONGAN -->
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/akl/Group (1).png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Kegiatan Unggulan Akuntansi</h4>
+                            <p class="text-gray-500 text-sm">Mengasah kemampuan analisis dan ketelitian siswa akuntansi.</p>
+                        </div>
+                    </div>
 
-        <!-- Card 4 -->
-        <div class="relative rounded-xl shadow overflow-hidden w-full aspect-[4/3] group">
-            <img src="{{ asset('image/akl/pres4.png') }}" alt="Prestasi 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p class="text-white font-semibold text-center px-4">Prestasi 4: Pameran Laporan Keuangan</p>
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#319F2C] to-[#127E32] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/akl/Vector (1).png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Praktik Akuntansi Perusahaan</h4>
+                            <p class="text-gray-500 text-sm">Menerapkan ilmu akuntansi melalui simulasi dunia kerja nyata.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-</section>
+    <br><br>
+    <section class="performance">
+        <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
+
+        <!-- Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8">
+            <!-- Card 1 -->
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
+                <img src="{{ asset('image/akl/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Card 2 -->
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
+                <img src="{{ asset('image/akl/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Card 3 -->
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
+                <img src="{{ asset('image/akl/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Card 4 -->
+            <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
+                <img src="{{ asset('image/akl/pres4.png') }}" alt="Prestasi 4" class="w-full h-full object-cover">
+            </div>
+            <br><br><br>
+        </section>
+    </section>
+
 
     </section>
     <section class="cta mt-8">
