@@ -5,7 +5,7 @@
 @section('content')
     <style>
         .berita-section {
-            background-image: url("{{ asset('image/berita/bgberita.png') }}");
+            background-image: url("{{ asset('image/berita/beritabg.png') }}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
