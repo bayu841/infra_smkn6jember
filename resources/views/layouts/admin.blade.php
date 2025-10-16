@@ -70,6 +70,13 @@
         <span class="ml-3">Manajemen Produk</span>
     </a>
 
+<a href="{{ route('admin.contact_messages.index') }}"
+       class="flex items-center px-5 py-3 rounded-lg w-60 ml-2 transition-all duration-200
+       {{ request()->is('admin/contact_messages*') ? 'bg-blue-800 text-white font-semibold shadow-md' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">
+        <i class="fas fa-box-open w-6"></i>
+        <span class="ml-3">Kontak Pesan</span>
+    </a>
+
     <!-- DATA SEKOLAH -->
     <p class="px-6 mt-6 text-xs uppercase tracking-wider text-blue-200/70 font-semibold">Data Sekolah</p>
 

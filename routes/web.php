@@ -44,10 +44,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::delete('news-destroy-multiple', [BeritaController::class, 'destroyMultiple'])->name('news.destroyMultiple');
 });
 
-// Temporary route for branding page
-Route::get('/batikenem', [App\Http\Controllers\BrandingController::class, 'batikEnem']);
-Route::get('/energienem', [App\Http\Controllers\BrandingController::class, 'energiEnem']);
-Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'studioEnem']);
+
 
 // Jurusan
 Route::get('/rpl', [App\Http\Controllers\JurusanController::class, 'rpl'])->name('rpl');
@@ -66,8 +63,16 @@ Route::get('/detaileskul', function () {
     return view('detaileskul');
 });
 Route::get('/branding', function () {
-    return view('brandingsmk6.branding');
+    $products = \App\Models\Product::all();
+    $bestsellers = \App\Models\Product::latest()->take(4)->get();
+    $categories = \App\Models\Product::select('category')->distinct()->get();
+    return view('brandingsmk6.branding', compact('products', 'bestsellers', 'categories'));
 });
+
+// Temporary route for branding page
+Route::get('/batikenem', [App\Http\Controllers\BrandingController::class, 'batikEnem']);
+Route::get('/energienem', [App\Http\Controllers\BrandingController::class, 'energiEnem']);
+Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'studioEnem']);
 
 // Cart Routes
 Route::get('cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');

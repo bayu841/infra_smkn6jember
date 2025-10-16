@@ -13,11 +13,20 @@ return new class extends Migration
     {
         Schema::create('contact_messages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone')->nullable();
+            $table->string('name', 100);
+            $table->string('email', 255);
+            $table->string('phone', 20);
             $table->text('message');
+            $table->string('ip_address', 45)->nullable(); // Support IPv6
+            $table->text('user_agent')->nullable();
+            $table->enum('status', ['unread', 'read', 'replied', 'spam'])->default('unread');
             $table->timestamps();
+
+            // Index untuk optimisasi query
+            $table->index('email');
+            $table->index('status');
+            $table->index('created_at');
+            $table->index(['ip_address', 'created_at']);
         });
     }
 
