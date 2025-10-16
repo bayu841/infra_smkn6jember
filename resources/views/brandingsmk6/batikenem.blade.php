@@ -181,7 +181,7 @@
             <div class="w-full md:w-1/2 text-white space-y-4">
                 <h2 class="text-2xl md:text-3xl font-bold leading-snug">
                     Tertarik dengan <br>
-                    Produk KKBT? <br>
+                    Produk Batik Kami? <br>
                     Yuk Beli Sekarang!
                 </h2>
                 <p class="text-sm md:text-base leading-relaxed">
