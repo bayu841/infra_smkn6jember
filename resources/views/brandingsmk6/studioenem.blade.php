@@ -12,6 +12,86 @@
             cursor: pointer;
             background: linear-gradient(to right, #4C4C50, #2A292D);
         }
+
+        :root {
+            --orange: #4C4C50;
+            --orange-dark: #2A292D;
+            --text: #ffffff;
+            --card-radius: 50px 50px 52px 0px;
+            --shadow: 0 24px 48px -16px rgba(0, 0, 0, .35);
+        }
+
+        .hero-batik {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 16px;
+            border-radius: 32px;
+        }
+
+        .hero-batik__image {
+            overflow: hidden;
+            border-radius: 32px;
+        }
+
+        .hero-batik__image img {
+            display: block;
+            width: 700px;
+            height: clamp(320px, 55vw, 560px);
+            object-fit: cover;
+            border-radius: 32px;
+        }
+
+        .hero-batik__card {
+            position: absolute;
+            inset: auto 16px 16px auto;
+            transform: translateY(-12%);
+            max-width: 520px;
+            width: min(92vw, 520px);
+            background: linear-gradient(to right, #4C4C50, #2A292D);
+            color: var(--text);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            height: 80vh;
+        }
+
+        .hero-batik__content {
+            padding: clamp(70px, 3.5vw, 32px);
+        }
+
+        .hero-batik__content h2 {
+            margin: 0 0 12px;
+            font-size: clamp(22px, 3.2vw, 32px);
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: .2px;
+        }
+
+        .hero-batik__content p {
+            margin: 0;
+            font-size: clamp(14px, 1.3vw, 17px);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, .95);
+        }
+
+
+
+        /* Responsif: letakkan kartu di bawah pada layar kecil */
+        @media (max-width: 640px) {
+            .hero-batik__card {
+                position: relative;
+                inset: auto;
+                transform: none;
+                margin-top: 16px;
+                width: 100%;
+                max-width: none;
+                border-radius: 32px;
+            }
+
+            .hero-batik {
+                margin: 24px auto;
+            }
+        }
     </style>
     <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
         style="background-image: url('image/dkv/herodkv.png'); width:100%; height:110vh; background-size:cover;">
@@ -22,7 +102,7 @@
             </h1>
             <p class="text-lg md:text-x mb-7">
                 Studio Enem adalah tim media kreatif SMKN 6 Jember <br>
-                 yang berfokus pada produksi desain, foto, dan video. <br>
+                yang berfokus pada produksi desain, foto, dan video. <br>
                 Dengan semangat kolaborasi, Studio Enem menjadi <br>
                 wadah bagi siswa untuk mengasah kemampuan di bidang <br>
                 multimedia, dokumentasi, dan publikasi sekolah.
@@ -32,9 +112,42 @@
             </a>
         </div>
         </div>
+    </section><br><br><br>
+    <section class="hero-batik">
+        <div class="hero-batik__image">
+            <img src="{{ asset('image/studioenem/about.png') }}" alt="Kegiatan membatik">
+        </div>
+        <div class="hero-batik__card">
+            <div class="hero-batik__content">
+                <h2>Apa itu Studio Enem?</h2>
+                <p>
+                    Studio Enem adalah studio kreatif yang fokus pada pengembangan produk unggulan berkualitas tinggi, mulai
+                    dari kerajinan tangan hingga desain modern. Dengan mengedepankan kreativitas dan inovasi, Studio Enem
+                    berkomitmen menghadirkan karya yang estetis, fungsional, dan bernilai tinggi bagi masyarakat. Setiap
+                    produk dirancang dengan detail dan ketelitian untuk memastikan kepuasan pelanggan.
+                </p>
+            </div>
+        </div>
     </section>
     <section>
-        <h2 class="text-3xl font-bold p-10 text-[#DB6007]">Produk</h2>
+        <h2 class="text-3xl font-bold p-10 text-[#2A292D]">Hasil Foto</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 mb-10">
+            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
+                <img src="{{ asset('image/studioenem/foto1.jpg') }}" alt="Produk" class="w-full">
+            </div>
+            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
+                <img src="{{ asset('image/studioenem/foto2.jpg') }}" alt="Produk" class="w-full">
+            </div>
+            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
+                <img src="{{ asset('image/studioenem/foto3.jpg') }}" alt="Produk" class="w-full">
+            </div>
+            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
+                <img src="{{ asset('image/studioenem/foto4.jpg') }}" alt="Produk" class="w-full">
+            </div>
+        </div>
+    </section><br>
+    <section>
+        <h2 class="text-3xl font-bold p-10 text-[#2A292D]">Produk Unggulan</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-6 mb-10">
             @forelse ($products as $product)
                 <div class="max-w-sm rounded-lg overflow-hidden shadow-lg group">
@@ -53,59 +166,19 @@
             @endforelse
         </div>
     </section>
-    <section class="flex flex-col md:flex-row items-center justify-center gap-6 bg-white p-6 md:p-10 rounded-2xl">
-        <!-- Gambar -->
-        <div class="w-full md:w-1/2 rounded-3xl overflow-hidden">
-            <img src="{{ asset('image/batikenem/about.png') }}" alt="Batik Enem" class="w-full h-full object-cover">
-        </div>
-
-        <!-- Card Teks -->
-        <div class="w-full md:w-1/2 bg-[#E14F1A] text-white p-8 rounded-3xl shadow-lg">
-            <h2 class="text-2xl font-bold mb-3">Apa itu Batik Enem?</h2>
-            <p class="text-sm md:text-base leading-relaxed mb-6">
-                Batik Enem adalah karya batik khas SMKN 6 Jember yang memadukan nilai tradisi dan inovasi.
-                Terinspirasi dari sejarah dan kearifan lokal Jember, setiap motif Batik Enem mencerminkan
-                semangat kreatif generasi muda dalam melestarikan budaya sekaligus menghadirkan desain modern
-                yang elegan dan berkarakter.
-            </p>
-            <a href="#"
-                class="inline-block bg-white text-[#E14F1A] font-semibold px-5 py-2 rounded-full hover:bg-gray-100 transition">
-                Selengkapnya
-            </a>
-        </div>
-    </section>
-    <section>
-        <h2 class="text-3xl font-bold p-10 text-[#DB6007]">Keunggualan Produk Kami</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 mb-10">
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="" alt="Produk" class="w-full">
-            </div>
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg">
-                <img src="" alt="Produk" class="w-full">
-            </div>
-        </div>
-    </section>
-    <br><br>
-    <section class="bg-[#E14F1A] py-10 px-6 md:px-16" style="height:60vh;">
+    <br><br><br>
+    <section class="bg-gradient-to-r from-[#4C4C50] to-[#2A292D] py-10 px-6 md:px-16" style="height:60vh;">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 
-            <!-- Gambar kiri -->
             <div class="w-full md:w-1/2 flex justify-center -mt-8">
-                <img src="{{ asset('image/branding/ctastudio.png') }}" alt="Produk KKBT"
-                    class="rounded-xl w-full max-w-md object-contain">
+                <img src="{{ asset('image/studioenem/ctastudio.png') }}" alt="Produk KKBT"
+                    class="rounded-2xl w-full max-w-[420px] h-[371px] object-contain">
             </div>
-
             <!-- Teks kanan -->
             <div class="w-full md:w-1/2 text-white space-y-4">
                 <h2 class="text-2xl md:text-3xl font-bold leading-snug">
                     Tertarik Dengan <br>
-                    Produk KKBT?, Yuk Beli Sekarang
+                    Produk STUIO ENEM ? , Yuk Beli Sekarang
                 </h2>
                 <p class="text-sm md:text-base leading-relaxed">
                     Dapatkan produk berkualitas dengan harga bersahabat. Klik tombol di bawah
@@ -122,5 +195,6 @@
             </div>
         </div>
     </section>
+
 
 @endsection

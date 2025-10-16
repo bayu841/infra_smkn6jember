@@ -190,7 +190,6 @@
                 Kembali ke Halaman Utama
             </a>
         </div>
-        <h2 class="font-semibold ml-20 text-2xl">Last Post</h2><br>
         <!-- Grid Card -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 pb-20">
             @foreach ($lastPosts as $berita)

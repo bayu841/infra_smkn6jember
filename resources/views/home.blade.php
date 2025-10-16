@@ -779,7 +779,7 @@
                 <div
                     class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition bg-white flex justify-center items-center h-80">
                     <blockquote class="instagram-media w-full h-full"
-                        data-instgrm-permalink="https://www.instagram.com/smkn6jember/" data-instgrm-version="14"
+                        data-instgrm-permalink="https://www.instagram.com/smkn6jember_sixma.official/" data-instgrm-version="14"
                         style="max-width: 100%; min-width: 100%; margin: 0;"></blockquote>
                     <script async src="//www.instagram.com/embed.js"></script>
                 </div>
@@ -1291,14 +1291,14 @@
         <section
             class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
                 bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
-            id="kontak" style="height: 120vh; margin-bottom:-4rem;">
+           style="height: 120vh; margin-bottom:-4rem;">
             <!-- Bagian Kiri -->
-            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" >
                 <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
                     Bergabunglah bersama <br />
                     kami dan wujudkan masa depan mu
                 </h2>
-                <div class="relative">
+                <div class="relative" >
                     <!-- Background bentuk oval -->
                     <div
                         class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
@@ -1308,7 +1308,7 @@
 
             <!-- Bagian Kanan -->
             <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
-                <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
+                <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak">Ada Pertanyaan? Hubungi Kami</h3>
 
                 <form id="contactForm" action="#" method="POST" class="space-y-4">
                     <input type="text" id="name" placeholder="Nama"

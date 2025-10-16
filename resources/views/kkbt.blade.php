@@ -146,11 +146,11 @@
             <h1 class="text-4xl md:text-1xl font-bold mb-5">Selamat Datang <br>
                 di KKBT SMKN 6 Jember
             </h1>
-            <p class="text-lg md:text-xl mb-7">
-                Smk bisa,SMK Hebat, <br>
-                SMK Negeri 6 Jember,Berenergi Untuk bisa hebat </p>
-            <a href="#" class="btn" style="background color">
-                Daftar Sekarang
+              <p class="text-lg md:text-xl mb-7">
+                    Smk Bisa, SMK Hebat, <br>
+                    SMK Negeri 6 Jember, Berenergi untuk bisa hebat </p>
+            <a href="#about" class="btn" style="background color">
+                    Jelajahi Jurusan
             </a>
         </div>
         </div>
@@ -158,7 +158,7 @@
     <div class="brand">
             <img src="{{ asset('image/logooo.png') }}" alt="">
         </div>
-    <section class="about">
+    <section class="about" id="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1"><br><br>
@@ -258,7 +258,7 @@
         <!-- Kanan: Deskripsi -->
         <div>
             <div class="content-teks ml-8">
-                <h2 class="text-2xl font-bold mb-4" style="margin-top: -4rem;">Benefit yang didapat</h2>
+                <h2 class="text-2xl font-bold mb-4" style="margin-top: -2rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
                     Dengan belajar di sini, kamu nggak cuma dapat ilmu, tapi
                     juga skill penting untuk masa depan. Mulai dari peluang karir
@@ -267,9 +267,6 @@
                     dirancang agar kamu siap menghadapi dunia nyata dengan
                     percaya diri.
                 </p>
-                <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
-                    Selengkapnya
-                </button>
             </div>
         </div>
     </section><br><br>
@@ -367,17 +364,17 @@
             <div class="relative flex justify-center lg:w-1/2">
                 <!-- Gambar utama -->
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                    <img src="{{asset('image/kkbt/gambarjenus.png')}}"
                         class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
 
                     <!-- Gambar kiri atas -->
-                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                    <img src="{{asset('image/kkbt/kiriatas.png')}}"
                         class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
                         alt="top">
 
                     <!-- Gambar kanan bawah -->
-                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
-                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                    <img src="{{asset('image/kkbt/jenus.png')}}"
+                        class="absolute -bottom-10 -right-10 w-[130px] h-[130px] rounded-2xl object-cover w-[220px] shadow-lg z-20 "
                         alt="bottom">
 
                     <!-- Kotak merah -->
@@ -413,14 +410,13 @@
                         class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
                         <div class="bg-gradient-to-r from-[#CA4016] to-[#E64817] text-white p-3 rounded-full">
                             <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                <img src="{{ asset('image/kkbt/Vector (2).png') }}" alt="Bag Icon"
                                     class="w-full h-full object-contain">
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor.</p>
+                            <h4 class="font-semibold text-gray-900">Kreasi Batik Inovatif</h4>
+                            <p class="text-gray-500 text-sm">Karya siswa KKBT dengan desain unik dan bernilai jual tinggi.</p>
                         </div>
                     </div>
 
@@ -428,25 +424,20 @@
                         class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
                         <div class="bg-gradient-to-r from-[#CA4016] to-[#E64817] text-white p-3 rounded-full">
                             <div class="w-5 h-5">
-                                <img src="{{ asset('image/rpl/bag.png') }}" alt="Bag Icon"
+                                <img src="{{ asset('image/kkbt/Leadership.png') }}" alt="Bag Icon"
                                     class="w-full h-full object-contain">
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">Lowongan Kerja Terbaik</h4>
-                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor.</p>
+                            <h4 class="font-semibold text-gray-900">Wirausaha Batik Sekolah</h4>
+                            <p class="text-gray-500 text-sm">Program pengembangan bisnis batik yang berhasil mencetak omset nyata.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tombol -->
-                <button class="btn">
-                    Selengkapnya
-                </button>
             </div>
         </div>
     </section>
+    <br><br>
     <section class="performance">
         <h2 class="font-bold text-center text-2xl mb-6 mt-16">Galeri Dan Prestasi</h2>
 
@@ -471,14 +462,9 @@
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
                 <img src="{{ asset('image/kkbt/pres4.png') }}" alt="Prestasi 4" class="w-full h-full object-cover">
             </div>
-
-            <!-- Tombol -->
-            <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
-                <a href="" class="btn w-40 text-center">Selengkapnya</a>
-            </div>
         </section>
     </section>
-
+<br><br><br><br>
 
     </section>
     <section class="cta mt-8">
@@ -488,8 +474,8 @@
             karier gemilang.
         </h2><br>
         <div class="cta-btn">
-            <a href="" class="btn1">Daftar Sekarang</a>
-            <a href="" class="btn2">Lihat Lainnya</a>
+            <a href="https://www.instagram.com/batikenemjember/" class="btn1">Selengkapnya</a>
+            <a href="/home" class="btn2">Lihat Lainnya</a>
         </div>
     </section>
     <script>

@@ -177,11 +177,11 @@
                     <ul id="jurusanDropdown"
                         class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
                         <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">RPL</a></li>
-                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">AKL</a></li>
-                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">MP</a></li>
-                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">KKBT</a></li>
-                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">BD</a></li>
-                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">DKV</a></li>
+                        <li><a href="/akl" class="block px-4 py-2 hover:bg-gray-100">AKL</a></li>
+                        <li><a href="/mp" class="block px-4 py-2 hover:bg-gray-100">MP</a></li>
+                        <li><a href="/kkbt" class="block px-4 py-2 hover:bg-gray-100">KKBT</a></li>
+                        <li><a href="/bd" class="block px-4 py-2 hover:bg-gray-100">BD</a></li>
+                        <li><a href="/dkv" class="block px-4 py-2 hover:bg-gray-100">DKV</a></li>
                     </ul>
                 </li>
                 <li><a href="/#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>
