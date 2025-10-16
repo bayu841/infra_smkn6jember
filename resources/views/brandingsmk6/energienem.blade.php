@@ -161,8 +161,9 @@
             <!-- Teks kanan -->
             <div class="w-full md:w-1/2 text-white space-y-4">
                 <h2 class="text-2xl md:text-3xl font-bold leading-snug">
-                    Tertarik Dengan <br>
-                    Produk Energi Enem?, Yuk Beli Sekarang
+                    Tertarik dengan <br>
+                    Produk Energi Enem?<br>
+                    Yuk Beli Sekarang!
                 </h2>
                 <p class="text-sm md:text-base leading-relaxed">
                     Dapatkan produk berkualitas dengan harga bersahabat. Klik tombol di bawah
