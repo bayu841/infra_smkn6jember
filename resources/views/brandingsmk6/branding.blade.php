@@ -98,11 +98,8 @@
         </div>
     </section>
 
-
-
-
     <!-- Best Seller Section -->
-    <section class="py-10 mb-20">
+    <section class="py-10 mt-12" style="margin-top: 15em">
         <h2 class="text-center text-2xl font-bold mb-8">Best Seller</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
             @foreach ($bestsellers as $product)
@@ -127,7 +124,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-12">
         <div class="category-product">
             <h2 class="text-center text-2xl font-bold">Kategori Produk</h2>
             <div class="min-h-screen bg-gray-50 py-12">

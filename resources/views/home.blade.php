@@ -21,28 +21,56 @@
             gap: .5rem;
         }
 
-        /* Brand bar */
-        .brand {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            padding: 10px 10px;
-            background-color: rgb(255, 255, 255);
-            width: 950px;
-            margin-top: -2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            height: 12vh;
-            position: relative;
-            z-index: 20;
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+    width: 950px;
+    margin-top: -2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 12vh;
+    position: relative;
+    z-index: 20;
+}
 
-        }
+.brand img {
+    width: 1500px;
+    margin: 6px;
+    max-width: 100%;
+    height: auto;
+}
 
-        .brand img {
-            width: 1500px;
-            margin: 6px;
-        }
+/* Responsif untuk tablet dan mobile */
+@media (max-width: 1024px) {
+    .brand {
+        width: 90%;
+        height: auto;
+        margin-top: -1rem;
+        padding: 8px;
+    }
+
+    .brand img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .brand {
+        width: 95%;
+        padding: 6px;
+        border-radius: 12px;
+    }
+
+    .brand img {
+        width: 100%;
+        margin: 4px;
+    }
+}
+
 
         .major {
             background-image: url('image/home/bgjurusan.png');
@@ -314,26 +342,6 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .brand {
-                grid-template-columns: repeat(5, minmax(0, 1fr));
-                border-radius: 14px;
-                margin-top: -2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brand {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 10px;
-                padding: 10px;
-            }
-
-            .brand img {
-                width: 44px;
-                height: 44px;
-            }
-        }
 
         /* Ekstrakurikuler track item width on mobile */
         .eskul-slide {
@@ -1000,191 +1008,79 @@
 
     <br><br><br><br>
 
-    <section class="fasility bg-slate-900 px-4 md:px-10 py-16 md:py-20">
-        <div class="flex flex-col lg:flex-row items-start gap-10">
-            <!-- Teks -->
-            <div class="lg:w-1/3 ml-0 md:ml-5" style="margin-top: 6.5rem;">
-                <h2 class="text-white text-3xl font-bold mb-4">Ekstrakurikuler</h2>
-                <p class="text-white leading-relaxed">
-                    SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
-                    minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
-                </p>
-            </div>
+    <!-- === MOBILE & TABLET === -->
+<section class="block lg:hidden px-4 md:px-10 py-12 bg-[#4B6BFF] ">
+  <div class="flex flex-col gap-8">
+    <div>
+      <h2 class="text-2xl font-bold mb-2 text-gray-50">Ekstrakurikuler</h2>
+      <p class="text-gray-50 leading-relaxed">
+        SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
+        minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
+      </p>
+    </div>
 
-            <!-- Slider -->
-            <div class="relative lg:w-2/3 -mt-2">
-                <div id="track2"
-                    class="flex gap-4 px-2 py-2 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-                    <!-- Slide 1 -->
-                    <div class="shrink-0 eskul-slide snap-start">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/paskib.png') }}" alt="Paskibraka"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Paskibraka</span>
-                                </div>
-                            </figure>
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/pmr.png') }}" alt="PMR"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Palang Merah Remaja</span>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
+    <div class="overflow-x-auto flex gap-4 snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden">
+      <!-- Slide -->
+      <div class="shrink-0 w-64 snap-start">
+        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
+          <img src="{{ asset('image/eskul/paskib.png') }}" alt="Paskibraka"
+               class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+            <span class="text-white text-lg font-semibold">Paskibraka</span>
+          </div>
+        </figure>
+      </div>
 
-                    <!-- Slide 2 -->
-                    <div class="shrink-0 eskul-slide snap-start">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/tari.png') }}" alt="Sanggar Tari"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Sanggar Tari</span>
-                                </div>
-                            </figure>
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Marching Band"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Merpati Putih</span>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
+      <div class="shrink-0 w-64 snap-start">
+        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
+          <img src="{{ asset('image/eskul/pmr.png') }}" alt="PMR"
+               class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+            <span class="text-white text-lg font-semibold">PMR</span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <!-- Slide 3 -->
-                    <div class="shrink-0 eskul-slide snap-start">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/pencakorganisasi.png') }}" alt="Hadroh"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Pencak Organisasi</span>
-                                </div>
-                            </figure>
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/renang.jpg') }}" alt="Osis"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Renang</span>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
+<!-- === DESKTOP === -->
+<section class="hidden lg:block bg-slate-900 px-10 py-20 bg-[url('/image/home/eskul.png')]">
+  <div class="flex items-start gap-10">
+    <!-- Teks -->
+    <div class="w-1/3 mt-28">
+      <h2 class="text-white text-3xl font-bold mb-4">Ekstrakurikuler</h2>
+      <p class="text-white leading-relaxed">
+        SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
+        minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
+      </p>
+    </div>
 
-                    <!-- Slide 4 -->
-                    <div class="shrink-0 eskul-slide snap-start">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/hadroh.png') }}" alt="Sanggar Tari"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Hadroh</span>
-                                </div>
-                            </figure>
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/marchingband.png') }}" alt="Marching Band"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Merching Band</span>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div class="shrink-0 eskul-slide snap-start">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/panah.png') }}" alt="Sanggar Tari"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Panahan</span>
-                                </div>
-                            </figure>
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/paduansuara.jpg') }}" alt="Marching Band"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Paduan Suara</span>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
-                    <!-- Slide 6 -->
-                    <div class="shrink-0 eskul-slide snap-start">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/futsal.png') }}" alt="Sanggar Tari"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Futsal</span>
-                                </div>
-                            </figure>
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/voli.jpg') }}" alt="Marching Band"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Voli</span>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div class="shrink-0 eskul-slide snap-start">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/basket.png') }}" alt="Sanggar Tari"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">Basket</span>
-                                </div>
-                            </figure>
-                            <figure
-                                class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow group eskul-figure">
-                                <img src="{{ asset('image/eskul/englishclub.jpg') }}" alt="Marching Band"
-                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                                <div
-                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                    <span class="text-white text-xl font-semibold">English Club</span>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="mt-4 flex items-center justify-center gap-2" id="dots2"></div>
-            </div>
+    <!-- Slider -->
+    <div class="w-2/3">
+      <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden">
+        <div class="shrink-0 w-full max-w-[850px] snap-start">
+          <div class="grid grid-cols-2 gap-3">
+            <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
+              <img src="{{ asset('image/eskul/tari.png') }}" alt="Sanggar Tari"
+                   class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                <span class="text-white text-xl font-semibold">Sanggar Tari</span>
+              </div>
+            </figure>
+            <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
+              <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Merpati Putih"
+                   class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                <span class="text-white text-xl font-semibold">Merpati Putih</span>
+              </div>
+            </figure>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="bg-gray-50 py-16">
         <div class="max-w-5xl mx-auto text-center px-4">
@@ -1220,17 +1116,19 @@
 
     <br><br>
 
-    <section
-        class="bg-[#F4F5F7] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 max-w-8xl mx-auto shadow-md h-[100vh]">
+<section class="w-full flex flex-col md:flex-row items-center justify-between px-8 md:px-12 py-12">
 
-        <!-- Bagian kiri (gambar + kartu layanan) -->
+    <!-- Desktop Version -->
+    <div class="hidden lg:flex relative w-full items-center justify-between bg-[#F4F5F7] rounded-3xl p-8 shadow-md h-[100vh]">
+
+        <!-- Bagian kiri (gambar + icon cards) -->
         <div class="relative ml-10">
             <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
                 <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
-                    class="w-80 md:w-96 h-[460px] object-cover" />
+                    class="w-96 h-[460px] object-cover" />
             </div>
 
-            <!-- 3 kartu kecil di sisi kanan -->
+            <!-- Icon Cards -->
             <div class="absolute top-1/4 -right-44 space-y-3">
                 <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
                     <div class="bg-blue-600 text-white p-2 rounded-lg">
@@ -1270,11 +1168,11 @@
         </div>
 
         <!-- Bagian kanan (teks) -->
-        <div class="max-w-xl text-center md:text-left ml-40"">
+        <div class="max-w-xl text-left ml-40">
             <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
-            <h2 class="text-1xl md:text-2xl font-bold text-gray-900 mt-2 leading-snug">
+            <h2 class="text-2xl font-bold text-gray-900 mt-2 leading-snug">
                 Kamu Lagi ada Masalah?<br>
-                Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg ">konsultasi sekarang!</span>
+                Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg">konsultasi sekarang!</span>
             </h2>
             <p class="text-gray-700 mt-5 leading-relaxed">
                 Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
@@ -1287,53 +1185,91 @@
                     Konsultasi Sekarang
                 </button>
             </a>
-
         </div>
+    </div>
 
-    </section>
-
-    <!-- Footer contact -->
-    <section
-        class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
-            bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
-        style="height: 120vh; margin-bottom:-6      rem;">
-        <!-- Bagian Kiri -->
-        <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <h2 class="relative -top-60 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
-                Bergabunglah bersama <br />
-                kami dan wujudkan masa depan mu
+    <!-- Mobile & Tablet Version -->
+    <div class="flex lg:hidden flex-col items-center justify-center bg-[#F4F5F7] rounded-3xl p-8 shadow-md">
+        <!-- Hanya teks, icon cards dihapus -->
+        <div class="max-w-xl text-center">
+            <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
+            <h2 class="text-2xl font-bold text-gray-900 mt-2 leading-snug">
+                Kamu Lagi ada Masalah?<br>
+                Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg">konsultasi sekarang!</span>
             </h2>
-            <div class="relative">
-                <!-- Background bentuk oval -->
-                <div
-                    class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[250px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
-                </div>
-            </div>
+            <p class="text-gray-700 mt-5 leading-relaxed">
+                Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
+                Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
+                dengan cara yang sehat dan tepat.
+            </p>
+            <a href="https://wa.me/6285806541124" target="_blank">
+                <button
+                    class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
+                    Konsultasi Sekarang
+                </button>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="w-full relative py-12 lg:py-24">
+
+    <!-- Desktop Version -->
+    <div class="hidden lg:flex absolute inset-0 bg-[url('/image/home/footer.png')] bg-cover bg-left bg-no-repeat -z-10"></div>
+
+    <div class="hidden lg:flex relative max-w-7xl mx-auto flex-row items-start justify-between px-6 lg:px-20">
+
+        <!-- Kiri / Text -->
+        <div class="w-1/2 flex flex-col items-start text-left">
+            <h2 class="text-xl lg:text-4xl font-bold text-gray-900 leading-snug">
+                Bergabunglah bersama <br />
+                kami dan wujudkan masa depanmu
+            </h2>
         </div>
 
-        <!-- Bagian Kanan -->
-        <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
-            <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak">Ada Pertanyaan? Hubungi Kami</h3>
-
-            <form id="contactForm" action="#" method="POST" class="space-y-4">
-                <input type="text" id="name" placeholder="Nama"
-                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <input type="email" id="email" placeholder="Email"
-                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <input type="tel" id="phone" placeholder="No Telepon"
-                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <textarea id="message" rows="4" placeholder="Pesan"
-                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                <button type="submit"
-                    class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
-                    Kirim Pesan
-                </button>
+        <!-- Kanan / Form -->
+        <div class="w-1/2 bg-white p-8 shadow-2xl rounded-2xl">
+            <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
+            <form class="space-y-4">
+                <input type="text" placeholder="Nama" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                <input type="tel" placeholder="No Telepon" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                <textarea rows="4" placeholder="Pesan" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">Kirim Pesan</button>
             </form>
         </div>
-    </section>
 
-    </section>
+    </div>
 
+    <!-- Mobile Version -->
+    <div class="flex lg:hidden w-full flex-col items-center justify-center mt-12 px-6">
+        <!-- Text -->
+        <div class="w-full flex flex-col items-center text-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 leading-snug mb-4">
+                Bergabunglah bersama <br />
+                kami dan wujudkan masa depanmu
+            </h2>
+        </div>
+        <!-- Form -->
+        <div class="w-full bg-white p-6 shadow-lg rounded-2xl">
+            <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
+            <form class="space-y-4">
+                <input type="text" placeholder="Nama" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                <input type="tel" placeholder="No Telepon" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                <textarea rows="4" placeholder="Pesan" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">Kirim Pesan</button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+
+
+<br><br>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

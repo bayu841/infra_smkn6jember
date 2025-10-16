@@ -55,6 +55,13 @@
         <span class="ml-3">Data Artikel</span>
     </a>
 
+    <a href="{{ route('admin.news.import') }}"
+       class="flex items-center px-5 py-3 rounded-lg w-60 ml-2 transition-all duration-200
+       {{ request()->is('admin/news*') ? 'bg-blue-800 text-white font-semibold shadow-md' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">
+        <i class="fas fa-newspaper w-6"></i>
+        <span class="ml-3">Import</span>
+    </a>
+
     <a href="{{ route('admin.transactions.index') }}"
        class="flex items-center px-5 py-3 rounded-lg w-60 ml-2 transition-all duration-200
        {{ request()->is('admin/transactions*') ? 'bg-blue-800 text-white font-semibold shadow-md' : 'text-blue-100 hover:bg-blue-600 hover:text-white' }}">

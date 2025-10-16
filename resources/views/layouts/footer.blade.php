@@ -1,5 +1,5 @@
     <!-- Footer -->
-    <footer class="text-white pt-12 pb-6" style="background-color: #1f2124;">
+    <footer class="text-white pt-12 pb-6 w-full" style="background-color: #1f2124;">
         <div class="max-w-6xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Tautan Cepat -->
