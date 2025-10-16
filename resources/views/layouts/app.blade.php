@@ -169,19 +169,17 @@
                   <li class="relative">
                     <button data-target="jurusanDropdown"
                         class="dropdown-toggle flex items-center text-black hover:text-blue-600 focus:outline-none w-full md:w-auto">
-                        Jurusan
+                        Toko Enem
                         <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.25 7.5L10 12.25L14.75 7.5H5.25Z" clip-rule="evenodd" />
                         </svg>
                     </button>
                     <ul id="jurusanDropdown"
                         class="hidden md:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
-                        <li><a href="/rpl" class="block px-4 py-2 hover:bg-gray-100">RPL</a></li>
-                        <li><a href="/akl" class="block px-4 py-2 hover:bg-gray-100">AKL</a></li>
-                        <li><a href="/mp" class="block px-4 py-2 hover:bg-gray-100">MP</a></li>
-                        <li><a href="/kkbt" class="block px-4 py-2 hover:bg-gray-100">KKBT</a></li>
-                        <li><a href="/bd" class="block px-4 py-2 hover:bg-gray-100">BD</a></li>
-                        <li><a href="/dkv" class="block px-4 py-2 hover:bg-gray-100">DKV</a></li>
+                        <li><a href="/batikenem" class="block px-4 py-2 hover:bg-gray-100">Batik Enem</a></li>
+                        <li><a href="/energienem" class="block px-4 py-2 hover:bg-gray-100">Energi Enem</a></li>
+                        <li><a href="/studioenem" class="block px-4 py-2 hover:bg-gray-100">Studio Enem</a></li>
+
                     </ul>
                 </li>
                 <li><a href="/#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>

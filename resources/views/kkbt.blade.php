@@ -171,10 +171,22 @@
                     pewarnaan kain. Lulusan diharapkan kreatif, <br>
                     inovatif, dan siap bersaing di dunia industri kreatif.
                 </p><br>
-                <a href="https://www.youtube.com/shorts/nJRoy5Cf0bE?feature=share"
-                    class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
+              <button onclick="openVideoModal()" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn ">
                     Tonton Video Profil
-                </a>
+                </button>
+            </div>
+             <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+                <div class="bg-white rounded-lg overflow-hidden w-[90%] md:w-[60%] relative">
+                    <!-- Tombol Tutup -->
+                    <button onclick="closeVideoModal()"
+                        class="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl font-bold">&times;</button>
+
+                    <!-- Video Embed -->
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe id="videoFrame" class="w-full h-[400px]" src="" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
 
             <!-- Bagian kanan (ilustrasi kotak) -->
@@ -182,7 +194,7 @@
             <div class="relative w-64 h-80 card-profile">
                 <!-- Card Utama -->
                 <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center"
-                    style="background-image: url('{{ asset('') }}')">
+                    style="background-image: url('{{ asset('image/kkbt/guru1.png') }}')">
                     <!-- Label bawah -->
                     <div
                         class="absolute bottom-0 left-0 bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
@@ -318,7 +330,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-orange-600 text-white font-semibold px-4 py-2 shadow">
-                                        Lab KKBT
+                                        Kantor Jursan
                                     </span>
                                 </figcaption>
                             </figure>
@@ -326,7 +338,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-orange-600 text-white font-semibold px-4 py-2 shadow">
-                                        2
+                                        RPS KKBT
                                     </span>
                                 </figcaption>
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
@@ -340,12 +352,12 @@
                         <div class="grid grid-cols-2 gap-3">
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/kkbt/fas3.png') }}"
                                     style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-orange-600 text-white font-semibold px-4 py-2 shadow">
-                                        3
+                                        Laboratorium Batik
                                     </span>
                                 </figcaption>
                             </figure>
@@ -373,9 +385,9 @@
                         alt="top">
 
                     <!-- Gambar kanan bawah -->
-                    <img src="{{asset('image/kkbt/jenus.png')}}"
-                        class="absolute -bottom-10 -right-10 w-[130px] h-[130px] rounded-2xl object-cover w-[220px] shadow-lg z-20 "
-                        alt="bottom">
+                   <img src="{{ asset('image/kkbt/jenus.png') }}"
+                            class="absolute -bottom-10 -right-10 w-[150px] h-[150px] object-cover  shadow-lg z-20"
+                            alt="bottom">
 
                     <!-- Kotak merah -->
                     <div
@@ -478,21 +490,51 @@
             <a href="/home" class="btn2">Lihat Lainnya</a>
         </div>
     </section>
-    <script>
+   <script>
         document.addEventListener("DOMContentLoaded", () => {
+            /* ------------------- Modal Video ------------------- */
+            function openVideoModal() {
+                const modal = document.getElementById('videoModal');
+                const frame = document.getElementById('videoFrame');
+                if (!modal || !frame) return console.warn('Modal atau frame video tidak ditemukan.');
+                // Gunakan URL embed agar bekerja di iframe
+                frame.src = "https://www.youtube.com/embed/nJRoy5Cf0bE";
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+
+            function closeVideoModal() {
+                const modal = document.getElementById('videoModal');
+                const frame = document.getElementById('videoFrame');
+                if (!modal || !frame) return;
+                frame.src = ""; // hentikan video
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+
+            // expose ke global jika tombol inline memanggil openVideoModal()
+            window.openVideoModal = openVideoModal;
+            window.closeVideoModal = closeVideoModal;
+
+            /* ------------------- Carousel / Slider ------------------- */
             const autoplay = false;
             const intervalMs = 3500;
 
             const track = document.getElementById('track');
+            if (!track) {
+                // jika tidak ada carousel di halaman, berhenti di sini tanpa error
+                return console.info('Carousel: elemen #track tidak ditemukan — melewatkan setup carousel.');
+            }
+
             const slides = Array.from(track.children);
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const dotsWrap = document.getElementById('dots');
 
-            // hitung langkah scroll
+            // helper: hitung langkah scroll (lebar slide + gap)
             function step() {
                 if (!slides.length) return 0;
-                const w = slides[0].offsetWidth; // lebih konsisten
+                const w = slides[0].offsetWidth;
                 const gap = parseFloat(getComputedStyle(track).gap) || 0;
                 return w + gap;
             }
@@ -520,18 +562,21 @@
                 goTo(currentIndex() - 1);
             }
 
-            prevBtn.addEventListener('click', prev);
-            nextBtn.addEventListener('click', next);
+            // Tambahkan listener hanya jika tombol ada
+            if (prevBtn) prevBtn.addEventListener('click', prev);
+            if (nextBtn) nextBtn.addEventListener('click', next);
 
-            // dots
+            // dots (jika ada wadah)
             let dots = [];
 
             function buildDots() {
+                if (!dotsWrap) return;
                 dotsWrap.innerHTML = '';
                 dots = slides.map((_, i) => {
                     const b = document.createElement('button');
-                    b.className =
-                        'h-2.5 w-2.5 rounded-full bg-orange-600 transition-all data-[active=true]:w-6 data-[active=true]:bg-oramge-600';
+                    // gunakan kelas Tailwind / custom; gunakan dataset untuk state
+                    b.className = 'h-2.5 w-2.5 rounded-full transition-all';
+                    b.setAttribute('aria-label', 'Slide ' + (i + 1));
                     b.addEventListener('click', () => goTo(i));
                     dotsWrap.appendChild(b);
                     return b;
@@ -540,10 +585,21 @@
             }
 
             function updateDots(active = currentIndex()) {
-                dots.forEach((d, i) => d.dataset.active = i === active ? 'true' : 'false');
+                if (!dots.length) return;
+                dots.forEach((d, i) => {
+                    if (i === active) {
+                        d.dataset.active = 'true';
+                        // contoh: tambahkan kelas ketika aktif (sesuaikan dengan stylingmu)
+                        d.style.width = '1.5rem';
+                        d.style.backgroundColor = '';
+                    } else {
+                        d.dataset.active = 'false';
+                        d.style.width = '';
+                    }
+                });
             }
 
-            // sinkronisasi saat scroll manual
+            // Sinkronisasi saat scroll manual (debounce via rAF)
             let rafScheduled = false;
             track.addEventListener('scroll', () => {
                 if (rafScheduled) return;
@@ -554,11 +610,11 @@
                 });
             });
 
-            // autoplay
+            // Autoplay (opsional)
             let timer = null;
 
             function startAutoplay() {
-                if (!autoplay) return;
+                if (!autoplay || slides.length <= 1) return;
                 stopAutoplay();
                 timer = setInterval(() => {
                     const idx = currentIndex();
@@ -574,13 +630,27 @@
             track.addEventListener('mouseenter', stopAutoplay);
             track.addEventListener('mouseleave', startAutoplay);
 
+            // Build dots hanya jika dotsWrap tersedia
             buildDots();
             startAutoplay();
 
+            // On resize, sesuaikan posisi ke index saat ini
             window.addEventListener('resize', () => {
                 const idx = currentIndex();
                 requestAnimationFrame(() => goTo(idx));
             });
+
+            /* ------------------- Tombol Tutup Modal (mis. overlay click) ------------------- */
+            const videoModal = document.getElementById('videoModal');
+            if (videoModal) {
+                // klik di luar konten modal untuk menutup
+                videoModal.addEventListener('click', (e) => {
+                    if (e.target === videoModal) closeVideoModal();
+                });
+                // contoh: tombol close dengan id closeVideoBtn
+                const closeBtn = document.getElementById('closeVideoBtn');
+                if (closeBtn) closeBtn.addEventListener('click', closeVideoModal);
+            }
         });
     </script>
 @endsection

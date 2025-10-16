@@ -224,8 +224,7 @@
         </div>
     </div>
 
-    <section>
-        <h2 class="font-semibold text-2xl p-20">Populer Minggu Ini</h2>
+    <section><br><br><br><br><br>
         @foreach ($popularNews as $berita)
             <div class="popular-container flex">
                 <div class="card"

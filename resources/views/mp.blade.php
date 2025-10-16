@@ -145,11 +145,10 @@
                 di MP SMKN 6 Jember
             </h1>
             <p class="text-lg md:text-xl mb-7">
-                Smk bisa,SMK Hebat, <br>
-                SMK Negeri 6 Jember,Berenergi Untuk bisa
-                hebat </p>
-            <a href="#" class="btn" style="background color">
-                Daftar Sekarang
+                Smk Bisa, SMK Hebat, <br>
+                SMK Negeri 6 Jember, Berenergi untuk bisa hebat </p>
+            <a href="#about" class="btn" style="background color">
+                Jelajahi Jurusan
             </a>
         </div>
         </div>
@@ -157,7 +156,7 @@
     <div class="brand">
         <img src="{{ asset('image/logooo.png') }}" alt="">
     </div>
-    <section class="about">
+    <section class="about" id="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1"><br><br>
@@ -171,9 +170,22 @@
                     kemampuan manajemen perkantoran. Semua jadi <br>
                     bekal kuat untuk meraih karir gemilang.
                 </p><br>
-                <a href="" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
+                <button onclick="openVideoModal()" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn ">
                     Tonton Video Profil
-                </a>
+                </button>
+            </div>
+            <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+                <div class="bg-white rounded-lg overflow-hidden w-[90%] md:w-[60%] relative">
+                    <!-- Tombol Tutup -->
+                    <button onclick="closeVideoModal()"
+                        class="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl font-bold">&times;</button>
+
+                    <!-- Video Embed -->
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe id="videoFrame" class="w-full h-[400px]" src="" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
 
             <!-- Bagian kanan (ilustrasi kotak) -->
@@ -181,7 +193,7 @@
             <div class="relative w-64 h-80 card-profile">
                 <!-- Card Utama -->
                 <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center"
-                    style="background-image: url('{{ asset('') }}')">
+                    style="background-image: url('{{ asset('image/mp/guru1.png') }}')">
                     <!-- Label bawah -->
                     <div
                         class="absolute bottom-0 left-0 bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
@@ -267,9 +279,6 @@
                     kemampuan manajemen perkantoran.Semua jadi <br>
                     bekal kuat untuk meraih karir gemilang.
                 </p>
-                <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg btn">
-                    Selengkapnya
-                </button>
             </div>
         </div>
     </section><br><br>
@@ -322,7 +331,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
-                                        Lab OTKP
+                                        Lab Komputer
                                     </span>
                                 </figcaption>
                             </figure>
@@ -330,7 +339,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
-                                        2
+                                        Kantor Jurusan
                                     </span>
                                 </figcaption>
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
@@ -344,12 +353,23 @@
                         <div class="grid grid-cols-2 gap-3">
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/mp/fas3.jpg') }}"
                                     style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
-                                        3
+                                        Lab Public Speaking
+                                    </span>
+                                </figcaption>
+                            </figure>
+                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
+                                style="height:50vh;">
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/mp/fas4.jpg') }}"
+                                    style="height:50vh;">
+                                <figcaption class="absolute left-4 top-4">
+                                    <span
+                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-blue-600 text-white font-semibold px-4 py-2 shadow">
+                                        Lab Six Beauty
                                     </span>
                                 </figcaption>
                             </figure>
@@ -368,17 +388,17 @@
             <div class="relative flex justify-center lg:w-1/2">
                 <!-- Gambar utama -->
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                    <img src="{{ asset('image/mp/gambarhsja.png') }}"
                         class="rounded-3xl w-[360px] h-[440px] object-cover shadow-xl" alt="main">
 
                     <!-- Gambar kiri atas -->
-                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=400&q=80"
+                    <img src="{{ asset('image/mp/kiriatas.png') }}"
                         class="absolute -top-10 -left-12 w-[160px] h-[180px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg"
                         alt="top">
 
                     <!-- Gambar kanan bawah -->
-                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80"
-                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover border-[6px] border-[#f5f5f5] shadow-lg z-20"
+                    <img src="{{ asset('image/mp/logohsjp.png') }}"
+                        class="absolute -bottom-10 -right-10 w-[150px] h-[150px] rounded-2xl object-cover  shadow-lg z-20"
                         alt="bottom">
 
                     <!-- Kotak merah -->
@@ -409,40 +429,40 @@
                 </p>
 
                 <!-- CARD LOWONGAN -->
-                        <!-- CARD LOWONGAN -->
-                    <div class="space-y-4">
-                        <div
-                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Pelatihan Skill RPL</h4>
-                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor.</p>
+                <!-- CARD LOWONGAN -->
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/mp/Layer_1_1_.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
                             </div>
                         </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Layanan Jasa & Administrasi</h4>
+                            <p class="text-gray-500 text-sm">Mengelola usaha jurusan seperti Six Beauty, Six Barber, dan
+                                jasa printing </p>
+                        </div>
+                    </div>
 
-                        <div
-                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#4D4FF5] to-[#7A44F9] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/mp/Vector (3).png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Pengalaman Kepanitaan</h4>
-                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor.</p>
-                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Entrepreneurship & Service</h4>
+                            <p class="text-gray-500 text-sm">Membangun jiwa wirausaha sekaligus melatih keterampilan
+                                pelayanan kantor .</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <section class="performance">
@@ -469,15 +489,10 @@
             <div class="rounded-xl shadow overflow-hidden w-full aspect-[4/3]">
                 <img src="{{ asset('image/mp/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover">
             </div>
-
-            <!-- Tombol -->
-            <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
-                <a href="" class="btn w-40 text-center">Selengkapnya</a>
-            </div>
         </section>
     </section>
 
-
+    <br><br><br>
     </section>
     <section class="cta mt-8">
         <h2 class="text-center text-white text-2xl font-bold pt-80">Bersama kami, wujudkan masa depanmu! Bergabunglah
@@ -486,25 +501,55 @@
             karier gemilang.
         </h2><br>
         <div class="cta-btn">
-            <a href="" class="btn1">Daftar Sekarang</a>
-            <a href="" class="btn2">Lihat Lainnya</a>
+            <a href="https://www.instagram.com/mp_skanamber/" class="btn1">Selengkapnya</a>
+            <a href="/home" class="btn2">Lihat Lainnya</a>
         </div>
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            /* ------------------- Modal Video ------------------- */
+            function openVideoModal() {
+                const modal = document.getElementById('videoModal');
+                const frame = document.getElementById('videoFrame');
+                if (!modal || !frame) return console.warn('Modal atau frame video tidak ditemukan.');
+                // Gunakan URL embed agar bekerja di iframe
+                frame.src = "https://www.youtube.com/embed/irj6UOuIb3w?autoplay=1&rel=0";
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+
+            function closeVideoModal() {
+                const modal = document.getElementById('videoModal');
+                const frame = document.getElementById('videoFrame');
+                if (!modal || !frame) return;
+                frame.src = ""; // hentikan video
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+
+            // expose ke global jika tombol inline memanggil openVideoModal()
+            window.openVideoModal = openVideoModal;
+            window.closeVideoModal = closeVideoModal;
+
+            /* ------------------- Carousel / Slider ------------------- */
             const autoplay = false;
             const intervalMs = 3500;
 
             const track = document.getElementById('track');
+            if (!track) {
+                // jika tidak ada carousel di halaman, berhenti di sini tanpa error
+                return console.info('Carousel: elemen #track tidak ditemukan — melewatkan setup carousel.');
+            }
+
             const slides = Array.from(track.children);
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const dotsWrap = document.getElementById('dots');
 
-            // hitung langkah scroll
+            // helper: hitung langkah scroll (lebar slide + gap)
             function step() {
                 if (!slides.length) return 0;
-                const w = slides[0].offsetWidth; // lebih konsisten
+                const w = slides[0].offsetWidth;
                 const gap = parseFloat(getComputedStyle(track).gap) || 0;
                 return w + gap;
             }
@@ -532,18 +577,21 @@
                 goTo(currentIndex() - 1);
             }
 
-            prevBtn.addEventListener('click', prev);
-            nextBtn.addEventListener('click', next);
+            // Tambahkan listener hanya jika tombol ada
+            if (prevBtn) prevBtn.addEventListener('click', prev);
+            if (nextBtn) nextBtn.addEventListener('click', next);
 
-            // dots
+            // dots (jika ada wadah)
             let dots = [];
 
             function buildDots() {
+                if (!dotsWrap) return;
                 dotsWrap.innerHTML = '';
                 dots = slides.map((_, i) => {
                     const b = document.createElement('button');
-                    b.className =
-                        'h-2.5 w-2.5 rounded-full bg-blue-600 transition-all data-[active=true]:w-6 data-[active=true]:bg-blue-600';
+                    // gunakan kelas Tailwind / custom; gunakan dataset untuk state
+                    b.className = 'h-2.5 w-2.5 rounded-full transition-all';
+                    b.setAttribute('aria-label', 'Slide ' + (i + 1));
                     b.addEventListener('click', () => goTo(i));
                     dotsWrap.appendChild(b);
                     return b;
@@ -552,10 +600,21 @@
             }
 
             function updateDots(active = currentIndex()) {
-                dots.forEach((d, i) => d.dataset.active = i === active ? 'true' : 'false');
+                if (!dots.length) return;
+                dots.forEach((d, i) => {
+                    if (i === active) {
+                        d.dataset.active = 'true';
+                        // contoh: tambahkan kelas ketika aktif (sesuaikan dengan stylingmu)
+                        d.style.width = '1.5rem';
+                        d.style.backgroundColor = '';
+                    } else {
+                        d.dataset.active = 'false';
+                        d.style.width = '';
+                    }
+                });
             }
 
-            // sinkronisasi saat scroll manual
+            // Sinkronisasi saat scroll manual (debounce via rAF)
             let rafScheduled = false;
             track.addEventListener('scroll', () => {
                 if (rafScheduled) return;
@@ -566,11 +625,11 @@
                 });
             });
 
-            // autoplay
+            // Autoplay (opsional)
             let timer = null;
 
             function startAutoplay() {
-                if (!autoplay) return;
+                if (!autoplay || slides.length <= 1) return;
                 stopAutoplay();
                 timer = setInterval(() => {
                     const idx = currentIndex();
@@ -586,13 +645,28 @@
             track.addEventListener('mouseenter', stopAutoplay);
             track.addEventListener('mouseleave', startAutoplay);
 
+            // Build dots hanya jika dotsWrap tersedia
             buildDots();
             startAutoplay();
 
+            // On resize, sesuaikan posisi ke index saat ini
             window.addEventListener('resize', () => {
                 const idx = currentIndex();
                 requestAnimationFrame(() => goTo(idx));
             });
+
+            /* ------------------- Tombol Tutup Modal (mis. overlay click) ------------------- */
+            const videoModal = document.getElementById('videoModal');
+            if (videoModal) {
+                // klik di luar konten modal untuk menutup
+                videoModal.addEventListener('click', (e) => {
+                    if (e.target === videoModal) closeVideoModal();
+                });
+                // contoh: tombol close dengan id closeVideoBtn
+                const closeBtn = document.getElementById('closeVideoBtn');
+                if (closeBtn) closeBtn.addEventListener('click', closeVideoModal);
+            }
         });
     </script>
+
 @endsection

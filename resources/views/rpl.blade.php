@@ -165,11 +165,23 @@
                         bidang keahlian Teknologi Informasi dengan fokus pada <br>
                         pembuatan software dan game digital.
                     </p><br>
-                    <a href="https://www.youtube.com/shorts/9mQOKXHDnYw?feature=share"
-                        class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
-                        Tonton Video Profil
-                    </a>
+                   <button onclick="openVideoModal()" class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn ">
+                    Tonton Video Profil
+                </button>
                 </div>
+                 <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+                <div class="bg-white rounded-lg overflow-hidden w-[90%] md:w-[60%] relative">
+                    <!-- Tombol Tutup -->
+                    <button onclick="closeVideoModal()"
+                        class="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl font-bold">&times;</button>
+
+                    <!-- Video Embed -->
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe id="videoFrame" class="w-full h-[400px]" src="" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
 
                 <!-- Bagian kanan (ilustrasi kotak) -->
 
@@ -490,108 +502,166 @@
             </div>
         </section>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const autoplay = false;
-                const intervalMs = 3500;
+        document.addEventListener("DOMContentLoaded", () => {
+            /* ------------------- Modal Video ------------------- */
+            function openVideoModal() {
+                const modal = document.getElementById('videoModal');
+                const frame = document.getElementById('videoFrame');
+                if (!modal || !frame) return console.warn('Modal atau frame video tidak ditemukan.');
+                // Gunakan URL embed agar bekerja di iframe
+                frame.src = "https://www.youtube.com/embed/9mQOKXHDnYw";
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
 
-                const track = document.getElementById('track');
-                const slides = Array.from(track.children);
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                const dotsWrap = document.getElementById('dots');
+            function closeVideoModal() {
+                const modal = document.getElementById('videoModal');
+                const frame = document.getElementById('videoFrame');
+                if (!modal || !frame) return;
+                frame.src = ""; // hentikan video
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
 
-                // hitung langkah scroll
-                function step() {
-                    if (!slides.length) return 0;
-                    const w = slides[0].offsetWidth; // lebih konsisten
-                    const gap = parseFloat(getComputedStyle(track).gap) || 0;
-                    return w + gap;
-                }
+            // expose ke global jika tombol inline memanggil openVideoModal()
+            window.openVideoModal = openVideoModal;
+            window.closeVideoModal = closeVideoModal;
 
-                function currentIndex() {
-                    const s = step();
-                    if (!s) return 0;
-                    return Math.round(track.scrollLeft / s);
-                }
+            /* ------------------- Carousel / Slider ------------------- */
+            const autoplay = false;
+            const intervalMs = 3500;
 
-                function goTo(i) {
-                    const idx = Math.max(0, Math.min(i, slides.length - 1));
-                    track.scrollTo({
-                        left: idx * step(),
-                        behavior: 'smooth'
-                    });
-                    updateDots(idx);
-                }
+            const track = document.getElementById('track');
+            if (!track) {
+                // jika tidak ada carousel di halaman, berhenti di sini tanpa error
+                return console.info('Carousel: elemen #track tidak ditemukan — melewatkan setup carousel.');
+            }
 
-                function next() {
-                    goTo(currentIndex() + 1);
-                }
+            const slides = Array.from(track.children);
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsWrap = document.getElementById('dots');
 
-                function prev() {
-                    goTo(currentIndex() - 1);
-                }
+            // helper: hitung langkah scroll (lebar slide + gap)
+            function step() {
+                if (!slides.length) return 0;
+                const w = slides[0].offsetWidth;
+                const gap = parseFloat(getComputedStyle(track).gap) || 0;
+                return w + gap;
+            }
 
-                prevBtn.addEventListener('click', prev);
-                nextBtn.addEventListener('click', next);
+            function currentIndex() {
+                const s = step();
+                if (!s) return 0;
+                return Math.round(track.scrollLeft / s);
+            }
 
-                // dots
-                let dots = [];
-
-                function buildDots() {
-                    dotsWrap.innerHTML = '';
-                    dots = slides.map((_, i) => {
-                        const b = document.createElement('button');
-                        b.className =
-                            'h-2.5 w-2.5 rounded-full bg-red-600 transition-all data-[active=true]:w-6 data-[active=true]:bg-red-600';
-                        b.addEventListener('click', () => goTo(i));
-                        dotsWrap.appendChild(b);
-                        return b;
-                    });
-                    updateDots(0);
-                }
-
-                function updateDots(active = currentIndex()) {
-                    dots.forEach((d, i) => d.dataset.active = i === active ? 'true' : 'false');
-                }
-
-                // sinkronisasi saat scroll manual
-                let rafScheduled = false;
-                track.addEventListener('scroll', () => {
-                    if (rafScheduled) return;
-                    rafScheduled = true;
-                    requestAnimationFrame(() => {
-                        updateDots();
-                        rafScheduled = false;
-                    });
+            function goTo(i) {
+                const idx = Math.max(0, Math.min(i, slides.length - 1));
+                track.scrollTo({
+                    left: idx * step(),
+                    behavior: 'smooth'
                 });
+                updateDots(idx);
+            }
 
-                // autoplay
-                let timer = null;
+            function next() {
+                goTo(currentIndex() + 1);
+            }
 
-                function startAutoplay() {
-                    if (!autoplay) return;
-                    stopAutoplay();
-                    timer = setInterval(() => {
-                        const idx = currentIndex();
-                        if (idx >= slides.length - 1) goTo(0);
-                        else next();
-                    }, intervalMs);
-                }
+            function prev() {
+                goTo(currentIndex() - 1);
+            }
 
-                function stopAutoplay() {
-                    if (timer) clearInterval(timer);
-                    timer = null;
-                }
-                track.addEventListener('mouseenter', stopAutoplay);
-                track.addEventListener('mouseleave', startAutoplay);
+            // Tambahkan listener hanya jika tombol ada
+            if (prevBtn) prevBtn.addEventListener('click', prev);
+            if (nextBtn) nextBtn.addEventListener('click', next);
 
-                buildDots();
-                startAutoplay();
+            // dots (jika ada wadah)
+            let dots = [];
 
-                window.addEventListener('resize', () => {
-                    const idx = currentIndex();
-                    requestAnimationFrame(() => goTo(idx));
+            function buildDots() {
+                if (!dotsWrap) return;
+                dotsWrap.innerHTML = '';
+                dots = slides.map((_, i) => {
+                    const b = document.createElement('button');
+                    // gunakan kelas Tailwind / custom; gunakan dataset untuk state
+                    b.className = 'h-2.5 w-2.5 rounded-full transition-all';
+                    b.setAttribute('aria-label', 'Slide ' + (i + 1));
+                    b.addEventListener('click', () => goTo(i));
+                    dotsWrap.appendChild(b);
+                    return b;
+                });
+                updateDots(0);
+            }
+
+            function updateDots(active = currentIndex()) {
+                if (!dots.length) return;
+                dots.forEach((d, i) => {
+                    if (i === active) {
+                        d.dataset.active = 'true';
+                        // contoh: tambahkan kelas ketika aktif (sesuaikan dengan stylingmu)
+                        d.style.width = '1.5rem';
+                        d.style.backgroundColor = '';
+                    } else {
+                        d.dataset.active = 'false';
+                        d.style.width = '';
+                    }
+                });
+            }
+
+            // Sinkronisasi saat scroll manual (debounce via rAF)
+            let rafScheduled = false;
+            track.addEventListener('scroll', () => {
+                if (rafScheduled) return;
+                rafScheduled = true;
+                requestAnimationFrame(() => {
+                    updateDots();
+                    rafScheduled = false;
                 });
             });
-        </script>
+
+            // Autoplay (opsional)
+            let timer = null;
+
+            function startAutoplay() {
+                if (!autoplay || slides.length <= 1) return;
+                stopAutoplay();
+                timer = setInterval(() => {
+                    const idx = currentIndex();
+                    if (idx >= slides.length - 1) goTo(0);
+                    else next();
+                }, intervalMs);
+            }
+
+            function stopAutoplay() {
+                if (timer) clearInterval(timer);
+                timer = null;
+            }
+            track.addEventListener('mouseenter', stopAutoplay);
+            track.addEventListener('mouseleave', startAutoplay);
+
+            // Build dots hanya jika dotsWrap tersedia
+            buildDots();
+            startAutoplay();
+
+            // On resize, sesuaikan posisi ke index saat ini
+            window.addEventListener('resize', () => {
+                const idx = currentIndex();
+                requestAnimationFrame(() => goTo(idx));
+            });
+
+            /* ------------------- Tombol Tutup Modal (mis. overlay click) ------------------- */
+            const videoModal = document.getElementById('videoModal');
+            if (videoModal) {
+                // klik di luar konten modal untuk menutup
+                videoModal.addEventListener('click', (e) => {
+                    if (e.target === videoModal) closeVideoModal();
+                });
+                // contoh: tombol close dengan id closeVideoBtn
+                const closeBtn = document.getElementById('closeVideoBtn');
+                if (closeBtn) closeBtn.addEventListener('click', closeVideoModal);
+            }
+        });
+    </script>
     @endsection

@@ -771,6 +771,14 @@
                     <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/etxDTQhUQNk" title="Video 4"
                         frameborder="0" allowfullscreen></iframe>
                 </div>
+                <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/OUZ6IDDucdM" title="Video 4"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/LqAXo9EI7bw" title="Video 4"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
 
             <!-- Kolom kanan: IG + TikTok -->
@@ -826,7 +834,7 @@
                         </div>
                         <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">{{ $beritas[0]->title }}</h1>
                         <div class="text-gray-600 mb-6">
-                            {!! Str::limit($beritas[0]->content, 200) !!}
+                            {!! Str::limit($beritas[0]->content, 300) !!}
                         </div>
                         <a href="{{ route('berita.show', $beritas[0]) }}"
                             class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
@@ -1308,7 +1316,7 @@
 
             <!-- Bagian Kanan -->
             <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
-                <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak">Ada Pertanyaan? Hubungi Kami</h3>
+                <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak    ">Ada Pertanyaan? Hubungi Kami</h3>
 
                 <form id="contactForm" action="#" method="POST" class="space-y-4">
                     <input type="text" id="name" placeholder="Nama"
