@@ -108,7 +108,7 @@
     </style>
 </head>
 
-<body class="bg-gray-50 overflow-x-hidden">
+<body class="bg-gray-50">
 
     <!-- Navbar -->
     <nav class="bg-white border-b shadow-lg font-semibold top-0">
