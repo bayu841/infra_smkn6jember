@@ -177,8 +177,9 @@
             <!-- Teks kanan -->
             <div class="w-full md:w-1/2 text-white space-y-4">
                 <h2 class="text-2xl md:text-3xl font-bold leading-snug">
-                    Tertarik Dengan <br>
-                    Produk STUIO ENEM ? , Yuk Beli Sekarang
+                    Tertarik dengan <br>
+                    Produk STUDIO ENEM? <br>
+                    Yuk Pakai Jasa Foto Kami!
                 </h2>
                 <p class="text-sm md:text-base leading-relaxed">
                     Dapatkan produk berkualitas dengan harga bersahabat. Klik tombol di bawah
