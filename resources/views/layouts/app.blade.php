@@ -170,7 +170,7 @@
                   <li class="relative">
                     <button data-target="jurusanDropdown"
                         class="dropdown-toggle flex items-center text-black hover:text-blue-600 focus:outline-none w-full md:w-auto">
-                        Produk
+                        Toko Enem
                         <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.25 7.5L10 12.25L14.75 7.5H5.25Z" clip-rule="evenodd" />
                         </svg>
