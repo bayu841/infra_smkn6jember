@@ -1186,36 +1186,42 @@
     </section>
 
     <section class="bg-gray-50 py-16">
-        <div class="max-w-5xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
+    <div class="max-w-5xl mx-auto text-center px-4">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
 
-            @if($tracerData->isNotEmpty())
-            <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-                <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
-                    <canvas id="tracerChart"></canvas>
-                </div>
+        @if($tracerData->isNotEmpty())
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
 
-                <div class="text-left space-y-4">
-                    @foreach($tracerData as $data)
-                    <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 rounded-full" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
-                        <p class="font-semibold text-gray-700">{{ $data->category }} : <span class="font-normal">{{ $data->value }}%</span></p>
-                    </div>
-                    @endforeach
+            <!-- Chart -->
+            <div class="w-[26rem] h-[26rem] bg-white p-4 rounded-xl shadow">
+                <canvas id="tracerChart"></canvas>
+            </div>
+
+            <!-- Legend Manual -->
+            <div class="text-left space-y-4">
+                @foreach($tracerData as $data)
+                <div class="flex items-center space-x-3">
+                    <div class="w-6 h-6 rounded-full" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
+                    <p class="font-semibold text-gray-700">
+                        {{ $data->category }} :
+                        <span class="font-normal">{{ $data->value }}</span>
+                    </p>
                 </div>
-            </div><br>
-            <p>
-                Data ini setiap tahun akan berubah sesuai dengan website ini
-                <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank"
-                    class="text-blue-600 hover:underline">
-                    https://tracervokasi.kemendikdasmen.go.id/
-                </a>.
-            </p>
-            @else
-            <p>Data not available</p>
-            @endif
-        </div>
-    </section>
+                @endforeach
+            </div>
+        </div><br>
+
+        <p>
+            Data ini setiap tahun akan berubah sesuai dengan website ini
+            <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank" class="text-blue-600 hover:underline">
+                https://tracervokasi.kemendikdasmen.go.id/
+            </a>.
+        </p>
+        @else
+        <p>Data not available</p>
+        @endif
+    </div>
+</section>
 
     <br><br>
 
@@ -1237,8 +1243,7 @@
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
                     <span class="font-semibold text-gray-700">Konseling Pribadi</span>
@@ -1335,7 +1340,7 @@
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script>
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
@@ -1619,55 +1624,53 @@
                     setTimeout(() => document.body.removeChild(notification), 300);
                 }, 3000);
             }
+const ctx = document.getElementById('tracerChart');
 
-            // TRACER CHART - Fixed initialization
-            const tracerCtx = document.getElementById('tracerChart');
-            if (tracerCtx) {
-                // Check if Chart is loaded
-                if (typeof Chart !== 'undefined') {
-                    new Chart(tracerCtx, {
-                        type: 'pie',
-                        data: {
-                            labels: {!! json_encode($tracerData->pluck('category')) !!},
-                            datasets: [{
-                                data: {!! json_encode($tracerData->pluck('value')) !!},
-                                backgroundColor: {!! json_encode($colors) !!},
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: {
-                                    position: 'bottom',
-                                    labels: {
-                                        color: '#374151',
-                                        font: {
-                                            size: 14
-                                        },
-                                        padding: 20
-                                    }
-                                },
-                                tooltip: {
-                                    callbacks: {
-                                        label: function(context) {
-                                            let label = context.label || '';
-                                            if (label) {
-                                                label += ': ';
-                                            }
-                                            label += context.parsed + '%';
-                                            return label;
-                                        }
-                                    }
-                                }
+if (ctx) {
+    if (typeof Chart !== 'undefined') {
+        const values = {!! json_encode($tracerData->pluck('value')) !!};
+        const total = values.reduce((a, b) => a + b, 0);
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: {!! json_encode($tracerData->pluck('category')) !!},
+                datasets: [{
+                    data: values,
+                    backgroundColor: {!! json_encode($colors) !!},
+                    borderWidth: 1,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const percent = ((context.parsed / total) * 100).toFixed(1);
+                                return `${context.label}: ${percent}%`;
                             }
                         }
-                    });
-                } else {
-                    console.error('Chart.js library not loaded');
+                    },
+                    datalabels: {
+                        color: '#fff',
+                        font: { weight: 'bold', size: 14 },
+                        formatter: function(value) {
+                            const percent = (value / total * 100).toFixed(1);
+                            return percent + '%';
+                        }
+                    }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
+        });
+    } else {
+        console.error('Chart.js not loaded');
+    }
+}
         });
     </script>
 @endsection
