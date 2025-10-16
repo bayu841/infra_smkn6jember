@@ -1305,7 +1305,7 @@
             <div class="relative">
                 <!-- Background bentuk oval -->
                 <div
-                    class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
+                    class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[250px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
                 </div>
             </div>
         </div>

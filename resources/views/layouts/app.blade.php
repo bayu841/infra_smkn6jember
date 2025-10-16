@@ -105,6 +105,7 @@
             filter: blur(10px);
             transform: scale(1.1);
         }
+        
     </style>
 </head>
 
