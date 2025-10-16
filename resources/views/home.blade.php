@@ -1190,15 +1190,17 @@
         <div class="max-w-5xl mx-auto text-center px-4">
             <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
 
+            @if($tracerData->isNotEmpty())
             <div class="flex flex-col md:flex-row items-center justify-center gap-10">
                 <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
                     <canvas id="tracerChart"></canvas>
                 </div>
 
                 <div class="text-left space-y-4">
+                    @foreach($tracerData as $data)
                     <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 rounded-full bg-cyan-300"></div>
-                        <p class="font-semibold text-gray-700">Siswa bekerja : <span class="font-normal">62,5%</span></p>
+                        <div class="w-6 h-6 rounded-full" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
+                        <p class="font-semibold text-gray-700">{{ $data->category }} : <span class="font-normal">{{ $data->value }}%</span></p>
                     </div>
                     <div class="flex items-center space-x-3">
                         <div class="w-6 h-6 rounded-full bg-cyan-500"></div>
@@ -1211,22 +1213,9 @@
                         </p>
                     </div>
                 </div>
-            </div><br>
-            <p>
-                Data ini setiap tahun akan berubah sesuai dengan website ini
-                <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank"
-                    class="text-blue-600 hover:underline">
-                    https://tracervokasi.kemendikdasmen.go.id/
-                </a>.
-            </p>
-
-            {{-- <div class="mt-10">
-                <a href="#"
-                    class="px-6 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-900 text-white font-semibold hover:opacity-90 transition">
-                    Selengkapnya
-                </a>
-            </div> --}}
+            </div>
         </div>
+    </section>
 
         <br><br>
 
@@ -1403,230 +1392,238 @@
             const btnPrev = document.getElementById('btnPrev');
             const btnNext = document.getElementById('btnNext');
             const dotsWrap = document.getElementById('dots');
-            const slides = () => Array.from(track.children);
+            if (track && btnPrev && btnNext && dotsWrap) {
+                const slides = () => Array.from(track.children);
 
-            const getCardWidth = () => {
-                if (slides().length === 0) return 0;
-                const slide = slides()[0];
-                const slideWidth = slide.getBoundingClientRect().width;
-                const style = window.getComputedStyle(track);
-                const gap = parseInt(style.gap) || 0;
-                return slideWidth + gap;
-            };
+                const getCardWidth = () => {
+                    if (slides().length === 0) return 0;
+                    const slide = slides()[0];
+                    const slideWidth = slide.getBoundingClientRect().width;
+                    const style = window.getComputedStyle(track);
+                    const gap = parseInt(style.gap) || 0;
+                    return slideWidth + gap;
+                };
 
-            function scrollByCards(direction = 1) {
-                const cardWidth = getCardWidth();
-                if (cardWidth === 0) return;
-                track.scrollBy({
-                    left: direction * cardWidth,
-                    behavior: "smooth"
-                });
-            }
-
-            function getVisibleCardsCount() {
-                if (slides().length === 0) return 1;
-                const trackWidth = track.getBoundingClientRect().width;
-                const cardWidth = getCardWidth();
-                return Math.max(1, Math.floor(trackWidth / cardWidth));
-            }
-
-            function pagesCount() {
-                const slideCount = slides().length;
-                const visibleCards = getVisibleCardsCount();
-                return Math.max(1, Math.ceil(slideCount / visibleCards));
-            }
-
-            function updateDots() {
-                dotsWrap.innerHTML = "";
-                const pageCount = pagesCount();
-
-                for (let i = 0; i < pageCount; i++) {
-                    const dot = document.createElement("button");
-                    dot.className =
-                        "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
-                    dot.dataset.index = i;
-                    dot.addEventListener("click", () => {
-                        const cardWidth = getCardWidth();
-                        const visibleCards = getVisibleCardsCount();
-                        track.scrollTo({
-                            left: i * cardWidth * visibleCards,
-                            behavior: "smooth"
-                        });
+                function scrollByCards(direction = 1) {
+                    const cardWidth = getCardWidth();
+                    if (cardWidth === 0) return;
+                    track.scrollBy({
+                        left: direction * cardWidth,
+                        behavior: "smooth"
                     });
-                    dotsWrap.appendChild(dot);
                 }
-                setActiveDot();
-            }
 
-            function setActiveDot() {
-                const pageCount = pagesCount();
-                if (pageCount === 0) return;
-                const maxScroll = track.scrollWidth - track.clientWidth;
-                const scrollPosition = track.scrollLeft;
-                let activePage;
-                if (maxScroll <= 0) {
-                    activePage = 0;
-                } else {
-                    const scrollPercentage = scrollPosition / maxScroll;
-                    activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                function getVisibleCardsCount() {
+                    if (slides().length === 0) return 1;
+                    const trackWidth = track.getBoundingClientRect().width;
+                    const cardWidth = getCardWidth();
+                    return Math.max(1, Math.floor(trackWidth / cardWidth));
                 }
-                [...dotsWrap.children].forEach((dot, i) => {
-                    dot.dataset.active = i === activePage;
+
+                function pagesCount() {
+                    const slideCount = slides().length;
+                    const visibleCards = getVisibleCardsCount();
+                    return Math.max(1, Math.ceil(slideCount / visibleCards));
+                }
+
+                function updateDots() {
+                    dotsWrap.innerHTML = "";
+                    const pageCount = pagesCount();
+
+                    for (let i = 0; i < pageCount; i++) {
+                        const dot = document.createElement("button");
+                        dot.className =
+                            "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
+                        dot.dataset.index = i;
+                        dot.addEventListener("click", () => {
+                            const cardWidth = getCardWidth();
+                            const visibleCards = getVisibleCardsCount();
+                            track.scrollTo({
+                                left: i * cardWidth * visibleCards,
+                                behavior: "smooth"
+                            });
+                        });
+                        dotsWrap.appendChild(dot);
+                    }
+                    setActiveDot();
+                }
+
+                function setActiveDot() {
+                    const pageCount = pagesCount();
+                    if (pageCount === 0) return;
+                    const maxScroll = track.scrollWidth - track.clientWidth;
+                    const scrollPosition = track.scrollLeft;
+                    let activePage;
+                    if (maxScroll <= 0) {
+                        activePage = 0;
+                    } else {
+                        const scrollPercentage = scrollPosition / maxScroll;
+                        activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                    }
+                    [...dotsWrap.children].forEach((dot, i) => {
+                        dot.dataset.active = i === activePage;
+                    });
+                }
+
+                btnPrev?.addEventListener("click", () => scrollByCards(-1));
+                btnNext?.addEventListener("click", () => scrollByCards(1));
+
+                // Swipe support
+                let touchStartX = 0,
+                    touchEndX = 0;
+                track.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {
+                    passive: true
                 });
+                track.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const diff = touchStartX - touchEndX;
+                    if (Math.abs(diff) > 50) scrollByCards(diff > 0 ? 1 : -1);
+                }, {
+                    passive: true
+                });
+
+                window.addEventListener("resize", () => setTimeout(updateDots, 200));
+                track.addEventListener("scroll", () => setTimeout(setActiveDot, 50), {
+                    passive: true
+                });
+                updateDots();
             }
-
-            btnPrev?.addEventListener("click", () => scrollByCards(-1));
-            btnNext?.addEventListener("click", () => scrollByCards(1));
-
-            // Swipe support
-            let touchStartX = 0,
-                touchEndX = 0;
-            track.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {
-                passive: true
-            });
-            track.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) scrollByCards(diff > 0 ? 1 : -1);
-            }, {
-                passive: true
-            });
-
-            window.addEventListener("resize", () => setTimeout(updateDots, 200));
-            track.addEventListener("scroll", () => setTimeout(setActiveDot, 50), {
-                passive: true
-            });
-            updateDots();
 
             // SLIDER 2 - AUTO SCROLL
             const track2 = document.getElementById('track2');
             const dotsWrap2 = document.getElementById('dots2');
-
-            const slides2 = () => Array.from(track2.children);
-            // Clone once for loop effect (desktop)
-            if (slides2().length && track2.dataset.cloned !== 'true') {
-                slides2().forEach(slide => {
-                    const clone = slide.cloneNode(true);
-                    track2.appendChild(clone);
-                });
-                track2.dataset.cloned = 'true';
-            }
-
-            let scrollAmount = 0;
-            let speed = 0.6; // smoother on mobile
-
-            function autoScroll() {
-                // Pause on user interaction
-                if (isPointerDown) return requestAnimationFrame(autoScroll);
-
-                scrollAmount += speed;
-                const half = track2.scrollWidth / 2;
-                if (scrollAmount >= half) scrollAmount = 0;
-                track2.scrollLeft = scrollAmount;
-                requestAnimationFrame(autoScroll);
-            }
-
-            // Allow drag to scroll for better UX
-            let isPointerDown = false,
-                startX = 0,
-                startLeft = 0;
-            track2.addEventListener('pointerdown', e => {
-                isPointerDown = true;
-                startX = e.clientX;
-                startLeft = track2.scrollLeft;
-                track2.setPointerCapture(e.pointerId);
-            });
-            track2.addEventListener('pointermove', e => {
-                if (!isPointerDown) return;
-                const dx = e.clientX - startX;
-                track2.scrollLeft = startLeft - dx;
-                scrollAmount = track2.scrollLeft; // sync
-            });
-            track2.addEventListener('pointerup', e => {
-                isPointerDown = false;
-                track2.releasePointerCapture(e.pointerId);
-            });
-            track2.addEventListener('mouseleave', () => {
-                isPointerDown = false;
-            });
-
-            // Dots 2
-            function updateDots2() {
-                if (!dotsWrap2) return;
-                dotsWrap2.innerHTML = "";
-                const pageCount = slides2().length / 2;
-                for (let i = 0; i < pageCount; i++) {
-                    const dot = document.createElement("button");
-                    dot.className =
-                        "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
-                    dot.dataset.index = i;
-                    dot.addEventListener("click", () => {
-                        const target = i * (track2.scrollWidth / 2) / pageCount;
-                        track2.scrollTo({
-                            left: target,
-                            behavior: "smooth"
-                        });
-                        scrollAmount = target;
+            if (track2 && dotsWrap2) {
+                const slides2 = () => Array.from(track2.children);
+                // Clone once for loop effect (desktop)
+                if (slides2().length && track2.dataset.cloned !== 'true') {
+                    slides2().forEach(slide => {
+                        const clone = slide.cloneNode(true);
+                        track2.appendChild(clone);
                     });
-                    dotsWrap2.appendChild(dot);
+                    track2.dataset.cloned = 'true';
                 }
-                setActiveDot2();
-            }
 
-            function setActiveDot2() {
-                if (!dotsWrap2) return;
-                const pageCount = slides2().length / 2;
-                if (pageCount === 0) return;
-                const maxScroll = track2.scrollWidth / 2 - track2.clientWidth;
-                const scrollPosition = track2.scrollLeft;
-                let activePage;
-                if (maxScroll <= 0) {
-                    activePage = 0;
-                } else {
-                    const scrollPercentage = scrollPosition / maxScroll;
-                    activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                let scrollAmount = 0;
+                let speed = 0.6; // smoother on mobile
+
+                function autoScroll() {
+                    // Pause on user interaction
+                    if (isPointerDown) return requestAnimationFrame(autoScroll);
+
+                    scrollAmount += speed;
+                    const half = track2.scrollWidth / 2;
+                    if (scrollAmount >= half) scrollAmount = 0;
+                    track2.scrollLeft = scrollAmount;
+                    requestAnimationFrame(autoScroll);
                 }
-                [...dotsWrap2.children].forEach((dot, i) => {
-                    dot.dataset.active = i === activePage;
+
+                // Allow drag to scroll for better UX
+                let isPointerDown = false,
+                    startX = 0,
+                    startLeft = 0;
+                track2.addEventListener('pointerdown', e => {
+                    isPointerDown = true;
+                    startX = e.clientX;
+                    startLeft = track2.scrollLeft;
+                    track2.setPointerCapture(e.pointerId);
                 });
-            }
+                track2.addEventListener('pointermove', e => {
+                    if (!isPointerDown) return;
+                    const dx = e.clientX - startX;
+                    track2.scrollLeft = startLeft - dx;
+                    scrollAmount = track2.scrollLeft; // sync
+                });
+                track2.addEventListener('pointerup', e => {
+                    isPointerDown = false;
+                    track2.releasePointerCapture(e.pointerId);
+                });
+                track2.addEventListener('mouseleave', () => {
+                    isPointerDown = false;
+                });
 
-            window.addEventListener("resize", () => setTimeout(updateDots2, 200));
-            track2.addEventListener("scroll", () => setTimeout(setActiveDot2, 50), {
-                passive: true
-            });
-            updateDots2();
-            autoScroll();
-
-            // FORM
-            const form = document.getElementById('contactForm');
-            form?.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('name')?.value?.trim();
-                const email = document.getElementById('email')?.value?.trim();
-                const phone = document.getElementById('phone')?.value?.trim();
-                const message = document.getElementById('message')?.value?.trim();
-
-                if (!name || !email || !message) {
-                    showNotification('Harap isi semua field yang diperlukan', 'error');
-                    return;
+                // Dots 2
+                function updateDots2() {
+                    if (!dotsWrap2) return;
+                    dotsWrap2.innerHTML = "";
+                    const pageCount = slides2().length / 2;
+                    for (let i = 0; i < pageCount; i++) {
+                        const dot = document.createElement("button");
+                        dot.className =
+                            "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
+                        dot.dataset.index = i;
+                        dot.addEventListener("click", () => {
+                            const target = i * (track2.scrollWidth / 2) / pageCount;
+                            track2.scrollTo({
+                                left: target,
+                                behavior: "smooth"
+                            });
+                            scrollAmount = target;
+                        });
+                        dotsWrap2.appendChild(dot);
+                    }
+                    setActiveDot2();
                 }
-                showNotification('Pesan Anda telah berhasil dikirim!', 'success');
-                form.reset();
-            });
 
-            function showNotification(message, type) {
-                const notification = document.createElement('div');
-                notification.className =
-                    `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} transform transition-transform duration-300 translate-x-full z-50`;
-                notification.textContent = message;
-                document.body.appendChild(notification);
-                setTimeout(() => notification.classList.remove('translate-x-full'), 10);
-                setTimeout(() => {
-                    notification.classList.add('translate-x-full');
-                    setTimeout(() => document.body.removeChild(notification), 300);
-                }, 3000);
+                function setActiveDot2() {
+                    if (!dotsWrap2) return;
+                    const pageCount = slides2().length / 2;
+                    if (pageCount === 0) return;
+                    const maxScroll = track2.scrollWidth / 2 - track2.clientWidth;
+                    const scrollPosition = track2.scrollLeft;
+                    let activePage;
+                    if (maxScroll <= 0) {
+                        activePage = 0;
+                    } else {
+                        const scrollPercentage = scrollPosition / maxScroll;
+                        activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                    }
+                    [...dotsWrap2.children].forEach((dot, i) => {
+                        dot.dataset.active = i === activePage;
+                    });
+                }
+
+                window.addEventListener("resize", () => setTimeout(updateDots2, 200));
+                track2.addEventListener("scroll", () => setTimeout(setActiveDot2, 50), {
+                    passive: true
+                });
+                updateDots2();
+                autoScroll();
             }
+
+            // JavaScript sederhana untuk meningkatkan UX tanpa AJAX
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form[method="POST"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    // Nonaktifkan submit button setelah diklik untuk prevent double submission
+    if (form) {
+        form.addEventListener('submit', function() {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Mengirim...';
+            submitBtn.classList.add('opacity-50');
+        });
+    }
+
+    // Auto-hide flash messages setelah 5 detik
+    setTimeout(function() {
+        const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
+        flashMessages.forEach(function(message) {
+            message.style.transition = 'opacity 0.5s ease';
+            message.style.opacity = '0';
+            setTimeout(function() {
+                message.remove();
+            }, 500);
+        });
+    }, 5000);
+});
+        function showFormMessage(message, type) {
+            const formMessage = document.getElementById('formMessage');
+            if (formMessage) {
+                formMessage.textContent = message;
+                formMessage.className = 'mt-2 text-center ' + (type === 'success' ? 'text-green-600' : 'text-red-500');
+            }
+        }
+    }
 
             // TRACER CHART - Fixed initialization
             const tracerCtx = document.getElementById('tracerChart');
@@ -1636,10 +1633,10 @@
                     new Chart(tracerCtx, {
                         type: 'pie',
                         data: {
-                            labels: ['Siswa Bekerja', 'Siswa Melanjutkan', 'Siswa Wirausaha'],
+                            labels: {!! json_encode($tracerData->pluck('category')) !!},
                             datasets: [{
-                                data: [62.5, 25, 12.5],
-                                backgroundColor: ['#67e8f9', '#06b6d4', '#0891b2'],
+                                data: {!! json_encode($tracerData->pluck('value')) !!},
+                                backgroundColor: {!! json_encode($colors) !!},
                                 borderWidth: 1
                             }]
                         },
