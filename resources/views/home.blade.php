@@ -1190,26 +1190,19 @@
         <div class="max-w-5xl mx-auto text-center px-4">
             <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
 
+            @if($tracerData->isNotEmpty())
             <div class="flex flex-col md:flex-row items-center justify-center gap-10">
                 <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
                     <canvas id="tracerChart"></canvas>
                 </div>
 
                 <div class="text-left space-y-4">
+                    @foreach($tracerData as $data)
                     <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 rounded-full bg-cyan-300"></div>
-                        <p class="font-semibold text-gray-700">Siswa bekerja : <span class="font-normal">62,5%</span></p>
+                        <div class="w-6 h-6 rounded-full" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
+                        <p class="font-semibold text-gray-700">{{ $data->category }} : <span class="font-normal">{{ $data->value }}%</span></p>
                     </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 rounded-full bg-cyan-500"></div>
-                        <p class="font-semibold text-gray-700">Siswa melanjutkan : <span class="font-normal">25%</span>
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 rounded-full bg-cyan-700"></div>
-                        <p class="font-semibold text-gray-700">Siswa wirausaha : <span class="font-normal">12,5%</span>
-                        </p>
-                    </div>
+                    @endforeach
                 </div>
             </div><br>
             <p>
@@ -1219,128 +1212,125 @@
                     https://tracervokasi.kemendikdasmen.go.id/
                 </a>.
             </p>
+            @else
+            <p>Data not available</p>
+            @endif
+        </div>
+    </section>
 
-            {{-- <div class="mt-10">
-                <a href="#"
-                    class="px-6 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-900 text-white font-semibold hover:opacity-90 transition">
-                    Selengkapnya
-                </a>
-            </div> --}}
+    <br><br>
+
+    <section
+        class="bg-[#F4F5F7] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 max-w-8xl mx-auto shadow-md h-[100vh]">
+
+        <!-- Bagian kiri (gambar + kartu layanan) -->
+        <div class="relative ml-10">
+            <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
+                <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
+                    class="w-80 md:w-96 h-[460px] object-cover" />
+            </div>
+
+            <!-- 3 kartu kecil di sisi kanan -->
+            <div class="absolute top-1/4 -right-44 space-y-3">
+                <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <span class="font-semibold text-gray-700">Konseling Pribadi</span>
+                </div>
+
+                <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <span class="font-semibold text-gray-700">Bimbingan Karier</span>
+                </div>
+
+                <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 20h5V4H2v16h5m10 0v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z" />
+                        </svg>
+                    </div>
+                    <span class="font-semibold text-gray-700">Konseling Sosial</span>
+                </div>
+            </div>
         </div>
 
-        <br><br>
+        <!-- Bagian kanan (teks) -->
+        <div class="max-w-xl text-center md:text-left ml-40"">
+            <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
+            <h2 class="text-1xl md:text-2xl font-bold text-gray-900 mt-2 leading-snug">
+                Kamu Lagi ada Masalah?<br>
+                Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg ">konsultasi sekarang!</span>
+            </h2>
+            <p class="text-gray-700 mt-5 leading-relaxed">
+                Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
+                Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
+                dengan cara yang sehat dan tepat.
+            </p>
+            <a href="https://wa.me/6285806541124" target="_blank">
+                <button
+                    class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
+                    Konsultasi Sekarang
+                </button>
+            </a>
 
-        <section
-            class="bg-[#F4F5F7] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 max-w-8xl mx-auto shadow-md h-[100vh]">
+        </div>
 
-            <!-- Bagian kiri (gambar + kartu layanan) -->
-            <div class="relative ml-10">
-                <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
-                    <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
-                        class="w-80 md:w-96 h-[460px] object-cover" />
-                </div>
+    </section>
 
-                <!-- 3 kartu kecil di sisi kanan -->
-                <div class="absolute top-1/4 -right-44 space-y-3">
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Konseling Pribadi</span>
-                    </div>
-
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Bimbingan Karier</span>
-                    </div>
-
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17 20h5V4H2v16h5m10 0v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Konseling Sosial</span>
-                    </div>
+    <!-- Footer contact -->
+    <section
+        class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
+            bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
+        style="height: 120vh; margin-bottom:-4rem;">
+        <!-- Bagian Kiri -->
+        <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
+                Bergabunglah bersama <br />
+                kami dan wujudkan masa depan mu
+            </h2>
+            <div class="relative">
+                <!-- Background bentuk oval -->
+                <div
+                    class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
                 </div>
             </div>
+        </div>
 
-            <!-- Bagian kanan (teks) -->
-            <div class="max-w-xl text-center md:text-left ml-40"">
-                <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
-                <h2 class="text-1xl md:text-2xl font-bold text-gray-900 mt-2 leading-snug">
-                    Kamu Lagi ada Masalah?<br>
-                    Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg ">konsultasi sekarang!</span>
-                </h2>
-                <p class="text-gray-700 mt-5 leading-relaxed">
-                    Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
-                    Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
-                    dengan cara yang sehat dan tepat.
-                </p>
-                <a href="https://wa.me/6285806541124" target="_blank">
-                    <button
-                        class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
-                        Konsultasi Sekarang
-                    </button>
-                </a>
+        <!-- Bagian Kanan -->
+        <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
+            <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak    ">Ada Pertanyaan? Hubungi Kami</h3>
 
-            </div>
-
-        </section>
-
-        <!-- Footer contact -->
-        <section
-            class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
-                bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
-            style="height: 120vh; margin-bottom:-4rem;">
-            <!-- Bagian Kiri -->
-            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
-                    Bergabunglah bersama <br />
-                    kami dan wujudkan masa depan mu
-                </h2>
-                <div class="relative">
-                    <!-- Background bentuk oval -->
-                    <div
-                        class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bagian Kanan -->
-            <div class="w-full lg:w-1/2 mt-10 lg:mt-0 bg-white p-8 shadow-lg rounded-2xl">
-                <h3 class="text-2xl font-bold text-blue-900 mb-6" id="kontak    ">Ada Pertanyaan? Hubungi Kami</h3>
-
-                <form id="contactForm" action="#" method="POST" class="space-y-4">
-                    <input type="text" id="name" placeholder="Nama"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="email" id="email" placeholder="Email"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="tel" id="phone" placeholder="No Telepon"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <textarea id="message" rows="4" placeholder="Pesan"
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit"
-                        class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
-                        Kirim Pesan
-                    </button>
-                </form>
-            </div>
-        </section>
+            <form id="contactForm" action="#" method="POST" class="space-y-4">
+                <input type="text" id="name" placeholder="Nama"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="email" id="email" placeholder="Email"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="tel" id="phone" placeholder="No Telepon"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <textarea id="message" rows="4" placeholder="Pesan"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">
+                    Kirim Pesan
+                </button>
+            </form>
+        </div>
+    </section>
 
     </section>
 
@@ -1403,200 +1393,203 @@
             const btnPrev = document.getElementById('btnPrev');
             const btnNext = document.getElementById('btnNext');
             const dotsWrap = document.getElementById('dots');
-            const slides = () => Array.from(track.children);
+            if (track && btnPrev && btnNext && dotsWrap) {
+                const slides = () => Array.from(track.children);
 
-            const getCardWidth = () => {
-                if (slides().length === 0) return 0;
-                const slide = slides()[0];
-                const slideWidth = slide.getBoundingClientRect().width;
-                const style = window.getComputedStyle(track);
-                const gap = parseInt(style.gap) || 0;
-                return slideWidth + gap;
-            };
+                const getCardWidth = () => {
+                    if (slides().length === 0) return 0;
+                    const slide = slides()[0];
+                    const slideWidth = slide.getBoundingClientRect().width;
+                    const style = window.getComputedStyle(track);
+                    const gap = parseInt(style.gap) || 0;
+                    return slideWidth + gap;
+                };
 
-            function scrollByCards(direction = 1) {
-                const cardWidth = getCardWidth();
-                if (cardWidth === 0) return;
-                track.scrollBy({
-                    left: direction * cardWidth,
-                    behavior: "smooth"
-                });
-            }
-
-            function getVisibleCardsCount() {
-                if (slides().length === 0) return 1;
-                const trackWidth = track.getBoundingClientRect().width;
-                const cardWidth = getCardWidth();
-                return Math.max(1, Math.floor(trackWidth / cardWidth));
-            }
-
-            function pagesCount() {
-                const slideCount = slides().length;
-                const visibleCards = getVisibleCardsCount();
-                return Math.max(1, Math.ceil(slideCount / visibleCards));
-            }
-
-            function updateDots() {
-                dotsWrap.innerHTML = "";
-                const pageCount = pagesCount();
-
-                for (let i = 0; i < pageCount; i++) {
-                    const dot = document.createElement("button");
-                    dot.className =
-                        "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
-                    dot.dataset.index = i;
-                    dot.addEventListener("click", () => {
-                        const cardWidth = getCardWidth();
-                        const visibleCards = getVisibleCardsCount();
-                        track.scrollTo({
-                            left: i * cardWidth * visibleCards,
-                            behavior: "smooth"
-                        });
+                function scrollByCards(direction = 1) {
+                    const cardWidth = getCardWidth();
+                    if (cardWidth === 0) return;
+                    track.scrollBy({
+                        left: direction * cardWidth,
+                        behavior: "smooth"
                     });
-                    dotsWrap.appendChild(dot);
                 }
-                setActiveDot();
-            }
 
-            function setActiveDot() {
-                const pageCount = pagesCount();
-                if (pageCount === 0) return;
-                const maxScroll = track.scrollWidth - track.clientWidth;
-                const scrollPosition = track.scrollLeft;
-                let activePage;
-                if (maxScroll <= 0) {
-                    activePage = 0;
-                } else {
-                    const scrollPercentage = scrollPosition / maxScroll;
-                    activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                function getVisibleCardsCount() {
+                    if (slides().length === 0) return 1;
+                    const trackWidth = track.getBoundingClientRect().width;
+                    const cardWidth = getCardWidth();
+                    return Math.max(1, Math.floor(trackWidth / cardWidth));
                 }
-                [...dotsWrap.children].forEach((dot, i) => {
-                    dot.dataset.active = i === activePage;
+
+                function pagesCount() {
+                    const slideCount = slides().length;
+                    const visibleCards = getVisibleCardsCount();
+                    return Math.max(1, Math.ceil(slideCount / visibleCards));
+                }
+
+                function updateDots() {
+                    dotsWrap.innerHTML = "";
+                    const pageCount = pagesCount();
+
+                    for (let i = 0; i < pageCount; i++) {
+                        const dot = document.createElement("button");
+                        dot.className =
+                            "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
+                        dot.dataset.index = i;
+                        dot.addEventListener("click", () => {
+                            const cardWidth = getCardWidth();
+                            const visibleCards = getVisibleCardsCount();
+                            track.scrollTo({
+                                left: i * cardWidth * visibleCards,
+                                behavior: "smooth"
+                            });
+                        });
+                        dotsWrap.appendChild(dot);
+                    }
+                    setActiveDot();
+                }
+
+                function setActiveDot() {
+                    const pageCount = pagesCount();
+                    if (pageCount === 0) return;
+                    const maxScroll = track.scrollWidth - track.clientWidth;
+                    const scrollPosition = track.scrollLeft;
+                    let activePage;
+                    if (maxScroll <= 0) {
+                        activePage = 0;
+                    } else {
+                        const scrollPercentage = scrollPosition / maxScroll;
+                        activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                    }
+                    [...dotsWrap.children].forEach((dot, i) => {
+                        dot.dataset.active = i === activePage;
+                    });
+                }
+
+                btnPrev?.addEventListener("click", () => scrollByCards(-1));
+                btnNext?.addEventListener("click", () => scrollByCards(1));
+
+                // Swipe support
+                let touchStartX = 0,
+                    touchEndX = 0;
+                track.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {
+                    passive: true
                 });
+                track.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const diff = touchStartX - touchEndX;
+                    if (Math.abs(diff) > 50) scrollByCards(diff > 0 ? 1 : -1);
+                }, {
+                    passive: true
+                });
+
+                window.addEventListener("resize", () => setTimeout(updateDots, 200));
+                track.addEventListener("scroll", () => setTimeout(setActiveDot, 50), {
+                    passive: true
+                });
+                updateDots();
             }
-
-            btnPrev?.addEventListener("click", () => scrollByCards(-1));
-            btnNext?.addEventListener("click", () => scrollByCards(1));
-
-            // Swipe support
-            let touchStartX = 0,
-                touchEndX = 0;
-            track.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {
-                passive: true
-            });
-            track.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) scrollByCards(diff > 0 ? 1 : -1);
-            }, {
-                passive: true
-            });
-
-            window.addEventListener("resize", () => setTimeout(updateDots, 200));
-            track.addEventListener("scroll", () => setTimeout(setActiveDot, 50), {
-                passive: true
-            });
-            updateDots();
 
             // SLIDER 2 - AUTO SCROLL
             const track2 = document.getElementById('track2');
             const dotsWrap2 = document.getElementById('dots2');
-
-            const slides2 = () => Array.from(track2.children);
-            // Clone once for loop effect (desktop)
-            if (slides2().length && track2.dataset.cloned !== 'true') {
-                slides2().forEach(slide => {
-                    const clone = slide.cloneNode(true);
-                    track2.appendChild(clone);
-                });
-                track2.dataset.cloned = 'true';
-            }
-
-            let scrollAmount = 0;
-            let speed = 0.6; // smoother on mobile
-
-            function autoScroll() {
-                // Pause on user interaction
-                if (isPointerDown) return requestAnimationFrame(autoScroll);
-
-                scrollAmount += speed;
-                const half = track2.scrollWidth / 2;
-                if (scrollAmount >= half) scrollAmount = 0;
-                track2.scrollLeft = scrollAmount;
-                requestAnimationFrame(autoScroll);
-            }
-
-            // Allow drag to scroll for better UX
-            let isPointerDown = false,
-                startX = 0,
-                startLeft = 0;
-            track2.addEventListener('pointerdown', e => {
-                isPointerDown = true;
-                startX = e.clientX;
-                startLeft = track2.scrollLeft;
-                track2.setPointerCapture(e.pointerId);
-            });
-            track2.addEventListener('pointermove', e => {
-                if (!isPointerDown) return;
-                const dx = e.clientX - startX;
-                track2.scrollLeft = startLeft - dx;
-                scrollAmount = track2.scrollLeft; // sync
-            });
-            track2.addEventListener('pointerup', e => {
-                isPointerDown = false;
-                track2.releasePointerCapture(e.pointerId);
-            });
-            track2.addEventListener('mouseleave', () => {
-                isPointerDown = false;
-            });
-
-            // Dots 2
-            function updateDots2() {
-                if (!dotsWrap2) return;
-                dotsWrap2.innerHTML = "";
-                const pageCount = slides2().length / 2;
-                for (let i = 0; i < pageCount; i++) {
-                    const dot = document.createElement("button");
-                    dot.className =
-                        "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
-                    dot.dataset.index = i;
-                    dot.addEventListener("click", () => {
-                        const target = i * (track2.scrollWidth / 2) / pageCount;
-                        track2.scrollTo({
-                            left: target,
-                            behavior: "smooth"
-                        });
-                        scrollAmount = target;
+            if (track2 && dotsWrap2) {
+                const slides2 = () => Array.from(track2.children);
+                // Clone once for loop effect (desktop)
+                if (slides2().length && track2.dataset.cloned !== 'true') {
+                    slides2().forEach(slide => {
+                        const clone = slide.cloneNode(true);
+                        track2.appendChild(clone);
                     });
-                    dotsWrap2.appendChild(dot);
+                    track2.dataset.cloned = 'true';
                 }
-                setActiveDot2();
-            }
 
-            function setActiveDot2() {
-                if (!dotsWrap2) return;
-                const pageCount = slides2().length / 2;
-                if (pageCount === 0) return;
-                const maxScroll = track2.scrollWidth / 2 - track2.clientWidth;
-                const scrollPosition = track2.scrollLeft;
-                let activePage;
-                if (maxScroll <= 0) {
-                    activePage = 0;
-                } else {
-                    const scrollPercentage = scrollPosition / maxScroll;
-                    activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                let scrollAmount = 0;
+                let speed = 0.6; // smoother on mobile
+
+                function autoScroll() {
+                    // Pause on user interaction
+                    if (isPointerDown) return requestAnimationFrame(autoScroll);
+
+                    scrollAmount += speed;
+                    const half = track2.scrollWidth / 2;
+                    if (scrollAmount >= half) scrollAmount = 0;
+                    track2.scrollLeft = scrollAmount;
+                    requestAnimationFrame(autoScroll);
                 }
-                [...dotsWrap2.children].forEach((dot, i) => {
-                    dot.dataset.active = i === activePage;
+
+                // Allow drag to scroll for better UX
+                let isPointerDown = false,
+                    startX = 0,
+                    startLeft = 0;
+                track2.addEventListener('pointerdown', e => {
+                    isPointerDown = true;
+                    startX = e.clientX;
+                    startLeft = track2.scrollLeft;
+                    track2.setPointerCapture(e.pointerId);
                 });
-            }
+                track2.addEventListener('pointermove', e => {
+                    if (!isPointerDown) return;
+                    const dx = e.clientX - startX;
+                    track2.scrollLeft = startLeft - dx;
+                    scrollAmount = track2.scrollLeft; // sync
+                });
+                track2.addEventListener('pointerup', e => {
+                    isPointerDown = false;
+                    track2.releasePointerCapture(e.pointerId);
+                });
+                track2.addEventListener('mouseleave', () => {
+                    isPointerDown = false;
+                });
 
-            window.addEventListener("resize", () => setTimeout(updateDots2, 200));
-            track2.addEventListener("scroll", () => setTimeout(setActiveDot2, 50), {
-                passive: true
-            });
-            updateDots2();
-            autoScroll();
+                // Dots 2
+                function updateDots2() {
+                    if (!dotsWrap2) return;
+                    dotsWrap2.innerHTML = "";
+                    const pageCount = slides2().length / 2;
+                    for (let i = 0; i < pageCount; i++) {
+                        const dot = document.createElement("button");
+                        dot.className =
+                            "size-2.5 sm:size-3 rounded-full bg-slate-300 data-[active=true]:bg-blue-600 transition";
+                        dot.dataset.index = i;
+                        dot.addEventListener("click", () => {
+                            const target = i * (track2.scrollWidth / 2) / pageCount;
+                            track2.scrollTo({
+                                left: target,
+                                behavior: "smooth"
+                            });
+                            scrollAmount = target;
+                        });
+                        dotsWrap2.appendChild(dot);
+                    }
+                    setActiveDot2();
+                }
+
+                function setActiveDot2() {
+                    if (!dotsWrap2) return;
+                    const pageCount = slides2().length / 2;
+                    if (pageCount === 0) return;
+                    const maxScroll = track2.scrollWidth / 2 - track2.clientWidth;
+                    const scrollPosition = track2.scrollLeft;
+                    let activePage;
+                    if (maxScroll <= 0) {
+                        activePage = 0;
+                    } else {
+                        const scrollPercentage = scrollPosition / maxScroll;
+                        activePage = Math.min(pageCount - 1, Math.round(scrollPercentage * (pageCount - 1)));
+                    }
+                    [...dotsWrap2.children].forEach((dot, i) => {
+                        dot.dataset.active = i === activePage;
+                    });
+                }
+
+                window.addEventListener("resize", () => setTimeout(updateDots2, 200));
+                track2.addEventListener("scroll", () => setTimeout(setActiveDot2, 50), {
+                    passive: true
+                });
+                updateDots2();
+                autoScroll();
+            }
 
             // FORM
             const form = document.getElementById('contactForm');
@@ -1636,10 +1629,10 @@
                     new Chart(tracerCtx, {
                         type: 'pie',
                         data: {
-                            labels: ['Siswa Bekerja', 'Siswa Melanjutkan', 'Siswa Wirausaha'],
+                            labels: {!! json_encode($tracerData->pluck('category')) !!},
                             datasets: [{
-                                data: [62.5, 25, 12.5],
-                                backgroundColor: ['#67e8f9', '#06b6d4', '#0891b2'],
+                                data: {!! json_encode($tracerData->pluck('value')) !!},
+                                backgroundColor: {!! json_encode($colors) !!},
                                 borderWidth: 1
                             }]
                         },

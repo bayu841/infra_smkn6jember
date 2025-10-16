@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PublicBeritaController;
+use App\Http\Controllers\ImportController;
+use App\Http\Controllers\TracerStudyController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/home');
 });
-Route::get('/home', function () {
-    $beritas = Berita::latest()->take(3)->get();
-    return view('home', compact('beritas'));
-})->name('halaman-utama');
+Route::get('/home', [TracerStudyController::class, 'index'])->name('halaman-utama');
 
 // Public Berita Routes
 Route::get('/berita', [PublicBeritaController::class, 'index'])->name('berita.index');
@@ -40,6 +39,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', App\Http\Controllers\Admin\AdminProductController::class);
         Route::get('transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
+    Route::get('news/import', [ImportController::class, 'show'])->name('news.import');
+    Route::post('news/import', [ImportController::class, 'store'])->name('news.import.store');
     Route::resource('news', BeritaController::class);
     Route::delete('news-destroy-multiple', [BeritaController::class, 'destroyMultiple'])->name('news.destroyMultiple');
 });
@@ -77,7 +78,7 @@ Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'stud
 // Cart Routes
 Route::get('cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
 Route::post('cart/add', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
-Route::patch('cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+Route::patch('cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('car  t.update');
 Route::delete('cart/remove', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 
 // Product and Payment Routes
