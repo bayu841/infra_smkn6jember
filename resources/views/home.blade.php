@@ -5,6 +5,7 @@
     <style>
         body {
             background-color: #fdfdfd;
+
         }
         .btn {
             padding: 12px 20px;
@@ -1295,7 +1296,7 @@
     <section
         class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
             bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
-        style="height: 120vh; margin-bottom:-4rem;">
+        style="height: 120vh; margin-bottom:-6      rem;">
         <!-- Bagian Kiri -->
         <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
             <h2 class="relative -top-60 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
