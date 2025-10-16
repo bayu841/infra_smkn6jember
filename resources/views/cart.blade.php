@@ -105,7 +105,7 @@
             <i class="fas fa-shopping-cart text-6xl text-gray-300 mb-4"></i>
             <h2 class="text-2xl font-bold text-gray-800">Keranjang Anda Kosong</h2>
             <p class="text-gray-500 mb-6">Sepertinya Anda belum menambahkan produk apapun.</p>
-            <a href="/" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition transform hover:scale-105">Mulai Belanja</a>
+            <a href="/branding" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition transform hover:scale-105">Mulai Belanja</a>
         </div>
     @endif
 </div>
@@ -165,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.snap_token) {
                     modal.classList.add('hidden');
                     window.snap.pay(data.snap_token, {
-                        onSuccess: function(result) { 
-                            window.location.href = '{{ route("payment.success") }}'; 
+                        onSuccess: function(result) {
+                            window.location.href = '{{ route("payment.success") }}';
                         },
                         onPending: function(result) {
                             Swal.fire({
