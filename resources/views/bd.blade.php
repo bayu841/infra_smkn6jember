@@ -17,7 +17,7 @@
             background: linear-gradient(to right, #FFBB00, #FD9024);
         }
 
-      .brand {
+        .brand {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -37,8 +37,8 @@
         }
 
         .about {
-            margin-left: 6rem;
-            margin-top: 3rem;
+            /* margin-left: 6rem;
+            margin-top: 3rem; */
         }
 
         .profile-a {
@@ -143,7 +143,7 @@
             <h1 class="text-4xl md:text-1xl font-bold mb-5">Selamat Datang <br>
                 di BD SMKN 6 Jember
             </h1>
-             <p class="text-lg md:text-xl mb-7">
+            <p class="text-lg md:text-xl mb-7">
                 Smk Bisa, SMK Hebat, <br>
                 SMK Negeri 6 Jember, Berenergi untuk bisa hebat </p>
             <a href="#about" class="btn" style="background color">
@@ -152,13 +152,13 @@
         </div>
         </div>
     </section>
-  <div class="brand">
-            <img src="{{ asset('image/logooo.png') }}" alt="">
-        </div>
+    <div class="brand">
+        <img src="{{ asset('image/logooo.png') }}" alt="">
+    </div>
     <section class="about" id="about">
-        <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-1 ml-10">
+        <div class="flex flex-col md:flex-row items-start justify-between px-6 md:px-12 py-10 gap-8">
             <!-- Bagian kiri (teks) -->
-            <div class="md:w-1/2 space-y-1"><br><br>
+            <div class="md:w-1/2 space-y-4">
                 <p class="text-yellow-400 font-semibold text-sm">Profil Jurusan</p>
                 <h2 class="text-2xl font-bold">Tentang Jurusan</h2>
                 <p class="text-gray-700">
@@ -167,7 +167,7 @@
                     e-commerce, desain konten, dan analisis media. <br>
                     Lulusan diharapkan mampu berwirausaha kreatif, <br>
                     bekerja di pemasaran, atau melanjutkan studi.
-                </p><br>
+                </p>
                 <a href="https://www.youtube.com/shorts/xf9Gi6l9eKc?feature=share"
                     class="bg-red-500 text-white text-sm px-3 py-2 rounded-md btn">
                     Tonton Video Profil
@@ -175,8 +175,7 @@
             </div>
 
             <!-- Bagian kanan (ilustrasi kotak) -->
-
-            <div class="relative w-64 h-80 card-profile">
+            <div class="relative w-full md:w-64 h-80 card-profile mt-6 md:mt-0">
                 <!-- Card Utama -->
                 <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center"
                     style="background-image: url('{{ asset('') }}')">
@@ -209,6 +208,7 @@
             </div>
         </div>
     </section>
+
     <br><br>
     <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
         <!-- Kiri: Card -->
@@ -252,7 +252,7 @@
         </div>
 
         <!-- Kanan: Deskripsi -->
-        <div>
+        <div class="mt-12">
             <div class="content-teks ml-8">
                 <h2 class="text-2xl font-bold mb-4" style="margin-top: -3rem;">Benefit yang didapat</h2>
                 <p class="text-gray-600 mb-6">
@@ -402,39 +402,39 @@
                 </p>
 
                 <!-- CARD LOWONGAN -->
-               <div class="space-y-4">
-                        <div
-                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Pelatihan Skill RPL</h4>
-                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor.</p>
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
                             </div>
                         </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Pelatihan Skill RPL</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
 
-                        <div
-                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
-                            <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
-                                <div class="w-5 h-5">
-                                    <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
-                                        class="w-full h-full object-contain">
-                                </div>
+                    <div
+                        class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-5 gap-4 hover:shadow-md transition">
+                        <div class="bg-gradient-to-r from-[#FFBB00] to-[#FD9024] text-white p-3 rounded-full">
+                            <div class="w-5 h-5">
+                                <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
+                                    class="w-full h-full object-contain">
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Pengalaman Kepanitaan</h4>
-                                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor.</p>
-                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Pengalaman Kepanitaan</h4>
+                            <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor.</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <br><br>
     <section class="performance">
