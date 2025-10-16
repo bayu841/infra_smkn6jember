@@ -787,8 +787,8 @@
                 <div
                     class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition bg-white flex justify-center items-center h-80">
                     <blockquote class="instagram-media w-full h-full"
-                        data-instgrm-permalink="https://www.instagram.com/smkn6jember_sixma.official/" data-instgrm-version="14"
-                        style="max-width: 100%; min-width: 100%; margin: 0;"></blockquote>
+                        data-instgrm-permalink="https://www.instagram.com/smkn6jember_sixma.official/"
+                        data-instgrm-version="14" style="max-width: 100%; min-width: 100%; margin: 0;"></blockquote>
                     <script async src="//www.instagram.com/embed.js"></script>
                 </div>
 
@@ -916,8 +916,8 @@
                 </div>
 
                 <a href="/branding"
-                    class="mt-6 lg:mt-0 flex items-center gap-2 px-5 py-2.5 text-white font-medium border border-white rounded-full hover:bg-white hover:text-[#4B6BFF] transition duration-300">
-                    Kunjungi Toko Enem
+                    class="mt-6 lg:mt-0 flex items-center gap-2 px-5 py-2.5 text-white font-bold border border-white rounded-full hover:bg-white hover:text-[#4B6BFF] transition duration-300">
+                    Lihat Semua Produk
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -1211,7 +1211,14 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div><br>
+            <p>
+                Data ini setiap tahun akan berubah sesuai dengan website ini
+                <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank"
+                    class="text-blue-600 hover:underline">
+                    https://tracervokasi.kemendikdasmen.go.id/
+                </a>.
+            </p>
 
             {{-- <div class="mt-10">
                 <a href="#"
@@ -1299,14 +1306,14 @@
         <section
             class="w-full flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-12
                 bg-[url('/image/home/footer.png')] bg-cover bg-center bg-no-repeat h-full "
-           style="height: 120vh; margin-bottom:-4rem;">
+            style="height: 120vh; margin-bottom:-4rem;">
             <!-- Bagian Kiri -->
-            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" >
+            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <h2 class="relative -top-40 text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
                     Bergabunglah bersama <br />
                     kami dan wujudkan masa depan mu
                 </h2>
-                <div class="relative" >
+                <div class="relative">
                     <!-- Background bentuk oval -->
                     <div
                         class="absolute -z-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-[400px] h-[2    50px] top-10 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0">

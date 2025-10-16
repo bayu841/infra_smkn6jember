@@ -331,7 +331,7 @@
                                 <figcaption class="absolute left-4 top-4">
                                     <span
                                         class="inline-flex rounded-e-2xl rounded-s-xl bg-[#585858]  text-white font-semibold px-4 py-2 shadow">
-                                        Lab DKV
+                                        Lab Komputer
                                     </span>
                                 </figcaption>
                             </figure>
@@ -353,7 +353,7 @@
                         <div class="grid grid-cols-2 gap-3">
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/dkv/fas3.png') }}"
                                     style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
@@ -364,7 +364,7 @@
                             </figure>
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
+                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/dkv/fas4.png') }}"
                                     style="height:50vh;">
                                 <figcaption class="absolute left-4 top-4">
                                     <span
@@ -378,17 +378,6 @@
                     <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
                         style="width: 1000px; height:50vh;">
                         <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
-                                style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('') }}"
-                                    style="height:50vh;">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-[#585858]  text-white font-semibold px-4 py-2 shadow">
-                                        Lab Komputer
-                                    </span>
-                                </figcaption>
-                            </figure>
                             <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
                                 style="height:50vh;">
                                 <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/dkv/pres1.png') }}"
