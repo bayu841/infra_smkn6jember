@@ -174,7 +174,7 @@
             <!-- Gambar kiri -->
             <div class="w-full md:w-1/2 flex justify-center -mt-8">
                 <img src="{{ asset('image/batikenem/ctabatik.png') }}" alt="Produk KKBT"
-                    class="rounded-xl w-full max-w-md object-contain">
+                    class="rounded-xl w-full max-w-xl pt-9 object-contain">
             </div>
 
             <!-- Teks kanan -->
