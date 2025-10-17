@@ -52,54 +52,15 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Slide 2 -->
-                <div class="h-[70vh] swiper-slide flex flex-col md:flex-row items-center justify-between gap-8">
-                    <div class="text-left md:w-1/2 ml-8 md:ml-20">
-                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-                            Karya Nyata Siswa, <br />Kualitas Profesional.
-                        </h1>
-                        <p class="text-gray-600 mb-6">
-                            Dukung talenta muda dan dapatkan produk berkualitas hasil pembelajaran
-                            berbasis proyek dari SMKN 6 Jember.
-                        </p>
-                        <a href="#"
-                            class="px-6 py-3 border border-gray-800 rounded-md text-gray-800 font-medium hover:bg-gray-800 hover:text-white transition">
-                            View More
-                        </a>
-                    </div>
-
-                    <div class="md:w-1/2 flex justify-center relative">
-                        <!-- Gambar dengan z-index lebih tinggi -->
-                        <img src="{{ asset('image/branding/object2.png') }}" alt="Produk"
-                            class="w-80 h-auto object-contain drop-shadow-lg relative z-30" />
-
-                        <!-- Card di belakang gambar -->
-                        <div class="absolute bottom-6 right-96 bg-white shadow-lg rounded-xl p-4 w-52 z-20">
-                            <h3 class="font-semibold text-gray-800">Batik</h3>
-                            <p class="text-sm text-yellow-400 mb-2">★★★★★ 5.0</p>
-                            <p class="font-bold text-gray-800">Rp 220.000</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
             <!-- Navigasi -->
-            <div
-                class="swiper-button-prev !w-10 !h-10 !rounded-full !border !border-gray-400 !bg-transparent flex justify-center items-center text-gray-600 hover:!bg-gray-100 transition">
-                <i class="fa-solid fa-arrow-left"></i>
-            </div>
-            <div
-                class="swiper-button-next !w-10 !h-10 !rounded-full !border !border-gray-400 !bg-transparent flex justify-center items-center text-gray-600 hover:!bg-gray-100 transition">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
             <div class="swiper-pagination"></div>
         </div>
     </section>
 
     <!-- Best Seller Section -->
-    <section class="py-10 mt-12" style="margin-top: 15em">
+    <section class="py-10 mt-12">
         <h2 class="text-center text-2xl font-bold mb-8">Best Seller</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
             @foreach ($bestsellers as $product)
