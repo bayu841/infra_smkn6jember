@@ -1258,7 +1258,7 @@
 <section class="w-full relative py-12 lg:py-24">
 
     <!-- Desktop Version -->
-    <div class="hidden lg:flex absolute inset-0 bg-[url('/image/home/footer.png')] bg-cover bg-left bg-no-repeat -z-10"></div>
+    <div class="hidden lg:flex absolute inset-0 bg-[url('/image/home/footer.png')] bg-cover bg-left bg-no-repeat -z-10 -mb-20"></div>
 
     <div class="hidden lg:flex relative max-w-7xl mx-auto flex-row items-start justify-between px-6 lg:px-20">
 
@@ -1287,9 +1287,9 @@
     <!-- Mobile Version -->
     <div class="flex lg:hidden w-full flex-col items-center justify-center mt-12 px-6">
         <!-- Text -->
-        <div class="w-full flex flex-col items-center text-center mb-6">
-            <h2 class="text-2xl font-bold text-gray-900 leading-snug mb-4">
-                Bergabunglah bersama <br />
+        <div class="w-full flex flex-col items-center text-center mb-10">
+            <h2 class="text-2xl font-bold text-gray-900 leading-snug mb-4 -mt-5">
+                Bergabunglah bersama
                 kami dan wujudkan masa depanmu
             </h2>
         </div>
