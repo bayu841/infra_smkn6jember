@@ -213,7 +213,7 @@
                 margin-bottom: 2rem;
                 position: relative;
                 overflow: hidden;
-                
+
             }
 
             @media (max-width: 1024px) {
@@ -1037,9 +1037,13 @@
         return asset('image/eskul/default.jpg');
     }
 @endphp
-
+<br>
+<br>
+<br>
+<br>
+<br>
 <!-- === MOBILE === -->
-<section class="block lg:hidden px-6 py-14 bg-[#4B6BFF] bg-cover bg-center">
+<section class="block lg:hidden px-6 py-14 bg-[#4B6BFF] bg-cover bg-center ">
     <div class="text-center mb-6">
         <h2 class="text-white text-2xl font-bold">Ekstrakurikuler</h2>
         <p class="text-white text-sm mt-2">
@@ -1070,6 +1074,11 @@
 </section>
 
 <!-- === DESKTOP === -->
+<br>
+<br>
+<br>
+<br>
+<br>
 <section
     class="hidden lg:block bg-[url('/image/home/eskul.png')] bg-cover bg-center bg-no-repeat w-full min-h-[500px] px-10 py-20">
     <div class="flex items-start gap-10">
