@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,9 +12,22 @@ class BeritaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $beritas = Berita::latest()->paginate(10);
+        $query = Berita::with('categories')->latest();
+
+        if ($request->has('search') && $request->search != '') {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->has('category') && $request->category != '') {
+            $query->whereHas('categories', function ($q) use ($request) {
+                $q->where('id', $request->category);
+            });
+        }
+
+        $beritas = $query->paginate(10)->withQueryString();
+
         return view('admin.berita.index', compact('beritas'));
     }
 
@@ -22,7 +36,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('admin.berita.create');
+        $categories = Category::all();
+        return view('admin.berita.create', compact('categories'));
     }
 
     /**
@@ -34,19 +49,30 @@ class BeritaController extends Controller
             'title'   => 'required|min:5',
             'description' => 'required|min:10',
             'content' => 'required|min:10',
-            'image'   => 'required|image|mimes:jpeg,jpg,png|max:2048'
+            'image'   => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'categories' => 'nullable|array'
         ]);
 
         //upload image
         $image = $request->file('image');
         $image->storeAs('public/berita', $image->hashName());
 
-        Berita::create([
+        $berita = Berita::create([
             'image'     => $image->hashName(),
             'title'     => $request->title,
             'description' => $request->description,
             'content'   => $request->content
         ]);
+
+        // Sync categories
+        if ($request->has('categories')) {
+            $categoryIds = [];
+            foreach ($request->categories as $categoryName) {
+                $category = Category::firstOrCreate(['name' => $categoryName]);
+                $categoryIds[] = $category->id;
+            }
+            $berita->categories()->sync($categoryIds);
+        }
 
         return redirect()->route('admin.news.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
@@ -54,10 +80,10 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Berita $berita)
+    public function show(Berita $news)
     {
-        // For now, we don't have a specific show page in admin, redirect to edit.
-        return redirect()->route('admin.news.edit', $berita->id);
+        $news->load('categories');
+        return view('admin.berita.show', compact('news'));
     }
 
     /**
@@ -65,7 +91,8 @@ class BeritaController extends Controller
      */
     public function edit(Berita $news)
     {
-        return view('admin.berita.edit', compact('news'));
+        $categories = Category::all();
+        return view('admin.berita.edit', compact('news', 'categories'));
     }
 
     /**
@@ -77,7 +104,8 @@ class BeritaController extends Controller
             'title'   => 'required|min:5',
             'description' => 'required|min:10',
             'content' => 'required|min:10',
-            'image'   => 'image|mimes:jpeg,jpg,png|max:2048'
+            'image'   => 'image|mimes:jpeg,jpg,png|max:2048',
+            'categories' => 'nullable|array'
         ]);
 
         if ($request->hasFile('image')) {
@@ -100,6 +128,18 @@ class BeritaController extends Controller
             ]);
         }
 
+        // Sync categories
+        if ($request->has('categories')) {
+            $categoryIds = [];
+            foreach ($request->categories as $categoryName) {
+                $category = Category::firstOrCreate(['name' => $categoryName]);
+                $categoryIds[] = $category->id;
+            }
+            $news->categories()->sync($categoryIds);
+        } else {
+            $news->categories()->detach(); // Detach all if no categories are selected
+        }
+
         return redirect()->route('admin.news.index')->with(['success' => 'Data Berhasil Diperbarui!']);
     }
 
@@ -111,5 +151,21 @@ class BeritaController extends Controller
         Storage::delete('public/berita/'. $news->image);
         $news->delete();
         return redirect()->route('admin.news.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function destroyMultiple(Request $request)
+    {
+        $request->validate([
+            'selected_news' => 'required|array',
+        ]);
+
+        $beritas = Berita::whereIn('id', $request->selected_news)->get();
+
+        foreach ($beritas as $berita) {
+            Storage::delete('public/berita/'.$berita->image);
+            $berita->delete();
+        }
+
+        return redirect()->route('admin.news.index')->with('success', 'Berita yang dipilih berhasil dihapus.');
     }
 }

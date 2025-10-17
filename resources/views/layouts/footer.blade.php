@@ -1,5 +1,5 @@
     <!-- Footer -->
-    <footer class="text-white pt-12 pb-6" style="background-color: #1f2124;">
+    <footer class="text-white pt-12 pb-6 w-full" style="background-color: #1f2124;">
         <div class="max-w-6xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Tautan Cepat -->
@@ -25,19 +25,21 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="bg-gray-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                        <a href="https://www.facebook.com/smkn1tanggul?locale=id_ID"
+                            class="bg-gray-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="bg-gray-700 hover:bg-blue-400 w-10 h-10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://www.tiktok.com/@smkn6jemberkeren"
+                            class="bg-gray-700 hover:bg-blue-400 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="#" class="bg-gray-700 hover:bg-pink-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+
+                        <a href="https://www.instagram.com/smkn6jember/"
+                            class="bg-gray-700 hover:bg-pink-600 w-10 h-10 rounded-full flex items-center justify-center transition">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="bg-gray-700 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                        <a href="https://www.youtube.com/@smknegeri6jember"
+                            class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
