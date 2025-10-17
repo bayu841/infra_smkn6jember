@@ -472,12 +472,11 @@
                 </div>
 
                 <!-- Bagian kanan (ilustrasi kotak) -->
-                <div class="relative w-full max-w-xs sm:max-w-sm md:w-64 h-full card-profile mx-auto md:mx-0 mr-60">
-                    <!-- Card Utama -->
-                    <div class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center "
-                        style="background-image: url('{{ asset('image/home/kepalasekolah.png') }}');">
+             <div class="relative w-64 h-80 mr-40">
+                    <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center"
+                        style="background-image: url('{{ asset('image/home/kepalasekolah.png') }}')">
                         <div
-                            class="absolute bottom-0 left-0 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
+                            class="absolute bottom-0 left-0 bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg">
                             Kepala Sekolah
                         </div>
                     </div>
