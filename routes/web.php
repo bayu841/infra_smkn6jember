@@ -8,17 +8,6 @@ use App\Http\Controllers\TracerStudyController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
     return redirect('/home');
 });
@@ -45,8 +34,6 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('news', BeritaController::class);
     Route::delete('news-destroy-multiple', [BeritaController::class, 'destroyMultiple'])->name('news.destroyMultiple');
 });
-
-
 
 // Jurusan
 Route::get('/rpl', [App\Http\Controllers\JurusanController::class, 'rpl'])->name('rpl');
@@ -103,10 +90,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'update'])->name('profile.update');
 
-    // Admin Settings Routes (Placeholder)
-    Route::get('/settings', function () {
-        return view('admin.settings.index'); // Create this view later
-    })->name('settings.index');
+    // Admin Settings Routes
+    Route::get('settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
+    Route::put('settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
 
     // Contact Messages Admin
     Route::get('/contact-messages', [App\Http\Controllers\Admin\ContactMessageController::class, 'index'])->name('contact_messages.index');

@@ -397,12 +397,7 @@
                     class="bg-[#5978ff] hover:bg-[#4966e6] text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300">
                     Kenali Lebih Dekat
                 </a>
-                <a href="https://www.youtube.com/@smknegeri6jember"
-                    class="bg-white text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 rounded-full p-4 shadow-lg inline-flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                    </svg>
-                </a>
+
 
             </div>
         </div>
@@ -1007,45 +1002,45 @@
     </section>
 
     <br><br><br><br>
-
-    <!-- === MOBILE & TABLET === -->
-<section class="block lg:hidden px-4 md:px-10 py-12 bg-[#4B6BFF] ">
-  <div class="flex flex-col gap-8">
-    <div>
-      <h2 class="text-2xl font-bold mb-2 text-gray-50">Ekstrakurikuler</h2>
-      <p class="text-gray-50 leading-relaxed">
-        SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
-        minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
-      </p>
-    </div>
-
-    <div class="overflow-x-auto flex gap-4 snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden">
-      <!-- Slide -->
-      <div class="shrink-0 w-64 snap-start">
-        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
-          <img src="{{ asset('image/eskul/paskib.png') }}" alt="Paskibraka"
-               class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-            <span class="text-white text-lg font-semibold">Paskibraka</span>
-          </div>
-        </figure>
-      </div>
-
-      <div class="shrink-0 w-64 snap-start">
-        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
-          <img src="{{ asset('image/eskul/pmr.png') }}" alt="PMR"
-               class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-            <span class="text-white text-lg font-semibold">PMR</span>
-          </div>
-        </figure>
-      </div>
-    </div>
+<!-- === MOBILE + TABLET === -->
+<section class="block lg:hidden px-6 py-14 bg-[#4B6BFF] bg-cover bg-center">
+  <div class="text-center mb-6">
+    <h2 class="text-white text-2xl font-bold">Ekstrakurikuler</h2>
+    <p class="text-white text-sm mt-2">
+      SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat dan minat siswa.
+    </p>
   </div>
+
+  <div id="slider-mobile"
+       class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
+    @foreach ([
+      ['tari'=>'Sanggar Tari','merpatiputih'=>'Merpati Putih'],
+      ['paskibra'=>'Paskibra','pmr'=>'PMR'],
+      ['futsal'=>'Futsal','englishclub'=>'English Club']
+    ] as $pair)
+    <div class="shrink-0 w-full snap-start">
+      <div class="grid grid-cols-2 gap-3">
+        @foreach ($pair as $img => $label)
+        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+          <img src="{{ asset('image/eskul/'.$img.'.png') }}" alt="{{ $label }}"
+               class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+            <span class="text-white text-base font-semibold">{{ $label }}</span>
+          </div>
+        </figure>
+        @endforeach
+      </div>
+    </div>
+    @endforeach
+  </div>
+
+  <!-- Dots -->
+  <div id="dots-mobile" class="flex justify-center mt-5 gap-2"></div>
 </section>
 
+
 <!-- === DESKTOP === -->
-<section class="hidden lg:block bg-slate-900 px-10 py-20 bg-[url('/image/home/eskul.png')]">
+<section class="hidden lg:block bg-[url('/image/home/eskul.png')] px-10 py-20">
   <div class="flex items-start gap-10">
     <!-- Teks -->
     <div class="w-1/3 mt-28">
@@ -1057,30 +1052,76 @@
     </div>
 
     <!-- Slider -->
-    <div class="w-2/3">
-      <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden">
+    <div class="w-2/3 relative overflow-hidden">
+      <div id="slider-desktop"
+           class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
+        @foreach ([
+          ['tari'=>'Sanggar Tari','merpatiputih'=>'Merpati Putih'],
+          ['paskibra'=>'Paskibra','pmr'=>'PMR'],
+          ['futsal'=>'Futsal','englishclub'=>'English Club']
+        ] as $pair)
         <div class="shrink-0 w-full max-w-[850px] snap-start">
-          <div class="grid grid-cols-2 gap-3">
-            <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
-              <img src="{{ asset('image/eskul/tari.png') }}" alt="Sanggar Tari"
+          <div class="grid grid-cols-2 gap-4">
+            @foreach ($pair as $img => $label)
+            <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+              <img src="{{ asset('image/eskul/'.$img.'.png') }}" alt="{{ $label }}"
                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
               <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                <span class="text-white text-xl font-semibold">Sanggar Tari</span>
+                <span class="text-white text-xl font-semibold">{{ $label }}</span>
               </div>
             </figure>
-            <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/5]">
-              <img src="{{ asset('image/eskul/merpatiputih.png') }}" alt="Merpati Putih"
-                   class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                <span class="text-white text-xl font-semibold">Merpati Putih</span>
-              </div>
-            </figure>
+            @endforeach
           </div>
         </div>
+        @endforeach
       </div>
+
+      <!-- Dots -->
+      <div id="dots-desktop" class="flex justify-center mt-5 gap-2"></div>
     </div>
   </div>
 </section>
+
+
+<!-- === SLIDER SCRIPT === -->
+<script>
+  function initSlider(sliderId, dotsId, interval = 4000) {
+    const slider = document.getElementById(sliderId);
+    const dotsContainer = document.getElementById(dotsId);
+    const slides = slider.children;
+    let index = 0;
+
+    // Buat titik indikator
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+      dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.children;
+
+    function updateDots() {
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = i === index
+          ? 'h-3 w-6 rounded-full bg-white transition-all duration-300'
+          : 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+      }
+    }
+
+    updateDots();
+
+    // Auto-scroll tiap interval
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      slider.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+      updateDots();
+    }, interval);
+  }
+
+  initSlider('slider-desktop', 'dots-desktop', 4000);
+  initSlider('slider-mobile', 'dots-mobile', 3500);
+</script>
+
 
     <section class="bg-gray-50 py-16">
         <div class="max-w-5xl mx-auto text-center px-4">

@@ -25,7 +25,7 @@
   </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 overflow-x-hidden">
 
 <!-- NAVBAR -->
 <nav class="bg-white border-b shadow-md font-semibold top-0">
@@ -37,7 +37,6 @@
         <div class="image-placeholder"><div class="placeholder-spinner"></div></div>
         <img data-src="{{ asset('image/logosmk.png') }}" alt="Logo" class="lazy-image w-10 h-10 rounded-full object-cover">
       </div>
-      <span class="hidden lg:block text-gray-800 font-semibold">SMK ENEM</span>
     </div>
 
     <!-- Hamburger -->

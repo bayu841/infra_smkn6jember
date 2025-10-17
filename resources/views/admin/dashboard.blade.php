@@ -6,7 +6,7 @@
     <h1 class="text-2xl font-bold text-gray-800 mb-4">Dashboard</h1>
 
     <!-- Statistik Card -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
 
         <div class="p-6 rounded-xl text-white shadow-md bg-[linear-gradient(to_right,#3C71F8,#4B88F9)]">
             <div class="flex justify-between items-center">
@@ -64,7 +64,7 @@
                 @foreach ($beritas as $berita)
                     <div class="flex items-center">
                         <div class="w-14 h-14 bg-gray-200 rounded-lg mr-4 overflow-hidden">
-                            <img src="{{ asset('storage/' . $berita->image) }}" alt="{{ $berita->title }}" class="w-full h-full object-cover">
+                            <img src="{{ Storage::url('berita/' . $berita->image) }}" alt="{{ $berita->title }}" class="w-full h-full object-cover">
                         </div>
                         <p class="text-gray-700">{{ $berita->title }}</p>
                     </div>
@@ -79,6 +79,10 @@
                 <div class="flex items-center justify-between bg-blue-100 text-blue-800 px-4 py-2 rounded-lg">
                     <span>Total Pengguna</span>
                     <span class="text-sm font-bold">{{ $userCount }}</span>
+                </div>
+                <div class="flex items-center justify-between bg-purple-100 text-purple-800 px-4 py-2 rounded-lg">
+                    <span>Pengguna Baru Bulan Ini</span>
+                    <span class="text-sm font-bold">{{ $newUsersThisMonth }}</span>
                 </div>
                 @if ($latestUser)
                 <div class="flex items-center justify-between bg-green-100 text-green-800 px-4 py-2 rounded-lg">
