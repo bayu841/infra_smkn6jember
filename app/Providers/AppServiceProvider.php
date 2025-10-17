@@ -25,5 +25,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('admin.dashboard', function ($view) {
             $view->with('newUsersThisMonth', User::where('created_at', '>=', Carbon::now()->startOfMonth())->count());
         });
+
+
     }
 }
