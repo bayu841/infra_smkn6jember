@@ -436,10 +436,11 @@
             </div>
 
             <!-- Bagian Kanan (Gambar Siswi) -->
-            <div class="lg:w-1/2 flex justify-center relative z-10 mt-10 lg:mt-0">
-                <img src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
-                    class="w-full max-w-[700px] md:max-w-[900px] lg:max-w-[1100px] xl:max-w-[1300px] pt-20 drop-shadow-2xl relative z-10 mt-20 object-contain">
-            </div>
+           <div class="lg:w-1/2 flex justify-center items-center relative z-10 mt-20 lg:mt-36">
+    <img src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
+        class="w-[800px] h-[500px] drop-shadow-2xl object-contain">
+</div>
+
 
             <!-- Layer diagonal dekoratif -->
             <div
@@ -472,7 +473,7 @@
                 </div>
 
                 <!-- Bagian kanan (ilustrasi kotak) -->
-             <div class="relative w-64 h-80 mr-40">
+                <div class="relative w-64 h-80 mr-40">
                     <div class="bg-gray-300 w-full h-full rounded-bl-xl overflow-hidden relative bg-cover bg-center"
                         style="background-image: url('{{ asset('image/home/kepalasekolah.png') }}')">
                         <div

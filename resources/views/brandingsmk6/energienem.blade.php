@@ -101,9 +101,11 @@
                 Semangat Bersama Energi Enem
             </h1>
             <p class="text-lg md:text-x mb-7">
-                Batik Enem — harmoni antara sejarah dan inovasi. Setiap motif <br>
-                membawa cerita masa lalu yang diolah menjadi gaya masa <br>
-                kini, menciptakan identitas baru bagi karya batik lokal. <br>
+                Energi Enem adalah produk air minum hasil karya SMKN 6 Jember. <br>
+                Diolah dengan standar kebersihan tinggi dan <br>
+                rasa yang segar, Energi Enem hadir untuk memenuhi <br>
+                kebutuhan hidrasi warga sekolah sekaligus mendukung <br>
+                kemandirian usaha siswa.
             </p>
             <a href="#" class="btn" style="background color">
                 Jelajahi Produk
