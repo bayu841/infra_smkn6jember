@@ -61,10 +61,9 @@
         </button>
         <ul id="profilDropdown" class="hidden lg:absolute left-0 mt-2 w-40 bg-white rounded shadow-md z-10">
           <li><a href="/visimisi" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a></li>
-          <li><a href="/#jurusan" class="block px-4 py-2 hover:bg-gray-100">Jurusan</a></li>
         </ul>
       </li>
-
+    <li><a href="/#jurusan" class="block text-black hover:text-blue-600">Jurusan</a></li>
       <li class="relative">
         <button data-target="informasiDropdown" class="dropdown-toggle flex items-center text-black hover:text-blue-600 w-full lg:w-auto">
           Informasi

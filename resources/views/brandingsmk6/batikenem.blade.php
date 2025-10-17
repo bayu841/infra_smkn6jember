@@ -200,7 +200,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 
         <!-- Gambar kiri -->
-        <div class="w-full md:w-1/2 flex justify-center md:justify-start -mt-8">
+        <div class="w-full md:w-1/2 flex justify-center md:justify-start -mb-10">
             <img src="{{ asset('image/batikenem/ctabatik.png') }}"
                  alt="Produk KKBT"
                  class="rounded-xl w-full max-w-xl object-contain">
