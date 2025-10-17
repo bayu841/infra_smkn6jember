@@ -64,9 +64,9 @@ Route::get('/energienem', [App\Http\Controllers\BrandingController::class, 'ener
 Route::get('/studioenem', [App\Http\Controllers\BrandingController::class, 'studioEnem']);
 
 // Cart Routes
-Route::get('cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+Route::get('cart', [App\Http\Controllers\CartController::class, 'index'])->name('cartt.index');
 Route::post('cart/add', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
-Route::patch('cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('car  t.update');
+Route::patch('cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('cartt.update');
 Route::delete('cart/remove', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 
 // Product and Payment Routes

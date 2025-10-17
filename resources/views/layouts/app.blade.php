@@ -88,16 +88,24 @@
         </ul>
       </li>
 
-      <li><a href="/#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>
+      <li><a href="#kontak" class="block text-black hover:text-blue-600">Kontak</a></li>
 
       <div class="lg:hidden flex flex-col space-y-3 w-full mt-3">
-        <form action="{{ route('berita.index') }}" method="GET">
-          <div class="relative">
-            <input type="text" name="search" placeholder="Cari Informasi"
-              class="pl-8 pr-3 py-1 w-50 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
-            <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
-          </div>
-        </form>
+        <div class="flex items-center space-x-3">
+          <form action="{{ route('berita.index') }}" method="GET" class="w-full">
+            <div class="relative">
+              <input type="text" name="search" placeholder="Cari Informasi"
+                class="pl-8 pr-3 py-1 w-full rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
+              <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
+            </div>
+          </form>
+          <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-blue-600">
+            <i class="fas fa-shopping-cart text-xl"></i>
+            @if($cartCount > 0)
+              <span class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ $cartCount }}</span>
+            @endif
+          </a>
+        </div>
 
         @auth
           <a href="{{ route('admin.dashboard') }}" class="text-white px-4 py-2 rounded spmb text-center">Dashboard</a>
@@ -108,13 +116,21 @@
     </ul>
 
     <div class="hidden lg:flex items-center space-x-3">
-      <form action="{{ route('berita.index') }}" method="GET">
-        <div class="relative">
-          <input type="text" name="search" placeholder="Cari Informasi"
-            class="pl-8 pr-3 py-1 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
-          <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
-        </div>
-      </form>
+      <div class="flex items-center space-x-3">
+        <form action="{{ route('berita.index') }}" method="GET">
+          <div class="relative">
+            <input type="text" name="search" placeholder="Cari Informasi"
+              class="pl-8 pr-3 py-1 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300">
+            <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
+          </div>
+        </form>
+        <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-blue-600">
+          <i class="fas fa-shopping-cart text-xl"></i>
+          @if($cartCount > 0)
+            <span class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ $cartCount }}</span>
+          @endif
+        </a>
+      </div>
 
       @auth
         <a href="{{ route('admin.dashboard') }}" class="text-white px-4 py-2 rounded hover:bg-blue-700 spmb">Dashboard</a>
