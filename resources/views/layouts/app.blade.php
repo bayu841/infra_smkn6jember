@@ -99,7 +99,7 @@
               <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
             </div>
           </form>
-          <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-blue-600">
+          {{-- <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-blue-600"> --}}
             <i class="fas fa-shopping-cart text-xl"></i>
             @if($cartCount > 0)
               <span class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ $cartCount }}</span>
@@ -124,7 +124,7 @@
             <i class="fas fa-search absolute left-2 top-2 text-gray-500"></i>
           </div>
         </form>
-        <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-blue-600">
+        {{-- <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-blue-600"> --}}
           <i class="fas fa-shopping-cart text-xl"></i>
           @if($cartCount > 0)
             <span class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ $cartCount }}</span>
