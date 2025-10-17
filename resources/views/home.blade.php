@@ -405,7 +405,7 @@
             <!-- Bagian Kanan (Gambar Siswi) -->
             <div class="lg:w-1/2 flex justify-center relative z-10 mt-10 lg:mt-0">
                 <img src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
-                    class="w-[980px] sm:w-[980px] md:w-[980px] lg:w-[980px] pt-20 drop-shadow-2xl relative z-10 mt-20 ">
+                    class="w-[1280px] sm:w-[12980px] md:w-[12980px] lg:w-[12980px] pt-20 drop-shadow-2xl relative z-10 mt-20 ">
             </div>
             <!-- Layer diagonal dekoratif -->
             <div
