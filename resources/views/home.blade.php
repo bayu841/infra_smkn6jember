@@ -1015,8 +1015,8 @@
        class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
     @foreach ([
       ['tari'=>'Sanggar Tari','merpatiputih'=>'Merpati Putih'],
-      ['paskibra'=>'Paskibra','pmr'=>'PMR'],
-      ['futsal'=>'Futsal','englishclub'=>'English Club']
+      ['pmr'=>'PMR'],
+      ['futsal'=>'Futsal']
     ] as $pair)
     <div class="shrink-0 w-full snap-start">
       <div class="grid grid-cols-2 gap-3">
