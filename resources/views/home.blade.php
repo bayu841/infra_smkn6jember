@@ -1040,8 +1040,6 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 <!-- === MOBILE === -->
 <section class="block lg:hidden px-6 py-14 bg-[#4B6BFF] bg-cover bg-center ">
     <div class="text-center mb-6">
@@ -1074,8 +1072,6 @@
 </section>
 
 <!-- === DESKTOP === -->
-<br>
-<br>
 <br>
 <br>
 <br>
