@@ -1124,36 +1124,92 @@
 
 
     <section class="bg-gray-50 py-16">
-        <div class="max-w-5xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
+    <div class="max-w-5xl mx-auto text-center px-4">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
 
-            @if($tracerData->isNotEmpty())
-            <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-                <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
-                    <canvas id="tracerChart"></canvas>
-                </div>
+        @if($tracerData->isNotEmpty())
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
 
-                <div class="text-left space-y-4">
-                    @foreach($tracerData as $data)
-                    <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 rounded-full" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
-                        <p class="font-semibold text-gray-700">{{ $data->category }} : <span class="font-normal">{{ $data->value }}%</span></p>
-                    </div>
-                    @endforeach
+            <!-- Chart -->
+            <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
+                <canvas id="tracerChart"></canvas>
+            </div>
+
+            <!-- Legend Manual -->
+            <div class="text-left space-y-4">
+                @foreach($tracerData as $data)
+                <div class="flex items-center space-x-3">
+                    <div class="w-6 h-6 rounded-full" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
+                    <p class="font-semibold text-gray-700">
+                        {{ $data->category }} :
+                        <span class="font-normal">{{ $data->value }}</span>
+                    </p>
                 </div>
-            </div><br>
-            <p>
-                Data ini setiap tahun akan berubah sesuai dengan website ini
-                <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank"
-                    class="text-blue-600 hover:underline">
-                    https://tracervokasi.kemendikdasmen.go.id/
-                </a>.
-            </p>
-            @else
-            <p>Data not available</p>
-            @endif
+                @endforeach
+            </div>
+
         </div>
-    </section>
+        <br>
+        <p>
+            Data ini setiap tahun akan berubah sesuai dengan website ini
+            <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank" class="text-blue-600 hover:underline">
+                https://tracervokasi.kemendikdasmen.go.id/
+            </a>.
+        </p>
+        @else
+        <p>Data not available</p>
+        @endif
+    </div>
+</section>
+
+<script>
+const tracerCtx = document.getElementById('tracerChart');
+
+if (tracerCtx && typeof Chart !== 'undefined') {
+    const values = {!! json_encode($tracerData->pluck('value')) !!};
+    const total = values.reduce((a, b) => a + b, 0);
+
+    new Chart(tracerCtx, {
+        type: 'pie',
+        data: {
+            labels: {!! json_encode($tracerData->pluck('category')) !!},
+            datasets: [{
+                data: values,
+                backgroundColor: {!! json_encode($colors) !!},
+                borderWidth: 1,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }, // legend manual
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const percent = ((context.parsed / total) * 100).toFixed(1);
+                            return `${context.label}: ${percent}%`;
+                        }
+                    }
+                },
+                datalabels: {
+                    color: '#fff',
+                    font: { weight: 'bold', size: 12 },
+                    formatter: function(value) {
+                        const percent = ((value / total) * 100).toFixed(1);
+                        return percent + '%';
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+} else {
+    console.error('Chart.js library not loaded');
+}
+</script>
+
 
     <br><br>
 
@@ -1599,53 +1655,7 @@
             }
 
             // TRACER CHART - Fixed initialization
-            const tracerCtx = document.getElementById('tracerChart');
-            if (tracerCtx) {
-                // Check if Chart is loaded
-                if (typeof Chart !== 'undefined') {
-                    new Chart(tracerCtx, {
-                        type: 'pie',
-                        data: {
-                            labels: {!! json_encode($tracerData->pluck('category')) !!},
-                            datasets: [{
-                                data: {!! json_encode($tracerData->pluck('value')) !!},
-                                backgroundColor: {!! json_encode($colors) !!},
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: {
-                                    position: 'bottom',
-                                    labels: {
-                                        color: '#374151',
-                                        font: {
-                                            size: 14
-                                        },
-                                        padding: 20
-                                    }
-                                },
-                                tooltip: {
-                                    callbacks: {
-                                        label: function(context) {
-                                            let label = context.label || '';
-                                            if (label) {
-                                                label += ': ';
-                                            }
-                                            label += context.parsed + '%';
-                                            return label;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    });
-                } else {
-                    console.error('Chart.js library not loaded');
-                }
-            }
+
         });
     </script>
 @endsection
