@@ -1311,7 +1311,7 @@
     </section>
 
 
-    <section class="w-full relative py-12 lg:py-24">
+    <section class="w-full relative py-12 lg:py-24" id="kontak">
 
         <!-- Desktop Version -->
         <div class="hidden lg:flex absolute inset-0 bg-[url('/image/home/footer.png')] bg-cover bg-left bg-no-repeat -z-10 -mb-20"></div>
