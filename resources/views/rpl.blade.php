@@ -134,22 +134,24 @@
                 scrollbar-width: none;
             }
         </style>
-        <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
-            style="background-image: url('image/rpl/herorpl.png'); width:100%; height:110vh;">
-            <!-- Teks -->
-            <div class="flex-1 mb-10 md:mb-0 ml-40">
-                <h1 class="text-4xl md:text-1xl font-bold mb-5">Selamat Datang <br>
-                    di RPL SMKN 6 Jember
-                </h1>
-                <p class="text-lg md:text-xl mb-7">
-                    Smk Bisa, SMK Hebat, <br>
-                    SMK Negeri 6 Jember, Berenergi untuk bisa hebat </p>
-                <a href="#about" class="btn" style="background color">
-                    Jelajahi Jurusan
-                </a>
-            </div>
-            </div>
-        </section>
+<section class="h-screen bg-cover bg-left flex items-center justify-center text-black"
+    style="background-image: url('{{ asset('image/rpl/herorpl.png') }}'); width:100%; height:110vh;">
+    <div class="flex flex-col items-center text-center md:items-start md:text-left mb-10 md:mb-0 md:ml-40 px-6">
+        <h1 class="text-3xl md:text-4xl font-bold mb-5">
+            Selamat Datang <br>
+            di RPL SMKN 6 Jember
+        </h1>
+        <p class="text-base md:text-lg mb-7">
+            SMK Bisa, SMK Hebat, <br>
+            SMK Negeri 6 Jember, Berenergi untuk Bisa Hebat
+        </p>
+        <a href="#about"
+           class="bg-red-600 text-white px-5 py-3 rounded-lg shadow hover:bg-red-700 transition">
+            Jelajahi Jurusan
+        </a>
+    </div>
+</section>
+
         <div class="brand">
             <img src="{{ asset('image/logooo.png') }}" alt="">
         </div>
