@@ -393,7 +393,7 @@
             </p>
 
             <div class="flex items-center gap-5 pt-4">
-                <a href="#"
+                <a href="#about"
                     class="bg-[#5978ff] hover:bg-[#4966e6] text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300">
                     Kenali Lebih Dekat
                 </a>
@@ -419,7 +419,7 @@
 
     <br><br><br>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="flex flex-col md:flex-row items-start justify-between px-4 md:px-12 py-10 gap-6 md:gap-1 md:ml-10">
             <!-- Bagian kiri (teks) -->
             <div class="md:w-1/2 space-y-1">
