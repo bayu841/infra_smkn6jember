@@ -139,10 +139,10 @@
             scrollbar-width: none;
         }
     </style>
-    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
-        style="background-image: url('image/kkbt/herokkbt.png'); width:100%; height:110vh; ">
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-black -mt-20"
+        style="background-image: url('image/kkbt/herokkbt.png'); width:100%; height:110vh;">
         <!-- Teks -->
-        <div class="flex-1 mb-10 md:mb-0 ml-40">
+        <div class="flex-1 mb-10 md:mb-0 ml-40 mt-20">
             <h1 class="text-4xl md:text-1xl font-bold mb-5">Selamat Datang <br>
                 di KKBT SMKN 6 Jember
             </h1>
@@ -282,93 +282,121 @@
             </div>
         </div>
     </section><br><br>
-    <section class="fasility bg-slate-900 px-10 py-20" style="padding-top: 9rem;">
-        <!-- bungkus teks + slider -->
-        <div class="flex flex-col lg:flex-row items-start gap-10">
+    <section class="block lg:hidden  px-6 py-14" style="background-color: #CA4016;>
+    <div class="text-center mb-6 -mt-10 ">
+        <h2 class="text-white text-2xl font-bold">Fasilitas Jurusan</h2>
+        <p class="text-white text-sm mt-2">
+            Jurusan KKBT memiliki fasilitas lengkap yang mendukung pembelajaran kriya kreatif batik dan tekstil,
+            dengan ruang praktik yang memadai serta peralatan membatik dan menenun modern.
+        </p>
+    </div>
 
-            <!-- Teks -->
-            <div class="lg:w-1/3 ml-5" style="margin-top: 5rem;">
-                <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
-                <p class="text-white leading-relaxed">
-                    Fasilitas lengkap dengan <br>
-                    laboratorium batik dan peralatan <br>
-                    modern, mendukung kreativitas siswa <br>
-                    dalam desain dan praktik membatik.
-                </p>
-            </div>
-
-            <!-- Slider -->
-            <div class="relative lg:w-2/3" style="margin-top:-2rem;">
-                <!-- Tombol -->
-                <button id="prevBtn"
-                    class="absolute right-100 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor">
-                        <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <button id="nextBtn"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow hover:bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor">
-                        <path d="M9 6l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-
-                <!-- Track -->
-                <div id="track"
-                    class="flex gap-4 px-4 py-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-
-                    <!-- Slide 1 -->
-                    <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
-                        style="width: 850px; height:50vh;">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
-                                style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('image/kkbt/fas1.png') }}" style="height:50vh;">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-orange-600 text-white font-semibold px-4 py-2 shadow">
-                                        Kantor Jursan
-                                    </span>
-                                </figcaption>
-                            </figure>
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-orange-600 text-white font-semibold px-4 py-2 shadow">
-                                        RPS KKBT
-                                    </span>
-                                </figcaption>
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover"
-                                    src="{{ asset('image/kkbt/fas2.png') }}" style="height:50vh;" />
-                            </figure>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="shrink-0 w-[85%] sm:w-[78%] md:w-[92%] lg:w-[92%] snap-start"
-                        style="width: 1000px; height:50vh;">
-                        <div class="grid grid-cols-2 gap-3">
-                            <figure class="relative col-span-2 sm:col-span-1 rounded-xl overflow-hidden shadow"
-                                style="height:50vh;">
-                                <img class="w-full h-48 sm:h-56 md:h-64 object-cover" src="{{ asset('image/kkbt/fas3.png') }}"
-                                    style="height:50vh;">
-                                <figcaption class="absolute left-4 top-4">
-                                    <span
-                                        class="inline-flex rounded-e-2xl rounded-s-xl bg-orange-600 text-white font-semibold px-4 py-2 shadow">
-                                        Laboratorium Batik
-                                    </span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
+    <div id="slider-mobile-fas" class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
+        @foreach ([['fas1' => 'Ruang Batik', 'fas2' => 'Ruang Tenun'], ['fas3' => 'Ruang Desain']] as $pair)
+            <div class="shrink-0 w-full snap-start">
+                <div class="grid grid-cols-2 gap-3">
+                    @foreach ($pair as $img => $label)
+                        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+                            <img src="{{ asset('image/kkbt/' . $img . '.png') }}" alt="{{ $label }}"
+                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                <span class="text-white text-base font-semibold">{{ $label }}</span>
+                            </div>
+                        </figure>
+                    @endforeach
                 </div>
-                <!-- Dots -->
-                <div id="dots" class="flex items-center justify-center gap-2 pb-4"></div>
             </div>
+        @endforeach
+    </div>
+
+    <!-- Dots -->
+    <div id="dots-mobile-fas" class="flex justify-center mt-5 gap-2"></div>
+</section>
+
+<!-- === DESKTOP === -->
+<section
+    class="hidden lg:block px-10 py-20 mt-12 py-[120px] bg-cover bg-center bg-no-repeat w-full min-h-[500px]"
+    style="background-image: url('{{ asset('image/kkbt/faskkbt.png') }}')">
+    <div class="flex items-start gap-10">
+        <!-- Teks -->
+        <div class="w-1/3 mt-28">
+            <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
+            <p class="text-white leading-relaxed">
+                Jurusan KKBT memiliki fasilitas lengkap yang menunjang pembelajaran kriya batik dan tekstil,
+                mulai dari ruang praktik membatik, ruang desain motif, hingga studio tenun dengan peralatan modern.
+            </p>
         </div>
-    </section>
+
+        <!-- Slider -->
+        <div class="w-2/3 relative overflow-hidden">
+            <div id="slider-desktop-fas" class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
+                @foreach ([['fas1' => 'Ruang Batik', 'fas2' => 'Ruang Tenun'], ['fas3' => 'Ruang Desain']] as $pair)
+                    <div class="shrink-0 w-full max-w-[850px] snap-start">
+                        <div class="grid grid-cols-2 gap-4">
+                            @foreach ($pair as $img => $label)
+                                <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+                                    <img src="{{ asset('image/kkbt/' . $img . '.png') }}" alt="{{ $label }}"
+                                        class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                    <div
+                                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                        <span class="text-white text-xl font-semibold">{{ $label }}</span>
+                                    </div>
+                                </figure>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Dots -->
+            <div id="dots-desktop-fas" class="flex justify-center mt-5 gap-2"></div>
+        </div>
+    </div>
+</section>
+
+<!-- === SLIDER SCRIPT === -->
+<script>
+    function initSlider(sliderId, dotsId, interval = 4000) {
+        const slider = document.getElementById(sliderId);
+        const dotsContainer = document.getElementById(dotsId);
+        const slides = slider.children;
+        let index = 0;
+
+        // Buat titik indikator
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = dotsContainer.children;
+
+        function updateDots() {
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = i === index ?
+                    'h-3 w-6 rounded-full bg-white transition-all duration-300' :
+                    'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+            }
+        }
+
+        updateDots();
+
+        // Auto-scroll tiap interval
+        setInterval(() => {
+            index = (index + 1) % slides.length;
+            slider.scrollTo({
+                left: slides[index].offsetLeft,
+                behavior: 'smooth'
+            });
+            updateDots();
+        }, interval);
+    }
+
+    initSlider('slider-desktop-fas', 'dots-desktop-fas', 4000);
+    initSlider('slider-mobile-fas', 'dots-mobile-fas', 3500);
+</script>
+
     <section class="bg-[#f5f5f5] py-20">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-6">
 
@@ -405,7 +433,7 @@
 
             <!-- BAGIAN KANAN -->
             <div class="lg:w-1/2 space-y-7">
-                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight"><br>
                     Jember Nusantara
                 </h2>
 

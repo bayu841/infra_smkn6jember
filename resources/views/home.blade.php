@@ -7,6 +7,7 @@
                 background-color: #fdfdfd;
 
             }
+
             .btn {
                 padding: 12px 20px;
                 color: white;
@@ -21,59 +22,66 @@
                 gap: .5rem;
             }
 
-    .brand {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        padding: 10px;
-        background-color: #fff;
-        width: 950px;
-        margin-top: -2.5rem;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        height: 12vh;
-        position: relative;
-        z-index: 20;
-    }
+            .brand {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                padding: 10px;
+                background-color: #fff;
+                width: 950px;
+                margin-top: -2.5rem;
+                border-radius: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                height: 12vh;
+                position: relative;
+                z-index: 20;
+            }
 
-    .brand img {
-        width: 1500px;
-        margin: 6px;
-        max-width: 100%;
-        height: auto;
-    }
+            .brand img {
+                width: 1500px;
+                margin: 6px;
+                max-width: 100%;
+                height: auto;
+            }
 
-    /* Responsif untuk tablet dan mobile */
-    @media (max-width: 1024px) {
-        .brand {
-            width: 90%;
-            height: auto;
-            margin-top: -1rem;
-            padding: 8px;
-        }
+            /* Responsif untuk tablet dan mobile */
+            @media (max-width: 1024px) {
+                .brand {
+                    width: 90%;
+                    height: auto;
+                    margin-top: -1rem;
+                    padding: 8px;
+                }
 
-        .brand img {
-            width: 100%;
-        }
-    }
+                .brand img {
+                    width: 100%;
+                }
+            }
 
-    @media (max-width: 600px) {
-        .brand {
-            width: 95%;
-            padding: 6px;
-            border-radius: 12px;
-        }
+            @media (max-width: 600px) {
+                .brand {
+                    width: 95%;
+                    padding: 6px;
+                    border-radius: 12px;
+                }
 
-        .brand img {
-            width: 100%;
-            margin: 4px;
-        }
-    }
+                .brand img {
+                    width: 100%;
+                    margin: 4px;
+                }
+            }
 
 
             .major {
                 background-image: url('image/home/bgjurusan.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                min-height: 500px;
+                padding: 80px 40px;
+                box-sizing: border-box;
             }
 
             /* About offset */
@@ -205,6 +213,7 @@
                 margin-bottom: 2rem;
                 position: relative;
                 overflow: hidden;
+                
             }
 
             @media (max-width: 1024px) {
@@ -373,6 +382,7 @@
             .min-h-110vh {
                 min-height: 110svh;
             }
+
         </style>
 
 
@@ -388,7 +398,8 @@
                 </h1>
 
                 <p class="text-slate-700 text-lg leading-relaxed max-w-md">
-                    SMKN 6 Jember menghadirkan lingkungan belajar yang kreatif, modern, dan berorientasi pada dunia industri.
+                    SMKN 6 Jember menghadirkan lingkungan belajar yang kreatif, modern, dan berorientasi pada dunia
+                    industri.
                     Wujudkan potensi terbaikmu bersama kami.
                 </p>
 
@@ -403,11 +414,10 @@
             </div>
 
             <!-- Bagian Kanan (Gambar Siswi) -->
-       <div class="lg:w-1/2 flex justify-center relative z-10 mt-10 lg:mt-0">
-    <img src="{{ asset('image/home/siswi.png') }}"
-        alt="Siswi SMKN 6 Jember"
-        class="w-full max-w-[700px] md:max-w-[900px] lg:max-w-[1100px] xl:max-w-[1300px] pt-20 drop-shadow-2xl relative z-10 mt-20 object-contain">
-</div>
+            <div class="lg:w-1/2 flex justify-center relative z-10 mt-10 lg:mt-0">
+                <img src="{{ asset('image/home/siswi.png') }}" alt="Siswi SMKN 6 Jember"
+                    class="w-full max-w-[700px] md:max-w-[900px] lg:max-w-[1100px] xl:max-w-[1300px] pt-20 drop-shadow-2xl relative z-10 mt-20 object-contain">
+            </div>
 
             <!-- Layer diagonal dekoratif -->
             <div
@@ -534,9 +544,11 @@
                                     </div>
                                 </div>
                                 <div class="p-5 sm:p-6">
-                                    <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan RPL
+                                    <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
+                                        RPL
                                         adalah
-                                        jurusan yang mempelajari perancangan, pembuatan, dan pengelolaan perangkat lunak, mulai
+                                        jurusan yang mempelajari perancangan, pembuatan, dan pengelolaan perangkat lunak,
+                                        mulai
                                         dari aplikasi
                                         hingga sistem komputer, untuk mendukung kebutuhan teknologi dan solusi digital.
                                     </p>
@@ -611,7 +623,8 @@
                                 <div class="p-5 sm:p-6">
                                     <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
                                         Akuntansi Keuangan Lembaga di
-                                        SMK 6 Jember mempelajari pencatatan, pengelolaan, dan pelaporan keuangan untuk mendukung
+                                        SMK 6 Jember mempelajari pencatatan, pengelolaan, dan pelaporan keuangan untuk
+                                        mendukung
                                         pengambilan keputusan bisnis yang tepat dan akurat.
                                     </p>
                                 </div>
@@ -647,8 +660,10 @@
                                 <div class="p-5 sm:p-6 ">
                                     <p class="text-slate-900 leading-relaxed mt-4 break-words whitespace-normal">Jurusan
                                         Perkantoran
-                                        SMK 6 Jember mempelajari manajemen administrasi, pengelolaan dokumen, komunikasi bisnis,
-                                        dan penggunaan teknologi perkantoran untuk mendukung kelancaran operasional perusahaan.
+                                        SMK 6 Jember mempelajari manajemen administrasi, pengelolaan dokumen, komunikasi
+                                        bisnis,
+                                        dan penggunaan teknologi perkantoran untuk mendukung kelancaran operasional
+                                        perusahaan.
                                     </p>
                                 </div>
                                 <div class="p-5 sm:p-6 -mt-2">
@@ -683,8 +698,10 @@
                                 <div class="p-5 sm:p-6">
                                     <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
                                         DKV
-                                        SMK 6 Jember mempelajari seni dan teknologi visual untuk komunikasi, mulai dari desain
-                                        grafis, ilustrasi, hingga media digital, guna menciptakan karya kreatif yang efektif dan
+                                        SMK 6 Jember mempelajari seni dan teknologi visual untuk komunikasi, mulai dari
+                                        desain
+                                        grafis, ilustrasi, hingga media digital, guna menciptakan karya kreatif yang efektif
+                                        dan
                                         menarik.
                                     </p>
                                 </div>
@@ -720,8 +737,10 @@
                                 <div class="p-5 sm:p-6">
                                     <p class="text-slate-700 leading-relaxed mt-4 break-words whitespace-normal"> Jurusan
                                         KBT Batik
-                                        SMK 6 Jember mempelajari teknik pembuatan dan desain batik, mulai dari pemilihan motif,
-                                        pewarnaan, hingga proses produksi, untuk mendukung kreativitas dan industri kerajinan
+                                        SMK 6 Jember mempelajari teknik pembuatan dan desain batik, mulai dari pemilihan
+                                        motif,
+                                        pewarnaan, hingga proses produksi, untuk mendukung kreativitas dan industri
+                                        kerajinan
                                         tradisional.
                                     </p>
                                 </div>
@@ -755,34 +774,34 @@
                 <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <!-- Video 1 -->
                     <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
-                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/fFwkBj56KiI" title="Video 1"
-                            frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/fFwkBj56KiI"
+                            title="Video 1" frameborder="0" allowfullscreen></iframe>
                     </div>
 
                     <!-- Video 2 -->
                     <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
-                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/Wxj_1LRimek" title="Video 2"
-                            frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/Wxj_1LRimek"
+                            title="Video 2" frameborder="0" allowfullscreen></iframe>
                     </div>
 
                     <!-- Video 3 -->
                     <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
-                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/bLPIP9V1rSo" title="Video 3"
-                            frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/bLPIP9V1rSo"
+                            title="Video 3" frameborder="0" allowfullscreen></iframe>
                     </div>
 
                     <!-- Video 4 -->
                     <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
-                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/etxDTQhUQNk" title="Video 4"
-                            frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/etxDTQhUQNk"
+                            title="Video 4" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
-                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/OUZ6IDDucdM" title="Video 4"
-                            frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/OUZ6IDDucdM"
+                            title="Video 4" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition">
-                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/LqAXo9EI7bw" title="Video 4"
-                            frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/LqAXo9EI7bw"
+                            title="Video 4" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -829,7 +848,8 @@
                                 <div class="placeholder-spinner"></div>
                             </div>
                             <img class="lazy-image w-full h-full object-cover"
-                                data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}" alt="{{ $beritas[0]->title }}">
+                                data-src="{{ Storage::url('berita/' . $beritas[0]->image) }}"
+                                alt="{{ $beritas[0]->title }}">
                         </div>
                         <div class="des p-6">
                             <div class="flex justify-between items-center mb-3">
@@ -937,7 +957,8 @@
                         class="bg-white rounded-3xl shadow-md p-6 flex flex-col transition hover:-translate-y-2 hover:shadow-xl duration-300">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 mb-1">Energi Enem</h3>
-                            <p class="text-gray-500 text-sm mb-4">Air minum sehat hasil produksi oleh Depo SMKN 6 Jember</p>
+                            <p class="text-gray-500 text-sm mb-4">Air minum sehat hasil produksi oleh Depo SMKN 6 Jember
+                            </p>
                             <div class="rounded-2xl overflow-hidden">
                                 <img src="{{ asset('image/home/energienem.png') }}" alt="Energi Enem"
                                     class="w-full h-56 object-cover">
@@ -946,8 +967,8 @@
                         <div class="flex justify-end mt-4">
                             <a href="/energienem"
                                 class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition inline-flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                 </svg>
                             </a>
@@ -959,7 +980,8 @@
                         class="bg-white rounded-3xl shadow-md p-6 flex flex-col transition hover:-translate-y-2 hover:shadow-xl duration-300">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 mb-1">Batik Enem</h3>
-                            <p class="text-gray-500 text-sm mb-4">Batik karya siswa SMKN 6 Jember yang memadukan tradisi dan
+                            <p class="text-gray-500 text-sm mb-4">Batik karya siswa SMKN 6 Jember yang memadukan tradisi
+                                dan
                                 gaya modern.</p>
                             <div class="rounded-2xl overflow-hidden">
                                 <img src="{{ asset('image/home/batikenem.png') }}" alt="Batik Enem"
@@ -969,8 +991,8 @@
                         <div class="flex justify-end mt-4">
                             <a href="/batikenem"
                                 class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition inline-flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                 </svg>
                             </a>
@@ -992,8 +1014,8 @@
                         <div class="flex justify-end mt-4">
                             <a href="/studioenem"
                                 class="bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-600 p-3 rounded-full transition inline-flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                 </svg>
                             </a>
@@ -1002,373 +1024,397 @@
                 </div>
             </div>
         </section>
+@php
+    function eskulImage($imgName) {
+        $basePath = public_path('image/eskul/');
+        $extensions = ['.png', '.jpg', '.jpeg', '.webp'];
+        foreach ($extensions as $ext) {
+            if (file_exists($basePath . $imgName . $ext)) {
+                return asset('image/eskul/' . $imgName . $ext);
+            }
+        }
+        // fallback jika gambar tidak ditemukan
+        return asset('image/eskul/default.jpg');
+    }
+@endphp
 
-    <br><br><br><br>
-<!-- === MOBILE + TABLET === -->
+<!-- === MOBILE === -->
 <section class="block lg:hidden px-6 py-14 bg-[#4B6BFF] bg-cover bg-center">
-  <div class="text-center mb-6">
-    <h2 class="text-white text-2xl font-bold">Ekstrakurikuler</h2>
-    <p class="text-white text-sm mt-2">
-      SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat dan minat siswa.
-    </p>
-  </div>
-
-  <div id="slider-mobile"
-       class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
-    @foreach ([
-      ['tari'=>'Sanggar Tari','merpatiputih'=>'Merpati Putih'],
-      ['pmr'=>'PMR'],
-      ['futsal'=>'Futsal']
-    ] as $pair)
-    <div class="shrink-0 w-full snap-start">
-      <div class="grid grid-cols-2 gap-3">
-        @foreach ($pair as $img => $label)
-        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
-          <img src="{{ asset('image/eskul/'.$img.'.png') }}" alt="{{ $label }}"
-               class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-            <span class="text-white text-base font-semibold">{{ $label }}</span>
-          </div>
-        </figure>
-        @endforeach
-      </div>
+    <div class="text-center mb-6">
+        <h2 class="text-white text-2xl font-bold">Ekstrakurikuler</h2>
+        <p class="text-white text-sm mt-2">
+            SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat dan minat siswa.
+        </p>
     </div>
-    @endforeach
-  </div>
 
-  <!-- Dots -->
-  <div id="dots-mobile" class="flex justify-center mt-5 gap-2"></div>
+    <div id="slider-mobile" class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
+        @foreach ([['panahan' => 'Panahan', 'pmr' => 'PMR'], ['paskib' => 'Paskibra', 'voli' => 'Voli'], ['basket' => 'Basket', 'futsal' => 'Futsal'], ['englishclub' => 'English Club', 'paduansuara' => 'Paduan Suara'], ['hadrah' => 'Hadrah', 'tari' => 'Tari Maheswara'], ['marchingband' => 'marchingband', 'pencakorganisasi' => 'pencakorganisasi'], ['merpatiputih' => 'Merpati Putih', 'renang' => 'Renang']] as $pair)
+            <div class="shrink-0 w-full snap-start">
+                <div class="grid grid-cols-2 gap-3">
+                    @foreach ($pair as $img => $label)
+                        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+                            <img src="{{ eskulImage($img) }}" alt="{{ $label }}"
+                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                <span class="text-white text-base font-semibold">{{ $label }}</span>
+                            </div>
+                        </figure>
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    <div id="dots-mobile" class="flex justify-center mt-5 gap-2"></div>
 </section>
-
 
 <!-- === DESKTOP === -->
-<section class="hidden lg:block bg-[url('/image/home/eskul.png')] px-10 py-20">
-  <div class="flex items-start gap-10">
-    <!-- Teks -->
-    <div class="w-1/3 mt-28">
-      <h2 class="text-white text-3xl font-bold mb-4">Ekstrakurikuler</h2>
-      <p class="text-white leading-relaxed">
-        SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
-        minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
-      </p>
-    </div>
-
-    <!-- Slider -->
-    <div class="w-2/3 relative overflow-hidden">
-      <div id="slider-desktop"
-           class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
-        @foreach ([
-          ['tari'=>'Sanggar Tari','merpatiputih'=>'Merpati Putih'],
-          ['pmr'=>'PMR'],
-          ['futsal'=>'Futsal']
-        ] as $pair)
-        <div class="shrink-0 w-full max-w-[850px] snap-start">
-          <div class="grid grid-cols-2 gap-4">
-            @foreach ($pair as $img => $label)
-            <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
-              <img src="{{ asset('image/eskul/'.$img.'.png') }}" alt="{{ $label }}"
-                   class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                <span class="text-white text-xl font-semibold">{{ $label }}</span>
-              </div>
-            </figure>
-            @endforeach
-          </div>
+<section
+    class="hidden lg:block bg-[url('/image/home/eskul.png')] bg-cover bg-center bg-no-repeat w-full min-h-[500px] px-10 py-20">
+    <div class="flex items-start gap-10">
+        <!-- Teks -->
+        <div class="w-1/3 mt-28">
+            <h2 class="text-white text-3xl font-bold mb-4">Ekstrakurikuler</h2>
+            <p class="text-white leading-relaxed">
+                SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
+                minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
+            </p>
         </div>
-        @endforeach
-      </div>
 
-      <!-- Dots -->
-      <div id="dots-desktop" class="flex justify-center mt-5 gap-2"></div>
+        <!-- Slider -->
+        <div class="w-2/3 relative overflow-hidden">
+            <div id="slider-desktop" class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
+        @foreach ([['panahan' => 'Panahan', 'pmr' => 'PMR'], ['paskib' => 'Paskibra', 'voli' => 'Voli'], ['basket' => 'Basket', 'futsal' => 'Futsal'], ['englishclub' => 'English Club', 'paduansuara' => 'Paduan Suara'], ['hadrah' => 'Hadrah', 'tari' => 'Tari Maheswara'], ['marchingband' => 'marchingband', 'pencakorganisasi' => 'pencakorganisasi'], ['merpatiputih' => 'Merpati Putih', 'renang' => 'Renang']] as $pair)
+                    <div class="shrink-0 w-full max-w-[850px] snap-start">
+                        <div class="grid grid-cols-2 gap-4">
+                            @foreach ($pair as $img => $label)
+                                <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+                                    <img src="{{ eskulImage($img) }}" alt="{{ $label }}"
+                                        class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                    <div
+                                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                        <span class="text-white text-xl font-semibold">{{ $label }}</span>
+                                    </div>
+                                </figure>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div id="dots-desktop" class="flex justify-center mt-5 gap-2"></div>
+        </div>
     </div>
-  </div>
 </section>
 
-
-    <!-- === SLIDER SCRIPT === -->
-    <script>
+<script>
     function initSlider(sliderId, dotsId, interval = 4000) {
         const slider = document.getElementById(sliderId);
         const dotsContainer = document.getElementById(dotsId);
         const slides = slider.children;
         let index = 0;
 
-        // Buat titik indikator
         for (let i = 0; i < slides.length; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
-        dotsContainer.appendChild(dot);
+            const dot = document.createElement('div');
+            dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+            dotsContainer.appendChild(dot);
         }
 
         const dots = dotsContainer.children;
 
         function updateDots() {
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].className = i === index
-            ? 'h-3 w-6 rounded-full bg-white transition-all duration-300'
-            : 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
-        }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = i === index
+                    ? 'h-3 w-6 rounded-full bg-white transition-all duration-300'
+                    : 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+            }
         }
 
         updateDots();
 
-        // Auto-scroll tiap interval
         setInterval(() => {
-        index = (index + 1) % slides.length;
-        slider.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
-        updateDots();
+            index = (index + 1) % slides.length;
+            slider.scrollTo({
+                left: slides[index].offsetLeft,
+                behavior: 'smooth'
+            });
+            updateDots();
         }, interval);
     }
 
     initSlider('slider-desktop', 'dots-desktop', 4000);
     initSlider('slider-mobile', 'dots-mobile', 3500);
-    </script>
-
+</script>
 
         <section class="bg-gray-50 py-16">
-        <div class="max-w-5xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
+            <div class="max-w-5xl mx-auto text-center px-4">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">Tracer Study</h2>
 
-            @if($tracerData->isNotEmpty())
-            <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+                @if ($tracerData->isNotEmpty())
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-10">
 
-                <!-- Chart -->
-                <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
-                    <canvas id="tracerChart"></canvas>
-                </div>
+                        <!-- Chart -->
+                        <div class="w-80 h-80 bg-white p-4 rounded-xl shadow">
+                            <canvas id="tracerChart"></canvas>
+                        </div>
 
-                <!-- Legend Manual -->
-                <div class="text-left space-y-4">
-                    @foreach($tracerData as $data)
-                    <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 rounded-full" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
-                        <p class="font-semibold text-gray-700">
-                            {{ $data->category }} :
-                            <span class="font-normal">{{ $data->value }}</span>
-                        </p>
+                        <!-- Legend Manual -->
+                        <div class="text-left space-y-4">
+                            @foreach ($tracerData as $data)
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-6 h-6 rounded-full"
+                                        style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
+                                    <p class="font-semibold text-gray-700">
+                                        {{ $data->category }} :
+                                        <span class="font-normal">{{ $data->value }}</span>
+                                    </p>
+                                </div>
+                            @endforeach
+                        </div>
+
                     </div>
-                    @endforeach
-                </div>
-
+                    <br>
+                    <p>
+                        Data ini setiap tahun akan berubah sesuai dengan website ini
+                        <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank"
+                            class="text-blue-600 hover:underline">
+                            https://tracervokasi.kemendikdasmen.go.id/
+                        </a>.
+                    </p>
+                @else
+                    <p>Data not available</p>
+                @endif
             </div>
-            <br>
-            <p>
-                Data ini setiap tahun akan berubah sesuai dengan website ini
-                <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank" class="text-blue-600 hover:underline">
-                    https://tracervokasi.kemendikdasmen.go.id/
-                </a>.
-            </p>
-            @else
-            <p>Data not available</p>
-            @endif
-        </div>
-    </section>
+        </section>
 
-    <script>
-    const tracerCtx = document.getElementById('tracerChart');
+        <script>
+            const tracerCtx = document.getElementById('tracerChart');
 
-    if (tracerCtx && typeof Chart !== 'undefined') {
-        const values = {!! json_encode($tracerData->pluck('value')) !!};
-        const total = values.reduce((a, b) => a + b, 0);
+            if (tracerCtx && typeof Chart !== 'undefined') {
+                const values = {!! json_encode($tracerData->pluck('value')) !!};
+                const total = values.reduce((a, b) => a + b, 0);
 
-        new Chart(tracerCtx, {
-            type: 'pie',
-            data: {
-                labels: {!! json_encode($tracerData->pluck('category')) !!},
-                datasets: [{
-                    data: values,
-                    backgroundColor: {!! json_encode($colors) !!},
-                    borderWidth: 1,
-                    borderColor: '#fff'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }, // legend manual
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const percent = ((context.parsed / total) * 100).toFixed(1);
-                                return `${context.label}: ${percent}%`;
+                new Chart(tracerCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: {!! json_encode($tracerData->pluck('category')) !!},
+                        datasets: [{
+                            data: values,
+                            backgroundColor: {!! json_encode($colors) !!},
+                            borderWidth: 1,
+                            borderColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }, // legend manual
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const percent = ((context.parsed / total) * 100).toFixed(1);
+                                        return `${context.label}: ${percent}%`;
+                                    }
+                                }
+                            },
+                            datalabels: {
+                                color: '#fff',
+                                font: {
+                                    weight: 'bold',
+                                    size: 12
+                                },
+                                formatter: function(value) {
+                                    const percent = ((value / total) * 100).toFixed(1);
+                                    return percent + '%';
+                                }
                             }
                         }
                     },
-                    datalabels: {
-                        color: '#fff',
-                        font: { weight: 'bold', size: 12 },
-                        formatter: function(value) {
-                            const percent = ((value / total) * 100).toFixed(1);
-                            return percent + '%';
-                        }
-                    }
-                }
-            },
-            plugins: [ChartDataLabels]
-        });
-    } else {
-        console.error('Chart.js library not loaded');
-    }
-    </script>
+                    plugins: [ChartDataLabels]
+                });
+            } else {
+                console.error('Chart.js library not loaded');
+            }
+        </script>
 
 
         <br><br>
 
-    <section class="w-full flex flex-col md:flex-row items-center justify-between px-8 md:px-12 py-12">
+        <section class="w-full flex flex-col md:flex-row items-center justify-between px-8 md:px-12 py-12">
 
-        <!-- Desktop Version -->
-        <div class="hidden lg:flex relative w-full items-center justify-between bg-[#F4F5F7] rounded-3xl p-8 shadow-md h-[100vh]">
+            <!-- Desktop Version -->
+            <div
+                class="hidden lg:flex relative w-full items-center justify-between bg-[#F4F5F7] rounded-3xl p-8 shadow-md h-[100vh]">
 
-            <!-- Bagian kiri (gambar + icon cards) -->
-            <div class="relative ml-10">
-                <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
-                    <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
-                        class="w-96 h-[460px] object-cover" />
+                <!-- Bagian kiri (gambar + icon cards) -->
+                <div class="relative ml-10">
+                    <div class="bg-pink-200 rounded-tr-[50px] rounded-bl-[50px] overflow-hidden">
+                        <img src="{{ asset('image/home/bk.png') }}" alt="Konseling"
+                            class="w-96 h-[460px] object-cover" />
+                    </div>
+
+                    <!-- Icon Cards -->
+                    <div class="absolute top-1/4 -right-44 space-y-3">
+                        <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                            <div class="bg-blue-600 text-white p-2 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-gray-700">Konseling Pribadi</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                            <div class="bg-blue-600 text-white p-2 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-gray-700">Bimbingan Karier</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
+                            <div class="bg-blue-600 text-white p-2 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17 20h5V4H2v16h5m10 0v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z" />
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-gray-700">Konseling Sosial</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Icon Cards -->
-                <div class="absolute top-1/4 -right-44 space-y-3">
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5.121 17.804A9 9 0 1118.879 4.196 9 9 0 015.121 17.804z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Konseling Pribadi</span>
-                    </div>
-
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Bimbingan Karier</span>
-                    </div>
-
-                    <div class="flex items-center gap-3 bg-white shadow-md rounded-xl px-4 py-2 w-52">
-                        <div class="bg-blue-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17 20h5V4H2v16h5m10 0v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z" />
-                            </svg>
-                        </div>
-                        <span class="font-semibold text-gray-700">Konseling Sosial</span>
-                    </div>
+                <!-- Bagian kanan (teks) -->
+                <div class="max-w-xl text-left ml-40">
+                    <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
+                    <h2 class="text-2xl font-bold text-gray-900 mt-2 leading-snug">
+                        Kamu Lagi ada Masalah?<br>
+                        Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg">konsultasi
+                            sekarang!</span>
+                    </h2>
+                    <p class="text-gray-700 mt-5 leading-relaxed">
+                        Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
+                        Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
+                        dengan cara yang sehat dan tepat.
+                    </p>
+                    <a href="https://wa.me/6285806541124" target="_blank">
+                        <button
+                            class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
+                            Konsultasi Sekarang
+                        </button>
+                    </a>
                 </div>
             </div>
 
-            <!-- Bagian kanan (teks) -->
-            <div class="max-w-xl text-left ml-40">
-                <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
-                <h2 class="text-2xl font-bold text-gray-900 mt-2 leading-snug">
-                    Kamu Lagi ada Masalah?<br>
-                    Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg">konsultasi sekarang!</span>
-                </h2>
-                <p class="text-gray-700 mt-5 leading-relaxed">
-                    Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
-                    Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
-                    dengan cara yang sehat dan tepat.
-                </p>
-                <a href="https://wa.me/6285806541124" target="_blank">
-                    <button
-                        class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
-                        Konsultasi Sekarang
-                    </button>
-                </a>
-            </div>
-        </div>
-
-        <!-- Mobile & Tablet Version -->
-        <div class="flex lg:hidden flex-col items-center justify-center bg-[#F4F5F7] rounded-3xl p-8 shadow-md">
-            <!-- Hanya teks, icon cards dihapus -->
-            <div class="max-w-xl text-center">
-                <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
-                <h2 class="text-2xl font-bold text-gray-900 mt-2 leading-snug">
-                    Kamu Lagi ada Masalah?<br>
-                    Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg">konsultasi sekarang!</span>
-                </h2>
-                <p class="text-gray-700 mt-5 leading-relaxed">
-                    Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
-                    Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
-                    dengan cara yang sehat dan tepat.
-                </p>
-                <a href="https://wa.me/6285806541124" target="_blank">
-                    <button
-                        class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
-                        Konsultasi Sekarang
-                    </button>
-                </a>
-            </div>
-        </div>
-
-    </section>
-
-
-    <section class="w-full relative py-12 lg:py-24" id="kontak">
-
-        <!-- Desktop Version -->
-        <div class="hidden lg:flex absolute inset-0 bg-[url('/image/home/footer.png')] bg-cover bg-left bg-no-repeat -z-10 -mb-20"></div>
-
-        <div class="hidden lg:flex relative max-w-7xl mx-auto flex-row items-start justify-between px-6 lg:px-20">
-
-            <!-- Kiri / Text -->
-            <div class="w-1/2 flex flex-col items-start text-left">
-                <h2 class="text-xl lg:text-4xl font-bold text-gray-900 leading-snug">
-                    Bergabunglah bersama <br />
-                    kami dan wujudkan masa depanmu
-                </h2>
+            <!-- Mobile & Tablet Version -->
+            <div class="flex lg:hidden flex-col items-center justify-center bg-[#F4F5F7] rounded-3xl p-8 shadow-md">
+                <!-- Hanya teks, icon cards dihapus -->
+                <div class="max-w-xl text-center">
+                    <p class="text-blue-600 font-semibold">Bimbingan Konseling</p>
+                    <h2 class="text-2xl font-bold text-gray-900 mt-2 leading-snug">
+                        Kamu Lagi ada Masalah?<br>
+                        Yuk, <span class="text-white bg-blue-600 px-1 py-1 rounded-full text-lg">konsultasi
+                            sekarang!</span>
+                    </h2>
+                    <p class="text-gray-700 mt-5 leading-relaxed">
+                        Saat kamu merasa bingung, tertekan, atau butuh teman bicara, konselor siap membantu.
+                        Jangan pendam sendiri, yuk ceritakan masalahmu agar bisa menemukan solusi bersama
+                        dengan cara yang sehat dan tepat.
+                    </p>
+                    <a href="https://wa.me/6285806541124" target="_blank">
+                        <button
+                            class="mt-7 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition shadow-md">
+                            Konsultasi Sekarang
+                        </button>
+                    </a>
+                </div>
             </div>
 
-            <!-- Kanan / Form -->
-            <div class="w-1/2 bg-white p-8 shadow-2xl rounded-2xl">
-                <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Nama" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <input type="tel" placeholder="No Telepon" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <textarea rows="4" placeholder="Pesan" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">Kirim Pesan</button>
-                </form>
+        </section>
+
+
+        <section class="w-full relative py-12 lg:py-24" id="kontak">
+
+            <!-- Desktop Version -->
+            <div
+                class="hidden lg:flex absolute inset-0 bg-[url('/image/home/footer.png')] bg-cover bg-left bg-no-repeat -z-10 -mb-20">
             </div>
 
-        </div>
+            <div class="hidden lg:flex relative max-w-7xl mx-auto flex-row items-start justify-between px-6 lg:px-20">
 
-        <!-- Mobile Version -->
-        <div class="flex lg:hidden w-full flex-col items-center justify-center mt-12 px-6">
-            <!-- Text -->
-            <div class="w-full flex flex-col items-center text-center mb-10">
-                <h2 class="text-2xl font-bold text-gray-900 leading-snug mb-4 -mt-5">
-                    Bergabunglah bersama
-                    kami dan wujudkan masa depanmu
-                </h2>
+                <!-- Kiri / Text -->
+                <div class="w-1/2 flex flex-col items-start text-left">
+                    <h2 class="text-xl lg:text-4xl font-bold text-gray-900 leading-snug">
+                        Bergabunglah bersama <br />
+                        kami dan wujudkan masa depanmu
+                    </h2>
+                </div>
+
+                <!-- Kanan / Form -->
+                <div class="w-1/2 bg-white p-8 shadow-2xl rounded-2xl">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Nama"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <input type="email" placeholder="Email"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <input type="tel" placeholder="No Telepon"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <textarea rows="4" placeholder="Pesan"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">Kirim
+                            Pesan</button>
+                    </form>
+                </div>
+
             </div>
-            <!-- Form -->
-            <div class="w-full bg-white p-6 shadow-lg rounded-2xl">
-                <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Nama" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <input type="tel" placeholder="No Telepon" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <textarea rows="4" placeholder="Pesan" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">Kirim Pesan</button>
-                </form>
+
+            <!-- Mobile Version -->
+            <div class="flex lg:hidden w-full flex-col items-center justify-center mt-12 px-6">
+                <!-- Text -->
+                <div class="w-full flex flex-col items-center text-center mb-10">
+                    <h2 class="text-2xl font-bold text-gray-900 leading-snug mb-4 -mt-5">
+                        Bergabunglah bersama
+                        kami dan wujudkan masa depanmu
+                    </h2>
+                </div>
+                <!-- Form -->
+                <div class="w-full bg-white p-6 shadow-lg rounded-2xl">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Ada Pertanyaan? Hubungi Kami</h3>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Nama"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <input type="email" placeholder="Email"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <input type="tel" placeholder="No Telepon"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <textarea rows="4" placeholder="Pesan"
+                            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <button type="submit"
+                            class="w-full bg-blue-500 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">Kirim
+                            Pesan</button>
+                    </form>
+                </div>
             </div>
-        </div>
 
-    </section>
-
+        </section>
 
 
-    <br><br>
+
+        <br><br>
         <!-- Chart.js CDN -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

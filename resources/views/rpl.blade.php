@@ -97,6 +97,13 @@
             .cta {
                 background-image: url('image/rpl/ctarpl.png');
                 height: 110vh;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                min-height: 500px;
+                padding: 80px 40px;
+                box-sizing: border-box;
             }
 
             .cta-btn {
@@ -133,11 +140,214 @@
                 -ms-overflow-style: none;
                 scrollbar-width: none;
             }
+
+            @media (min-width: 768px) {
+                .hero-content {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .hero-text {
+                    width: 60%;
+                    margin-bottom: 0;
+                }
+
+                .hero-title {
+                    font-size: 3rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.5rem;
+                }
+
+            }
+
+            @media (min-width: 1024px) {
+                .hero-title {
+                    font-size: 3.5rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.7rem;
+                }
+
+                .hero-btn {
+                    padding: 15px 40px;
+                    font-size: 1.1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-section {
+                    height: 100vh;
+                }
+
+                .hero-title {
+                    font-size: 2rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.1rem;
+                }
+
+                .hero-btn {
+                    padding: 10px 25px;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            /* Section About untuk demo link */
+            .about-section {
+                padding: 80px 20px;
+                background-color: #f7fafc;
+                color: #2d3748;
+            }
+
+            .about-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .about-title {
+                font-size: 2.5rem;
+                text-align: center;
+                margin-bottom: 40px;
+                color: #1a365d;
+            }
+
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            @media (min-width: 768px) {
+                .about-content {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            .about-card {
+                background: white;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+
+            .about-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: #3182ce;
+            }
+
+            @media (max-width: 640px) {
+                section.h-screen {
+                    height: auto !important;
+                    padding: 4rem 1.5rem 6rem 1.5rem;
+                    flex-direction: column !important;
+                    justify-content: center !important;
+                    margin-top: 0 !important;
+                    text-align: left !important;
+                }
+
+                section.h-screen>div {
+                    margin-left: 0 !important;
+                    margin-top: 1rem !important;
+                    text-align: left !important;
+                    /* tetap start */
+                }
+
+                section.h-screen h1 {
+                    font-size: 2rem !important;
+                    line-height: 1.3 !important;
+                    margin-bottom: 1rem !important;
+                }
+
+                section.h-screen p {
+                    font-size: 1rem !important;
+                    margin-bottom: 1.5rem !important;
+                }
+
+                section.h-screen .btn {
+                    padding: 10px 20px !important;
+                    font-size: 0.95rem !important;
+                }
+
+                .brand {
+                    width: 90%;
+                    height: auto;
+                    margin-top: -1rem;
+                    padding: 8px;
+                }
+
+                .brand img {
+                    width: 100%;
+                }
+                
+            }
+                /* Tablet (641px - 1023px) */
+                @media (min-width: 641px) and (max-width: 1023px) {
+                    section.h-screen {
+                        height: 90vh !important;
+                        padding: 3rem 2rem !important;
+                        flex-direction: column !important;
+                        justify-content: center !important;
+                        text-align: left !important;
+                    }
+
+                    section.h-screen>div {
+                        margin-left: 0 !important;
+                        margin-top: 2rem !important;
+                        text-align: left !important;
+                    }
+
+                    section.h-screen h1 {
+                        font-size: 3rem !important;
+                    }
+
+                    section.h-screen p {
+                        font-size: 1.1rem !important;
+                    }
+
+                    .brand img {
+                        width: 120px !important;
+                        /* tetap terlihat jelas */
+                    }
+                }
+
+                /* Desktop (min-width: 1024px) */
+                @media (min-width: 1024px) {
+                    section.h-screen {
+                        height: 110vh !important;
+                        text-align: left !important;
+                    }
+
+                    section.h-screen>div {
+                        margin-left: 2.5rem !important;
+                        margin-top: 5rem !important;
+                        text-align: left !important;
+                    }
+
+                    section.h-screen h1 {
+                        font-size: 4rem !important;
+                    }
+
+                    section.h-screen p {
+                        font-size: 1.25rem !important;
+                    }
+
+                    .brand img {
+                        width: 140px !important;
+                        /* tetap cukup besar */
+                    }
+                }
         </style>
-        <section class="h-screen bg-cover bg-center flex items-center justify-center text-black"
+        <section class="h-screen bg-cover bg-center flex items-center justify-center text-black -mt-20"
             style="background-image: url('image/rpl/herorpl.png'); width:100%; height:110vh;">
             <!-- Teks -->
-            <div class="flex-1 mb-10 md:mb-0 ml-40">
+            <div class="flex-1 mb-10 md:mb-0 ml-40 mt-20">
                 <h1 class="text-4xl md:text-1xl font-bold mb-5">Selamat Datang <br>
                     di RPL SMKN 6 Jember
                 </h1>
@@ -314,247 +524,264 @@
         <br><br><br><br>
 
 
-<!-- === MOBILE + TABLET === -->
-<section class="block lg:hidden bg-red-500 px-6 py-14">
-  <div class="text-center mb-6">
-    <h2 class="text-white text-2xl font-bold">Fasilitas Jurusan</h2>
-    <p class="text-white text-sm mt-2">
-      Jurusan RPL memiliki fasilitas lengkap yang mendukung pembelajaran teknologi dan praktik software.
-    </p>
-  </div>
+        <!-- === MOBILE + TABLET === -->
+        <section class="block lg:hidden bg-red-500 px-6 py-14">
+            <div class="text-center mb-6">
+                <h2 class="text-white text-2xl font-bold">Fasilitas Jurusan</h2>
+                <p class="text-white text-sm mt-2">
+                    Jurusan RPL memiliki fasilitas lengkap yang mendukung pembelajaran teknologi dan praktik software.
+                </p>
+            </div>
 
-  <div id="slider-mobile-fas" class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
-    @foreach ([
-      ['fas1'=>'Lab RPL','fas2'=>'Teaching Factory'],
-      ['fas3'=>'Kelas Industri']
-    ] as $pair)
-    <div class="shrink-0 w-full snap-start">
-      <div class="grid grid-cols-2 gap-3">
-        @foreach ($pair as $img => $label)
-        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
-          <img src="{{ asset('image/rpl/'.$img.'.png') }}" alt="{{ $label }}"
-               class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-            <span class="text-white text-base font-semibold">{{ $label }}</span>
-          </div>
-        </figure>
-        @endforeach
-      </div>
-    </div>
-    @endforeach
-  </div>
-
-  <!-- Dots -->
-  <div id="dots-mobile-fas" class="flex justify-center mt-5 gap-2"></div>
-</section>
-
-
-<!-- === DESKTOP === -->
-<section class="hidden lg:block px-10 py-20 mt-12 py-[120px]" style="background-image: url('{{ asset('image/rpl/fasilitasrpl.png') }}')">
-  <div class="flex items-start gap-10">
-    <!-- Teks -->
-    <div class="w-1/3 mt-28">
-      <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
-      <p class="text-white leading-relaxed">
-        Jurusan RPL memiliki fasilitas lengkap yang mendukung pembelajaran teknologi,
-        dilengkapi perangkat dan software terbaru untuk menunjang proses belajar.
-      </p>
-    </div>
-
-    <!-- Slider -->
-    <div class="w-2/3 relative overflow-hidden">
-      <div id="slider-desktop-fas"
-           class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
-        @foreach ([
-          ['fas1'=>'Lab RPL','fas2'=>'Teaching Factory'],
-          ['fas3'=>'Kelas Industri']
-        ] as $pair)
-        <div class="shrink-0 w-full max-w-[850px] snap-start">
-          <div class="grid grid-cols-2 gap-4">
-            @foreach ($pair as $img => $label)
-            <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
-              <img src="{{ asset('image/rpl/'.$img.'.png') }}" alt="{{ $label }}"
-                   class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                <span class="text-white text-xl font-semibold">{{ $label }}</span>
-              </div>
-            </figure>
-            @endforeach
-          </div>
-        </div>
-        @endforeach
-      </div>
-
-      <!-- Dots -->
-      <div id="dots-desktop-fas" class="flex justify-center mt-5 gap-2"></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- === SLIDER SCRIPT === -->
-<script>
-  function initSlider(sliderId, dotsId, interval = 4000) {
-    const slider = document.getElementById(sliderId);
-    const dotsContainer = document.getElementById(dotsId);
-    const slides = slider.children;
-    let index = 0;
-
-    // Buat titik indikator
-    for (let i = 0; i < slides.length; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
-      dotsContainer.appendChild(dot);
-    }
-
-    const dots = dotsContainer.children;
-
-    function updateDots() {
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].className = i === index
-          ? 'h-3 w-6 rounded-full bg-white transition-all duration-300'
-          : 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
-      }
-    }
-
-    updateDots();
-
-    // Auto-scroll tiap interval
-    setInterval(() => {
-      index = (index + 1) % slides.length;
-      slider.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
-      updateDots();
-    }, interval);
-  }
-
-  initSlider('slider-desktop-fas', 'dots-desktop-fas', 4000);
-  initSlider('slider-mobile-fas', 'dots-mobile-fas', 3500);
-</script>
-
-<section class="bg-[#f5f5f5] py-16 md:py-20">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-4 sm:px-6 lg:px-12">
-
-        <!-- BAGIAN KIRI -->
-        <div class="relative flex justify-center lg:w-1/2">
-            <div class="relative">
-                <!-- Gambar utama -->
-                <img src="{{ asset('image/rpl/gambarhsjr.png') }}"
-                    class="rounded-3xl w-[260px] sm:w-[320px] md:w-[360px] h-[320px] sm:h-[400px] md:h-[440px] object-cover shadow-xl"
-                    alt="main">
-
-                <!-- Gambar kiri atas -->
-                <img src="{{ asset('image/rpl/gambaratas.png') }}"
-                    class="absolute -top-6 sm:-top-10 -left-6 sm:-left-12 w-[100px] sm:w-[140px] md:w-[160px] h-[110px] sm:h-[160px] md:h-[180px] rounded-2xl object-cover border-[4px] sm:border-[6px] border-[#f5f5f5] shadow-lg"
-                    alt="top">
-
-                <!-- Gambar kanan bawah -->
-                <img src="{{ asset('image/rpl/logohsjr.png') }}"
-                    class="absolute -bottom-8 sm:-bottom-10 -right-6 sm:-right-10 w-[100px] sm:w-[130px] md:w-[150px] h-[100px] sm:h-[130px] md:h-[150px] object-cover shadow-lg z-20"
-                    alt="bottom">
-
-                <!-- Kotak merah -->
-                <div
-                    class="absolute -bottom-14 sm:-bottom-16 left-0 bg-gradient-to-r from-[#F92626] to-[#D24747] rounded-[16px] sm:rounded-[20px] px-4 sm:px-6 py-4 sm:py-5 flex items-center gap-3 shadow-lg w-[90%] sm:w-80 md:w-96 z-10">
-                    <div class="bg-white rounded p-2 sm:p-3 z-10">
-                        <img src="{{ asset('image/rpl/frame.png') }}" alt="Icon" class="w-6 sm:w-7 h-6 sm:h-8">
+            <div id="slider-mobile-fas" class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
+                @foreach ([['fas1' => 'Lab RPL', 'fas2' => 'Teaching Factory'], ['fas3' => 'Kelas Industri']] as $pair)
+                    <div class="shrink-0 w-full snap-start">
+                        <div class="grid grid-cols-2 gap-3">
+                            @foreach ($pair as $img => $label)
+                                <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+                                    <img src="{{ asset('image/rpl/' . $img . '.png') }}" alt="{{ $label }}"
+                                        class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                    <div
+                                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                        <span class="text-white text-base font-semibold">{{ $label }}</span>
+                                    </div>
+                                </figure>
+                            @endforeach
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-white font-extrabold text-lg sm:text-xl leading-none">1.000+</h3>
-                        <p class="text-white text-xs sm:text-sm mt-1">Siswa Unggul</p>
+                @endforeach
+            </div>
+
+            <!-- Dots -->
+            <div id="dots-mobile-fas" class="flex justify-center mt-5 gap-2"></div>
+        </section>
+
+
+        <!-- === DESKTOP === -->
+        <section
+            class="hidden lg:block px-10 py-20 mt-12 py-[120px] bg-cover bg-center bg-no-repeat w-full min-h-[500px] px-10 py-20"
+            style="background-image: url('{{ asset('image/rpl/fasilitasrpl.png') }}')">
+            <div class="flex items-start gap-10">
+                <!-- Teks -->
+                <div class="w-1/3 mt-28">
+                    <h2 class="text-white text-3xl font-bold mb-4">Fasilitas Jurusan</h2>
+                    <p class="text-white leading-relaxed">
+                        Jurusan RPL memiliki fasilitas lengkap yang mendukung pembelajaran teknologi,
+                        dilengkapi perangkat dan software terbaru untuk menunjang proses belajar.
+                    </p>
+                </div>
+
+                <!-- Slider -->
+                <div class="w-2/3 relative overflow-hidden">
+                    <div id="slider-desktop-fas" class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
+                        @foreach ([['fas1' => 'Lab RPL', 'fas2' => 'Teaching Factory'], ['fas3' => 'Kelas Industri']] as $pair)
+                            <div class="shrink-0 w-full max-w-[850px] snap-start">
+                                <div class="grid grid-cols-2 gap-4">
+                                    @foreach ($pair as $img => $label)
+                                        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+                                            <img src="{{ asset('image/rpl/' . $img . '.png') }}"
+                                                alt="{{ $label }}"
+                                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                            <div
+                                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                                <span class="text-white text-xl font-semibold">{{ $label }}</span>
+                                            </div>
+                                        </figure>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <!-- Dots -->
+                    <div id="dots-desktop-fas" class="flex justify-center mt-5 gap-2"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- === SLIDER SCRIPT === -->
+        <script>
+            function initSlider(sliderId, dotsId, interval = 4000) {
+                const slider = document.getElementById(sliderId);
+                const dotsContainer = document.getElementById(dotsId);
+                const slides = slider.children;
+                let index = 0;
+
+                // Buat titik indikator
+                for (let i = 0; i < slides.length; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+                    dotsContainer.appendChild(dot);
+                }
+
+                const dots = dotsContainer.children;
+
+                function updateDots() {
+                    for (let i = 0; i < dots.length; i++) {
+                        dots[i].className = i === index ?
+                            'h-3 w-6 rounded-full bg-white transition-all duration-300' :
+                            'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+                    }
+                }
+
+                updateDots();
+
+                // Auto-scroll tiap interval
+                setInterval(() => {
+                    index = (index + 1) % slides.length;
+                    slider.scrollTo({
+                        left: slides[index].offsetLeft,
+                        behavior: 'smooth'
+                    });
+                    updateDots();
+                }, interval);
+            }
+
+            initSlider('slider-desktop-fas', 'dots-desktop-fas', 4000);
+            initSlider('slider-mobile-fas', 'dots-mobile-fas', 3500);
+        </script>
+
+        <section class="bg-[#f5f5f5] py-16 md:py-20">
+            <div
+                class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-14 px-4 sm:px-6 lg:px-12">
+
+                <!-- BAGIAN KIRI -->
+                <div class="relative flex justify-center lg:w-1/2">
+                    <div class="relative">
+                        <!-- Gambar utama -->
+                        <img src="{{ asset('image/rpl/gambarhsjr.png') }}"
+                            class="rounded-3xl w-[260px] sm:w-[320px] md:w-[360px] h-[320px] sm:h-[400px] md:h-[440px] object-cover shadow-xl"
+                            alt="main">
+
+                        <!-- Gambar kiri atas -->
+                        <img src="{{ asset('image/rpl/gambaratas.png') }}"
+                            class="absolute -top-6 sm:-top-10 -left-6 sm:-left-12 w-[100px] sm:w-[140px] md:w-[160px] h-[110px] sm:h-[160px] md:h-[180px] rounded-2xl object-cover border-[4px] sm:border-[6px] border-[#f5f5f5] shadow-lg"
+                            alt="top">
+
+                        <!-- Gambar kanan bawah -->
+                        <img src="{{ asset('image/rpl/logohsjr.png') }}"
+                            class="absolute -bottom-8 sm:-bottom-10 -right-6 sm:-right-10 w-[100px] sm:w-[130px] md:w-[150px] h-[100px] sm:h-[130px] md:h-[150px] object-cover shadow-lg z-20"
+                            alt="bottom">
+
+                        <!-- Kotak merah -->
+                        <div
+                            class="absolute -bottom-14 sm:-bottom-16 left-0 bg-gradient-to-r from-[#F92626] to-[#D24747] rounded-[16px] sm:rounded-[20px] px-4 sm:px-6 py-4 sm:py-5 flex items-center gap-3 shadow-lg w-[90%] sm:w-80 md:w-96 z-10">
+                            <div class="bg-white rounded p-2 sm:p-3 z-10">
+                                <img src="{{ asset('image/rpl/frame.png') }}" alt="Icon"
+                                    class="w-6 sm:w-7 h-6 sm:h-8">
+                            </div>
+                            <div>
+                                <h3 class="text-white font-extrabold text-lg sm:text-xl leading-none">1.000+</h3>
+                                <p class="text-white text-xs sm:text-sm mt-1">Siswa Unggul</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BAGIAN KANAN -->
+                <div class="lg:w-1/2 space-y-6 sm:space-y-7 text-center lg:text-left">
+                    <h2 class="text-2xl mt-12 sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                        Himpunan Siswa <br class="hidden sm:block"> Jurusan RPL
+                    </h2>
+
+                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base md:text-[16px] px-2 sm:px-0">
+                        Himpunan Siswa Jurusan RPL SMKN 6 Jember merupakan organisasi yang mewadahi siswa berjiwa teknologi
+                        dan inovasi. Melalui kegiatan seperti coding competition, workshop web dan mobile, pelatihan UI/UX,
+                        serta project kolaboratif, organisasi ini mencetak generasi programmer muda yang kreatif, kritis,
+                        dan siap menghadapi tantangan dunia digital masa depan.
+                    </p>
+
+                    <!-- CARD LOWONGAN -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-4 sm:p-5 gap-3 sm:gap-4 hover:shadow-md transition text-left">
+                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-2 sm:p-3 rounded-full">
+                                <div class="w-4 h-4 sm:w-5 sm:h-5">
+                                    <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-sm sm:text-base">Pelatihan Skill RPL</h4>
+                                <p class="text-gray-500 text-xs sm:text-sm">Kembangkan kemampuan melalui pelatihan dan
+                                    workshop
+                                    teknologi terkini.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-4 sm:p-5 gap-3 sm:gap-4 hover:shadow-md transition text-left">
+                            <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-2 sm:p-3 rounded-full">
+                                <div class="w-4 h-4 sm:w-5 sm:h-5">
+                                    <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
+                                        class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-sm sm:text-base">Pengalaman Kepanitiaan</h4>
+                                <p class="text-gray-500 text-xs sm:text-sm">Belajar kerja tim dan kepemimpinan lewat
+                                    berbagai event
+                                    internal RPL.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- BAGIAN KANAN -->
-        <div class="lg:w-1/2 space-y-6 sm:space-y-7 text-center lg:text-left">
-            <h2 class="text-2xl mt-12 sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-                Himpunan Siswa <br class="hidden sm:block"> Jurusan RPL
-            </h2>
-
-            <p class="text-gray-700 leading-relaxed text-sm sm:text-base md:text-[16px] px-2 sm:px-0">
-                Himpunan Siswa Jurusan RPL SMKN 6 Jember merupakan organisasi yang mewadahi siswa berjiwa teknologi
-                dan inovasi. Melalui kegiatan seperti coding competition, workshop web dan mobile, pelatihan UI/UX,
-                serta project kolaboratif, organisasi ini mencetak generasi programmer muda yang kreatif, kritis,
-                dan siap menghadapi tantangan dunia digital masa depan.
-            </p>
-
-            <!-- CARD LOWONGAN -->
-            <div class="space-y-4">
-                <div
-                    class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-4 sm:p-5 gap-3 sm:gap-4 hover:shadow-md transition text-left">
-                    <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-2 sm:p-3 rounded-full">
-                        <div class="w-4 h-4 sm:w-5 sm:h-5">
-                            <img src="{{ asset('image/rpl/Vector.png') }}" alt="Bag Icon"
-                                class="w-full h-full object-contain">
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 text-sm sm:text-base">Pelatihan Skill RPL</h4>
-                        <p class="text-gray-500 text-xs sm:text-sm">Kembangkan kemampuan melalui pelatihan dan workshop
-                            teknologi terkini.</p>
-                    </div>
-                </div>
-
-                <div
-                    class="flex items-start bg-white rounded-2xl border border-gray-200 shadow-sm p-4 sm:p-5 gap-3 sm:gap-4 hover:shadow-md transition text-left">
-                    <div class="bg-gradient-to-r from-[#F92626] to-[#D24747] text-white p-2 sm:p-3 rounded-full">
-                        <div class="w-4 h-4 sm:w-5 sm:h-5">
-                            <img src="{{ asset('image/rpl/Group.png') }}" alt="Bag Icon"
-                                class="w-full h-full object-contain">
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 text-sm sm:text-base">Pengalaman Kepanitiaan</h4>
-                        <p class="text-gray-500 text-xs sm:text-sm">Belajar kerja tim dan kepemimpinan lewat berbagai event
-                            internal RPL.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
 
         <br><br>
-<section class="performance py-16 bg-[#f5f5f5]">
-  <h2 class="font-bold text-center text-2xl md:text-3xl mb-8">Galeri dan Prestasi</h2>
+        <section class="performance py-16 bg-[#f5f5f5]">
+            <h2 class="font-bold text-center text-2xl md:text-3xl mb-8">Galeri dan Prestasi</h2>
 
-  <!-- Grid -->
-  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 px-4 md:px-8">
-    <!-- Card 1 -->
-    <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
-      <img src="{{ asset('image/rpl/pres1.png') }}" alt="Prestasi 1" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Juara 1 Lomba Web Development Nasional</p>
-      </div>
-    </div>
+            <!-- Grid -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 px-4 md:px-8">
+                <!-- Card 1 -->
+                <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
+                    <img src="{{ asset('image/rpl/pres1.png') }}" alt="Prestasi 1"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Juara 1 Lomba Web
+                            Development Nasional</p>
+                    </div>
+                </div>
 
-    <!-- Card 2 -->
-    <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
-      <img src="{{ asset('image/rpl/pres2.png') }}" alt="Prestasi 2" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Karya Aplikasi Unggulan Siswa RPL</p>
-      </div>
-    </div>
+                <!-- Card 2 -->
+                <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
+                    <img src="{{ asset('image/rpl/pres2.png') }}" alt="Prestasi 2"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Karya Aplikasi Unggulan
+                            Siswa RPL</p>
+                    </div>
+                </div>
 
-    <!-- Card 3 -->
-    <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
-      <img src="{{ asset('image/rpl/pres3.png') }}" alt="Prestasi 3" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Juara Favorit Desain UI/UX Se-Jawa Timur</p>
-      </div>
-    </div>
+                <!-- Card 3 -->
+                <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
+                    <img src="{{ asset('image/rpl/pres3.png') }}" alt="Prestasi 3"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Juara Favorit Desain UI/UX
+                            Se-Jawa Timur</p>
+                    </div>
+                </div>
 
-    <!-- Card 4 -->
-    <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
-      <img src="{{ asset('image/rpl/pres4.png') }}" alt="Prestasi 4" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Proyek Inovasi Digital Siswa RPL</p>
-      </div>
-    </div>
-  </section>
-</section>
+                <!-- Card 4 -->
+                <div class="relative group rounded-xl shadow overflow-hidden w-full aspect-[4/3] cursor-pointer">
+                    <img src="{{ asset('image/rpl/pres4.png') }}" alt="Prestasi 4"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                        <p class="text-white text-center px-4 text-sm sm:text-base font-medium">Proyek Inovasi Digital
+                            Siswa RPL</p>
+                    </div>
+                </div>
+            </section>
+        </section>
 
         <br><br><br><br>
         <section class="cta mt-8">

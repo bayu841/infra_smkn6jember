@@ -129,7 +129,7 @@
 
     <section class="hero-batik">
         <div class="hero-batik__image">
-            <img src="{{ asset('image/batikenem/about.png') }}" alt="Kegiatan membatik">
+            <img src="{{ asset('image/kkbt/ctakkbt.png') }}" alt="Kegiatan membatik">
         </div>
 
         <div class="hero-batik__card">
