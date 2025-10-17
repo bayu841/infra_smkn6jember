@@ -229,6 +229,29 @@
                 }
             }
 
+            .card-profile {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+
+            .card-profile.mx-auto {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .card-profile.md\:mx-0 {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* Optional: agar lebarnya sedikit lebih besar di mobile */
+            .card-profile {
+                width: 90% !important;
+                height: auto !important;
+            }
+            }
+
             /* Utilities */
             .no-scrollbar::-webkit-scrollbar {
                 display: none;
@@ -382,7 +405,6 @@
             .min-h-110vh {
                 min-height: 110svh;
             }
-
         </style>
 
 
@@ -450,9 +472,9 @@
                 </div>
 
                 <!-- Bagian kanan (ilustrasi kotak) -->
-                <div class="relative w-full max-w-xs sm:max-w-sm md:w-64 h-full card-profile mx-auto md:mx-0">
+                <div class="relative w-full max-w-xs sm:max-w-sm md:w-64 h-full card-profile mx-auto md:mx-0 mr-60">
                     <!-- Card Utama -->
-                    <div class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center"
+                    <div class="bg-gray-300 w-full h-80 rounded-bl-xl overflow-hidden relative bg-cover bg-center "
                         style="background-image: url('{{ asset('image/home/kepalasekolah.png') }}');">
                         <div
                             class="absolute bottom-0 left-0 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg title-box">
@@ -1024,82 +1046,43 @@
                 </div>
             </div>
         </section>
-@php
-    function eskulImage($imgName) {
-        $basePath = public_path('image/eskul/');
-        $extensions = ['.png', '.jpg', '.jpeg', '.webp'];
-        foreach ($extensions as $ext) {
-            if (file_exists($basePath . $imgName . $ext)) {
-                return asset('image/eskul/' . $imgName . $ext);
+        @php
+            function eskulImage($imgName)
+            {
+                $basePath = public_path('image/eskul/');
+                $extensions = ['.png', '.jpg', '.jpeg', '.webp'];
+                foreach ($extensions as $ext) {
+                    if (file_exists($basePath . $imgName . $ext)) {
+                        return asset('image/eskul/' . $imgName . $ext);
+                    }
+                }
+                // fallback jika gambar tidak ditemukan
+                return asset('image/eskul/default.jpg');
             }
-        }
-        // fallback jika gambar tidak ditemukan
-        return asset('image/eskul/default.jpg');
-    }
-@endphp
-<br>
-<br>
-<br>
-<!-- === MOBILE === -->
-<section class="block lg:hidden px-6 py-14 bg-[#4B6BFF] bg-cover bg-center ">
-    <div class="text-center mb-6">
-        <h2 class="text-white text-2xl font-bold">Ekstrakurikuler</h2>
-        <p class="text-white text-sm mt-2">
-            SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat dan minat siswa.
-        </p>
-    </div>
-
-    <div id="slider-mobile" class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
-        @foreach ([['panahan' => 'Panahan', 'pmr' => 'PMR'], ['paskib' => 'Paskibra', 'voli' => 'Voli'], ['basket' => 'Basket', 'futsal' => 'Futsal'], ['englishclub' => 'English Club', 'paduansuara' => 'Paduan Suara'], ['hadrah' => 'Hadrah', 'tari' => 'Tari Maheswara'], ['marchingband' => 'marchingband', 'pencakorganisasi' => 'pencakorganisasi'], ['merpatiputih' => 'Merpati Putih', 'renang' => 'Renang']] as $pair)
-            <div class="shrink-0 w-full snap-start">
-                <div class="grid grid-cols-2 gap-3">
-                    @foreach ($pair as $img => $label)
-                        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
-                            <img src="{{ eskulImage($img) }}" alt="{{ $label }}"
-                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div
-                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                <span class="text-white text-base font-semibold">{{ $label }}</span>
-                            </div>
-                        </figure>
-                    @endforeach
-                </div>
+        @endphp
+        <br>
+        <br>
+        <br>
+        <!-- === MOBILE === -->
+        <section class="block lg:hidden px-6 py-14 bg-[#4B6BFF] bg-cover bg-center ">
+            <div class="text-center mb-6">
+                <h2 class="text-white text-2xl font-bold">Ekstrakurikuler</h2>
+                <p class="text-white text-sm mt-2">
+                    SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat dan minat siswa.
+                </p>
             </div>
-        @endforeach
-    </div>
 
-    <div id="dots-mobile" class="flex justify-center mt-5 gap-2"></div>
-</section>
-
-<!-- === DESKTOP === -->
-<br>
-<br>
-<br>
-<section
-    class="hidden lg:block bg-[url('/image/home/eskul.png')] bg-cover bg-center bg-no-repeat w-full min-h-[500px] px-10 py-20">
-    <div class="flex items-start gap-10">
-        <!-- Teks -->
-        <div class="w-1/3 mt-28">
-            <h2 class="text-white text-3xl font-bold mb-4">Ekstrakurikuler</h2>
-            <p class="text-white leading-relaxed">
-                SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
-                minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
-            </p>
-        </div>
-
-        <!-- Slider -->
-        <div class="w-2/3 relative overflow-hidden">
-            <div id="slider-desktop" class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
-        @foreach ([['panahan' => 'Panahan', 'pmr' => 'PMR'], ['paskib' => 'Paskibra', 'voli' => 'Voli'], ['basket' => 'Basket', 'futsal' => 'Futsal'], ['englishclub' => 'English Club', 'paduansuara' => 'Paduan Suara'], ['hadrah' => 'Hadrah', 'tari' => 'Tari Maheswara'], ['marchingband' => 'marchingband', 'pencakorganisasi' => 'pencakorganisasi'], ['merpatiputih' => 'Merpati Putih', 'renang' => 'Renang']] as $pair)
-                    <div class="shrink-0 w-full max-w-[850px] snap-start">
-                        <div class="grid grid-cols-2 gap-4">
+            <div id="slider-mobile" class="flex gap-3 snap-x snap-mandatory overflow-hidden scroll-smooth">
+                @foreach ([['panahan' => 'Panahan', 'pmr' => 'PMR'], ['paskib' => 'Paskibra', 'voli' => 'Voli'], ['basket' => 'Basket', 'futsal' => 'Futsal'], ['englishclub' => 'English Club', 'paduansuara' => 'Paduan Suara'], ['hadrah' => 'Hadrah', 'tari' => 'Tari Maheswara'], ['marchingband' => 'marchingband', 'pencakorganisasi' => 'pencakorganisasi'], ['merpatiputih' => 'Merpati Putih', 'renang' => 'Renang']] as $pair)
+                    <div class="shrink-0 w-full snap-start">
+                        <div class="grid grid-cols-2 gap-3">
                             @foreach ($pair as $img => $label)
                                 <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
                                     <img src="{{ eskulImage($img) }}" alt="{{ $label }}"
                                         class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                                     <div
                                         class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                                        <span class="text-white text-xl font-semibold">{{ $label }}</span>
+                                        <span class="text-white text-base font-semibold">{{ $label }}</span>
                                     </div>
                                 </figure>
                             @endforeach
@@ -1108,49 +1091,89 @@
                 @endforeach
             </div>
 
-            <div id="dots-desktop" class="flex justify-center mt-5 gap-2"></div>
-        </div>
-    </div>
-</section>
+            <div id="dots-mobile" class="flex justify-center mt-5 gap-2"></div>
+        </section>
 
-<script>
-    function initSlider(sliderId, dotsId, interval = 4000) {
-        const slider = document.getElementById(sliderId);
-        const dotsContainer = document.getElementById(dotsId);
-        const slides = slider.children;
-        let index = 0;
+        <!-- === DESKTOP === -->
+        <br>
+        <br>
+        <br>
+        <section
+            class="hidden lg:block bg-[url('/image/home/eskul.png')] bg-cover bg-center bg-no-repeat w-full min-h-[500px] px-10 py-20">
+            <div class="flex items-start gap-10">
+                <!-- Teks -->
+                <div class="w-1/3 mt-28">
+                    <h2 class="text-white text-3xl font-bold mb-4">Ekstrakurikuler</h2>
+                    <p class="text-white leading-relaxed">
+                        SMKN 6 Jember menyediakan berbagai ekstrakurikuler yang mendukung bakat,
+                        minat, prestasi, serta membentuk karakter disiplin, mandiri, dan kreatif siswa.
+                    </p>
+                </div>
 
-        for (let i = 0; i < slides.length; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
-            dotsContainer.appendChild(dot);
-        }
+                <!-- Slider -->
+                <div class="w-2/3 relative overflow-hidden">
+                    <div id="slider-desktop" class="flex gap-4 snap-x snap-mandatory overflow-hidden scroll-smooth">
+                        @foreach ([['panahan' => 'Panahan', 'pmr' => 'PMR'], ['paskib' => 'Paskibra', 'voli' => 'Voli'], ['basket' => 'Basket', 'futsal' => 'Futsal'], ['englishclub' => 'English Club', 'paduansuara' => 'Paduan Suara'], ['hadrah' => 'Hadrah', 'tari' => 'Tari Maheswara'], ['marchingband' => 'marchingband', 'pencakorganisasi' => 'pencakorganisasi'], ['merpatiputih' => 'Merpati Putih', 'renang' => 'Renang']] as $pair)
+                            <div class="shrink-0 w-full max-w-[850px] snap-start">
+                                <div class="grid grid-cols-2 gap-4">
+                                    @foreach ($pair as $img => $label)
+                                        <figure class="relative rounded-xl overflow-hidden shadow group aspect-[4/3]">
+                                            <img src="{{ eskulImage($img) }}" alt="{{ $label }}"
+                                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                                            <div
+                                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                                                <span class="text-white text-xl font-semibold">{{ $label }}</span>
+                                            </div>
+                                        </figure>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-        const dots = dotsContainer.children;
+                    <div id="dots-desktop" class="flex justify-center mt-5 gap-2"></div>
+                </div>
+            </div>
+        </section>
 
-        function updateDots() {
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = i === index
-                    ? 'h-3 w-6 rounded-full bg-white transition-all duration-300'
-                    : 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+        <script>
+            function initSlider(sliderId, dotsId, interval = 4000) {
+                const slider = document.getElementById(sliderId);
+                const dotsContainer = document.getElementById(dotsId);
+                const slides = slider.children;
+                let index = 0;
+
+                for (let i = 0; i < slides.length; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+                    dotsContainer.appendChild(dot);
+                }
+
+                const dots = dotsContainer.children;
+
+                function updateDots() {
+                    for (let i = 0; i < dots.length; i++) {
+                        dots[i].className = i === index ?
+                            'h-3 w-6 rounded-full bg-white transition-all duration-300' :
+                            'h-3 w-3 rounded-full bg-white/50 transition-all duration-300';
+                    }
+                }
+
+                updateDots();
+
+                setInterval(() => {
+                    index = (index + 1) % slides.length;
+                    slider.scrollTo({
+                        left: slides[index].offsetLeft,
+                        behavior: 'smooth'
+                    });
+                    updateDots();
+                }, interval);
             }
-        }
 
-        updateDots();
-
-        setInterval(() => {
-            index = (index + 1) % slides.length;
-            slider.scrollTo({
-                left: slides[index].offsetLeft,
-                behavior: 'smooth'
-            });
-            updateDots();
-        }, interval);
-    }
-
-    initSlider('slider-desktop', 'dots-desktop', 4000);
-    initSlider('slider-mobile', 'dots-mobile', 3500);
-</script>
+            initSlider('slider-desktop', 'dots-desktop', 4000);
+            initSlider('slider-mobile', 'dots-mobile', 3500);
+        </script>
 
         <section class="bg-gray-50 py-16">
             <div class="max-w-5xl mx-auto text-center px-4">
